@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mpproductfinder>
+            <general>
+                <enabled>0</enabled>
+                <find_enabled>always</find_enabled>
+                <reset_enabled>no</reset_enabled>
+                <reset_page>home_page</reset_page>
+                <auto_redirect>0</auto_redirect>
+                <reset_unselected>0</reset_unselected>
+                <redirect_product>0</redirect_product>
+                <chosen_enabled>0</chosen_enabled>
+                <show_promoted>0</show_promoted>
+                <show_comparision>0</show_comparision>
+            </general>
+        </mpproductfinder>
+    </default>
+</config>

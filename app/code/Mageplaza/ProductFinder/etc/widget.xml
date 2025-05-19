@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="mpproductfinder_widget" class="Mageplaza\ProductFinder\Block\Widget">
+        <label>Mageplaza Product Finder</label>
+        <description>Product Finder Widget</description>
+        <parameters>
+            <parameter name="rule_id" xsi:type="select" required="true" visible="true" source_model="Mageplaza\ProductFinder\Model\Config\Source\Widget">
+                <label>Select Product Finder</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

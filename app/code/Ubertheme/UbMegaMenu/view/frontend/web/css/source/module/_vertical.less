@@ -1,0 +1,464 @@
+//----
+// @category  : Ubertheme
+// @package   : Ubertheme_UbMegaMenu
+// @author    : Ubertheme.com
+// @copyright : Copyright 2009-2020 Ubertheme
+//---------------------------
+& when (@media-common =true) {
+    .ub-mega-menu-vertical {
+        margin-bottom: @indent__l;
+        display: inline-block;
+
+        .child-content {
+            left: 170px;
+            top: 0px;
+
+            .child-content-inner {
+                // display: block;
+
+                .free-shipping {
+                    margin: @indent__m 0;
+                }
+
+                .sales-off {
+                    margin: @indent__l 0 0;
+                }
+            }
+            
+
+            .product-items {
+                .product-item-info {
+                    padding: 0 !important;
+
+                    .product-item-photo {
+                        max-width: 200px;
+                        padding: 0;
+                        position: static;
+                    }
+                }
+
+                .product-item-details {
+                    margin-left: 0;
+                }
+            }
+
+            .block.widget {
+                margin-top: 25px;
+                .products-grid {
+                    li.product-item {
+                        width: 100% !important;
+                        .product-item-info {
+                            width: 200px;
+        
+                            &:hover,
+                            &.active {
+                                border: 0 !important;
+                                margin: 0 !important;
+                                padding: 0 !important;
+                                box-shadow: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //Level 0
+        ul.level0 {
+            >li.mega {
+                border-bottom: 1px dotted @border-color__base;
+                width: 100%;
+
+                >.mega {
+                    padding: 0 0 0 10px;
+                    span.menu-icon {
+                        left: 7%;
+                        top: -15px;
+                    }
+                }
+
+                // Style for if Level 0 is Groups.
+                &.flattened-menu {
+                    .lib-vendor-prefix-display(flex);
+				    .lib-vendor-prefix-flex-direction(column);
+                    .block.widget {
+                        margin-top: @indent__s;
+                    }
+                    .product-items {
+                        .product-item-details {
+                            margin-left: 0;
+                        }
+                        .product-item-info {
+                            .product-item-photo {
+                                position: static !important;
+                            }
+                        }
+                    }
+                    .group {
+                        &-title {
+                            .lib-css(color, @primary__color);
+                            display: block;
+                            font-weight: 600;
+                            line-height: 34px;
+                            padding: 0;
+                            text-transform: uppercase;
+
+                            .mega {
+                                .lib-css(color,  @primary__color);
+                                display: block;
+                                padding: 0 0 0 10px;
+                                text-decoration: none;
+
+                                &.ui-state-active,
+                                &.active,
+                                &:active,
+                                &:focus,
+                                &:hover {
+                                    .lib-css(background, @secondary__color);
+                                    .lib-css(color, @active__color);
+                                }
+                            }
+                        }
+                    }
+
+                    ul.level1 {
+                        >li.mega {
+                            .mega {
+                                padding: 0 0 0 10px;
+                            }
+                            &.has-child {
+                                &:focus,
+                                &:hover {
+                                    >.child-content {
+                                        right: -230px;
+                                        top: 0px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .page-layout-2columns-right {
+        .ub-mega-menu-vertical {
+            .child-content {
+                left: auto;
+                right: 170px;
+
+                .mega-col {
+                    float: right;
+                }
+            }
+
+            ul.level0 {
+                >li.mega {
+                    >.mega {
+                        text-align: right;
+                        span.menu-icon {
+                            left: auto;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+
+            ul.level1 {
+                li.mega {
+                    .mega {
+                        text-align: right;
+                    }
+
+                    &.has-child {
+
+                        &:focus,
+                        &:hover {
+                            >.child-content {
+                                left: -230px;
+                                right: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile and  Tablet Mini
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+    .ub-mega-menu-vertical {
+        width: 100%;
+        ul.level0 {
+            >li.mega.has-child {
+                padding: 0;
+                span.menu-parent-icon {
+                    z-index: 1;
+                }
+            }
+
+            >li.mega {
+                >.mega {
+                    padding: 0;
+                }
+            }
+
+        }
+    }
+
+}
+
+//
+//  Tablet Vertical min-width: 768px;
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .ub-mega-menu-vertical {
+        .child-content {
+            left: 120px;
+        }
+
+        ul.level0 {
+            > li.mega {
+                position: relative;
+                a.mega {
+                    &.ui-state-active,
+                    &.active,
+                    &:active,
+                    &:focus,
+                    &:hover {
+                        color: @active__color;
+                    }
+                }
+                &.has-child {
+                    > .mega {
+                       > span.menu-title {
+                            width: 100%;
+                            &:after {
+                                content: '\e608';
+                                position: absolute;
+                                right: 10px;
+                            }
+                        }
+                        &.ui-state-active,
+                        &.active,
+                        &:active,
+                        &:focus,
+                        &:hover {
+                            > span.menu-title {
+                                &:after {
+                                    content: '\e608';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        ul.level1 {
+            li.mega {
+                &.has-child {
+                    a.mega {
+                        &.ui-state-active,
+                        &.active,
+                        &:active,
+                        &:focus,
+                        &:hover {
+                            color: @active__color;
+                        }
+                    }
+                    &.active,
+                    &:hover,
+                    &:focus {
+                        >.child-content {
+                            right: -160px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .page-layout-2columns-right {
+        .ub-mega-menu-vertical {
+            .child-content {
+                left: auto;
+                right: 120px;
+            }
+
+            ul.level0 {
+                >li.mega {
+                    position: relative;
+                    &.has-child {
+                        >.mega {
+                            >span.menu-title {
+                                &:after {
+                                    right: auto;
+                                    left: 0;
+                                    content: '\e617';
+                                }
+                            }
+                            &.ui-state-active,
+                            &.active,
+                            &:active,
+                            &:focus,
+                            &:hover {
+                                > span.menu-title {
+                                    &:after {
+                                        content: '\e608';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            ul.level1 {
+                > li.mega {
+                    &.has-child {
+                        &:hover,
+                        &:focus {
+                            >.child-content {
+                                right: auto;
+                                left: -200px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Tablet Horizontal - min-width: 1024px;
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {
+    .ub-mega-menu-vertical {
+        .child-content {
+            left: 170px;
+        }
+
+        ul.level0 {
+            >li.mega {
+                position: relative;
+
+                >.child-content {
+                    left: 170px;
+                }
+            }
+        }
+
+        ul.level1 {
+            >li.mega {
+                &.has-child {
+
+                    &:hover,
+                    &:focus {
+                        >.child-content {
+                            right: -200px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .page-layout-2columns-right {
+        .ub-mega-menu-vertical {
+            .child-content {
+                left: auto;
+                right: 170px;
+            }
+
+            ul.level0 {
+                >li.mega {
+                    position: relative;
+                    >.child-content {
+                        left: auto;
+                        right: 220px;
+                    }
+                }
+            }
+
+            ul.level1 {
+                >li.mega {
+                    &.has-child {
+
+                        &:hover,
+                        &:focus {
+                            >.child-content {
+                                right: auto;
+                                left: -200px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop min-width: 1440px
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__xl) {
+    .ub-mega-menu-vertical {
+        .child-content {
+            left: 170px;
+        }
+        ul.level0 {
+            > li.mega {
+                > .child-content {
+                    left: 220px;
+                }
+            }
+        }
+        ul.level1 {
+            li.mega {
+                &.has-child {
+
+                    &:hover,
+                    &:focus {
+                        >.child-content {
+                            right: -230px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .page-layout-2columns-right {
+        .ub-mega-menu-vertical {
+            .child-content {
+                left: auto;
+                right: 170px;
+            }
+
+            ul.level1 {
+                >li.mega {
+                    &.has-child {
+
+                        &:hover,
+                        &:focus {
+                            >.child-content {
+                                right: auto;
+                                left: -230px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

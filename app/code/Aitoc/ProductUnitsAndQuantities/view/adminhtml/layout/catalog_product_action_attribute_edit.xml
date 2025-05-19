@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <css src="Aitoc_ProductUnitsAndQuantities::css/product-units-and-quantities.css"/>
+    </head>
+
+    <body>
+        <referenceBlock name="attributes_tabs">
+            <block class="Aitoc\ProductUnitsAndQuantities\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\ProductUnitsAndQuantities" name="tab_product_units_and_quantities" template="Aitoc_ProductUnitsAndQuantities::catalog/product/edit/action/product_units_and_quantities.phtml"/>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">product_units_and_quantities</argument>
+                <argument name="block" xsi:type="string">tab_product_units_and_quantities</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

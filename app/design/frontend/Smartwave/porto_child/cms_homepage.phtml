@@ -1,0 +1,259 @@
+<div class="slider-area full-wide" style="padding: 32px 24px; background-color: #ebebeb;">
+    <div id="banner-slider" class="owl-carousel owl-middle-narrow owl-banner-carousel">
+        <div class="item">
+            <img src="{{media url="wysiwyg/smartwave/porto/homepage/banner_slider1.jpg"}}" style="width: 100%" />
+        </div>
+        <div class="item">
+            <img src="{{media url="wysiwyg/smartwave/porto/homepage/banner_slider2.jpg"}}" style="width: 100%" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'owl.carousel/owl.carousel.min'
+            ], function ($) {
+            $("#banner-slider").owlCarousel({
+                items: 1,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                dots: true,
+                nav: true,
+                navText: ["<em class='porto-icon-left-open-big2'></em>","<em class='porto-icon-right-open-big2'></em>"],
+                navRewind: true,
+                animateIn: 'fadeIn',
+                animateOut: 'fadeOut',
+                loop: true
+            });
+            $(document).ready(function(){
+                $('#banner-slider .owl-dots').appendTo('#banner-slider');
+            });
+        });
+    </script>
+</div>
+{{widget type="Magebees\SubcategoryListing\Block\Widget\Subcatlist" parentcatid="2" cattitle="Compra por Categoría"}}
+{{widget type="Magebees\SubcategoryListing\Block\Widget\Subcatlist" parentcatid="4" cattitle="Búsqueda por Bombillos o Fuentes de Luz"}}
+
+<div class="brands-slider-wrapper full-wide">
+    {{block class="Mageplaza\Shopbybrand\Block\Brand\Featured"}}
+    <div class="toolbar">
+        <a class="button action" href="{{config path="web/secure/base_url"}}marcas">VER TODAS LAS MARCAS</a>
+    </div>
+</div>
+<div class="full-wide" style="background-color: #F1F3F6;">
+    <div style="padding-top: 20px; padding-bottom: 30px;">
+        <h3 class="title">Compra de Acuerdo a Sector de Negocios</h3>
+        <div id="category-slider">
+            <div class="owl-carousel">
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-salud"></i>
+                        </span>
+                        <h3>Salud</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-condominio"></i>
+                        </span>
+                        <h3>Condominio</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-educacion"></i>
+                        </span>
+                        <h3>Educación</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-industria"></i>
+                        </span>
+                        <h3>Industria</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-gastronomia"></i>
+                        </span>
+                        <h3>Gastronomía</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-comercio"></i>
+                        </span>
+                        <h3>Comercio</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-hoteleria"></i>
+                        </span>
+                        <h3>Hotelería</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-comercio"></i>
+                        </span>
+                        <h3>Comercio</h3>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="shop-by-cat-item cat-has-icon">
+                        <span class="cat-detail">
+                            <i class="porto-svg-icon-hoteleria"></i>
+                        </span>
+                        <h3>Hotelería</h3>
+                    </a>
+                </div>
+            </div>
+            <script type="text/javascript">
+            require([
+                'jquery',
+                'owl.carousel/owl.carousel.min'
+            ], function ($) {
+                $("#category-slider .owl-carousel").owlCarousel({
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause: true,
+                    margin: 0,
+                    nav: true,
+                    navText: ["<em class='porto-icon-left-open-big'></em>","<em class='porto-icon-right-open-big'></em>"],
+                    dots: false,
+                    loop: true,
+                    responsive: {
+                        0: {
+                            items:2
+                        },
+                        640: {
+                            items:3
+                        },
+                        992: {
+                            items:5
+                        },
+                        1600: {
+                            items:7
+                        }
+                    }
+                });
+            });
+            </script>
+        </div>
+    </div>
+</div>
+<div class="banners-container" style="margin-top: 30px;">
+    <h3 class="title">Fuentes de Energía</h3>
+    <div class="row">
+        <div class="col-sm-6 col-lg-3">
+            <div class="porto-ultimate-content-box" style="background: #ffffff url({{media url="wysiwyg/smartwave/porto/homepage/home_cate_banner1.jpg"}}) center no-repeat; background-size: cover">
+                <h3 class="banner-title">Generadores</h3>
+                <div class="banner-content">
+                    <div>
+                        <div class="name">Gasolina - Diesel</div>
+                        <div class="price">Desde US$ 600</div>
+                    </div>
+                    <a class="button action" href="#">Comprar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="porto-ultimate-content-box" style="background: #ffffff url({{media url="wysiwyg/smartwave/porto/homepage/home_cate_banner2.jpg"}}) center no-repeat; background-size: cover">
+                <h3 class="banner-title">Baterías</h3>
+                <div class="banner-content">
+                    <div>
+                        <div class="name">Litio - Gel - Automotriz</div>
+                        <div class="price">Desde US$ 60</div>
+                    </div>
+                    <a class="button action2" href="#">Comprar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="porto-ultimate-content-box" style="background: #ffffff url({{media url="wysiwyg/smartwave/porto/homepage/home_cate_banner3.jpg"}}) center no-repeat; background-size: cover">
+                <h3 class="banner-title">Energías Limpias</h3>
+                <div class="banner-content">
+                    <div>
+                        <div class="name">Solar - Eólica</div>
+                        <div class="price">Desde US$ 99</div>
+                    </div>
+                    <a class="button action" href="#">Comprar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="porto-ultimate-content-box" style="background: #ffffff url({{media url="wysiwyg/smartwave/porto/homepage/home_cate_banner4.jpg"}}) center no-repeat; background-size: cover">
+                <h3 class="banner-title">Inversores</h3>
+                <div class="banner-content">
+                    <div>
+                        <div class="name">Solar - Eólica</div>
+                        <div class="price">Desde US$ 99</div>
+                    </div>
+                    <a class="button action2" href="#">Comprar</a>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div style="margin: 40px 0;">
+    <a class="hover-darker" href="javascript:void(0)"><img src="{{media url="wysiwyg/smartwave/porto/homepage/home_banner1.jpg"}}" alt="" /></a>
+</div>
+<div class="daily-deal-wrapper">
+    <div class="products-wrapper owl-top-narrow">
+        <div class="title-wrapper">
+            <h3>Ofertas del día</h3>
+            <!-- <a class="right-link" href="#">VER TODO</a> -->
+        </div>
+        <div id="latest_product">
+            {{block class="Smartwave\Filterproducts\Block\Home\LatestList" name="latest_product" product_count="20" aspect_ratio="0" image_width="300" image_height="300" product_type="3" template="owl_list.phtml"}}
+        </div>
+        <script type="text/javascript">
+            require([
+                'jquery',
+                'owl.carousel/owl.carousel.min'
+            ], function ($) {
+                $("#latest_product .owl-carousel").owlCarousel({
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause: true,
+                    loop: false,
+                    navRewind: true,
+                    margin: 0,
+                    nav: true,
+                    navText: ["<em class='porto-icon-left-open-big'></em>","<em class='porto-icon-right-open-big'></em>"],
+                    dots: false,
+                    responsive: {
+                        0: {
+                            items:2
+                        },
+                        768: {
+                            items:3
+                        },
+                        992: {
+                            items:4
+                        },
+                        1200: {
+                            items:5
+                        },
+                        1440: {
+                            items:5
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+    <div class="banner">
+        <a href="{{config path="web/secure/base_url"}}marcas"><img src="{{media url="wysiwyg/smartwave/porto/homepage/placeholder_411.png"}}" alt="" /></a>
+    </div>
+</div>

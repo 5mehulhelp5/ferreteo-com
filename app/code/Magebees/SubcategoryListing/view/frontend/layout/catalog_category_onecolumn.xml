@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	 <head>
+        <css src="Magebees_SubcategoryListing::css/subcategorylisting.css"/>
+    </head>
+    <body>
+    	<referenceBlock name="product_list_toolbar" remove="true"/>
+    	<referenceBlock name="category.products" remove="true"/>
+    	<referenceBlock name="sidebar.main" remove="true"/>
+  		<referenceBlock name="sidebar.additional" remove="true"/>
+		<referenceBlock name="catalog.leftnav" remove="true"/>
+
+        <referenceContainer name="content">
+            <block class="Magebees\SubcategoryListing\Block\Index\Index" name="subcategorylisting_index_index" template="Magebees_SubcategoryListing::subcategorylisting_index_index.phtml" before="-"/>
+        </referenceContainer>
+    </body>
+</page>

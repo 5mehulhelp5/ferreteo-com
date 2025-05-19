@@ -1,0 +1,162 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Renderer\FilterOptions $block */
+
+$sortBy          = $block->getSortBy();
+$displayType     = $block->getDisplayType();
+$ruleId          = $block->getRequest()->getParam('rule_id');
+$rule            = $block->getFilterByRuleId($ruleId);
+$ajaxUrl         = $block->getAjaxUrl();
+$deleteFilterUrl = $block->getDeleteFilterUrl();
+$addOptionUrl    = $block->getAddOptionsUrl();
+$mode            = $block->getMode();
+?>
+
+<div id="mppf-table-default-attributes">
+    <table class="admin__control-table">
+        <thead>
+        <tr id="attribute-options-table">
+            <th class="col-name"><?= /** @noEscape */ __('Name') ?><span style="color: red">*</span></th>
+            <?php if ($mode === 'auto' || ($mode === 'manual' && $ruleId && $rule)) : ?>
+                <th class="col-filter-options"><?= /** @noEscape */ __('Filter Options') ?></th>
+            <?php elseif ($mode === 'manual' && $ruleId) : ?>
+                <th class="col-filter-options"></th>
+            <?php endif; ?>
+            <th class="col-sort-by"><?= /** @noEscape */ __('Sort By') ?></th>
+            <th class="col-display"><?= /** @noEscape */ __('Display') ?></th>
+            <th class="col-delete"><?= /** @noEscape */ __('Action') ?></th>
+        </tr>
+        </thead>
+        <tbody id="filter-table-content">
+        <?php if (!$ruleId) : ?>
+            <tr class="attribute-options-row default-row-1">
+                <td>
+                    <input required type="text" name="filter[1][name]">
+                    <input type="hidden" name="filter[1][attribute]">
+                </td>
+                <?php if ($mode === 'auto') : ?>
+                    <td>
+                        <p class="mppf-setting-options" data-row-number="1"></p>
+                        <a class="setting-attribute-row" data-row-number="1">
+                            <span><?= /** @noEscape */ __('Setting') ?></span>
+                        </a>
+                    </td>
+                <?php endif; ?>
+                <td>
+                    <select name="filter[1][sort_by]" required>
+                        <?php foreach ($sortBy as $value) : ?>
+                            <option value="<?= /** @noEscape */ $value['value'] ?>"><?= /** @noEscape */ $value['label']->getText() ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
+                <td>
+                    <select name="filter[1][display]" required <?= $mode === 'auto' ? 'disabled' : '' ?>>
+                        <?php foreach ($displayType as $value) : ?>
+                            <option value="<?= /** @noEscape */ $value['value'] ?>"><?= /** @noEscape */ $value['label']->getText() ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+        <?php endif; ?>
+
+        <?php if ($rule && $ruleId) : ?>
+            <?php foreach ($rule as $key => $value) : ?>
+                <tr class="attribute-options-row default-row-<?= /** @noEscape */ $key + 1 ?>">
+                    <td>
+                        <input type="hidden" name="filter[<?= $key + 1 ?>][filter_id]"
+                               value="<?= $block->escapeHtml($value['filter_id']) ?>">
+                        <input type="text" name="filter[<?= $key + 1 ?>][name]"
+                               value="<?= $block->escapeHtml($value['name']) ?>" required>
+                        <input type="hidden" name="filter[<?= $key + 1 ?>][attribute]"
+                               value="<?= $block->escapeHtml($value['attribute']) ?>">
+                    </td>
+                    <td>
+                        <p class="mppf-setting-options" data-row-number="<?= /** @noEscape */ $key + 1 ?>">
+                            <?= /** @noEscape */ $value['attribute']
+                                ? /** @noEscape */ $block->getAttributeName($value['attribute']) : '' ?>
+                        </p>
+                        <a data-attr-id="<?= /** @noEscape */ $value['attribute'] ?: 'manual' ?>"
+                           data-filter-id="<?= /** @noEscape */ $value['filter_id'] ?>" class="setting-attribute-row"
+                           data-row-number='<?= /** @noEscape */
+                            $key + 1 ?>'><span><?= /** @noEscape */
+                                __('Setting') ?></span></a>
+                    </td>
+                    <td>
+                        <select name="filter[<?= $key + 1 ?>][sort_by]">
+                            <?php foreach ($sortBy as $item) : ?>
+                                <option value="<?= /** @noEscape */
+                                $item['value'] ?>" <?= /** @noEscape */
+                                ($value['sort_by'] !== $item['value']) ?: 'selected' ?>>
+                                    <?= /** @noEscape */ $item['label']->getText() ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="filter[<?= $key + 1 ?>][display]" <?= $mode === 'auto' ? 'disabled' : '' ?>>
+                            <?php foreach ($displayType as $item) : ?>
+                                <option value="<?= /** @noEscape */
+                                $item['value'] ?>" <?= /** @noEscape */
+                                ($value['display'] !== $item['value']) ?: 'selected' ?>>
+                                    <?= /** @noEscape */ $item['label']->getText() ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    <td>
+                        <?php if ($key > 0) : ?>
+                            <a class="delete-attribute-row" data-filter-id="<?= /** @noEscape */ $value['filter_id'] ?>"
+                               data-row-number="<?= /** @noEscape */ $key + 1 ?>">
+                                <i class="action-delete"></i>
+                            </a>
+                        <?php endif ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="5" class="col-actions-add">
+                <button id="add_new_filter_button"
+                        title="<?= /** @noEscape */ __('Add New') ?>"
+                        type="button" class="action- scalable add primary">
+                    <span><?= /** @noEscape */ __('Add New') ?></span>
+                </button>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div id="mppf-select-attribute" style="display: none;"></div>
+
+<script type="text/x-magento-init">
+        {
+            "#mppf-table-default-attributes": {
+                "Mageplaza_ProductFinder/js/filters": {
+                    "data": <?= /** @noEscape */ $block->getJsonData() ?>
+                }
+            }
+        }
+</script>

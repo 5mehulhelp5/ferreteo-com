@@ -1,0 +1,153 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Search
+ * @copyright   Copyright (c) 2017 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+
+/** @var $helper \Mageplaza\Search\Helper\Data */
+$helper = $this->helper('Mageplaza\Search\Helper\Data');
+if ($helper->isEnabled()):
+    /** @var \Magento\Search\Helper\Data $searchHelper */
+    $searchHelper = $this->helper(\Magento\Search\Helper\Data::class);
+    ?>
+    <?php if ($helper->getConfigGeneral('category/enable')): ?>
+    <div class="search-category">
+        <a id="mpsearch-category-trigger" href="javascript:void(0)"><?php echo __('All Categories')?></a>
+        <input type="hidden" id="mpsearch-category"/>
+    </div>
+    <div class="mpsearch-category-list">
+        <label><?php echo __('Search in')?>:</label>
+        <ul class="category-list">
+        <?php foreach ($helper->getCategoryTree() as $id => $name): ?>
+            <li class="level1 parent">
+                <a href="javascript:void(0)" class="mpsearch-category-link" data-id="<?php echo $id ?>"><?php echo $name ?></a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
+    <script src="<?php echo $helper->getJsFileUrl(); ?>"></script>
+    <script type="text/javascript">
+    require([
+        'jquery',
+        'Magento_Catalog/js/price-utils',
+        'mpDevbridgeAutocomplete'
+    ], function ($, priceUtils) {
+        "use strict";
+
+        var baseUrl = '<?php echo trim($block->getBaseUrl(), '/') . '/' ?>',
+            baseImageUrl = '<?php echo $helper->getMediaHelper()->getSearchMediaUrl() ?>',
+            priceFormat = <?php echo $helper->getPriceFormat() ?>,
+            displayInfo = <?php echo $helper->getDisplay() ?>;
+
+        var categorySelect = $('#mpsearch-category'),
+            searchInput = $('#search');
+        //if (categorySelect.length) {
+            categorySelect.on('change', function () {
+                searchInput.focus();
+
+                if ($(this).val() === 0) {
+                    $(this).removeAttr('name');
+                } else {
+                    $(this).attr('name', 'cat');
+                }
+            });
+        //}
+
+        searchInput.devbridgeAutocomplete({
+            lookup: mageplazaSearchProducts,
+            lookupLimit: <?php  echo (int)$helper->getConfigGeneral('max_query_results') ?: 10; ?>,
+            maxHeight: 2000,
+            minChars: <?php echo $searchHelper->getMinQueryLength(); ?>,
+            lookupFilter: function (suggestion, query, queryLowerCase) {
+                if (categorySelect.length) {
+                    var categoryId = categorySelect.val();
+                    if (categoryId > 0 && ($.inArray(categoryId, suggestion.c) === -1)) {
+                        return false;
+                    }
+                }
+
+                return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1;
+            },
+            onSelect: function (suggestion) {
+                window.location.href = correctProductUrl(suggestion.u);
+            },
+            formatResult: function (suggestion, currentValue) {
+                var html = '<a href="' + correctProductUrl(suggestion.u) + '">';
+
+                if ($.inArray('image', displayInfo) !== -1) {
+                    html += '<div class="suggestion-left"><img class="img-responsive" src="' + correctProductUrl(suggestion.i, true) + '" alt="" /></div>';
+                }
+
+                html += '<div class="suggestion-right">';
+                html += '<div class="product-line product-name">' + suggestion.value + '</div>';
+
+                if ($.inArray('price', displayInfo) !== -1) {
+                    html += '<div class="product-line product-price"><?php echo __('Price: ') ?>' + priceUtils.formatPrice(suggestion.p, priceFormat) + '</div>';
+                }
+
+                if ($.inArray('description', displayInfo) !== -1 && suggestion.d) {
+                    html += '<div class="product-des"><p class="short-des">' + suggestion.d + '...</p></div>';
+                }
+
+                html += '</div></a>';
+
+                return html;
+            }
+    //		onSearchComplete: function (query, suggestion) {
+    //			$('.autocomplete-suggestions').append("<div id='view_all'><a href='javascript:void(0)' id='search-view-all'>View all >></a></div>");
+    //			$('#search-view-all').on('click', function(){
+    //			   $('#search_mini_form').submit();
+    //            });
+    //		}
+        });
+
+        function correctProductUrl(urlKey, isImage) {
+            if (urlKey.search('http') !== -1) {
+                return urlKey;
+            }
+
+            return ((typeof isImage !== 'undefined') ? baseImageUrl : baseUrl) + urlKey;
+        }
+
+        function hideCategoryList() {
+            $('.mpsearch-category-list').hide();
+            $('#mpsearch-category-trigger').removeClass('active');
+        }
+
+        $('#mpsearch-category-trigger').click(function(evt){
+            $('.mpsearch-category-list').toggle();
+            $(this).toggleClass('active');
+            evt.stopPropagation();
+        });
+        $('body').click(function(){
+            hideCategoryList();
+        });
+        $('.category-list a.mpsearch-category-link').click(function(){
+            $('#mpsearch-category').val( $(this).attr('data-id') );
+            $('#mpsearch-category-trigger').text( $(this).text() );
+            categorySelect.change();
+            hideCategoryList();
+        });
+    });
+    </script>
+<?php endif; ?>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mpproductfinder" translate="label" type="text" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Product Finder</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_ProductFinder::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <strong>Yes</strong> to enable the module]]></comment>
+                </field>
+                <field id="find_enabled" translate="label" type="select" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable "Find" Button When</label>
+                    <source_model>Mageplaza\ProductFinder\Model\Config\Source\System\FindEnabled</source_model>
+                </field>
+                <field id="reset_enabled" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable "Reset" Button When</label>
+                    <source_model>Mageplaza\ProductFinder\Model\Config\Source\System\ResetEnabled</source_model>
+                </field>
+                <field id="reset_page" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Reset Finder Page To</label>
+                    <source_model>Mageplaza\ProductFinder\Model\Config\Source\System\ResetPage</source_model>
+                    <comment>The redirecting page after resetting.</comment>
+                </field>
+                <field id="auto_redirect" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Auto-redirect To Result Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If Yes, you will be automatically redirected to the result page when all the filter are selected.</comment>
+                </field>
+                <field id="reset_unselected" translate="label comment" type="select" sortOrder="61" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Reset Unselected Finder(s)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If Yes, when a finder is selected, other finders on the same page will be auto-reset.</comment>
+                </field>
+                <field id="redirect_product" translate="label comment" type="select" sortOrder="61" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Redirect To Product Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If Yes, this redirection will occur when the result has only one product.</comment>
+                </field>
+                <field id="chosen_enabled" translate="label comment" type="select" sortOrder="61" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable "Chosen" Plugin</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If Yes, the <a href="https://harvesthq.github.io/chosen/">Chosen Plugin</a> will be used for the frontend to make the filter more beautiful and user-friendly]]></comment>
+                </field>
+                <field id="show_promoted" translate="label comment" type="select" sortOrder="61" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Promoted Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If Yes, the promoted products will always be displayed at the end of the corresponding finder result page</comment>
+                </field>
+                <field id="show_comparision" translate="label comment" type="select" sortOrder="61" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Comparision Tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>The Comparision tab will be shown on the Product Page when accessing from the Finder Results Page.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

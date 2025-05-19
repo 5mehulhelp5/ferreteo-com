@@ -1,0 +1,101 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+$customer_helper = $this->helper('Smartwave\Porto\Helper\Customer');
+
+?>
+<div class="mt-fix-custom">
+	<div class="desktop-trigger">
+		<span class="menuIcon"><span class="line"></span><span class="line"></span><span class="line"></span></span>
+		<span class="menutitle"><?= __('Productos'); ?><i class="porto-icon-angle-down"></i></span>
+	</div>
+	<div class="mobile-trigger" id="trigger-2">
+		<span class="menuIcon"><span class="line"></span><span class="line"></span><span class="line"></span></span>
+	</div>
+	<div class="hkk-smaskMenu">
+		<div id="main-fixContent" class="hkk-custom ub-mega-menu-vertical">
+			<!---
+			Menu here
+			--->
+			<?php if ($customer_helper->isLoggedIn()) { ?>
+				<div class="head-menu logged-in">
+					<span class="icon-user"><?php echo $customer_helper->getNameInitial()?></span> <span class="welcome"><?php echo $customer_helper->getName()?></span>
+					<span class="close"></span>
+				</div>
+			<?php } else {?>
+				<div class="head-menu new-user">
+					<i class="icon-user"></i><span class="welcome"><?php echo __('Hola, Ingresar.')?></span>
+					<span class="close"></span>
+				</div>
+			<?php }?>
+			<div class="mega-menu-content">
+				<div class="content-top">
+					<?php if ($customer_helper->isLoggedIn()) { ?>
+						<ul class="menu-items">
+							<li><a href="<?php echo $this->getUrl('customer/account')?>"><i class="porto-svg-icon-profile"></i><?php echo __('Profile')?></a></li>
+							<li><a href="<?php echo $this->getUrl('sales/order/history')?>"><i class="porto-svg-icon-track-order"></i><?php echo __('Track Order')?></a></li>
+							<li><a href="<?php echo $this->getUrl('sales/order/history')?>"><i class="porto-svg-icon-repeat-order"></i><?php echo __('Repeat Order')?></a></li>
+							<li><a href="<?php echo $this->getUrl('customer/account/mwishlist')?>"><i class="porto-svg-icon-list2"></i><?php echo __('Lists')?></a></li>
+							<li><a href="<?php echo $this->getUrl('faq')?>"><i class="porto-svg-icon-help"></i><?php echo __('Help')?></a></li>
+							<li><a href="<?php echo $this->getUrl('customer/account/logout')?>"><i class="porto-svg-icon-logout"></i><?php echo __('Sign Out')?></a></li>
+						</ul>
+					<?php } else { ?>
+						<ul class="menu-items">
+							<li><a href="<?php echo $this->getUrl('customer/account/login')?>"><i class="porto-svg-icon-login"></i><?php echo __('Sign in')?></a></li>
+							<li class="d-sm-none d-md-none d-lg-block"><a href="<?php echo $this->getUrl('customer/account/create')?>"><i class="porto-svg-icon-register"></i><?php echo __('Create an Account')?></a></li>
+							<li class="d-sm-none d-md-none d-lg-block"><a href="<?php echo $this->getUrl('account/order/history')?>"><i class="porto-svg-icon-track-order"></i><?php echo __('Track Order')?></a></li>
+							<li><a href="<?php echo $this->getUrl('faq')?>"><i class="porto-svg-icon-help"></i><?php echo __('Help')?></a></li>
+						</ul>
+					<?php } ?>
+					<?= $block->getChildHtml('store.currency.left.menu'); ?>
+				</div>
+				<div class="content-middle">
+					<div class="header-departments">
+						<h2><?php echo __('Departamentos')?></h2>
+						<a href="<?php echo $this->getUrl('todos_departamentos')?>" title="<?php echo __('Departamentos')?>"><?php echo __('Ver todo')?></a>
+					</div>
+					<?= $block->getChildHtml('main.ub.mega.menu'); ?>
+				</div>
+			</div>
+		</div>
+		<div id="smask-flyout"></div>
+	</div>
+	<div class="menu-overlay"></div>
+</div>
+<?php $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();?>
+<?php
+    $header_type = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/header/header_type');
+?>
+<?php if ($block->isHomePage()):?>
+    <strong class="logo">
+<?php else: ?>
+    <a class="logo" href="<?php echo $block->getUrl(''); ?>" title="<?php /* @escapeNotVerified */ echo $storeName ?>">
+<?php endif ?>
+        <img src="<?php /* @escapeNotVerified */ echo $block->getLogoSrc() ?>"
+             alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?>"
+             <?php echo $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?php echo $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+        />
+<?php if ($block->isHomePage()):?>
+    </strong>
+<?php else:?>
+    </a>
+<?php endif?>
+<script type="text/javascript">
+    require(['jquery'],function($){
+		$('.desktop-trigger, .mobile-trigger').click(function(){
+			$('body').toggleClass('has_fixnav');
+		});
+		$('nav_head .close,.menu-overlay, .closeMenu, .head-menu .close').click(function(){
+			$('body').removeClass('has_fixnav');
+		});
+    });
+</script>

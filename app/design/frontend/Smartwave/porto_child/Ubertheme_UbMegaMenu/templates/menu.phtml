@@ -1,0 +1,16 @@
+<?= ( isset($menuHtml) ) ? $menuHtml : ''; ?>
+<script type="text/x-magento-init">
+{
+	"#ub-mega-menu-<?= $config['menu_group_id']?>": {
+		"Ubertheme_UbMegaMenu/js/ub-menu": {
+		    "rootSelector": "#ub-mega-menu-<?= $config['menu_group_id']?>",
+            "itemSelector": "li.mega",
+            "mobileBreakPoint": "1023",
+            "mobileType" : "<?= $config['mobile_type'] ?>",
+            "drillOptions": {"speed": 300},
+            "extraClass": "<?= $config['addition_class'] ?>"
+		}
+	}
+}
+</script>
+

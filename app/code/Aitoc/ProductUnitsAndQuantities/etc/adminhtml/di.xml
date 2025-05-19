@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="custom-attribute-aitoc-units-and-quantities" xsi:type="array">
+                    <item name="class" xsi:type="string">Aitoc\ProductUnitsAndQuantities\Ui\DataProvider\Product\Form\Modifier\ProductUnitsModifier</item>
+                    <item name="sortOrder" xsi:type="number">250</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\CatalogInventory\Block\Adminhtml\Form\Field\Minsaleqty">
+        <plugin name="AitocFieldMinsaleqty" type="Aitoc\ProductUnitsAndQuantities\Plugin\CatalogInventory\Block\Adminhtml\Form\Field\MinsaleqtyPlugin" />
+    </type>
+
+    <type name="Magento\Config\Block\System\Config\Form\Field">
+        <plugin name="AitocConfigFormFieldPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Config\Block\System\Config\Form\FieldPlugin" />
+    </type>
+
+    <type name="Magento\Backend\Block\Widget\Form\Element\Dependence">
+        <plugin name="AitocElementDependencePlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Backend\Block\Widget\Form\Element\DependencePlugin" />
+    </type>
+
+    <type name="Magento\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer">
+        <plugin name="AitocDefaultRendererPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRendererPlugin" sortOrder="5"/>
+    </type>
+
+    <type name="Magento\Weee\Block\Adminhtml\Items\Price\Renderer">
+        <plugin name="AitocPriceRendererPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Weee\Block\Adminhtml\Items\Price\RendererPlugin" sortOrder="5"/>
+    </type>
+
+    <!-- Update attributes mass action -->
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Action\Attribute\Save">
+        <plugin name="MassActionSaveAttributePlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Catalog\Controller\Adminhtml\Product\Action\Attribute\SavePlugin"/>
+    </type>
+</config>

@@ -1,0 +1,59 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+?>
+<div class="mt-fix-custom">
+	<div class="desktop-trigger">
+		<span class="menuIcon"><span class="line"></span><span class="line"></span><span class="line"></span></span>
+		<span class="menutitle"><?= __('Productos'); ?><i class="porto-icon-angle-down"></i></span>
+	</div>
+	<div class="mobile-trigger" id="trigger-2">
+		<span class="menuIcon"><span class="line"></span><span class="line"></span><span class="line"></span></span>
+	</div>
+	<div class="hkk-smaskMenu">
+		<div id="main-fixContent" class="hkk-custom">
+			<!---
+			Menu here
+			--->
+		</div>
+		<div id="smask-flyout"></div>
+	</div>
+	<div class="menu-overlay"></div>
+</div>
+<?php $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();?>
+<?php
+    $header_type = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/header/header_type');
+?>
+<?php if ($block->isHomePage()):?>
+    <strong class="logo">
+<?php else: ?>
+    <a class="logo" href="<?php echo $block->getUrl(''); ?>" title="<?php /* @escapeNotVerified */ echo $storeName ?>">
+<?php endif ?>
+        <img src="<?php /* @escapeNotVerified */ echo $block->getLogoSrc() ?>"
+             alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?>"
+             <?php echo $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?php echo $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+        />
+<?php if ($block->isHomePage()):?>
+    </strong>
+<?php else:?>
+    </a>
+<?php endif?>
+<script type="text/javascript">
+    require(['jquery'],function($){
+		$('.desktop-trigger').click(function(){
+			$('body').toggleClass('has_fixnav');
+		});
+		$('nav_head .close,.menu-overlay, .closeMenu').click(function(){
+			$('body').removeClass('has_fixnav');
+		});
+    });
+</script>

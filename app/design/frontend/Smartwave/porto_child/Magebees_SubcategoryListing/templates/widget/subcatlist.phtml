@@ -1,0 +1,66 @@
+<?php
+$helper = $this->helper('Magebees\SubcategoryListing\Helper\Data');
+
+if ($helper->isEnabled()) {
+
+    if ($block->getParentcatid()) {
+        $pcid = $block->getParentcatid();
+        $categoryFactory = $helper->getObjectManager()->get('\Magento\Catalog\Model\CategoryFactory');
+        $category = $categoryFactory->create()->load($pcid);
+        $childrenCategories = $category->getChildrenCategories();
+        $SublistClass = $block->getSublistClass();
+        $Isparentcatimg = $helper->getIsparentcatimg();
+        ?>
+        <div id="sub-category-listing-<?php echo $SublistClass; ?>" class="widgetCatListing <?php echo $SublistClass; ?>">
+            <div class="content-heading">
+                <h2 class="title"><?php echo $block->getCattitle(); ?></h2>
+            </div>
+            <ul class="cat-listing clearfix">
+                <?php
+                foreach ($childrenCategories as $subcat) {
+                    if ($subcat->getIsActive()) {
+                        $_category = $helper->getObjectManager()->create('Magento\Catalog\Model\Category')->load($subcat->getId());
+                        $CatThumbnailImg = $helper->getCatImageBaseUrlWidget() . $_category->getCatThumbnailImg();
+                        if ($_category->getCatThumbnailImg() == "") {
+                            if ($Isparentcatimg) {
+                                $CatImg = $_category->getImage();
+                                if ($CatImg) {
+                                    $CatThumbnailImg = $helper->getMediaUrl() . 'catalog/category/' . $CatImg;
+                                } else {
+                                    if ($helper->getCatplaceHolderImg() != "") {
+                                        $CatThumbnailImg = $helper->getMediaUrl() . 'subcategorylisting/' . $helper->getCatplaceHolderImg();
+                                    } else {
+                                        $CatThumbnailImg = "";
+                                    }
+                                }
+                            } else {
+                                if ($helper->getCatplaceHolderImg() != "") {
+                                    $CatThumbnailImg = $helper->getMediaUrl() . 'subcategorylisting/' . $helper->getCatplaceHolderImg();
+                                } else {
+                                    $CatThumbnailImg = "";
+                                }
+                            }
+                        }
+                        ?>
+                        <li class="cat-item">
+                            <div class="item">
+                                <div class="catImg">
+                                    <a href="<?php echo $subcat->getUrl() ?>" title="<?php echo $subcat->getName() ?>">
+                                        <img src="<?php echo $CatThumbnailImg; ?>" width="<?php echo $block->getCatimagewidth(); ?>" height="<?php echo $block->getCatimageheight(); ?>">
+                                    </a>
+                                </div>
+                                <div class="catName">
+                                    <a href="<?php echo $subcat->getUrl() ?>" title="<?php echo $subcat->getName() ?>">
+                                        <?php echo $subcat->getName() ?>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <?php
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+    <?php } ?>
+<?php } ?>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="router" xsi:type="array">
+                    <item name="class" xsi:type="string">Mageplaza\ProductFinder\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">40</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Model\Layer">
+        <plugin name="mpproductfinder_product_collection" type="Mageplaza\ProductFinder\Plugin\Find" sortOrder="1"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="mpproductfinder_router_toolbar" type="Mageplaza\ProductFinder\Plugin\Router\Toolbar" sortOrder="0"/>
+    </type>
+    <type name="Magento\Theme\Block\Html\Pager">
+        <plugin name="mpproductfinder_router_pager" type="Mageplaza\ProductFinder\Plugin\Router\Pager" sortOrder="0"/>
+    </type>
+    <type name="Magento\Catalog\Model\Layer\Filter\Item">
+        <plugin name="mpproductfinder_router_item" type="Mageplaza\ProductFinder\Plugin\Router\Item" sortOrder="0"/>
+    </type>
+    <type name="Magento\LayeredNavigation\Block\Navigation\State">
+        <plugin name="mpproductfinder_router_state" type="Mageplaza\ProductFinder\Plugin\Router\State" sortOrder="0"/>
+    </type>
+    <type name="Magento\Swatches\Block\LayeredNavigation\RenderLayered">
+        <plugin name="mpproductfinder_router_swatches" type="Mageplaza\ProductFinder\Plugin\Router\RenderLayered" sortOrder="0"/>
+    </type>
+</config>

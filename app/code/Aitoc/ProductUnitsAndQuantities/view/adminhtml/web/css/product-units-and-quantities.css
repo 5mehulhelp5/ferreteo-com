@@ -1,0 +1,9 @@
+/*
+ * Copyright © 2019 Aitoc. All rights reserved.
+ */
+
+/* Admin Group Edit */
+.admin__scope-old .puq-edit .field.choice {
+    display: block;
+    margin: 3px 0 0;
+}

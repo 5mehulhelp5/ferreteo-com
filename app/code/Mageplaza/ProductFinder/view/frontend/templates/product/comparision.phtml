@@ -1,0 +1,39 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\ProductFinder\Block\Product\Comparision $block */
+
+$compareCollection = $block->getCompareCollection();
+?>
+<?php if (count($compareCollection) > 0) : ?>
+    <?php foreach ($compareCollection as $key => $item) : ?>
+        <div class="mppf-filter-label">
+            <span><?= /** @noEscape */ $key ?></span>
+            <?php foreach ($item as $value) : ?>
+                <div class="mppf-option-label"><?= /** @noEscape */ $value ?></div>
+            <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
+<?php else : ?>
+    <div class="message info empty">
+        <div><?= /** @noEscape */ __('We can\'t find compare matching the product.') ?></div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Magecomp_Cityandregionmanager::config" title="City and Region Manager Configuration" sortOrder="50" />
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magecomp_Cityandregionmanager::shippingmanagerconfigmenu" title="City and Region Manager" sortOrder="10">
+                    <resource id="Magecomp_Cityandregionmanager::settings" title="Region Manager" sortOrder="10" />
+                    <resource id="Magecomp_Cityandregionmanager::states" title="States" sortOrder="20" />
+                    <resource id="Magecomp_Cityandregionmanager::cities" title="Cities" sortOrder="30" />
+                    <resource id="Magecomp_Cityandregionmanager::zip" title="ZIP Codes" sortOrder="40" />
+                    <resource id="Magecomp_Cityandregionmanager::cityandregionmanager_configuration" title="Configuration" sortOrder="50" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

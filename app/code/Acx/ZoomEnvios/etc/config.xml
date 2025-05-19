@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <zoomenvios>
+                <active>1</active>
+                <display_delivery_time>1</display_delivery_time>
+                <model>Acx\ZoomEnvios\Model\Carrier</model>
+                <gateway_url>https://sandbox.zoom.red/baaszoom/public/canguroazul/CalcularTarifa</gateway_url>
+                <allowed_methods>1,2,3</allowed_methods>
+                <mode_type>DOR</mode_type>
+                <max_package_weight>150</max_package_weight>
+                <sallowspecific>0</sallowspecific>
+                <name>Zoom Envios</name>
+                <title>Zoom Envios</title>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.
+                  </specificerrmsg>
+                <handling_type>F</handling_type>
+            </zoomenvios>
+        </carriers>
+
+
+        <csp>
+            <mode>
+                <storefront>
+                    <report_uri>https://www.ferreteo.com/</report_uri>
+                </storefront>
+                <admin>
+                    <report_uri>https://www.ferreteo.com/</report_uri>
+                </admin>
+            </mode>
+            <policies>
+                <storefront>
+                    <frame-ancestors>
+                        <inline>0</inline>
+                    </frame-ancestors>
+                </storefront>
+            </policies>
+        </csp>
+    </default>
+</config>

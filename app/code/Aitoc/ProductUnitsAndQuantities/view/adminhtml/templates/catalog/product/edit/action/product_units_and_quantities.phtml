@@ -1,0 +1,495 @@
+<?php
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+?>
+<?php
+/**
+ * Copyright © 2019 Aitoc. All rights reserved.
+ */
+
+// @codingStandardsIgnoreFile
+
+use Aitoc\ProductUnitsAndQuantities\Api\Data\Source\ReplaceQtyInterface;
+use Aitoc\ProductUnitsAndQuantities\Api\Data\Source\Labels\ReplaceQtyLabelInterface;
+use Aitoc\ProductUnitsAndQuantities\Api\Data\Source\QtyTypeInterface;
+use Aitoc\ProductUnitsAndQuantities\Api\Data\Source\Labels\QtyTypeLabelInterface;
+
+/**
+ * @var Aitoc\ProductUnitsAndQuantities\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\ProductUnitsAndQuantities $block
+ */
+?>
+
+<?php
+
+$defaultConfig = $block->getDefaultConfig();
+
+?>
+<div class="fieldset-wrapper form-inline puq-edit">
+    <div class="fieldset-wrapper-title">
+        <strong class="title">
+            <span><?= /* @escapeNotVerified */ __('Product Units and Quantities') ?></span>
+        </strong>
+    </div>
+    <div class="fieldset-wrapper-content">
+        <fieldset class="fieldset" id="table_puq">
+            <!-- QTY -->
+            <div class="field">
+                <label class="label" for="puq_replace_qty">
+                    <span><?= /* @escapeNotVerified */ __('Replace QTY input with') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <select
+                                id="puq_replace_qty"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[replace_qty]"
+                                class="select" disabled="disabled">
+
+                                <option
+                                    value="<?= ReplaceQtyInterface::OFF ?>"
+                                    <?php if ($defaultConfig->getReplaceQty() == ReplaceQtyInterface::OFF): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __(ReplaceQtyLabelInterface::OFF) ?></option>
+
+                                <option
+                                    value="<?= ReplaceQtyInterface::DROPDOWN ?>"
+                                    <?php if ($defaultConfig->getReplaceQty() == ReplaceQtyInterface::DROPDOWN): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __(ReplaceQtyLabelInterface::DROPDOWN) ?></option>
+
+                                <option
+                                    value="<?= ReplaceQtyInterface::SLIDER ?>"
+                                    <?php if ($defaultConfig->getReplaceQty() == ReplaceQtyInterface::SLIDER): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __(ReplaceQtyLabelInterface::SLIDER) ?></option>
+
+                                <option
+                                    value="<?= ReplaceQtyInterface::PLUS_MINUS ?>"
+                                    <?php if ($defaultConfig->getReplaceQty() == ReplaceQtyInterface::PLUS_MINUS): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __(ReplaceQtyLabelInterface::PLUS_MINUS) ?></option>
+
+                                <option
+                                    value="<?= ReplaceQtyInterface::ARROWS ?>"
+                                    <?php if ($defaultConfig->getReplaceQty() == ReplaceQtyInterface::ARROWS): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __(ReplaceQtyLabelInterface::ARROWS) ?></option>
+
+                            </select>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_replace_qty]"
+                                type="checkbox"
+                                id="puq_use_config_replace_qty"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_replace_qty"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_replace_qty_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_replace_qty_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="puq_is_qty_decimal">
+                    <span><?= /* @escapeNotVerified */ __('Qty Uses Decimals') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+                        <div class="field">
+                            <select id="puq_is_qty_decimal" name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[is_qty_decimal]"
+                                    class="select" disabled="disabled">
+                                <option
+                                    value="1"
+                                    <?php if ($defaultConfig->getIsQtyDecimal()): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __('Yes') ?></option>
+                                <option
+                                    value="0"
+                                    <?php if (!$defaultConfig->getIsQtyDecimal()): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __('No') ?></option>
+                            </select>
+                        </div>
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_is_qty_decimal]"
+                                type="checkbox"
+                               id="puq_use_config_is_qty_decimal"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label for="puq_use_config_is_qty_decimal"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_is_qty_decimal_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_is_qty_decimal_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="puq_qty_type">
+                    <span><?= /* @escapeNotVerified */ __('QTY Field Value') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <select
+                                id="puq_qty_type"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[qty_type]"
+                                class="select" disabled="disabled">
+
+                                <option
+                                    value="<?= QtyTypeInterface::TYPE_STATIC?>"
+                                    <?php if ($defaultConfig->getQtyType() == QtyTypeInterface::TYPE_STATIC): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __(QtyTypeLabelInterface::TYPE_STATIC) ?></option>
+
+                                <option
+                                    value="<?= QtyTypeInterface::TYPE_DYNAMIC?>"
+                                    <?php if ($defaultConfig->getQtyType() == QtyTypeInterface::TYPE_DYNAMIC): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __(QtyTypeLabelInterface::TYPE_DYNAMIC) ?></option>
+
+                            </select>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_qty_type]"
+                                type="checkbox"
+                                id="puq_use_config_qty_type"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_qty_type"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_qty_type_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_qty_type_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field required">
+                <label class="label" for="puq_use_quantities">
+                    <span><?= /* @escapeNotVerified */ __('Use quantities') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <input
+                                type="text"
+                                class="input-text required-entry validate-comma-separated-floats"
+                                id="puq_use_quantities"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_quantities]"
+                                value="<?= $defaultConfig->getUseQuantities() ?>"
+                                disabled="disabled"/>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_use_quantities]"
+                                type="checkbox"
+                                id="puq_use_config_use_quantities"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_use_quantities"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_use_quantities_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_use_quantities_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field required">
+                <label class="label" for="puq_start_qty">
+                    <span><?= /* @escapeNotVerified */ __('Minimum Qty Allowed in Shopping Cart') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <input
+                                type="text"
+                                class="input-text required-entry validate-number"
+                                id="puq_start_qty"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[start_qty]"
+                                value="<?= $defaultConfig->getStartQty() ?>"
+                                disabled="disabled"/>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_start_qty]"
+                                type="checkbox"
+                                id="puq_start_qty"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_start_qty"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_use_quantities_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_start_qty_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field required">
+                <label class="label" for="puq_qty_increment">
+                    <span><?= /* @escapeNotVerified */ __('Qty Increment') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <input
+                                type="text"
+                                class="input-text required-entry validate-number"
+                                id="puq_qty_increment"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[qty_increment]"
+                                value="<?= $defaultConfig->getQtyIncrement() ?>"
+                                disabled="disabled"/>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_qty_increment]"
+                                type="checkbox"
+                                id="puq_qty_increment"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_qty_increment"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_qty_increment_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_qty_increment_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field required">
+                <label class="label" for="puq_end_qty">
+                    <span><?= /* @escapeNotVerified */ __('Maximum Qty Allowed in Shopping Cart') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <input
+                                type="text"
+                                class="input-text required-entry validate-number"
+                                id="puq_end_qty"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[end_qty]"
+                                value="<?= $defaultConfig->getEndQty() ?>"
+                                disabled="disabled"/>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_end_qty]"
+                                type="checkbox"
+                                id="puq_use_config_end_qty"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_end_qty"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_end_qty_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_end_qty_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <!-- UNITS -->
+            <div class="field">
+                <label class="label" for="puq_allow_units">
+                    <span><?= /* @escapeNotVerified */ __('Allow units') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+                        <div class="field">
+                            <select id="puq_allow_units" name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[allow_units]"
+                                    class="select" disabled="disabled">
+                                <option
+                                    value="1"
+                                    <?php if ($defaultConfig->getAllowUnits()): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __('Yes') ?></option>
+                                <option
+                                    value="0"
+                                    <?php if (!$defaultConfig->getAllowUnits()): ?> selected="selected"<?php endif; ?>
+                                ><?= /* @escapeNotVerified */ __('No') ?></option>
+                            </select>
+                        </div>
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_allow_units]"
+                                type="checkbox"
+                                id="puq_use_config_allow_units"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label for="puq_use_config_allow_units"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_allow_units_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_allow_units_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="puq_price_per_divider">
+                    <span><?= /* @escapeNotVerified */ __('"Price per" divider') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <input
+                                type="text"
+                                class="input-text"
+                                id="puq_price_per_divider"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[price_per_divider]"
+                                value="<?= $defaultConfig->getPricePerDivider() ?>"
+                                disabled="disabled"/>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_price_per_divider]"
+                                type="checkbox"
+                                id="puq_use_config_price_per_divider"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_price_per_divider"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_price_per_divider_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_price_per_divider_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="puq_price_per">
+                    <span><?= /* @escapeNotVerified */ __('Price per') ?></span>
+                </label>
+
+                <div class="control">
+                    <div class="fields-group-2">
+
+                        <div class="field">
+                            <input
+                                type="text"
+                                class="input-text"
+                                id="puq_price_per"
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[price_per]"
+                                value="<?= $defaultConfig->getPricePer() ?>"
+                                disabled="disabled"/>
+                        </div>
+
+                        <div class="field choice">
+                            <input
+                                name="<?= /* @escapeNotVerified */ $block->getFieldSuffix() ?>[use_config_price_per]"
+                                type="checkbox"
+                                id="puq_use_config_price_per"
+                                data-role="toggle-editability"
+                                value="1"
+                                checked="checked"
+                                disabled="disabled"/>
+                            <label
+                                for="puq_use_config_price_per"
+                                class="label"><span><?= /* @escapeNotVerified */ __('Use Config Settings') ?></span></label>
+                        </div>
+
+                        <div class="field choice">
+                            <input type="checkbox" id="puq_price_per_checkbox" data-role="toggle-editability-all"/>
+                            <label for="puq_price_per_checkbox"
+                                   class="label"><span><?= /* @escapeNotVerified */ __('Change') ?></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-service" value-scope="<?= /* @escapeNotVerified */ __('[STORE VIEW]') ?>"></div>
+            </div>
+
+        </fieldset>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+/**
+ * @var \Magento\Payment\Block\Info $block
+ * @see \Magento\Payment\Block\Info
+ */
+$payment = $block->getOrder()->getPayment();
+?>
+<p></p>
+<?php if($block->getActivebank()): ?>
+<div class="admin__page-section-item-content">
+    <strong><?php echo __('Last Bank Chose by customer:') ?></strong>
+    <span class="price"><?php echo $payment->getData('bank_name'); ?></span>                        
+</div>
+<?php endif; ?>
+<?php if($block->getActivebankowner()): ?>
+<div class="admin__page-section-item-content">
+    <strong><?php echo __('Bank Account Owner:') ?></strong>
+    <span class="price"><?php echo $payment->getData('bank_owner'); ?></span>                        
+</div>
+<?php endif; ?>
+

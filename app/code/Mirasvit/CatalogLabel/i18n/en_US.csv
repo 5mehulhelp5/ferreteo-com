@@ -1,0 +1,102 @@
+Image,Image
+"Click here or drag & drop to add image.","Click here or drag & drop to add image."
+"Delete image","Delete image"
+Hidden,Hidden
+Images,Images
+"Manage Labels","Manage Labels"
+"Save And Continue Edit","Save And Continue Edit"
+"Edit Label '%1'","Edit Label '%1'"
+"Add Label","Add Label"
+Gallery,Gallery
+"Add New Row","Add New Row"
+"All Files","All Files"
+Title,Title
+"General Information","General Information"
+Placeholder,Placeholder
+Type,Type
+"Is Active","Is Active"
+No,No
+Yes,Yes
+Attribute,Attribute
+"Active From","Active From"
+"Active To","Active To"
+"Visible In","Visible In"
+"Visible for Customer Groups","Visible for Customer Groups"
+"Sort order","Sort order"
+"It will be applied only if more than one label is in the same position.","It will be applied only if more than one label is in the same position."
+Continue,Continue
+"Relation Type","Relation Type"
+Conditions,Conditions
+"Conditions (leave blank for all products)","Conditions (leave blank for all products)"
+"These conditions applied for %1 product(s)","These conditions applied for %1 product(s)"
+Position,Position
+Style,Style
+Description,Description
+Url,Url
+"Label Information","Label Information"
+Design,Design
+Settings,Settings
+ID,ID
+Rule,Rule
+Status,Status
+Enabled,Enabled
+Disabled,Disabled
+Action,Action
+Edit,Edit
+Delete,Delete
+"Are you sure?","Are you sure?"
+"Change status","Change status"
+"Manage Placeholders","Manage Placeholders"
+"Edit Placeholder '%1'","Edit Placeholder '%1'"
+"Add Placeholder","Add Placeholder"
+Identifier,Identifier
+"Add label in the product list page","Add label in the product list page"
+"Add label in the product page","Add label in the product page"
+"Allow Positioning","Allow Positioning"
+"Allowed Images","Allowed Images"
+"Placeholder Information","Placeholder Information"
+Name,Name
+"New Label","New Label"
+"Label was successfully deleted","Label was successfully deleted"
+"Edit Label","Edit Label"
+"The label does not exist.","The label does not exist."
+"Please select label(s)","Please select label(s)"
+"Total of %1 record(s) were successfully deleted","Total of %1 record(s) were successfully deleted"
+"Total of %1 record(s) were successfully updated","Total of %1 record(s) were successfully updated"
+"Label was successfully saved","Label was successfully saved"
+"Unable to find label to save","Unable to find label to save"
+"New Placeholder","New Placeholder"
+"Placeholder was successfully deleted","Placeholder was successfully deleted"
+"Edit Placeholder","Edit Placeholder"
+"The placeholder does not exist.","The placeholder does not exist."
+"Please select placeholder(s)","Please select placeholder(s)"
+"Placeholder was successfully saved","Placeholder was successfully saved"
+"Unable to find a placeholder to save","Unable to find a placeholder to save"
+"Update the Product","Update the Product"
+"Rule price","Rule price"
+"To Fixed Value","To Fixed Value"
+"To Percentage","To Percentage"
+"By Fixed value","By Fixed value"
+"By Percentage","By Percentage"
+"Update product's %1 %2: %3","Update product's %1 %2: %3"
+"Conditions Combination","Conditions Combination"
+Product,Product
+"Product Attribute","Product Attribute"
+"Product Additional","Product Additional"
+"Attribute Set","Attribute Set"
+Category,Category
+"Created (days ago)","Created (days ago)"
+"Updated (days ago)","Updated (days ago)"
+Quantity,Quantity
+"Price - Final Price","Price - Final Price"
+"Percent Discount","Percent Discount"
+"Set as New","Set as New"
+"Stock Status","Stock Status"
+"Out Of Stock","Out Of Stock"
+"In Stock","In Stock"
+"Open Chooser","Open Chooser"
+"Product List","Product List"
+"Product View","Product View"
+"We don't recognize or support this file extension type.","We don't recognize or support this file extension type."
+"Catalog Label","Catalog Label"
+"Flush dependent pages cache after new product creating","Flush dependent pages cache after new product creating"

@@ -1,0 +1,63 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Magento\Backend\Block\Template $block */
+
+$ruleId = $block->getRequest()->getParam('rule_id');
+?>
+<div>
+    <div class="control-value" style="padding-top: 8px;">
+        <p><?= /** @noEscape */
+            __('Use the following code to show the product finder block in any place you want.') ?></p>
+        <p><?= /** @noEscape */
+            __('(If you plan to use snippet to place a Finder anywhere on site freely, please do not set any category for it.)') ?></p>
+            <strong><?= /** @noEscape */
+                __('CMS Page/Static Block') ?></strong>
+            <span style="font-size: 10px">
+            <pre style="background-color: #f5f5dc">
+                <code>
+                <?= $block->escapeHtml('{{block class="Mageplaza\ProductFinder\Block\SnippetCode" template="Mageplaza_ProductFinder::finder.phtml" rule_id=' . $ruleId . '"}}') ?>
+            </code>
+            </pre>
+        </span>
+            <strong><?= /** @noEscape */
+                __('Template .phtml file') ?></strong>
+            <span style="font-size: 10px">
+            <pre style="background-color: #f5f5dc; padding-top: 10px">
+                <code><?= $block->escapeHtml('<?php echo $block->getLayout()->createBlock("Mageplaza\ProductFinder\Block\SnippetCode")
+                    ->setTemplate("finder.phtml")
+                    ->setRuleId("' . /** @noEscape */
+                    $ruleId . '")->toHtml();?>') ?></code>
+            </pre>
+        </span>
+            <strong><?= /** @noEscape */
+                __('Layout file') ?></strong>
+            <span style="font-size: 10px">
+            <pre style="background-color: #f5f5dc; padding-top: 10px">
+                <code><?= $block->escapeHtml('<block class="Mageplaza\ProductFinder\Block\SnippetCode" template="Mageplaza_ProductFinder::finder.phtml" name="mpproductfinder_snippet">
+                    <arguments>
+                        <argument name="rule_id" xsi:type="string">' . $ruleId . '</argument>
+                    </arguments>
+                </block>') ?></code>
+            </pre>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/mp-faq/categories" method="GET">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="getCategories"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/categories/:categoryId" method="GET">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="getCategory"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/articles" method="GET">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="getArticles"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/article/:articleId" method="GET">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="getArticle"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/article/visibility/:status" method="GET">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="getArticleVisibility"/>
+        <resources>
+            <resource ref="Mageplaza_Faqs::article"/>
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/categories" method="POST">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="createCategories"/>
+        <resources>
+            <resource ref="Mageplaza_Faqs::category" />
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/articles" method="POST">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="createArticle"/>
+        <resources>
+            <resource ref="Mageplaza_Faqs::article" />
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/question" method="POST">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="createQuestion"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/categories/:categoryId" method="DELETE">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="deleteCategory"/>
+        <resources>
+            <resource ref="Mageplaza_Faqs::category" />
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/article/:articleId" method="DELETE">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="deleteArticle"/>
+        <resources>
+            <resource ref="Mageplaza_Faqs::article" />
+        </resources>
+    </route>
+    <!--=========================================== CONFIG =================================================-->
+    <route url="/V1/mp-faq/configs" method="GET">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="getConfigs"/>
+        <resources>
+            <resource ref="Mageplaza_Faqs::configuration" />
+        </resources>
+    </route>
+    <route url="/V1/mp-faq/article/:articleId/helpful/:isHelpful" method="POST">
+        <service class="Mageplaza\Faqs\Api\FaqsRepositoryInterface" method="submitHelpful"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

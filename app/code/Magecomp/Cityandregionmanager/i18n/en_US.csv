@@ -1,0 +1,97 @@
+Back,Back
+"Add New City","Add New City"
+states_name,states_name
+Import,Import
+Save,Save
+"Please Select..","Please Select.."
+"Add New State","Add New State"
+cities_name,cities_name
+"For delivery questions.","For delivery questions."
+"Record is deleted successfully!","Record is deleted successfully!"
+"Record  not found.","Record  not found."
+"Edit City","Edit City"
+Cities,Cities
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"City is saved successfully!","City is saved successfully!"
+"Something went wrong while saving a city.","Something went wrong while saving a city."
+"Please upload CSV file.","Please upload CSV file."
+"Please upload valid CSV file.","Please upload valid CSV file."
+"Import Cities List","Import Cities List"
+"Please upload 
+                valid CSV file.","Please upload 
+                valid CSV file."
+"Import States List","Import States List"
+"Import Zip Codes List","Import Zip Codes List"
+"Edit State","Edit State"
+States,States
+"State is saved successfully!","State is saved successfully!"
+"Something went wrong while saving a state.","Something went wrong while saving a state."
+"Edit Zip Code","Edit Zip Code"
+"Add New Zip Code","Add New Zip Code"
+"Zip Codes","Zip Codes"
+"Zipcode is saved successfully!","Zipcode is saved successfully!"
+"Something went wrong while saving a zipcode.","Something went wrong while saving a zipcode."
+"No Cities!","No Cities!"
+"AJAX ERROR","AJAX ERROR"
+"No States!","No States!"
+"Shipping city","Shipping city"
+No,No
+Yes,Yes
+City,City
+Country,Country
+State/Province,State/Province
+"Zip/Postal Code","Zip/Postal Code"
+"Please select...","Please select..."
+"%fieldName is a required field.","%fieldName is a required field."
+"Invalid value of ""%value"" provided for the %fieldName field.","Invalid value of ""%value"" provided for the %fieldName field."
+Edit,Edit
+Delete,Delete
+"* Required Fields","* Required Fields"
+"Contact Information","Contact Information"
+Address,Address
+"Street Address %1","Street Address %1"
+"Please select a city.","Please select a city."
+"Please select a region, state or province.","Please select a region, state or province."
+"Please select a zip code.","Please select a zip code."
+"It's a default billing address.","It's a default billing address."
+"Use as my default billing address","Use as my default billing address"
+"It's a default shipping address.","It's a default shipping address."
+"Use as my default shipping address","Use as my default shipping address"
+"Save Address","Save Address"
+"Go back","Go back"
+State:,State:
+Submit,Submit
+City:,City:
+"Postal Code:","Postal Code:"
+Load,Load
+"Please Select","Please Select"
+Close,Close
+"Region Manager","Region Manager"
+"ZIP Codes","ZIP Codes"
+"City and Region Manager","City and Region Manager"
+Configuration,Configuration
+"ZipCode Optional","ZipCode Optional"
+"View State","View State"
+"City details","City details"
+ID,ID
+"Select State:","Select State:"
+"City name:","City name:"
+"Are you sure you want to delete selected items?","Are you sure you want to delete selected items?"
+20,20
+30,30
+50,50
+100,100
+200,200
+"State name","State name"
+"City name","City name"
+"State detail","State detail"
+"Select Country:","Select Country:"
+"State name:","State name:"
+"Export States List","Export States List"
+"Country Name","Country Name"
+"State Name","State Name"
+"Zip Code Details","Zip Code Details"
+"Select City:","Select City:"
+"Zip code:","Zip code:"
+"Import Zip Code List","Import Zip Code List"
+"Zip code","Zip code"

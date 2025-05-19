@@ -1,0 +1,26 @@
+<?php
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+?>
+<?php
+/**
+ * Copyright © 2019 Aitoc. All rights reserved.
+ */
+
+use Aitoc\ProductUnitsAndQuantities\Block\Quantities\ProductQuantities;
+
+/** @var ProductQuantities $this */
+?>
+<script type="text/x-magento-init">
+    {
+        ".price-wrapper, .field.option select.bundle-option-select": {
+            "Aitoc_ProductUnitsAndQuantities/js/quantities/mode-helper/<?= $this->getCurrentProductMode(); ?>":
+                <?= $this->getJsonEncodedCurrentProductConfig(); ?>
+        }
+    }
+
+</script>
+<script>window.puqCurrentProduct = <?= $this->getJsonEncodedCurrentProductConfig(); ?>;</script>

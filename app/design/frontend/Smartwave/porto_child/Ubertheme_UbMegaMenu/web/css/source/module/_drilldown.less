@@ -1,0 +1,296 @@
+//----
+// @category  : Ubertheme
+// @package   : Ubertheme_UbMegaMenu
+// @author    : Ubertheme.com
+// @copyright : Copyright 2009-2020 Ubertheme
+//---------------------------
+& when (@media-common =true) {
+	//
+	//  General
+	//  ---------------------------------------------
+}
+
+//
+//  Mobile and  Tablet Mini
+//  _____________________________________________
+@media only screen and (max-width: 1023px) {
+	.content-top {
+		border-bottom: 1px solid #E74F1B;
+	}
+	.drilldown-sub {
+		display: none;
+	}
+
+	.child-content.drilldown-root {
+		display: block !important;
+	}
+
+	.drilldown {
+		
+		> .btn-drilldown {
+			.lib-css(background, @color-white);
+			.lib-css(border-bottom, 1px solid @border-color__base);
+			display: inline-block;
+			height: 50px;
+			left: 0;
+			margin: 0;
+			padding: 0 24px;
+			position: fixed;
+			top: 72px;
+			width: 100%;
+			z-index: 11;
+			.btn-back {
+                .lib-css(background-color, @color-white);
+				.lib-css(color, #000) !important;
+				display: inline;
+				font-weight: bold;
+				line-height: 48px;
+				padding-left: 24px;
+				order: 2;
+                position: relative;
+				&:active,
+				&:focus,
+				&:hover {
+					.lib-css(color, #000);
+					text-decoration: underline;
+				}
+                &:before {
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: 15px;
+                    line-height: inherit;
+                    color: inherit;
+                    content: '';
+                    font-family: 'luma-icons';
+                    vertical-align: middle;
+                    display: inline-block;
+                    font-weight: normal;
+                    overflow: hidden;
+                    speak: none;
+                    text-align: center;
+                    position: absolute;
+                    left: -4px;
+					background: url(../Ubertheme_UbMegaMenu/images/angle-left-black.svg) no-repeat left 50%;
+					width: 16px;
+					height: 16px;
+					top: 0;
+                }
+			}
+		}
+
+		&.sticky-disabled {
+			> .drilldown-buttons {
+				position: static;
+			}
+		}
+		.parent-item {
+			margin: 70px 24px 20px;
+			font-size: 16px;
+			display: block;
+			color: #282254 !important;
+		}
+	}
+	.drilldown {
+		float: left;
+		width: 100%;
+		&:after {
+			.lib-css(background-color, @color-white);
+			.lib-css(color, @primary__color);
+			content: '';
+			height: 50px;
+			position: fixed;
+			right: -50px;
+			top: 0;
+			width: 50px;
+			display: none;
+		}
+
+		&-container {
+			position: relative !important;
+			li,
+			li.mega {
+				margin-bottom: 0;
+
+				span.mega,
+				a.mega {
+					.lib-css(border-bottom, 0);
+					display: block;
+					font-weight: 400;
+					line-height: 48px;
+					width: 100%;
+					&.last {
+						border-bottom: 0;
+					}
+
+					span.menu-title {
+						background: none !important;
+						display: inline-block !important;
+						padding: 0 !important;
+						text-transform: none;
+						width: auto;
+					}
+
+					&.has-child {
+						font-weight: 700;
+						position: relative;
+                        &:after {
+                            position: absolute;
+                            right: 24px;
+							content: "";
+							background: url(../Ubertheme_UbMegaMenu/images/angle-right-black.svg);
+							width: 14px;
+							height: 14px;
+							top: 50%;
+							margin-top: -7px;
+                        }
+					}
+				}
+			}
+		}
+
+		&-root {
+			width: 100% !important;
+			position: absolute !important;
+			padding-bottom: 70px !important;
+			.menu-group-link {
+				.lib-css(color, #000);
+				display: none;
+				float: right;
+				font-size: 12px;
+				line-height: 48px;
+				padding-bottom: 0;
+				padding-left: 0;
+				text-decoration: underline;
+			}
+		}
+
+		.mega-col,
+		.child-content-inner {
+			width: 100% !important;
+			clear: both;
+			h3 {
+				margin: 20px 24px 10px;
+				color: #000;
+				display: none;
+			}
+			img {
+				margin: 20px;
+			}
+		}
+
+		.child-content-inner {
+			min-height: 0;
+			overflow: auto;
+		}
+
+		.menu-desc {
+			display: none !important;
+		}
+
+		.block-title {
+			margin: 0.625rem 0 1.25rem;
+
+			strong {
+				font-size: 14px;
+				font-weight: 700;
+			}
+		}
+
+        ul.level0 {
+            li.mega {
+                &.has-child {
+                    span.mega,
+				    a.mega {
+                        &:after {
+                            display: none;
+                        }
+                        span.menu-title {
+							width: 100%;
+                            .lib-icon-font(
+                                @_icon-font-content: @icon-next,
+                                @_icon-font-color: inherit,
+                                @_icon-font-size: ceil(@font-size__base * 0.71),
+                                @_icon-font-position: after
+                            );
+                        }
+                    }
+                }
+				// &.last {
+				// 	margin-bottom: 70px;
+				// }
+            }
+        }
+
+		ul.level1,
+		ul.level2,
+		ul.level3 {
+			.child-content {
+				border: 0;
+				position: static;
+				box-shadow: none;
+			}
+
+			.child-content-inner {
+				padding: 0 0 0 24px;
+				box-sizing: border-box;
+			}
+
+			li.mega {
+				border-bottom: 0 !important;
+
+				span.mega,
+				a.mega {
+					padding: 0 24px;
+					line-height: 45px;
+					span.menu-icon {
+						display: inline-block;
+						height: 15px;
+						left: 0;
+						margin: 0;
+						position: static;
+						top: 0;
+						width: 20px;
+					}
+				}
+                &.has-child {
+                    span.mega,
+				    a.mega {
+                        &:after {
+                            display: none;
+                        }
+                        span.menu-title {
+                            .lib-icon-font(
+                                @_icon-font-content: @icon-next,
+                                @_icon-font-color: inherit,
+                                @_icon-font-size: ceil(@font-size__base * 0.71),
+                                @_icon-font-position: after
+                            );
+                            &:after {
+                                position: absolute;
+                                right: 0;
+                            }
+                        }
+                    }
+                }
+				// &.last {
+				// 	margin-bottom: 70px;
+				// }
+			}
+		}
+
+		ul.level2 {
+            &.drilldown-sub {
+                display: block;
+            }
+            > li.mega {
+                > .mega {
+                    padding: 0 24px;
+                    line-height: 45px;
+                    &.has-child {
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+	}
+}

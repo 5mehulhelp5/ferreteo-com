@@ -1,0 +1,370 @@
+/*
+ * Copyright © 2019 Aitoc. All rights reserved.
+ */
+
+/* Content */
+/*
+
+                    > Overrides (Luma theme overrides)
+
+> Func Group        > Pages                 > Control Types         > Control
+    - Units             - Common                - Common                - container
+    - Quantities        - Product               - Merged                - handler
+                            - Common                - PlusMinus         - button
+                            - Grouped               - Arrows                - common
+                            - Wishlist          - Separated                 - up
+                        - Cart                      - Dropdown              - down
+                                                    - Slider
+                    > Blocks
+                        - Minicart
+ */
+
+/* Units */
+/* Units > Pages */
+/* Units > Pages > Common */
+.aitoc-puq-units {
+    white-space: nowrap;
+}
+
+/* Units > Pages > Common > Overrides */
+/* Units > Pages > Common > Overrides > Price box (when different prices displayed) */
+.product-info-main .product-info-price .price-box {
+    width: initial;
+}
+
+.product-info-main .product-info-price .price-box .price-container > span {
+    display: initial;
+}
+
+.special-price {
+    display: block;
+}
+
+.product-options-bottom .price-box .old-price, .product-info-price .price-box .old-price {
+    display: block;
+}
+
+/* Units > Pages > Cart */
+.col.price .aitoc-puq-units {
+    white-space: normal;
+    font-size: 1.4rem;
+}
+
+/* Units > Pages > Cart > Overrides */
+/* Units > Pages > Cart > Overrides > Price (with units) column */
+.cart.table-wrapper .col.price .price-excluding-tax,
+.cart.table-wrapper .col.price .price-including-tax {
+    white-space: normal;
+}
+
+.price-excluding-tax .price {
+    white-space: nowrap;
+}
+
+/* Units > Blocks */
+/* Units > Blocks > Minicart */
+/* Units > Blocks > Minicart > Control */
+/* Units > Blocks > Minicart > Control > PlusMinus */
+.minicart-items .product-item-pricing .aitoc-puq-control-plus-minus .label {
+    margin-right: 3px;
+}
+
+/* Quantities */
+/* Quantities > Pages */
+/* Quantities > Pages > Common */
+/* Quantities > Pages > Common > Control */
+/* Quantities > Pages > Common > Control > Common */
+/* Quantities > Pages > Common > Control > Common > Handler */
+.aitoc-puq-control-handler {
+    display: inline-block;
+}
+
+.aitoc-puq-control-arrows .aitoc-puq-control-handler {
+    cursor: pointer;
+    border: 5px solid transparent;
+    color: #f98b25;
+    width: 1px;
+    margin: 0 10px;
+}
+
+/* Quantities > Pages > Common > Control > Common > Handler > Disabled */
+.aitoc-puq-control.aitoc-puq-control-arrows.ui-state-disabled .aitoc-puq-control-handler,
+.aitoc-puq-control-container.ui-state-disabled.aitoc-puq-control-arrows .aitoc-puq-control-handler {
+    color: grey;
+}
+
+/* Quantities > Pages > Common > Control > Merged */
+/* Quantities > Pages > Common > Control > Merged > Container */
+.aitoc-puq-control-container.aitoc-puq-control-arrows,
+.aitoc-puq-control-container.aitoc-puq-control-plus-minus
+{
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+/* Quantities > Pages > Common > Control > Merged > Container > Input */
+.aitoc-puq-control-container input {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Quantities > Pages > Common > Control > Merged > PlusMinus */
+/* Quantities > Pages > Common > Control > Merged > PlusMinus > Handler */
+.aitoc-puq-control-plus-minus .aitoc-puq-control-handler {
+    width: 2em;
+    min-width: 2em;
+    height: 2em;
+    cursor: pointer;
+    color: #fff;
+    background: #f98b25;
+    box-shadow: none;
+    margin: 0 5px;
+    border-radius: 50%;
+    display: block;
+    padding: 0;
+}
+
+/* Quantities > Pages > Common > Control > Merged > PlusMinus > Handler > Disabled */
+.aitoc-puq-control-container.aitoc-puq-control-plus-minus.ui-state-disabled .aitoc-puq-control-handler,
+.aitoc-puq-control.aitoc-puq-control-plus-minus.ui-state-disabled .aitoc-puq-control-handler
+{
+    color: white;
+    background-color: grey;
+    border-color: grey;
+}
+
+/* Quantities > Pages > Common > Control > Merged > PlusMinus > Handler > Button > Down */
+.aitoc-puq-control-plus-minus .aitoc-puq-control-handler-down {
+    padding-bottom: 2px;
+}
+
+/* Quantities > Pages > Common > Control > Merged > Arrows */
+/* Quantities > Pages > Common > Control > Merged > Arrows */
+.aitoc-puq-control-arrows {
+    min-width: 116px;
+}
+
+/* Quantities > Pages > Common > Control > Merged > Arrows > Handler */
+/* Quantities > Pages > Common > Control > Merged > Arrows > Handler > Button */
+/* Quantities > Pages > Common > Control > Merged > Arrows > Handler > Button > Up */
+.aitoc-puq-control-arrows .aitoc-puq-control-handler-up {
+    border-bottom: 10px solid;
+    border-top-width: 0;
+    margin-right: 13px;
+}
+
+
+/* Quantities > Pages > Common > Control > Merged > Arrows > Handler > Button > Down */
+.aitoc-puq-control-arrows .aitoc-puq-control-handler-down {
+    border-top: 10px solid;
+    border-bottom-width: 0;
+}
+
+
+/* Quantities > Pages > Common > Control > Separated */
+
+/* Quantities > Pages > Common > Control > Separated > Dropdown */
+select.aitoc-puq-control {
+    width: auto;
+}
+
+/* Quantities > Pages > Common > Control > Separated > Slider */
+.aitoc-puq-control-slider {
+    min-width: 6em;
+    margin: 1em 0.6em;
+}
+
+/* Quantities > Pages > Common > Control > Separated > Slider > Handler */
+.aitoc-puq-control-slider .aitoc-puq-control-handler {
+    width: 2.5em;
+    height: 22px;
+    line-height: 22px;
+    margin-top: -6px;
+    margin-left: -1.25em !important;
+    text-align: center;
+    color: #fff;
+}
+
+/* Quantities > Pages > Common > Control > Separated > Slider > Handler > Disabled */
+.aitoc-puq-control.aitoc-puq-control-slider.ui-state-disabled .aitoc-puq-control-handler,
+.aitoc-puq-control-container.aitoc-puq-control-slider.ui-state-disabled .aitoc-puq-control-handler {
+    background-color: gray;
+}
+
+/* Quantities > Pages > Common > Control > Separated > Slider > Error */
+.aitoc-puq-control-slider.mage-error {
+    border: 1px solid #ed8380;
+}
+
+/* Quantities > Pages > Product */
+/* Quantities > Pages > Product > Grouped */
+/* Quantities > Pages > Product > Grouped > Qty Column*/
+.table.grouped .col.qty {
+    text-align: center;
+}
+
+@media screen and (max-width: 640px),print {
+    .table.grouped .col.qty {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+#super-product-table .aitoc-puq-control-container.aitoc-puq-control-arrows,
+#super-product-table .aitoc-puq-control-container.aitoc-puq-control-plus-minus {
+    justify-content: center;
+}
+
+
+/* Quantities > Pages > Product > Grouped */
+.bundle-options-wrapper .aitoc-puq-control-container.aitoc-puq-control-arrows,
+.bundle-options-wrapper .aitoc-puq-control-container.aitoc-puq-control-plus-minus,
+.box-tocart .aitoc-puq-control-container.aitoc-puq-control-arrows,
+.box-tocart .aitoc-puq-control-container.aitoc-puq-control-plus-minus {
+    flex-wrap: wrap;
+}
+
+/* Quantities > Pages > Wishlist */
+/* Quantities > Pages > Wishlist > Overrides */
+.field.qty.wishlist {
+    width: 100%;
+    display: block;
+}
+
+@media screen and (min-width: 768px),print {
+
+    .products-grid.wishlist .product-item .fieldset {
+        display: block;
+    }
+
+    .products-grid.wishlist .product-item .fieldset .field.qty,
+    .products-grid.wishlist .product-item .fieldset .product-item-actions {
+        display: block;
+        text-align: center;
+        padding-right: 0;
+    }
+}
+
+/* Quantities > Pages > Wishlist > Control */
+/* Quantities > Pages > Wishlist > Control > Merged */
+/* Quantities > Pages > Wishlist > Control > Merged > PlusMinus */
+#wishlist-view-form .aitoc-puq-control-container.aitoc-puq-control-arrows,
+#wishlist-view-form .aitoc-puq-control-container.aitoc-puq-control-plus-minus {
+    justify-content: center;
+}
+
+#wishlist-view-form .aitoc-puq-control-plus-minus {
+    min-width: auto;
+}
+
+/* Quantities > Pages > Cart */
+.cart.table-wrapper .col.price,
+.order-items.table-wrapper .col.price,
+.cart.table-wrapper .col.qty,
+.order-items.table-wrapper .col.qty,
+.cart.table-wrapper .col.subtotal,
+.order-items.table-wrapper .col.subtotal,
+.cart.table-wrapper .col.msrp,
+.order-items.table-wrapper .col.msrp {
+    text-align: center;
+}
+
+.cart.table-wrapper .col.qty {
+    padding: 12px 0;
+}
+
+
+
+/* Quantities > Pages > Cart > Control */
+/* Quantities > Pages > Cart > Control > Merged */
+/* Quantities > Pages > Cart > Control > Merged > PlusMinus */
+#shopping-cart-table .aitoc-puq-control-container.aitoc-puq-control-arrows,
+#shopping-cart-table .aitoc-puq-control-container.aitoc-puq-control-plus-minus {
+    justify-content: center;
+}
+
+@media only screen and (max-width: 320px) {
+    #shopping-cart-table .aitoc-puq-control-plus-minus .aitoc-puq-control-handler {
+        margin: 0;
+    }
+}
+
+/* Quantities > Pages > Cart > Control > Separated */
+/* Quantities > Pages > Cart > Control > Separated > Slider */
+.cart.aitoc-puq-control-slider {
+    max-width: 100px;
+    margin: 10px auto 0;
+}
+
+
+/* Quantities > Blocks > Minicart */
+/* Quantities > Blocks > Minicart > Overrides */
+.minicart-items .product-item-pricing {
+    display: inline-block;
+}
+
+.minicart-items .product-item-pricing .label {
+    width: 3.5rem;
+}
+
+.minicart-items .item-qty {
+    margin: 0 0;
+}
+
+.minicart-price {
+    font-size: 1.4rem;
+}
+
+.minicart-items .aitoc-puq-control-container.aitoc-puq-control-arrows,
+.minicart-items .aitoc-puq-control-container.aitoc-puq-control-plus-minus {
+    flex-wrap: wrap;
+}
+
+
+/* Quantities > Blocks > Minicart > Control */
+.minicart-items .aitoc-puq-control {
+    max-width: 7em;
+    display: inline-block;
+}
+
+.minicart-items .item-qty {
+    width: 100%;
+    max-width: 7em;
+}
+
+/* Quantities > Blocks > Minicart > Control > Separated > Slider */
+.minicart-items .aitoc-puq-control-slider {
+    margin: 0.7em 1.25em 0;
+    min-width: 4.5em;
+    max-width: 4.5em;
+}
+
+/* Quantities > Blocks > Minicart > Control > Merged */
+.minicart-items .aitoc-puq-control-arrows .item-qty,
+.minicart-items .aitoc-puq-control-plus-minus .item-qty {
+    width: 40px;
+}
+
+/* Quantities > Blocks > Minicart > Control > Merged > Handler */
+.minicart-items .aitoc-puq-control-plus-minus .aitoc-puq-control-handler {
+    margin:0 0;
+}
+
+/* Quantities > Blocks > Minicart > Control > Merged > Plus Minus */
+.minicart-items .aitoc-puq-control-plus-minus .aitoc-puq-control-handler-up {
+    margin-right: 6px;
+}
+
+/* Quantities > Blocks > Minicart > Control > Merged > Arrows */
+.minicart-items .aitoc-puq-control-arrows .aitoc-puq-control-up {
+    margin-right: 13px;
+}
+
+.minicart-items .aitoc-puq-control-arrows .item-qty {
+    width: 40px;
+}
+
+.minicart-wrapper .product .actions {
+    margin-top: 0.3em;
+}

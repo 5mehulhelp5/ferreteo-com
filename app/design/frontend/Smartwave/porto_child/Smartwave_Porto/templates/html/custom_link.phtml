@@ -1,0 +1,65 @@
+<?php
+$porto_helper = $this->helper('Smartwave\Porto\Helper\Data');
+$customer_helper = $this->helper('Smartwave\Porto\Helper\Customer');
+?>
+<li><a class="top-link-list" href="<?php echo $this->getUrl('mwishlist') ?>"><?php echo __('Lists'); ?></a></li>
+<li><a class="top-link-returns" href="<?php echo $porto_helper->getBaseLinkUrl(); ?>sales/order/history"><?php echo __('Purchases and Returns'); ?></a></li>
+<li class='top-account-wrapper'>
+    <div class="side-menu-wrapper top-account">
+        <a class="top-link-account" href="javascript:void(0)"><?php echo __('Account'); ?></a>
+        <div class="side-menu">
+            <?php if ($customer_helper->isLoggedIn()) { ?>
+                <div class="head-menu logged-in">
+                    <span class="icon-user"><?php echo $customer_helper->getNameInitial()?></span><span class="welcome"><?php echo $customer_helper->getName()?></span>
+                    <span class="close"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="<?php echo $this->getUrl('customer/account')?>"><i class="porto-svg-icon-profile"></i><?php echo __('Profile')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('sales/order/history')?>"><i class="porto-svg-icon-track-order"></i><?php echo __('Track Order')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('sales/order/history')?>"><i class="porto-svg-icon-repeat-order"></i><?php echo __('Repeat Order')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('customer/account/mwishlist')?>"><i class="porto-svg-icon-list2"></i><?php echo __('Lists')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('faq')?>"><i class="porto-svg-icon-help"></i><?php echo __('Help')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('customer/account/logout')?>"><i class="porto-svg-icon-logout"></i><?php echo __('Sign Out')?></a></li>
+                </ul>
+            <?php } else {?>
+                <div class="head-menu new-user">
+                    <i class="icon-user"></i><span class="welcome"><?php echo __('Account')?></span>
+                    <span class="close"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="<?php echo $this->getUrl('customer/account/login')?>"><i class="porto-svg-icon-login"></i><?php echo __('Sign in')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('customer/account/create')?>"><i class="porto-svg-icon-register"></i><?php echo __('Create an Account')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('sales/order/history')?>"><i class="porto-svg-icon-track-order"></i><?php echo __('Track Order')?></a></li>
+                    <li><a href="<?php echo $this->getUrl('faq')?>"><i class="porto-svg-icon-help"></i><?php echo __('Help')?></a></li>
+                </ul>
+            <?php }?>
+        </div>
+        <div class="menu-overlay"></div>
+    </div>
+    <script type="text/javascript">
+        require(['jquery'],function($){
+            $('.top-account .top-link-account').click(function(){
+                $('.top-account').toggleClass('opened');
+            });
+            $('.top-account .menu-overlay, .top-account .close').click(function() {
+                $('.top-account').removeClass('opened');
+            });
+
+            var fixAccountMenu = function(){
+                var cur_status = $('.top-account').parent().hasClass('content') ? 'mobile' : 'desktop';
+                if ($(window).innerWidth() >= 768 && cur_status == 'mobile') {
+                    $('.top-account').appendTo('.top-account-wrapper');
+                }
+                if ($(window).innerWidth() < 768 && cur_status == 'desktop') {
+                    $('.minicart-wrapper').after( $('.top-account') );
+                }
+            }
+            $(window).scroll(function(){
+                fixAccountMenu();
+            });
+            $(window).resize(function(){
+                fixAccountMenu();
+            });
+        });
+    </script>
+</li>

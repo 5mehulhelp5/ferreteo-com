@@ -1,0 +1,24 @@
+<?php
+?>
+<!-- Some general js functions-->
+<script type="text/javascript">
+    require([
+        "jquery",
+        "domReady!"
+    ], function ($) {
+        'use strict';
+        //detect modes and add extra class CSS
+        var extraClass = 'ontouchstart' in window && !(/hp-tablet/gi).test(navigator.appVersion) ? 'touch' : 'no-touch';
+        $('html').addClass(extraClass);
+
+        //set timeout to hide the message
+        clearInterval(timeOutMsg);
+        var timeOutMsg = setTimeout(function () {
+            if ($(".page.messages").find('.messages').length) {
+                $(".page.messages").find('.messages').slideUp();
+            }
+        }, 5000);
+    });
+</script>
+<!-- After body start content -->
+

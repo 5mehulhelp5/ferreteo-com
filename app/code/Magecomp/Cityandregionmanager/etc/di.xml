@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magecomp\Cityandregionmanager\Model\Rule\Condition\Shippingcity">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="form_name" xsi:type="string">sales_rule_form</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magecomp\Cityandregionmanager\Api\Data\StatesInterface" type="Magecomp\Cityandregionmanager\Model\States" />
+    <preference for="Magecomp\Cityandregionmanager\Api\Data\CitiesInterface" type="Magecomp\Cityandregionmanager\Model\Cities" />
+    <preference for="Magecomp\Cityandregionmanager\Api\Data\ZipInterface" type="Magecomp\Cityandregionmanager\Model\Zip" />
+    <preference for="Magento\Checkout\Block\Checkout\LayoutProcessor" type="Magecomp\Cityandregionmanager\Block\Checkout\LayoutProcessor" />
+    <virtualType name="UiGridGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="UiGridGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Magecomp\Cityandregionmanager\Model\ResourceModel\States\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UiGridGridFilterPool</argument>
+        </arguments>
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Magecomp\Cityandregionmanager\Model\ResourceModel\Cities\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UiGridGridFilterPool</argument>
+        </arguments>
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Magecomp\Cityandregionmanager\Model\ResourceModel\Zip\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UiGridGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magecomp\Cityandregionmanager\Model\ResourceModel\States\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magecomp_states</argument>
+            <argument name="resourceModel" xsi:type="string">Magecomp\Cityandregionmanager\Model\ResourceModel\States</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magecomp\Cityandregionmanager\Model\ResourceModel\Cities\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magecomp_cities</argument>
+            <argument name="resourceModel" xsi:type="string">Magecomp\Cityandregionmanager\Model\ResourceModel\Cities</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magecomp\Cityandregionmanager\Model\ResourceModel\Zip\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magecomp_zip</argument>
+            <argument name="resourceModel" xsi:type="string">Magecomp\Cityandregionmanager\Model\ResourceModel\Zip</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magecomp_cityandregionmanager_states_listing_data_source" xsi:type="string">Magecomp\Cityandregionmanager\Model\ResourceModel\States\Grid\Collection</item>
+            </argument>
+        </arguments>
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magecomp_cityandregionmanager_cities_listing_data_source" xsi:type="string">Magecomp\Cityandregionmanager\Model\ResourceModel\Cities\Grid\Collection</item>
+            </argument>
+        </arguments>
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magecomp_cityandregionmanager_zip_listing_data_source" xsi:type="string">Magecomp\Cityandregionmanager\Model\ResourceModel\Zip\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Model\Address\AbstractAddress">
+        <plugin name="Custom_address" type="Magecomp\Cityandregionmanager\Plugin\Customabstractaddress" sortOrder="1" />
+    </type>
+</config>

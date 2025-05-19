@@ -1,0 +1,211 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+.mpproductfinder-horizontal li {
+  list-style: none;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.mpproductfinder-vertical li {
+  list-style: none;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.mpproductfinder-filter-title {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 5px;
+}
+
+.mpproductfinder-block {
+  border-radius: 5px;
+  background-color: #efefef;
+}
+
+.mpproductfinder-block ul {
+  position: relative;
+  padding: 10px 15px 15px 15px;
+}
+
+.mppf-find-btn.active {
+  display: inline-block !important;
+}
+
+.mppf-find-btn {
+  display: none !important;
+}
+
+.mppf-reset-btn.active {
+  display: inline-block !important;
+}
+
+.mppf-reset-btn {
+  display: none !important;
+}
+
+
+.dropdown-select-content {
+  display: none;
+}
+
+.dropdown-select-content.active {
+  display: block;
+  z-index: 10;
+}
+
+.select-wrapper {
+  position: relative;
+  padding: 5px 0;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border: 1px solid #cccccc;
+}
+
+.select-wrapper span {
+  padding: 10px;
+  color: #0f0c08;
+}
+
+.select-wrapper:after { /* Little arrow */
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #7f7f7f transparent;
+}
+
+.dropdown-item input.hidden {
+  display: none;
+}
+
+.dropdown-select-content {
+  /* Size & position */
+  left: 2%;
+  position: absolute;
+  width: 95%;
+  margin-top: 5px;
+  /* Styles */
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  list-style: none;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.dropdown-select-content .dropdown-item {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  transition: all 0.3s ease-out;
+  float: left;
+  border: 1px solid #cccccc;
+  margin: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+
+.dropdown-select-content .dropdown-item:hover {
+  background-color: #d8d7d7;
+}
+
+/* Active state */
+.select-wrapper.active {
+  box-shadow: none;
+  color: white;
+}
+
+.select-wrapper.active .categories {
+  max-height: 400px;
+}
+
+.select-wrapper:focus {
+  border-radius: 5px 5px 0 0;
+  background: #4cbeff;
+  box-shadow: none;
+  border-bottom: none;
+  color: white;
+}
+
+.select-wrapper:focus:after {
+  border-color: #82d1ff transparent;
+}
+
+.select-wrapper:focus .categories {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+}
+
+.mpproductfinder-close-btn {
+  background: url(images/btn-close.png) no-repeat center;
+  -moz-background-size: contain;
+  font-size: 2rem;
+  border: none;
+  position: absolute;
+  z-index: 10;
+  width: 15px;
+  height: 15px;
+  right: 0;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.mpproductfinder-select .chosen-container {
+  width: 100% !important;
+}
+
+.mppf-filter-label {
+  display: inline-grid;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .mppf-filter-label {
+        width: 10%;
+    }
+}
+.mppf-filter-label span {
+  padding: 10px;
+  color: #333333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.mppf-option-label {
+  padding: 10px;
+}
