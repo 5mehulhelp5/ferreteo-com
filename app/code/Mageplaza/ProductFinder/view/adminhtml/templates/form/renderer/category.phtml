@@ -1,0 +1,40 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Magento\Backend\Block\Template $block */
+?>
+<div class="admin__field-control admin__control-grouped">
+    <div id="finder-category-select" class="admin__field" data-bind="scope:'category'" data-index="index">
+        <!-- ko foreach: elems() -->
+        <input name="mpproductfinder[categories_ids]" data-bind="value: value" style="display: none"/>
+        <!-- ko template: elementTmpl --><!-- /ko -->
+        <!-- /ko -->
+    </div>
+    <div class="admin__field admin__field-group-additional admin__field-small"
+         data-bind="scope:'create_category_button'">
+        <div class="admin__field-control">
+            <!-- ko template: elementTmpl --><!-- /ko -->
+        </div>
+    </div>
+</div>
+<!-- ko scope: 'create_category_modal' -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->

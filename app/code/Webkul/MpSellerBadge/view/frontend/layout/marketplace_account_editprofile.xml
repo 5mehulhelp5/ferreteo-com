@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="Webkul_MpSellerBadge::css/sellerbadge.css"/>
+    </head>
+    <body>
+        <referenceContainer name="marketplace_account_editprofile">
+            <block class="Webkul\MpSellerBadge\Block\Sellerbadges" name="seller_badge" />
+        </referenceContainer>
+        <referenceBlock name="seller_badge">
+            <action method="setTemplate" ifconfig="marketplace/mpsellerbadge/mpsellerbadge_enable">
+                <argument name="template" xsi:type="string">mpsellerbadge/editprofileblockbadges.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,53 @@
+Legend
+
++ Features
+- Bugs
+
+-------------------------------- Version 5.0.0 --------------------------------------
+    + Compatible with Magento 2.4.x CE.
+
+-------------------------------- Version 4.0.0 --------------------------------------
+    + Compatible with Magento 2.4.x EE.
+
+------------------------------ Version 3.0.1 --------------------------------------
+
+	+ Admin can create widget for best sellers.
+	+ Seller Collection & Profile page UI updated.
+	+ Admin can enable/disable module from configuration.
+	- Bugs Fixed.
+
+------------------------------ Version 3.0.0 --------------------------------------
+
+	+ Compatible with marketplace version 3.0.* and magento 2.3.*
+
+------------------------------ Version 2.2.0 --------------------------------------
+
+	+ Compatible with marketplace version 2.3.*
+	+ Seller badges description on tool-tip on frontend
+	- Image preview issue fixed in Admin Panel
+	- Layout issue fixed in frontend
+	- Minnor bug fixed 
+
+------------------------------ Version 2.1.0 --------------------------------------
+
+	+ Compatible with marketplace version 2.2.* and magento 2.3.*
+	
+------------------------------ Version 2.0.3 --------------------------------------
+
+	+ Compatible with marketplace version 2.1.* and magento 2.2.*
+
+------------------------------ Version 2.0.2 --------------------------------------
+
+	+ Compatible with version 2.2.*
+
+------------------------------ Version 2.0.1 --------------------------------------
+
+	+ Compatible with version 2.1.*
+
+-------------------------------- Version 2.0.0 --------------------------------------
+
+	+ Allow the admin to add badges for different sellers.
+	+ Admin can add multiple badge.
+	+ Buyer can see badges at seller’s profile page.
+	+ Admin can delete or change the status of badges.
+	+ Admin can manage the seller’s badge.

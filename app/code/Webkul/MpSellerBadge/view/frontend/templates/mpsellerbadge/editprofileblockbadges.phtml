@@ -1,0 +1,41 @@
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+-->
+<?php
+$partner = [];
+$partner=$block->getSeller();
+$isPartner= $block->isSeller();
+if ($isPartner==1) {
+    $sellerbadges = $block->getLoginSellerBadges();
+    ksort($sellerbadges);
+    ?>
+    <div class="wk-mp-page-title page-title">
+        <h2><?= $escaper->escapeHtml(__('Seller Badge(s)')); ?></h1>
+    </div>
+    <div class="wk-mp-design">
+        <fieldset class="fieldset info wk-mp-fieldset">
+            <div class="field">
+                <?php if (count($sellerbadges) > 0): ?>
+                    <?php foreach ($sellerbadges as $val): ?>
+                    <div class="tooltip profile-badge">
+                        <img src="<?= $escaper->escapeHtml($val['url']); ?>" width="100" height="100">
+                        <span class="tooltiptext">
+                            <?= $escaper->escapeHtml($val['title']); ?>
+                        </span>  
+                    </div>
+                    <?php endforeach; ?>
+                <?php else:  ?>
+                    <div class="wk_profile_alert">
+                        <strong><?= $escaper->escapeHtml(__('There is no badge assigned to seller.')); ?></strong>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </fieldset>
+    </div>
+<?php } ?>

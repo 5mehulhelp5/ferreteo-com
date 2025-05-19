@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_ProductFinder/css/lib/chosen.min.css"/>
+        <css src="Mageplaza_Core/css/owl.carousel.css"/>
+        <css src="Mageplaza_Core/css/owl.theme.css"/>
+        <css src="Magento_Swatches/css/swatches.css"/>
+    </head>
+    <update handle="catalog_category_view_type_layered"/>
+    <body>
+        <attribute name="class" value="page-products"/>
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\ListProduct" name="category.products" template="Magento_Catalog::product/list.phtml">
+                <container name="category.product.list.additional" as="additional" />
+                <block class="Magento\Framework\View\Element\RendererList" name="category.product.type.details.renderers" as="details.renderers">
+                    <block class="Magento\Swatches\Block\Product\Renderer\Listing\Configurable"
+                           name="category.product.type.details.renderers.configurable" as="configurable"
+                           template="Magento_Swatches::product/listing/renderer.phtml"
+                           ifconfig="catalog/frontend/show_swatches_in_product_list">
+                        <arguments>
+                            <argument name="configurable_view_model"
+                                      xsi:type="object">Magento\Swatches\ViewModel\Product\Renderer\Configurable</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Template" as="default"/>
+                </block>
+                <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="category.product.addto" as="addto">
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                           name="category.product.addto.compare" as="compare"
+                           template="Magento_Catalog::product/list/addto/compare.phtml"/>
+                </block>
+                <block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+                    <!-- this is pagination code -->
+                    <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+                </block>
+                <action method="setToolbarBlockName">
+                    <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                </action>
+            </block>
+            <block class="Mageplaza\ProductFinder\Block\Promoted" name="promoted.products.list" as="promoted.list" template="Mageplaza_ProductFinder::promoted.phtml" ifconfig="mpproductfinder/general/show_promoted"/>
+        </referenceContainer>
+        <referenceContainer name="content.top">
+            <block class="Mageplaza\ProductFinder\Block\Finder" name="mpproductfinder.top.container" template="Mageplaza_ProductFinder::finder.phtml" ifconfig="mpproductfinder/general/enabled">
+                <arguments>
+                    <argument name="position" xsi:type="string">top</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content.bottom">
+            <block class="Mageplaza\ProductFinder\Block\Finder" name="mpproductfinder.bottom.container" template="Mageplaza_ProductFinder::finder.phtml" ifconfig="mpproductfinder/general/enabled">
+                <arguments>
+                    <argument name="position" xsi:type="string">bottom</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="Mageplaza\ProductFinder\Block\Navigation\FinderNavigation" name="catalog.leftnav">
+                <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalog.navigation.state" as="state" />
+                <block class="Mageplaza\ProductFinder\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer" as="renderer"/>
+            </block>
+            <block class="Mageplaza\ProductFinder\Block\Finder" name="mpproductfinder.sidebar.main" before="-" template="Mageplaza_ProductFinder::finder.phtml" ifconfig="mpproductfinder/general/enabled">
+                <arguments>
+                    <argument name="position" xsi:type="string">sidebar</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <move element="catalog.leftnav" destination="sidebar.main" after="mpproductfinder.sidebar.main"/>
+    </body>
+</page>

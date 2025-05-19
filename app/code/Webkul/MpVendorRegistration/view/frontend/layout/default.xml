@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="footer_links">
+            <block class="Webkul\MpVendorRegistration\Block\Seller\RegisterLink" name="seller-register-link-footer" ifconfig="vendor_registration_section/vendor_registration/visible_registration">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Vendor Registration</argument>
+                    <argument name="path" xsi:type="string">vendorregistration/seller/register</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

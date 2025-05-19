@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="product_units_and_quantities" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Product Units and Quantities</label>
+            <tab>aitoc_extensions</tab>
+            <resource>Aitoc_ProductUnitsAndQuantities::config</resource>
+            <group id="general_settings" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General Settings</label>
+                <field id="replace_qty" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Replace QTY input with</label>
+                    <source_model>Aitoc\ProductUnitsAndQuantities\Model\Config\Source\ReplaceQtyOptionSourceWithoutOn</source_model>
+                </field>
+
+                <field id="is_qty_decimal" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Qty Uses Decimals</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="replace_qty" negative="1">0</field>
+                    </depends>
+                    <comment>Does not apply to bundle products.</comment>
+                </field>
+
+                <field id="qty_type" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>QTY Field Value</label>
+                    <source_model>Aitoc\ProductUnitsAndQuantities\Model\Config\Source\QtyTypeOptionSource</source_model>
+                    <depends>
+                        <field id="replace_qty" negative="1">0</field>
+                    </depends>
+                </field>
+                <field id="use_quantities" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Use quantities</label>
+                    <validate>validate-use-quantities</validate>
+                    <backend_model>Aitoc\ProductUnitsAndQuantities\Model\Config\Backend\UseQuantities</backend_model>
+                    <comment><![CDATA[For example: '1,2,5,7,10']]></comment>
+                    <depends>
+                        <field id="replace_qty" negative="1">0</field>
+                        <field id="qty_type">0</field>
+                    </depends>
+                </field>
+
+                <field id="start_qty" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Minimum Qty Allowed in Shopping Cart</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                    <backend_model>Aitoc\ProductUnitsAndQuantities\Model\Config\Backend\StartQty</backend_model>
+                    <depends>
+                        <field id="replace_qty" negative="1">0</field>
+                        <field id="qty_type">1</field>
+                    </depends>
+                </field>
+
+                <field id="qty_increment" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Qty Increment</label>
+                    <validate>validate-number validate-greater-than-zero qty-max-steps-count</validate>
+                    <backend_model>Aitoc\ProductUnitsAndQuantities\Model\Config\Backend\QtyIncrement</backend_model>
+                    <depends>
+                        <field id="replace_qty" negative="1">0</field>
+                        <field id="qty_type">1</field>
+                    </depends>
+                </field>
+
+                <field id="end_qty" translate="label" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Maximum Qty Allowed in Shopping Cart</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="replace_qty" negative="1">0</field>
+                        <field id="qty_type">1</field>
+                    </depends>
+                </field>
+
+                <field id="allow_units" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Allow units</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="price_per_divider" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>"Price per" divider</label>
+                    <comment><![CDATA[Per; /]]></comment>
+                    <depends>
+                        <field id="allow_units">1</field>
+                    </depends>
+                </field>
+
+                <field id="price_per" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Price per</label>
+                    <depends>
+                        <field id="allow_units">1</field>
+                    </depends>
+                </field>
+
+            </group>
+        </section>
+        <section id="cataloginventory" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="item_options" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="max_sale_qty" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <frontend_model>Aitoc\ProductUnitsAndQuantities\Block\System\Config\Form\Field\MaxSaleQty</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

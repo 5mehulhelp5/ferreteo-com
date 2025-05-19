@@ -1,0 +1,15 @@
+<!-- /**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */ -->
+ <?php
+$helper = $this->helper('Webkul\Marketplace\Helper\Data');
+$partner = $block->getProfileDetail();
+$shopUrl = $block->escapeHtml($partner['shop_url']);
+ ?>
+<div class="wk-mp-seller-profile-box wk-mp-badges-order-count-container wk-mp-collection-header-bottom-txt">
+    <a class="mp-badge" href="<?php echo $block->getUrl('mpsellerbadge/badge/index',['shop' => $shopUrl]) ?>#badge-block"><?php echo __('Badge(s)') ?></a>
+</div>

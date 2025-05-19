@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Pricing\Render\PriceBox">
+        <plugin name="AitocPuqRenderPriceBoxPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Framework\Pricing\Render\PriceBoxPlugin" sortOrder="5"/>
+    </type>
+
+    <type name="Magento\Checkout\Block\Cart\Item\Renderer">
+        <plugin name="AitocRenderCartPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Block\RenderCartPlugin" sortOrder="5"/>
+    </type>
+
+    <type name="Magento\Weee\Block\Item\Price\Renderer">
+        <plugin name="RenderOrderItemPricePlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Block\RenderOrderItemPricePlugin" sortOrder="5"/>
+    </type>
+
+    <type name="Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Cart">
+        <plugin name="RenderWishListPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Block\RenderWishListPlugin" sortOrder="5"/>
+    </type>
+
+    <type name="Magento\Wishlist\Model\Wishlist">
+        <plugin name="ModelWishListPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Wishlist\Model\WishlistPlugin"/>
+    </type>
+
+    <type name="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option">
+        <plugin name="AitocPuqBundleOptionPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Bundle\Block\Catalog\Product\View\Type\Bundle\OptionPlugin" sortOrder="5"/>
+    </type>
+
+    <type name="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle">
+        <plugin name="AitocPuqBundlePlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Bundle\Block\Catalog\Product\View\Type\BundlePlugin" sortOrder="5"/>
+    </type>
+
+    <type name="Magento\Checkout\CustomerData\ItemPool">
+        <plugin name="AitocPuqItemPoolPlugin" type="Aitoc\ProductUnitsAndQuantities\Plugin\Checkout\CustomerData\ItemPoolPlugin" sortOrder="5"/>
+    </type>
+
+    <preference
+        for="Magento\Checkout\Controller\Sidebar\UpdateItemQty"
+        type="Aitoc\ProductUnitsAndQuantities\Controller\Checkout\Sidebar\UpdateItemQty" />
+
+    <!-- @see https://github.com/magento/magento2/issues/10660#issuecomment-340894184 -->
+    <type name="Magento\Customer\Block\SectionConfig">
+        <arguments>
+            <argument name="clientSideSections" xsi:type="array">
+                <item name="cart-data" xsi:type="string">cart-data</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

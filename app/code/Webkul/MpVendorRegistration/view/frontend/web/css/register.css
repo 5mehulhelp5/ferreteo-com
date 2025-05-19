@@ -1,0 +1,429 @@
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+.wk-display-none {
+    display: none !important;
+}
+.page-title-wrapper {
+    display: none !important;
+}
+.wk-vendor-account-container * {
+    box-sizing: border-box !important;
+}
+.wk-vendor-account-container {
+    width: 100%;
+    text-align: center;
+}
+.wk-loading-mask {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.62);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.wk-loader {
+    background: url("../images/gear-loader.gif") repeat scroll 0 0
+        rgba(0, 0, 0, 0);
+    height: 64px;
+    left: 50%;
+    margin-left: -32px;
+    margin-top: -32px;
+    position: absolute;
+    top: 50%;
+    width: 64px;
+}
+.wkvr-nav {
+    border-bottom: 1px solid #e3e3e3;
+    margin-bottom: 3rem;
+    padding: 2.2rem 0 0 0;
+    -webkit-box-shadow: 0 10px 10px -6px #e3e3e3;
+    -moz-box-shadow: 0 10px 10px -6px #e3e3e3;
+    box-shadow: 0 10px 10px -6px #e3e3e3;
+}
+.nav-bar {
+    counter-reset: i;
+    float: left;
+    padding: 0;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+}
+.wkvr-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav.wkvr-nav:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.nav-bar:before {
+    background-color: #d4d4d4;
+    content: "";
+    height: 5px;
+    position: absolute;
+    top: 1rem;
+    margin-right: -10px;
+}
+.nav-bar > li {
+    display: inline-block;
+    font-size: 0;
+    position: relative;
+    vertical-align: top;
+}
+.nav-bar > li.active a,
+.nav-bar > li.ui-state-active a {
+    color: #000;
+}
+a.white-space-pre-line {
+    white-space: pre-line;
+}
+.nav-bar a {
+    color: #514943;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    overflow: hidden;
+    padding: 3rem 0.5em 0;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+.nav-bar > li.disabled:before,
+.nav-bar > li.ui-state-disabled:before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+.nav-bar a:before {
+    border: 5px solid #A5A9D2;
+    border-radius: 100%;
+    content: "";
+    height: 15px;
+    line-height: 1;
+    position: absolute;
+    top: 0px;
+    width: 15px;
+    background-color: #fff;
+    right: auto;
+    text-align: center;
+    margin-left: -10px;
+}
+.nav-bar a:after {
+    background-color: #282254;
+    border: 5px solid #282254;
+    border-radius: 100%;
+    color: #fff;
+    height: 15px;
+    line-height: 0.6;
+    margin-left: -10px;
+    position: absolute;
+    right: auto;
+    text-align: center;
+    top: 1px;
+    width: 15px;
+}
+.nav-bar > li.active a:after,
+.nav-bar > li.ui-state-active a:after {
+    background-color: #fff;
+    content: "";
+}
+.nav-bar li.active:after {
+    background-color: #282254;
+    content: "";
+    height: 5px;
+    left: calc(-50% + 0.25rem);
+    position: absolute;
+    right: calc(50% + 0.7rem);
+    top: 1rem;
+}
+ul.nav-bar li:first-child:after {
+    display: none;
+}
+#vendorregistration-component .fieldset {
+    width: 80%;
+    margin: 0 auto;
+}
+#vendorregistration-component .control {
+    width: 50%;
+}
+#vendorregistration-component .actions-toolbar {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #E6E7F5;
+}
+#vendorregistration-component .primary {
+    float: right !important;
+    padding: 10px 30px 10px 30px;
+}
+#vendorregistration-component .reverse {
+    display: inline-block;
+    padding: 10px 30px 10px 30px;
+}
+.wk-back-btn {
+    box-shadow: none !important;
+    border-radius: 0px;
+    background: #fff;
+    border: none;
+}
+button:not(.primary) {
+    box-shadow: none !important;
+}
+.wk-back-btn:focus,
+.wk-back-btn:active {
+    background: none !important;
+    border: none !important;
+    color: none !important;
+}
+.wk-back-btn:hover {
+    background: #fff !important;
+    border: none !important;
+}
+.wk-back-btn:before {
+    content: "\2190";
+    font-size: 20px;
+}
+.tab-list.done a span {
+    color: #E74F1B;
+}
+.white-space-pre-line:active {
+    text-decoration: none !important;
+    cursor: default;
+}
+.white-space-pre-line:hover {
+    text-decoration: none !important;
+    cursor: default;
+}
+.tab-list.done a:after {
+    content: "\2713" !important;
+    color: #E74F1B !important;
+    background-color: #fff !important;
+    font-size: 20px;
+}
+.available.message.success {
+    padding: 0 !important;
+}
+.available.message.success:before {
+    content: "\2714";
+    padding: 0 5px;
+}
+.available.message.error {
+    padding: 0 !important;
+}
+.available.message.error:before {
+    content: "\2715";
+    padding: 0 5px;
+}
+h2.form-label {
+    width: 50%;
+    border-bottom: 1px solid #e3e3e3;
+    -webkit-box-shadow: 0 10px 10px -6px #e3e3e3;
+    -moz-box-shadow: 0 10px 10px -6px #e3e3e3;
+    box-shadow: 0 10px 10px -6px #e3e3e3;
+    padding-bottom: 10px;
+}
+button.wk-ui-datepicker-trigger.v-middle {
+    background-image: none;
+    background: 0 0;
+    -moz-box-sizing: content-box;
+    border: 0;
+    box-shadow: none;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    text-shadow: none;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+    height: 3.2rem;
+    margin-left: 9.8rem;
+    overflow: hidden;
+    margin-top: -2px;
+    position: absolute;
+    vertical-align: top;
+    z-index: 1;
+}
+.marketplace-index-index button.wk-ui-datepicker-trigger.v-middle {
+    right: 45px;
+    margin-left: 0px !important;
+}
+button.wk-ui-datepicker-trigger.v-middle:after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 2.1rem;
+    line-height: 32px;
+    color: #514943;
+    content: "\e627";
+    font-family: "Admin Icons";
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: 400;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+button.wk-ui-datepicker-trigger.v-middle + input {
+    width: 130px;
+}
+.wk-signup-complete {
+    text-align: center;
+}
+.wk-signup-complete-logo {
+    width: 100px;
+    height: 100px;
+    background: #2bc622;
+    margin-bottom: 10px;
+    margin: auto;
+    margin-bottom: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+    font-size: 100px;
+}
+.wk-signup-complete-title {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.nested .control {
+    width: 100% !important;
+}
+@media only screen and (max-width: 767px) {
+    .wk-mp-page-header-before .header.panel {
+        padding-bottom: 20px !important;
+        padding-top: 20px !important;
+    }
+    .wk-mp-page-header-before .panel.wrapper {
+        position: relative;
+    }
+    body.page-layout-seller-2columns-left .nav-toggle {
+        display: inline-block !important;
+        top: calc((100% - 40px) / 2);
+        bottom: calc((100% - 40px) / 2);
+    }
+    body.page-layout-seller-2columns-left .nav-toggle:before {
+        color: #fff;
+    }
+    body .wk-mp-menu-wrapper {
+        display: none;
+    }
+    .nav-before-open.nav-open body .wk-mp-menu-wrapper {
+        position: fixed;
+        display: inline-block;
+        -webkit-overflow-scrolling: touch;
+        -webkit-transition: left 0.3s;
+        -moz-transition: left 0.3s;
+        -ms-transition: left 0.3s;
+        transition: left 0.3s;
+        width: calc(100% - 54px);
+    }
+    .nav-before-open body.page-layout-seller-2columns-left {
+        height: auto;
+    }
+    .nav-open .wk-mp-page-wrapper {
+        left: calc(100% - 54px);
+        position: relative;
+    }
+    .nav-before-open.nav-open body .wk-mp-menu-wrapper::before {
+        width: 100%;
+        position: relative;
+    }
+    .nav-before-open.nav-open body .wk-mp-menu .level-0.show > .wk-mp-submenu {
+        left: 0;
+        z-index: 801;
+    }
+    body .wk-mp-page-wrapper {
+        width: 100%;
+    }
+    body .wk-mp-page-header-hgroup {
+        float: left;
+        width: 44%;
+    }
+    body .wk-mp-page-header-actions {
+        float: left;
+        width: 56%;
+    }
+    .wk-vendor-continer {
+        display: inline-block;
+        width: 85%;
+        text-align: left;
+        position: relative;
+    }
+}
+@media only screen and (min-width: 768px) {
+    /* body .wk-mp-page-wrapper {
+        width: calc(100% - 200px);
+    } */
+    .wk-vendor-continer {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        position: relative;
+    }
+    .nav-sections {
+        margin-bottom: 0px !important;
+    }
+}
+.wk-mp-profile-icon-fb {
+    color: #3b5998;
+}
+.wk-mp-profile-icon-instagram {
+    color: #bc2a8d;
+}
+.wk-mp-profile-icon-tw {
+    color: #00aced;
+}
+.wk-mp-profile-icon-gplus {
+    color: #dd4b39;
+}
+.wk-mp-profile-icon-vimeo {
+    color: #19b7ea;
+}
+.wk-mp-profile-icon-youtube {
+    color: #bb0000;
+}
+.wk-mp-profile-icon-pinterest {
+    color: #cb2027;
+}
+.wk-mp-seller-profile-box.wk-mp-profile-icon-wrapper {
+    float: left;
+}
+.wk-mp-landingpage-layout3 .wk-list-container .wk-list-container {
+    width: 50% !important;
+}
+@media (max-width: 725px) {
+    body .wk-mp-landingpage .wk-list-container {
+        width: 100% !important;
+    }
+}
+@media (min-width: 725px) {
+    .wk-mp-landingpage.wk-mp-landingpage-layout3 .wk-list-container {
+        padding: 1%;
+        float: left;
+        width: 35%;
+    }
+}
+@media (max-width: 725px) {
+#vendorregistration-component .primary {
+    float: right !important;
+    padding: 10px 7px 10px 7px;
+}
+}
+

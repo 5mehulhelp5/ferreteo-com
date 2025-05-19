@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Webkul_MpSellerBadge::sellerbadge_menu" title="Seller Badge" module="Webkul_MpSellerBadge" sortOrder="99" resource="Webkul_MpSellerBadge::sellerbadge_menu" parent="Webkul_Marketplace::marketplace"/>
+
+        <add id="Webkul_MpSellerBadge::m_badge" title="Manage Badges" module="Webkul_MpSellerBadge" sortOrder="1" parent="Webkul_MpSellerBadge::sellerbadge_menu" action="mpsellerbadge/badges/index" resource="Webkul_MpSellerBadge::m_badge"/>
+
+        <add id="Webkul_MpSellerBadge::seller_badge" title="Manage Seller Badges" module="Webkul_MpSellerBadge" sortOrder="1" parent="Webkul_MpSellerBadge::sellerbadge_menu" action="mpsellerbadge/managebadges/index" resource="Webkul_MpSellerBadge::seller_badge"/>
+    </menu>
+</config>

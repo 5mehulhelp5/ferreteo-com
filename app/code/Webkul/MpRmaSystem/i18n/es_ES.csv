@@ -1,0 +1,190 @@
+Save Reason,Guardar Motivo
+Edit Reason '%',Editar Motivo '%'
+New Reason,Nueva Motivo
+Reason,Motivo
+About Reason,Acerca del Motivo
+Status,Estatus
+Enabled,Habilitado
+Disabled,Deshabilitado
+Sender Type,Tipo de Remitente
+Message,Mensaje
+Date,Fecha
+Information,Information
+RMA Information,Información de la Devolución
+Product Id,Id del Producto
+SKU,Código de Producto
+Product Name,Nombre del Producto
+Qty,Cantidad
+RMA Details,Detalles de la Devolución
+Conversation,Conversación
+Product Details,Detalle del Producto
+RMA Panel,RMA Panel
+Marketplace RMA,Devoluciones del Marketplace
+Reasons,Motivos
+Manage Reasons,Administrar Motivos
+Selected Reason(s) deleted successfully,Los motivos seleccionados se eliminaron correctamente
+Reason edited successfully.,Motivo editado satisfactoriamente.
+Reason saved successfully.,Motivo guardado satisfactoriamente.
+Details,Detalles
+All RMA,Todas las Devoluciones
+Customer not exists,Cliente no existe
+Message sent,Mensaje enviado
+You have enter wrong amount format,Usted introdujo un monto con el formato equivocado
+RMA,Devoluciones
+Invalid Request,Solicitud Inválida
+RMA request canceled.,Solicitud de Devolución cancelada.
+Something went wrong.,Algo salió mal.
+There is some problem in generating RMA.,Hay algún problema al generar la Devolución.
+Quantity not allowed for RMA.,Cantidad no permitida para Devolución.
+Error in image uploading.,Error al cargar imagen.
+New RMA request generated.,Solicitud de Nueva Devolución generada.
+New RMA,Nueva Devolución
+View RMA,Ver Devolución
+Guest All RMA,Visitantes Todas las Devoluciones
+Guest Login,Inisio de Sesión de Visitante
+Invalid details for guest.,Detalles inválidos del visitante.
+Refund,Reembolsar
+Replace,Reemplazar
+Cancel Items,Cancelar Productos
+Total must be positive.,Total debe ser positivo.
+Cannot create online refund.,No se puede crear un reembolso en línea.
+Credit memo generated successfully.,Nota de Crédito generada con éxito.
+Unable to save credit memo right now.,No se puede guardar la Nota de Crédito en este momento.
+RMA is canceled by Customer.,La Devolución ha sido cancelada por el Cliente.
+RMA is declined by Admin.,La Devolución ha sido declinada por el Administrador.
+RMA is declined by Seller.,La Devolución ha sido declinada por el Vendedor.
+RMA is Solved.,Devolución está resuelta.
+New RMA is requested by customer.,Una Nueva Devolución ha sido solicitada por un cliente.
+New RMA is requested by guest.,Una Nueva Devolución ha sido solicitada por un visitante.
+You requested new RMA.,Usted solicitó una Devolución.
+RMA status is updated.,El estatus de la Devolución está actualizado.
+Seller sent message on RMA #%1,Vendedor envio un mensaje sobre Devolución #%1
+Customer sent message on RMA #%1,Cliente envio un mensaje sobre Devolución #%1
+Guest sent message on RMA #%1,Visitante envio un mensaje sobre Devolución #%1
+Admin sent message on RMA #%1,Administrador envio un mensaje sobre Devolución #%1
+Guest,Visitante
+You have no requested RMA.,No ha solicitado Devoluciones.
+You didn't request any RMA.,No solicitaste ninguna Devolución.
+No RMA found.,Devolución No Encontrada.
+Not Delivered,No Enviado
+Delivered,Enviado
+Not Applicable,No Aplica
+Pending,Pendiente
+Processing,EN Proceso
+Solved,Resuelto
+Declined,Declinada
+Canceled,Cancelada
+Item Canceled,Producto Cancelando
+Admin,Administrador
+Seller,Vendedor
+Customer,Cliente
+View Customer,Ver Cliente
+View,Ver
+Edit,Editar
+Order Id,Id del Pedido
+RMA Status,Estatus de la Devolución
+Seller Status,Seller Status
+Order Status,Estatus del Pedido
+Consignment Number,Número de Envío
+Resolution Type,Tipo de Resolución
+Additional Information,Información Adicional
+Refund Details,Detalles del Eeembolso
+Refundable Amount,Monto Reembolsable
+Refunded Amount,Monto Reembolsado
+Images,Imágenes
+Change RMA Status,Cambiar Estatus de Devolución
+Save,Guardar
+Refund Amount,Monto Reembolsado
+Payment Type,Método de Pago
+Full Amount,Monto Completo
+Partial Amount,Monto Parcial
+Total Refundable Amount,Monto Total Reembolsable
+Refund Offline,Reembolso Offline
+Send Message,Enviar Mensaje
+Enter Message,Introducir Mensaje
+Partial amount can not be more then %1,Monto Parcial no puede ser más de %1
+Warning,Advertencia
+Confirmation,Confirmación
+Do you want to cancel RMA ?,¿Deseas cancelar la Devolución ?
+Request New RMA,Solicitar Nueva Devolución
+RMA History,Historial de Devoluciones
+RMA Id,Id Devolución
+Order #,Pedido #
+From,Desde
+To,Hasta
+Apply Filter,Aplicar Filtro
+Cancel,Cancelar
+Select Reason,Seleccione Motivo
+"Invalid Image Format. jpeg, jpg, gif, png are accepted","Formato de Imagen Inválido. jpeg, jpg, gif, png son permitidos"
+Enter Consignment Number,Ingrese el Número de Envío
+Please select item,Por Favor selecciona el producto
+Image(s) are not selected,La(s) imagen(es) no ha(n) sido seleccionada(s)
+No Order Selected,No ha Seleccionado Pedido
+No Seller Selected,No ha Seleccionado Vendedor
+No Resolution Selected,No ha Seleccionado Resolución
+Items not available for RMA,Productos no disponible para ser Devuelto
+Select Quantity,Seleccionar Cantidad
+Select Seller,Seleccionar Vendedor
+Quantity not available,Cantidad no disponible
+Orders,Pedidos
+Select Order,Seleccione Pedido
+Items Ordered,Productos Pedidos
+Product,Producto
+Sku,Código del Producto
+Price,Precio Unitario
+Quantity,Cantidad
+Add Images,Agregar Imágenes
+Submit Request,Procesar Devolución
+Close RMA,Cerrar Devolución
+Please Agree To Mark it as solved.,Por Favor acepte marcarlo como resuelto.
+Item(s) Requested for RMA,Productos solicitado para Devolución
+Conversations,Conversaciones
+Administrator,Administrator
+Return Qty,Cantidad Devuelta
+Email,Correo Electrónico
+Login,Iniciar Sesión
+Requested RMA,Devolución Solicitada
+Hello,Hola
+RMA Id :,Devolución Id:
+Order Id :,Pedido Id:
+Order Status :,Estatus del Pedido:
+Resolution Type :,Tipo de Resolución:
+Additional Information :,Información Adicional:
+Thank you,Muchas Garcias!
+Message :,Mensaje:
+Seller Status :,Estatus del Vendedor:
+RMA Status :,Estatus de Devolución:
+Select Resolution,Seleccione Resolución
+Webkul,Webkul
+Marketplace RMA System,Sistema de Devoluciones del Marketplace
+General Settings,Configuración General
+Enable Notification to Admin,Habilitar Notificación al Administrador
+Default Allowed Days,Días Permitidos Predeterminados
+Admin Email Id,Id Correo Electrónico del Administrador
+Order Ref,Ref. Pedido
+Customer Name,Nombre del Cliente
+Status (Seller),Estatus (Vendedor)
+Action,Acción
+Add New Reason,Agregar Nuevo Mótivo
+Delete,Eliminar
+Do you want to delete selected entries?,¿Deseas eliminar las entradas seleccionadas?
+ID,ID
+Id,Id
+Sender,Remitente
+Time,Hora
+RMA Returns,Devoluciones RMA
+Customer RMA Panel,Administración de Devoluciones
+New RMA Request,Solicitud de Nueva Devolución
+Guest RMA Panel,Panel de Devoluciones de Visitante
+Guest Login Panel,Panel Inicio de Sesión de Visitante
+RMA System,Sistema de Devoluciones
+Manage RMA,Administrar Devoluciones
+Manage RMA Reasons,Administrar Motivo de Devoluciones
+Order's Status,Estatus de Pedidos
+Return to Stock,Regresar al Inventario
+Received Package,Paquete Recibido
+Not Receive Package yet,Paquete No Recibido
+Add Image,Agregar Imágen
+Delete Showcase,Eliminar
+Back,Regresar
+Print RMA,Imprimir Devolución

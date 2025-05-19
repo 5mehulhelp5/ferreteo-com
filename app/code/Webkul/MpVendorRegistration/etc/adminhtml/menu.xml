@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+        <add id="Webkul_MpVendorRegistration::menu" title="Vendor Registration Manager" translate="title" module="Webkul_MpVendorRegistration" sortOrder="30" parent="Webkul_Marketplace::marketplace" resource="Webkul_MpVendorRegistration::menu" dependsOnConfig="vendor_registration_section/vendor_registration/visible_registration"/>
+        <add id="Webkul_MpVendorRegistration::group" title="Vendor Registration Group" translate="title" module="Webkul_MpVendorRegistration" sortOrder="30" parent="Webkul_MpVendorRegistration::menu" action="vendorregistration/group" resource="Webkul_MpVendorRegistration::group" dependsOnConfig="vendor_registration_section/vendor_registration/visible_registration"/>
+		<add id="Webkul_MpVendorRegistration::attribute" title="Vendor Registration Attribute" translate="title" module="Webkul_MpVendorRegistration" sortOrder="30" parent="Webkul_MpVendorRegistration::menu" action="vendorregistration/attribute" resource="Webkul_MpVendorRegistration::attribute" dependsOnConfig="vendor_registration_section/vendor_registration/visible_registration"/>
+	</menu>
+</config>

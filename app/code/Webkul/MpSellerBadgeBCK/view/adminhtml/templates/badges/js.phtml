@@ -1,0 +1,24 @@
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<?php
+	$allowedExtensions = ['gif','png','jpg','jpeg'];
+	$fields = [
+		'deleteImageSelector'		=>	'.delete-image',
+		'badgesSelector'			=>	'#bades_badge_image_url',
+		'allowedExtension'			=>	json_encode($allowedExtensions)
+	];
+	$serializedData = $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($fields);
+?>
+<script type="text/x-magento-init">
+    {
+        "*":{
+            "formBadgeWidget":<?php echo $serializedData ?>
+        }
+    }
+</script>

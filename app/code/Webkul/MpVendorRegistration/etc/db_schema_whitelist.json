@@ -1,0 +1,44 @@
+{
+    "mp_vendor_registration_group": {
+        "column": {
+            "entity_id": true,
+            "group_name": true,
+            "sort_order": true,
+            "group_status": true,
+            "group_by_admin": true,
+            "show_in_frontend": true,
+            "group_code": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mp_vendor_registration_attribute": {
+        "column": {
+            "entity_id": true,
+            "group_id": true,
+            "attribute_code": true,
+            "attribute_label": true,
+            "attribute_id": true,
+            "has_parent": true,
+            "sort_order": true,
+            "attribute_status": true,
+            "is_required": true,
+            "attribute_by_admin": true,
+            "show_in_front": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mp_vendor_registration_assign_group": {
+        "column": {
+            "entity_id": true,
+            "attribute_id": true,
+            "group_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

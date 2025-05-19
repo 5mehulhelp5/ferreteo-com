@@ -1,0 +1,186 @@
+"Save and Continue Edit","Save and Continue Edit"
+"Save Attribute","Save Attribute"
+"Delete Attribute","Delete Attribute"
+"Edit Vendor Attribute ""%1""","Edit Vendor Attribute ""%1"""
+"New Vendor Attribute","New Vendor Attribute"
+"Attribute Properties","Attribute Properties"
+"Default Label","Default Label"
+"Attribute Code","Attribute Code"
+"Make sure you don't use spaces or more than 25 characters.","Make sure you don't use spaces or more than 25 characters."
+"Frontend Input Type","Frontend Input Type"
+"Values Required","Values Required"
+"Input Validation","Input Validation"
+"Input Field Sort Order","Input Field Sort Order"
+"Assign Group","Assign Group"
+"Media Image","Media Image"
+File,File
+"Attribute Information","Attribute Information"
+Properties,Properties
+"Manage Labels","Manage Labels"
+"Vendor Attribute Fields","Vendor Attribute Fields"
+"Vendor Information","Vendor Information"
+"Allowed image types:","Allowed image types:"
+"Allowed file types:","Allowed file types:"
+Download,Download
+"Save Group","Save Group"
+"Vendor Group Information","Vendor Group Information"
+"Group Information","Group Information"
+"Group Name","Group Name"
+"Sort Order","Sort Order"
+Status,Status
+Enabled,Enabled
+Disabled,Disabled
+"Group Details","Group Details"
+"Attribute Group Information","Attribute Group Information"
+"Congratulations! Your seller account is created.","Congratulations! Your seller account is created."
+"Your request to become seller is successfully raised.","Your request to become seller is successfully raised."
+"Please confirm that you want to become seller.","Please confirm that you want to become seller."
+"Shop URL already exist please set another.","Shop URL already exist please set another."
+"A total of %1 record(s) have been enabled for Seller profile.","A total of %1 record(s) have been enabled for Seller profile."
+Vendorattribute,Vendorattribute
+"Manage Vendor Attribute","Manage Vendor Attribute"
+"This attribute no longer exists.","This attribute no longer exists."
+"This attribute cannot be edited.","This attribute cannot be edited."
+"Edit Vendor Attribute","Edit Vendor Attribute"
+"New Attribute","New Attribute"
+"A total of %1 record(s) have been disabled for Seller Profile.","A total of %1 record(s) have been disabled for Seller Profile."
+"Manage Vendor Registration Attribute","Manage Vendor Registration Attribute"
+"A total of %1 record(s) have been assigned.","A total of %1 record(s) have been assigned."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) Status have been Disabled.","A total of %1 record(s) Status have been Disabled."
+"A total of %1 record(s) Status have been Enabled.","A total of %1 record(s) Status have been Enabled."
+"You saved the vendor attribute.","You saved the vendor attribute."
+"Attribute name ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field,
+                     first character should be a letter.","Attribute name ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field,
+                     first character should be a letter."
+"The attribute ID already exists.","The attribute ID already exists."
+"An attribute with this code already exists.","An attribute with this code already exists."
+"An attribute with the same code (%1) already exists.","An attribute with the same code (%1) already exists."
+Vendorgroup,Vendorgroup
+"Manage Vendor Group","Manage Vendor Group"
+"This group no longer exists.","This group no longer exists."
+"Edit Vendor Group","Edit Vendor Group"
+"New Vendor Group","New Vendor Group"
+"New Group","New Group"
+"Manage Vendor Registration Group","Manage Vendor Registration Group"
+"A total of %1 record(s) cannot be removed.","A total of %1 record(s) cannot be removed."
+"A total of %1 record(s) have been removed.","A total of %1 record(s) have been removed."
+"A total of %1 record(s) cannot be disabled.","A total of %1 record(s) cannot be disabled."
+"A total of %1 record(s) have been Saved.","A total of %1 record(s) have been Saved."
+"You cannot disable Admin created group","You cannot disable Admin created group"
+"You saved this group","You saved this group"
+"Something went wrong while saving the reason.","Something went wrong while saving the reason."
+"The group already exists.","The group already exists."
+"Invalid request.","Invalid request."
+"Incorrect CAPTCHA","Incorrect CAPTCHA"
+"You must confirm your account. Please check your email for the confirmation
+                         link or <a href=""%1"">click here</a> for a new link.","You must confirm your account. Please check your email for the confirmation
+                         link or <a href=""%1"">click here</a> for a new link."
+"You must confirm your account. Please check your email for the 
+                    confirmation link or <a href=""%1"">click here</a> for a new link.","You must confirm your account. Please check your email for the 
+                    confirmation link or <a href=""%1"">click here</a> for a new link."
+"There is already an account with this email address. 
+                If you are sure that it is your email address, <a href=""%1"">click here</a> to 
+                get your password and access your account.","There is already an account with this email address. 
+                If you are sure that it is your email address, <a href=""%1"">click here</a> to 
+                get your password and access your account."
+"Vendor Required Attributes can't be Empty.","Vendor Required Attributes can't be Empty."
+"Vendor Attributes has been saved.","Vendor Attributes has been saved."
+"File type not allowed","File type not allowed"
+"File Uploaded Successfully","File Uploaded Successfully"
+"Error Occured","Error Occured"
+"Enter Valid Email","Enter Valid Email"
+"Email id is already exist.","Email id is already exist."
+Available,Available
+"GDPR Agreement","GDPR Agreement"
+Yes,Yes
+No,No
+"Invalid date","Invalid date"
+Enable,Enable
+Disable,Disable
+Edit,Edit
+"Vendor Attributes are not assigned to the Vendor.","Vendor Attributes are not assigned to the Vendor."
+"As WYSWYG Editor","As WYSWYG Editor"
+"Manage Titles (Size, Color, etc.)","Manage Titles (Size, Color, etc.)"
+"Manage Options (Values of Your Attribute)","Manage Options (Values of Your Attribute)"
+"Add Option","Add Option"
+"Sort Option","Sort Option"
+Delete,Delete
+"The value of Admin must be unique.","The value of Admin must be unique."
+"Additional Information","Additional Information"
+"Save Attributes","Save Attributes"
+"Preview Image","Preview Image"
+"Delete Image","Delete Image"
+"Allowed Extensions are : ","Allowed Extensions are : "
+"Delete File","Delete File"
+"Seller Request Panel","Seller Request Panel"
+"Waiting for approval from admin","Waiting for approval from admin"
+Cancel,Cancel
+Save,Save
+"Shop URL","Shop URL"
+"Please enter shop URL","Please enter shop URL"
+"Do you want to become a seller / vendor ?","Do you want to become a seller / vendor ?"
+Back,Back
+"Congratulations! Shop name is available.","Congratulations! Shop name is available."
+"Sorry! But this shop name is not available, please set another shop name.","Sorry! But this shop name is not available, please set another shop name."
+Company,Company
+"Phone Number","Phone Number"
+Fax,Fax
+"Street Address","Street Address"
+City,City
+State/Province,State/Province
+"Zip/Postal Code","Zip/Postal Code"
+Country,Country
+facebook.com/,facebook.com/
+instagram.com/,instagram.com/
+twitter.com/,twitter.com/
+plus.google.com/,plus.google.com/
+vimeo.com/,vimeo.com/
+youtube.com/,youtube.com/
+pinterest.com/,pinterest.com/
+"Voila! Account Created!","Voila! Account Created!"
+"(This will be used to display your public profile)","(This will be used to display your public profile)"
+"Allowed extensions: ","Allowed extensions: "
+Password,Password
+"Confirm Password","Confirm Password"
+Next,Next
+Proceed,Proceed
+"There was error during verifying seller shop data","There was error during verifying seller shop data"
+Available.,Available.
+"There was error during verifying email","There was error during verifying email"
+"You have successfully registered as a Seller with us <a href=""","You have successfully registered as a Seller with us <a href="""
+done,done
+"Create Account","Create Account"
+"Marketplace Multi-Step Registration Section","Marketplace Multi-Step Registration Section"
+"Vendor Registration Manager","Vendor Registration Manager"
+"Vendor Registration Group","Vendor Registration Group"
+"Vendor Registration Attribute","Vendor Registration Attribute"
+Webkul,Webkul
+"Multi Step Vendor Registration","Multi Step Vendor Registration"
+"Vendor Registration Settings","Vendor Registration Settings"
+"Show Address fields","Show Address fields"
+"Show Payment field","Show Payment field"
+"Show Social fields","Show Social fields"
+"Enable Fields","Enable Fields"
+"Required Fields","Required Fields"
+"Allowed Image Extension","Allowed Image Extension"
+"Enter File type seperated by comma(,) like jpeg,jpg,png,gif","Enter File type seperated by comma(,) like jpeg,jpg,png,gif"
+"Allowed File Extension","Allowed File Extension"
+"Enter File type seperated by comma(,) like pdf,zip,doc","Enter File type seperated by comma(,) like pdf,zip,doc"
+"Are you sure to assign selected Attribute to Group?","Are you sure to assign selected Attribute to Group?"
+"Add Attribute","Add Attribute"
+"Are you sure you want to delete?","Are you sure you want to delete?"
+"Manage Display Fields","Manage Display Fields"
+"Display on Seller Profile","Display on Seller Profile"
+"Hide From Seller Profile","Hide From Seller Profile"
+"Attribute Status","Attribute Status"
+20,20
+30,30
+50,50
+ID,ID
+"Attribute Id","Attribute Id"
+"Attribute Label","Attribute Label"
+"Show in Seller Profile","Show in Seller Profile"
+"Add New Group","Add New Group"
+"Group Status","Group Status"
+"Vendor Registration","Vendor Registration"

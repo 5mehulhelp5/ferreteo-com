@@ -1,0 +1,153 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+?>
+<?php
+    $layoutName = $block->getNameInLayout();
+    $helper = $block->currentHelper();
+    $groupCollection = $helper->getGroupCollection();
+    $attributeCollection = $helper->getAttributeCollection();
+    $groupSize = $groupCollection->getSize();
+    $checkAddress = $helper->getConfigData("show_address");
+if ($checkAddress) {
+    ++$groupSize;
+}
+if ($helper->getMpGdprConfig('settings/active')) {
+    $groupSize++;
+
+    $agreementData = [
+        'mode' => 1,
+        'agreementId' => 'mpgdpr',
+        'checkboxText' => $helper->getMpGdprConfig('customer/checkbox_text'),
+        'content' => $helper->getMpGdprConfig('customer/content')
+    ];
+    $agreementJson = $block->getJsonHelper->jsonEncode([$agreementData]);
+}
+    $allData = $helper->getAllData();
+    $_company = $block->getLayout()->createBlock(\Magento\Customer\Block\Widget\Company::class);
+    $company = $_company->isEnabled()?$_company->isEnabled():0;
+    $companyRequired = $_company->isRequired();
+    $_telephone = $block->getLayout()->createBlock(\Magento\Customer\Block\Widget\Telephone::class);
+    $telephone = $_telephone->isEnabled()?$_telephone->isEnabled():0;
+    $telephoneRequired = $_telephone->isRequired();
+    $_fax = $block->getLayout()->createBlock(\Magento\Customer\Block\Widget\Fax::class);
+    $fax = $_fax->isEnabled()?$_fax->isEnabled():0;
+    $faxRequired = $_fax->isRequired();
+    $streetLines = $block->getAddressHelper()->getStreetLines();
+    $_streetValidationClass = $block->getAddressHelper()->getAttributeValidationClass('street');
+    $_companyValidationClass = $block->getAddressHelper()->getAttributeValidationClass('company');
+    $_faxValidationClass = $block->getAddressHelper()->getAttributeValidationClass('fax');
+    $_telephoneValidationClass = $block->getAddressHelper()->getAttributeValidationClass('telephone');
+    $street = [];
+for ($i=2; $i<=$streetLines; $i++) {
+    $street[] = ['streetLines'=>$i, 'streetValidationClass'=> $_streetValidationClass];
+}
+    $minLength = $helper->getMinimumPasswordLength();
+    $requiredChar = $helper->getRequiredCharacterClassesNumber();
+?>
+<style>
+.nav-bar>li {
+    width: calc(100%/<?= $block->escapeHtml($groupSize); ?>) !important;
+}
+.nav-bar:before {
+    left: calc(100%/<?= $block->escapeHtml(2*$groupSize)  ; ?>) !important;
+    right: calc(100%/<?= $block->escapeHtml(2*$groupSize)  ; ?>) !important;
+}
+.wk-list-container-class .wk-list-container-wrapper {
+    width: 90% !important;
+}
+
+.wk-mp-banner .wk-list-container.wk-mp-header {
+    width: 48% !important;
+}
+.wk-mp-banner .wk-list-container {
+    width: 45% !important;
+}
+</style>
+<script>
+    window.vendorRegistrationConfig = <?=/* @noEscape */ \Zend_Json::encode($allData); ?>;
+    window.showAddress = '<?=/* @noEscape */ $block->canShowAddress(); ?>';
+    window.countryhtmldata = '<?=/* @noEscape */ $helper->getCountryHtmlSelect(); ?>';
+    window.addressFields = [];
+    window.addressFields.company = {'company':<?=/* @noEscape */ $company;?>,
+                                    'companyValidationClass':'<?= /* @noEscape */$_companyValidationClass;?>',
+                                    'is_required':'<?= /* @noEscape */$companyRequired;?>'};
+    window.addressFields.telephone = {'telephone':<?= /* @noEscape */$telephone;?>,
+                                      'telephoneValidationClass':'<?= /* @noEscape */$_telephoneValidationClass;?>',
+                                      'is_required':'<?= /* @noEscape */$telephoneRequired;?>'};
+    window.addressFields.fax = {'fax':<?=/* @noEscape */$fax;?>,
+                                'faxValidationClass':'<?=/* @noEscape */ $_faxValidationClass;?>',
+                                'is_required':'<?=/* @noEscape */$faxRequired;?>'};
+    window.addressFields.street = '<?=/* @noEscape */$block->getJsonHelper()->jsonEncode($street)?>';
+    window.passwordValidation = [];
+    window.passwordValidation.minLength = {'minLength':<?=/* @noEscape */$minLength?>};
+    window.passwordValidation.requiredChar = {'requiredChar':<?=/* @noEscape */$requiredChar?>};
+</script>
+<div class="wk-vendor-account-container">
+    <form method="post" autocomplete="off" action="<?= $block->escapeUrl(
+        $block->getUrl('vendorregistration/seller/createPost')
+    ); ?>" 
+        id="wk_vendor_create_form" enctype="multipart/form-data" data-mage-init='{"validation":{}}'>
+        <?= $block->getBlockHtml('formkey'); ?>
+        <div class="wk-vendor-continer">
+            <div id="vendorregistration-component" data-bind="scope:'vendorregistration-form-field'" class="field">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <script type="text/x-magento-init">
+                {
+                    "#vendorregistration-component": {
+                        "Magento_Ui/js/core/app": {
+                            "components" : {
+                                "vendorregistration-form-field": {
+                                    "component":"Webkul_MpVendorRegistration/js/components/vendorregistration-group"
+                                }
+                            }
+                        }
+                    }
+                }
+                </script>
+                <?php
+                if ($helper->getMpGdprConfig('settings/active')) {
+                    ?>
+                    <script type="text/x-magento-init">
+                    {
+                        "#vendorregistration-component": {
+                            "Magento_Ui/js/core/app": {
+                                "components" : {
+                                    "customer-agreements-component-scope": {
+                                        "component": "Webkul_MpGDPR/js/agreement",
+                                        "agreements": <?= /* @noEscape */  $agreementJson; ?>,
+                                        "isVisible": true,
+                                        "consent" : <?= /* @noEscape */  $helper->getConsent(); ?>
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    </script>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+        <div id="display_captcha_hidden">
+            <div id="captch_webkul_vendor" style="display : none;"> 
+                <?= ($layoutName == "customer_form_register_layout33") ? $block
+                ->getChildHtml('form.additional.info_layout3') : $block
+                ->getChildHtml('form.additional.info');?>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+require(
+    ["jquery"],
+    function($){
+     });
+</script>

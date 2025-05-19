@@ -1,0 +1,159 @@
+<?php if ($block->enableButtons()) : ?>
+    <div id="popup-mpdal-state" style="display:none;">
+        <form method="post" id="add-state-form">
+            <div class="form-group">
+                <label for="name"><?php echo __('State:'); ?></label>
+                <input type="text" class="input" name="state_name" id="state_name">
+            </div>
+            <p id="error"></p>
+            <div class="form-group">
+                <div id="state-submit" class="btn btn-success action primary state-submit"><?php echo __('Submit'); ?></div>
+            </div>
+        </form>
+    </div>
+    <div id="popup-mpdal-city" style="display:none;">
+        <form method="post" id="add-city-form">
+            <div class="form-group">
+                <label for="name"><?php echo __('State:'); ?></label>
+                <select class="select" name="state_name_select" id="state_name_select"></select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="name"><?php echo __('City:'); ?></label>
+                <input type="text" class="input" name="city_name" id="city_name">
+            </div>
+            <p id="error"></p>
+            <div class="form-group">
+                <div id="city-submit" class="btn btn-success action primary city-submit"><?php echo __('Submit'); ?></div>
+            </div>
+        </form>
+    </div>
+    <div id="popup-mpdal-zip" style="display:none;">
+        <form method="post" id="add-zip-form">
+            <div class="form-group">
+                <label for="name"><?php echo __('State:'); ?></label>
+                <select class="select" name="state_name_select_zip" id="state_name_select_zip"></select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="name"><?php echo __('City:'); ?></label>
+                <select class="select" name="city_name_select_zip" id="city_name_select_zip"></select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="name"><?php echo __('Postal Code:'); ?></label>
+                <input type="text" class="input" name="zip" id="zip">
+            </div>
+            <p id="error"></p>
+            <div class="form-group">
+                <div id="zip-submit" class="btn btn-success action primary zip-submit"><?php echo __('Submit'); ?></div>
+            </div>
+        </form>
+    </div>
+<?php endif;?>
+    <script>// <![CDATA[
+        require([
+                "jquery",
+                "checkoutjs",
+                "Magento_Ui/js/modal/modal",
+                "mage/url",
+                "jquery/ui",
+                'mage/translate',
+                "domReady!"
+            ],
+            function($,checkoutjs,modal,url) {
+                "use strict";
+
+                $(document).ready(function($){
+                    //adding buttons
+                    function loadButtons() {
+                        $('div#shipping-new-address-form>div.state-drop-down>div.control').append("<div style='margin: 10px 0'><span class='btn btn-success action primary' id='addNewState'>'Add new State'</span></div>");
+                        $('div#shipping-new-address-form>div.city-drop-down>div.control').append("<div style='margin: 10px 0'><span class='btn btn-success action primary' id='addNewCity'>Add new City</span></div>");
+                        $('div#shipping-new-address-form>div.postcode-drop-down>div.control').append("<div style='margin: 10px 0'><span class='btn btn-success action primary' id='addNewZip'>Add new Postal Code</span></div>");
+
+                        //adding popup
+
+                        var options = {
+                            type: 'popup',
+                            responsive: true,
+                            innerScroll: true,
+                            buttons: [{
+                                text: $.mage.__('Close'),
+                                class: '',
+                                click: function () {
+                                    this.closeModal();
+                                }
+                            }]
+                        };
+                        //add New State popup
+                        var popup = modal(options, $('#popup-mpdal-state'));
+                        $("#addNewState").on('click',function(){
+                            $("#popup-mpdal-state").modal("openModal");
+                        });
+                        //add New City popup
+                        var popup2 = modal(options, $('#popup-mpdal-city'));
+                        $("#addNewCity").on('click',function(){
+                            $("#popup-mpdal-city").modal("openModal");
+                            $("#state_name_select").empty().append("<option value=''>"+$.mage.__('Load')+"...</option>");
+                            $.ajax({
+                                url: url.build('magecomp_cityandregionmanager/ajax/getstates'),
+                                type: 'post',
+                                dataType: 'json',
+                                success: function (data) {
+                                    if(data.request == 'OK') {
+                                        $("#state_name_select").empty().append( $('<option data-title="Please Select..." value="">'+$.mage.__('Please Select')+'...</option>'));
+                                        $.each(data.result, function() {
+                                            $("#state_name_select").append( $('<option data-title="'+this.states_name+'" value="'+this.states_name+'">'+this.customstate+'</option>'));
+                                        });
+                                    }else{
+                                        $("#state_name_select").empty().append( $('<option data-title="'+data.result+'" value="'+data.result+'">'+data.result+'</option>'));
+                                    }
+                                },
+                                error: function (error) {
+                                    console.log(error);
+                                }
+                            });
+                        });
+                        //add New Zip popup
+                        var popup3 = modal(options, $('#popup-mpdal-zip'));
+                        $("#addNewZip").on('click',function(){
+                            $("#popup-mpdal-zip").modal("openModal");
+                            $("#state_name_select_zip").empty().append("<option value=''>"+$.mage.__('Load')+"...</option>");
+                            $("#city_name_select_zip").empty().append("<option value=''>"+$.mage.__('Please Select')+"...</option>");
+                            $.ajax({
+                                url: url.build('magecomp_cityandregionmanager/ajax/getstates'),
+                                type: 'post',
+                                dataType: 'json',
+                                success: function (data) {
+                                    if(data.request == 'OK') {
+                                        $("#state_name_select_zip").empty().append( $('<option data-title="Please Select..." value="">'+$.mage.__('Please Select')+'...</option>'));
+                                        $.each(data.result, function() {
+                                            $("#state_name_select_zip").append( $('<option data-title="'+this.states_name+'" value="'+this.states_name+'">'+this.customstate+'</option>'));
+                                        });
+                                    }else{
+                                        $("#state_name_select_zip").empty().append( $('<option data-title="'+data.result+'" value="'+data.result+'">'+data.result+'</option>'));
+                                    }
+                                },
+                                error: function (error) {
+                                    console.log(error);
+                                }
+                            });
+                        });
+//end adding popup
+                    }
+                     window.valuesConfig = '<?php /* @escapeNotVerified */ echo $block->getZipcodeOptionalYesNo(); ?>';
+                    <?php if ($block->enableButtons()) : ?>
+                    //load custom script after load dom
+                    var search = function () {
+                        var elem = $("div.state-drop-down select.select").text();
+                        if(elem.length > 1 ){
+                            loadButtons();
+                            clearInterval(intervalID);
+                        }
+                    };
+                    var intervalID=setInterval(search,500);
+                    <?php endif;?>
+                });
+            });// ]]>
+    </script>
+

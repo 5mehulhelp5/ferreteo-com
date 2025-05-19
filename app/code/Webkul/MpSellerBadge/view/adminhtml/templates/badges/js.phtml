@@ -1,0 +1,28 @@
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<?php
+    $allowedExtensions = ['gif','png','jpg','jpeg'];
+    $warningLabel = __("Warning");
+    $imgErrorMsg = __("Invalid Image Format. jpeg, jpg, gif, png are accepted");
+    $fields = [
+        'deleteImageSelector'        =>    '.delete-image',
+        'badgesSelector'            =>    '#bades_badge_image_url',
+        'allowedExtension'            =>    json_encode($allowedExtensions),
+        'warningLabel'                =>     $warningLabel,
+        'imgErrorMsg'                =>     $imgErrorMsg
+    ];
+    $serializedData = $block->jsonEncodeData($fields);
+    ?>
+<script type="text/x-magento-init">
+    {
+        "*":{
+            "formBadgeWidget":<?= /* @noEscape */  $serializedData ?>
+        }
+    }
+</script>

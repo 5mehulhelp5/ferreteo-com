@@ -1,0 +1,243 @@
+<!--
+	/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+ -->
+<nav class="nav wkvr-nav">
+    <ul class="nav-bar" >
+        <!-- ko foreach: $data.getGroups() -->
+        <li data-bind="attr: { class: className }">
+            <a class="white-space-pre-line" data-bind="attr: {href : '#'+lower_group_name}">
+                <span data-bind="i18n: group_name"></span>
+            </a>
+        </li>
+        <!--/ko-->
+    </ul>
+</nav>
+<!-- ko if: $data.progressStatus() != true -->
+    <!-- ko if: $data.groupCode() == 'addressinfo' -->
+    <fieldset class="fieldset" style="margin-top: 1.2em">
+        <h2 data-bind="i18n: $data.groupName(), attr: {'class': 'form-label'}"></h2>
+
+        <!-- ko template: 'Webkul_MpVendorRegistration/address/form' --><!-- /ko -->
+        
+    </fieldset>
+    <!-- /ko -->
+<!-- /ko -->
+
+<!-- ko if: $data.progressStatus() != true -->
+    <!-- ko if: $data.groupCode() == 'socialgroup' -->
+    <fieldset class="fieldset" style="margin-top: 1.2em">
+        <h2 data-bind="i18n: $data.groupName(), attr: {'class': 'form-label'}"></h2>
+
+        <!-- ko template: 'Webkul_MpVendorRegistration/socialgroup/form' --><!-- /ko -->
+            
+    </fieldset>
+    <!-- /ko -->
+<!-- /ko -->
+
+<!-- ko if: $data.setSuccess() == true -->
+<fieldset class="fieldset" style="margin-top: 1.2em">
+    <div class="wk-signup-step-panel wk-signup-step-final">
+        <div class="wk-signup-complete">
+            <div class="wk-signup-complete-logo" data-bind="text: '&#10004;'">&#10004;</div>
+            <div class="wk-signup-complete-title" data-bind="i18n: 'Voila! Account Created!'"></div>
+            <div class="wk-signup-complete-msg" data-bind="html: successText"></div>
+        </div>
+    </div>
+</fieldset>
+<!-- /ko -->
+<!-- ko if: ($data.groupCode() != 'addressinfo' && $data.groupCode() != 'socialgroup') -->
+<fieldset class="fieldset" style="margin-top: 1.2em">
+
+    <!-- ko if: $data.progressStatus() != true -->
+
+        <h2 data-bind="i18n: $data.groupName(), attr: {'class': 'form-label'}"></h2>
+
+        <!-- ko if: $data.groupCode() == 'gdpr_agreement' -->
+        <div class="customer-agreements-block" style="margin-top: 1.2em" data-bind="scope : 'customer-agreements-component-scope'">
+            
+            <!-- ko template: 'Webkul_MpGDPR/agreement' --><!-- /ko -->
+
+        </div>
+        <!-- /ko -->
+
+        <!-- ko  foreach: $data.getAttributes() -->
+            <div data-bind="attr: {'class': is_required == 1?' field required':'field'}">
+            <!--ko if: $parent.frontend_input != 'boolean'-->
+
+                <!-- ko if: mvra_attribute_code == 'profileurl' -->
+                    <label class="label">
+                        <span data-bind="i18n: frontend_label"></span>
+                    </label>
+                <!-- /ko -->
+
+                <!-- ko if: mvra_attribute_code == 'payment_source' -->
+                    <label class="label">
+                        <span data-bind="i18n: frontend_label"></span>
+                    </label>
+                <!-- /ko -->
+                <!-- ko if: (mvra_attribute_code != 'profileurl' && mvra_attribute_code != 'payment_source') -->
+                    <label class="label">
+                        <span data-bind="i18n: frontend_label"></span>
+                    </label>
+                <!-- /ko -->
+            <!-- /ko -->
+                <div class="control">
+                
+                    <!-- ko if: mvra_attribute_code == 'profileurl' --> 
+                        <input type="hidden" name="is_seller" value="1">
+                        <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                                        'name': mvra_attribute_code,
+                                        'data-validate': is_required == 1?'{required: true}':'{}',
+                                        'class': 'required'
+                                            }"/>
+                        <div id="wk-load" class="no-display">
+                            <img height="16px" width="16px" data-bind="attr: {src: shop_img}" />
+                        </div>
+                        <span data-bind="i18n: '(This will be used to display your public profile)'"></span>
+                    <!-- /ko -->
+
+                    <!-- ko if: mvra_attribute_code == 'payment_source' --> 
+                        <textarea data-bind="attr: {'id': mvra_attribute_code,
+                            'name': mvra_attribute_code,
+                            'data-validate': is_required == 1?'{required: true}':'{}',
+                            'class': 'input-text required'
+                                }"
+                            cols="1" rows="3" ></textarea>
+                    <!-- /ko -->
+                    <!--ko if: frontend_input == 'email' -->    
+                    <input type="email" autocomplete="off"  data-bind="afterRender: $parent.loadJsCustomAfterKoRender,attr: {'id': mvra_attribute_code,
+                    'name': mvra_attribute_code,
+                    'class': frontend_class
+                        }"
+                    data-validate="{required:true, 'validate-email':true}" disabled />
+                   
+                        <div id="wk-load" class="no-display">                            
+                            <img height="16px" width="16px" data-bind="attr: {src: shop_img}" />
+                        </div>
+                    <!-- /ko -->
+
+                    <!--ko if: frontend_input == 'text' -->
+                    <input type="text"  data-bind="attr: {'id': mvra_attribute_code,
+                                    'name': mvra_attribute_code,
+                                    'data-validate': is_required == 1?'{required: true}':'{}',
+                                    'class': frontend_class
+                                        }"/>
+                    <!-- /ko -->
+
+                    <!--ko if: frontend_input == 'password' -->
+                    <input type="password" autocomplete="false"  data-bind="attr: {'id': mvra_attribute_code,
+                                    'name': mvra_attribute_code,
+                                    'data-validate': is_required == 1?'{required: true}':'{}',
+                                    'class': frontend_class
+                                        }"/>
+                    <input type="password" autocomplete="off" data-bind="attr: {'id': mvra_attribute_code,
+                                    'name': mvra_attribute_code,
+                                    'data-validate': is_required == 1?'{required: true}':'{}',
+                                    'class': frontend_class
+                                        }"/>
+                    <!-- /ko -->
+                    <!--ko if: frontend_input == 'textarea' -->
+                    <textarea data-bind="attr: {'id': mvra_attribute_code,
+                                                        'name': mvra_attribute_code,
+                                                        'data-validate': is_required == 1?'{required: true}':'{}',
+                                                        'class': frontend_class
+                                                            }"></textarea>
+                    <!-- /ko -->
+                    <!--ko if: frontend_input == 'select' ||  frontend_input == 'multiselect'-->
+                    <select data-bind="attr: {'id': mvra_attribute_code,
+                                                'name': frontend_input != 'multiselect'?mvra_attribute_code:mvra_attribute_code+'[]',
+                                                'data-validate': is_required == 1?'{required: true}':'{}',
+                                                'multiple': frontend_input == 'multiselect'?'multiple':false,
+                                            },
+                                        options: option_data,
+                                        optionsText: 'label',
+                                        optionsValue: 'value'
+                                        "></select>
+                    <!-- /ko -->
+                    <!--ko if: frontend_input == 'image' || frontend_input == 'file'-->
+                    <input type="file" data-bind="attr: {'id': mvra_attribute_code,
+                                                        'name': mvra_attribute_code,
+                                                        'data-validate': is_required == 1?'{required: true}':'{}',
+                                                        'class': 'custom_file',
+                                                        'data-allowed': extension,
+                                                            }"/><br>
+                    <span class="note"><span data-bind="i18n: 'Allowed extensions: '+extension"></span></span>
+                    <!-- /ko -->
+                    <!--ko if: frontend_input == 'date'-->
+                    <input type="text"  data-bind="attr: {'id': mvra_attribute_code,
+                                                        'name': mvra_attribute_code,
+                                                        'data-validate': is_required == 1?'{required: true}':'{}',
+                                                        'class': 'dob_type '+frontend_class
+                                                            }"/>
+                    <!-- /ko -->
+                    <!--ko if: frontend_input == 'boolean'-->
+                    <input type="checkbox" data-bind="attr: {'id': mvra_attribute_code,
+                                                        'name': mvra_attribute_code,
+                                                        'data-validate': is_required == 1?'{required: true}':'{}',
+                                                        'class': frontend_class,
+                                                        'onchange':'this.value = this.checked ? 1 : 0;'
+                                                            }" />
+                    <label  data-bind="attr: {
+                                'class': is_required == 1?'wklabel wkboolreq':'wklabel'
+                        }" >
+                        <span data-bind="i18n: frontend_label"></span>
+                    </label>
+                    <!-- /ko -->
+                </div>
+            </div>
+            <!--ko if: (lower_group_name == 'account_info') && (attribute_by_admin == 1) -->
+            
+            <div class="field password required">
+                <label for="login-password" class="label"><span data-bind="i18n: 'Password'"></span></label>
+                <div class="control">
+                    <input type="password" name="password" id="login-password" 
+                            data-bind="attr: {
+                                'data-password-min-character-sets':$parent.passwordValidation.requiredChar.requiredChar,
+                                'data-password-min-length':$parent.passwordValidation.minLength.minLength
+                            }"
+                            class="input-text"
+                            data-validate="{required:true, 'validate-customer-password':true}"
+                            autocomplete="off">
+                </div>
+    
+            </div>
+            <div class="field confirmation required">
+                <label for="password-confirmation" class="label"><span data-bind="i18n: 'Confirm Password'"></span></label>
+                <div class="control">
+                    <input type="password" name="password_confirmation" id="password-confirmation" class="input-text" data-validate="{required:true, equalTo:'#login-password'}" autocomplete="off">
+                </div>
+            </div>
+
+            <!-- /ko -->
+        <!-- /ko -->
+
+    <!-- /ko -->
+    <!-- ko  foreach: $data.getAttributes() -->
+        
+    <!-- /ko -->
+    <div id="vendor_captcha-data" data-bind="visible : addCaptcha">
+    </div>
+</fieldset>
+<!-- /ko -->
+
+<div class="actions-toolbar">
+    <div class="reverse">
+        <button id="back" name="back" data-bind="attr: {
+            'class': backBtnClass()}, click: formBack" type="button">
+            <span data-bind="i18n: 'Back'"></span>
+        </button>
+    </div>
+    <div class="primary">
+        <button id="proceed" name="proceed" data-bind="attr: {'class': proceedBtnClass()}, click: formProceed" type="button">
+            <span data-bind="i18n: proceedBtnText()"></span>
+        </button>
+    </div>
+</div>

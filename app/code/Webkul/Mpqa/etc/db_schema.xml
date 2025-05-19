@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="marketplace_qaquestion" resource="default" engine="innodb" comment="Webkul MPQA Question Table">
+    <column xsi:type="int" name="question_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+    <column xsi:type="int" name="buyer_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Magento Customer ID"/>
+    <column xsi:type="int" name="seller_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Marketplace Seller ID"/>
+    <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Magento Product ID"/>
+    <column xsi:type="varchar" name="subject" nullable="false" length="255" comment="subject"/>
+    <column xsi:type="mediumtext" name="content" nullable="false" comment="content"/>
+    <column xsi:type="varchar" name="qa_nickname" nullable="false" length="255" comment="Nick Name"/>
+    <column xsi:type="int" name="status" padding="10" unsigned="true" nullable="false" identity="false" comment="Status"/>
+    <column xsi:type="datetime" name="created_at" on_update="false" nullable="true" comment="Create Time"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="question_id"/>
+    </constraint>
+  </table>
+  <table name="marketplace_qaanswer" resource="default" engine="innodb" comment="MPQA Answer Table">
+    <column xsi:type="int" name="answer_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+    <column xsi:type="int" name="question_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="MPQA Question ID"/>
+    <column xsi:type="int" name="respond_from" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Magento Customer ID"/>
+    <column xsi:type="varchar" name="respond_nickname" nullable="false" length="255" comment="respond_nickname"/>
+    <column xsi:type="varchar" name="respond_type" nullable="false" length="255" comment="respond_type"/>
+    <column xsi:type="mediumtext" name="content" nullable="false" comment="content"/>
+    <column xsi:type="int" name="status" padding="10" unsigned="true" nullable="false" identity="false" comment="Status"/>
+    <column xsi:type="datetime" name="created_at" on_update="false" nullable="true" comment="Create Time"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="answer_id"/>
+    </constraint>
+  </table>
+  <table name="mp_qarespondreview" resource="default" engine="innodb" comment="MPQA Review Table">
+    <column xsi:type="int" name="review_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+    <column xsi:type="int" name="answer_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="MPQA answer ID"/>
+    <column xsi:type="int" name="review_from" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Magento Customer ID"/>
+    <column xsi:type="int" name="like_dislike" padding="10" unsigned="true" nullable="false" identity="false" comment="Status"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="review_id"/>
+    </constraint>
+  </table>
+</schema>

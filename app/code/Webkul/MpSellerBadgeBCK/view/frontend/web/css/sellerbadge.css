@@ -1,0 +1,145 @@
+.mpsellerbadge-badge-index .wk-mp-collection-header-box .wk-mp-badges-order-count-container {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-bottom: 3px solid #fff;
+    border-top: none;
+    box-sizing: content-box;
+    margin-bottom: -2px;
+}
+
+.block-badge .wk_mp_fieldset{
+    text-align:center;
+    position:relative;
+    height: 86px;
+    padding:10px 0;
+}
+.wk_mp_badge_design{
+    margin-bottom:20px;
+}
+.block-badge .wk_mp_fieldset .wkbadges{
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+.block-badge .wk_mp_fieldset .wkbadges img{
+
+     display: inline-block;
+}
+.npbuttons{
+    margin:10px 0;
+    border-top:#ccc solid 1px;
+}
+.wknextbadge,.wkprevbadge{
+    cursor:pointer;
+    display:inline-block;
+    margin:0 10px;
+    position:relative;
+    z-index: 9999999;
+    background: url("../images/controls.png") no-repeat scroll;
+    height:26px;
+    width:26px;
+}
+.nodisplay{
+    overflow: hidden;
+    width: 100px;
+    height: 122px;
+}
+.wknextbadge{
+    left: 23px;
+    top: -43px;
+     background-position: -36px 0 !important;
+}
+.wkprevbadge{
+    margin-right: 154px;
+    top: -71px;
+    background-position: -10px 0 !important;
+}
+.wknextbadge span,.wkprevbadge span{
+    font-size:10px;
+}
+.wknextbadge:hover,.wkprevbadge:hover{
+    text-decoration:underline;
+    color:#ea7900;
+}
+#wkslidecont{
+    display: inline-block;
+    overflow: hidden;
+    left: 23px;
+    margin: 0 auto;
+    position: relative;
+}
+.wkslide
+{
+     display: inline-block;
+     position:relative;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 0%;
+    margin-left: -50%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+@media only screen and (min-width:370px) and (max-width: 770px)  {
+    .wkprevbadge {
+        background-position: -10px 0 !important;
+        margin-left: -167px;
+        margin-right: 51px;
+        top: -43px;
+    }
+
+    .wknextbadge {
+        background-position: -36px 0 !important;
+        left: 23px;
+        top: -43px;
+    }
+    .tooltip .tooltiptext {
+        min-width: 200px;
+    }
+    
+}
+@media only screen and (max-width: 786px){
+    .tooltip .tooltiptext{
+        width : 130%;
+        padding : 20px;
+        margin-left : -37%;
+    }
+    .tooltip .tooltiptext::after{
+        left: 30%;
+    }
+}
+.wk-mp-fieldset{
+    overflow: unset;
+}

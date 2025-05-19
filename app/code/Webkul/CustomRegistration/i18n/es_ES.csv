@@ -1,0 +1,170 @@
+"Custom Registration","Registro Personalizado"
+"Action","Acción"
+"Save and Continue Edit","Guardar y Continuar Editando"
+"Save Attribute","Guardar Atributo"
+"Delete Attribute","Borrar Atributo"
+"Edit Customer Attribute ""%1""","Edit Customer Attribute ""%1"""
+"New Customer Attribute","New Customer Attribute"
+"Attribute Properties","Attribute Properties"
+"Default label","Default label"
+"Attribute Code","Attribute Code"
+"Make sure you don't use spaces or more than %1 characters.","Make sure you don't use spaces or more than %1 characters."
+"Select Websites","Select Websites"
+"Input Type for Store Owner","Input Type for Store Owner"
+"Values Required","Valores Requeridos"
+"Input Validation for Store Owner","Input Validation for Store Owner"
+"Input Field Sort Order","Input Field Sort Order"
+"Display Fields in Form","Display Fields in Form"
+"Admin Customer Form","Admin Customer Form"
+"Customer Account","Cuenta del Cliente"
+"Registration Form","Planilla de Registro"
+Status,Estatus
+Enable,Habilitar
+Disable,Deshabilitar
+"Dependable Fields Properties","Dependable Fields Properties"
+"This is used internally. Make sure you don't use spaces or more than %1 characters.","This is used internally. Make sure you don't use spaces or more than %1 characters."
+"Media Image","Media Image"
+File,Archivo
+Dependable,Confiable
+Radio,Radio
+Gallery,Galería
+"Attribute Information","Información del Atributo"
+Properties,Propiedades
+"Manage Labels","Manage Labels"
+"Please select item(s).","Please select item(s)."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+Customregistration,Customregistration
+"Manage Custom Fields","Manage Custom Fields"
+"This attribute no longer exists.","This attribute no longer exists."
+"This attribute cannot be edited.","This attribute cannot be edited."
+"New Custom Attribute","Nuevo Atributo Personalizado"
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Something went wrong.","Algo salió mal."
+"Attribute code ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter.","Attribute code ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter."
+"An attribute code must not be less than %1 and more than %2 characters.","An attribute code must not be less than %1 and more than %2 characters."
+" Dependable Attribute code ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter."," Dependable Attribute code ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter."
+"Dependable Attribute code must not be less than %1 and more than %2 characters.","Dependable Attribute code must not be less than %1 and more than %2 characters."
+"Attribute code ""%1"" is already exists.","Attribute code ""%1"" is already exists."
+"You saved the custom attribute.","You saved the custom attribute."
+"An attribute with this code already exists.","An attribute with this code already exists."
+"An attribute with the same code (%1) already exists.","An attribute with the same code (%1) already exists."
+"An dependable attribute with this code already exists.","An dependable attribute with this code already exists."
+"An dependable attribute with the same code (%1) already exists.","An dependable attribute with the same code (%1) already exists."
+"The value of Admin scope can't be empty.","The value of Admin scope can't be empty."
+"$_FILES array is empty.","$_FILES array is empty."
+"Edit Additional Account Information","Edit Additional Account Information"
+"Please Fill all the Required Fields.","Please Fill all the Required Fields."
+"Customer additional information saved successfully.","Customer additional information saved successfully."
+"Page not found.","Page not found."
+Text,Texto
+HTML,HTML
+"Text Area","Área de Texto"
+Date,Fecha
+Dropdown,Desplegable
+"Multiple Select","Selección Múltiple"
+"Radio Button","Boton de Radio"
+"Dependable Field","Campo Confiable"
+"Check Terms and Conditions & Privacy & Cookie Policy.","Check Terms and Conditions & Privacy & Cookie Policy."
+"Custom Registration Fields","Custom Registration Fields"
+Edit,Editar
+"Allowed Extension","Extensiones Permitidas"
+"Dependable Allowed Extension","Extensiones Confiables Permitidas"
+"Manage Options (values of your attribute)","Administrar Opciones (valores de tu atributo)"
+"Is Default","Is Default"
+"Add Option","Agregar Opción"
+"Sort Option","Sort Option"
+Delete,Eliminar
+"Order & Account Information","Order & Account Information"
+"The order confirmation email was sent","The order confirmation email was sent"
+"The order confirmation email is not sent","The order confirmation email is not sent"
+"Order # %1","Order # %1"
+"Order Date","Fecha del Pedido"
+"Order Date (%1)","Fecha del Pedido (%1)"
+"Order Status","Estatus del Pedido"
+"Purchased From","Purchased From"
+"Link to the New Order","Link to the New Order"
+"Link to the Previous Order","Link to the Previous Order"
+"Placed from IP","Placed from IP"
+"%1 / %2 rate:","%1 / %2 rate:"
+"Account Information","Account Information"
+"Customer Name","Nombre del Cliente"
+Email,"Correo Electrónico"
+"Customer Group","Grupo de Cliente"
+Download,Descargar
+"Address Information","Información de Dirección"
+"Billing Address","Dirección de Facturación"
+"Shipping Address","Dirección de Envío"
+"Terms & Conditions ","Términos & Condiciones "
+and,y
+" Privacy & Cookie Policy"," Política de Privacidad & Cookie"
+"Additional Information","Información Adicional"
+"My Attribute","Mi Atributo"
+"Select Date","Selecciona Fecha"
+label,etiqueta
+"* Required Fields","* Campos Requeridos"
+"Additional Account Information","Información Adicional de la Cuenta"
+Remove,Eliminar
+Save,Guardar
+"No Additional Account Information","No hay Información Adicional de la Cuenta"
+"Additional Information:","Información Adicional:"
+Items,Items
+Qty,Cantidad
+Price,Precio
+"Gift Message for this Order","Mensaje de Regalo para este Pedido"
+From:,De:
+To:,Para:
+Message:,Mensaje:
+"Personal Information","Personal Information"
+"Sign Up for Newsletter","Información Adicional"
+Address,Dirección
+"Street Address %1","Dirección %1"
+"Please select a region, state or province.","Por Favor seleccione un Estado."
+"Sign-in Information","Información de Inicio de Sesión"
+Password,Contraseña
+"Password Strength","Fortaleza de la Contraseña"
+"No Password","Sin Contraseña"
+"Confirm Password","Confirmar Contraseña"
+"Create an Account","Crear una Cuenta"
+Back,Regresar
+"Please enter a valid date.","Por favor introduce una fecha válida."
+"'%1' is not a valid file.","'%1' no es un archivo válido."
+"Invalid File Extension. Allowed extensions are %1","Invalid File Extension. Allowed extensions are %1"
+"File you are trying to upload exceeds maximum file size limit.","File you are trying to upload exceeds maximum file size limit."
+Webkul,Wenkul
+"Custom Registration Settings","Configuración de Registro Personalizada"
+"Terms & Conditions and Privacy Setting","Terms & Conditions and Privacy Setting"
+"Enable Terms and Conditions on Registration Page","Enable Terms and Conditions on Registration Page"
+"Privacy Popup Model Heading","Privacy Popup Model Heading"
+"Term and Condition Popup Model Heading","Term and Condition Popup Model Heading"
+"Model Button Text","Model Button Text"
+"Button Text Color","Button Text Color"
+"Save hexa code e.g: #FFFFFF, leave blank for default","Save hexa code e.g: #FFFFFF, leave blank for default"
+"Model Button Color","Model Button Color"
+"Model Header Background Color","Model Header Background Color"
+"Model Background Color","Model Background Color"
+"Model Animation Type","Model Animation Type"
+"Show Content as","Mostrar Contenido como"
+"Terms & Conditions","Términos & Condiciones"
+"Privacy & Cookie Policy","Privacy & Cookie Policy"
+"Enable/Disable Address Information","Enable/Disable Address Information"
+"Enable Address Fields","Habilitar Campos de Dirección"
+"Add New Field","Agregar Nuevo Campo"
+Confirm,Confirmar
+"Are you sure you wan't to disable?","¿Estás seguro que deseas deshabilitar?"
+"Are you sure you wan't to enable?","¿Estás seguro que deseas habilitar?"
+"Are you sure you wan't to delete?","¿Estás seguro que deseas borrar?"
+"Manage Display Fields","Manage Display Fields"
+"Display In Order","Mostar en Pedido"
+"Hide From Order","Ocultar en Pedido"
+"Display In Email","Mostar en Correo Electrónico"
+"Hide From Email","Ocultar en Correo Electrónico"
+20,20
+30,30
+50,50
+100,100
+200,200
+ID,ID
+"Attribute Id","Attribute Id"
+"Attribute Label","Attribute Label"
+"Show in Order","Show in Order"
+"Show in Transactional Email","Show in Transactional Email"

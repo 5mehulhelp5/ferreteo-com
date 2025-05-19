@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit" name="mpproductfinder_rule_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tabs" name="mpproductfinder_rule_edit_tabs">
+                <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\General" name="mpproductfinder_rule_edit_general" as="general"/>
+                <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Filters" name="mpproductfinder_rule_edit_filters" as="filters"/>
+                <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Products" name="mpproductfinder_rule_edit_products" as="products">
+                    <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Products\Form" name="mpproductfinder_rule_edit_products_tab.products_form" as="products_form"/>
+                    <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Products\Grid" name="mpproductfinder_rule_edit_products_tab.products_grid" as="products_grid"/>
+                </block>
+                <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Products" name="mpproductfinder_rule_edit_promoted" as="promoted">
+                    <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Promoted\Form" name="mpproductfinder_rule_edit_promoted_tab.promoted_form" as="promoted_form"/>
+                    <block class="Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Promoted\Grid" name="mpproductfinder_rule_edit_promoted_tab.promoted_grid" as="promoted_grid"/>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

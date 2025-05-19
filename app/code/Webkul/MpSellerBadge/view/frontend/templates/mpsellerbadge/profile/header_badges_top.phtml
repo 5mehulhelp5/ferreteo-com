@@ -1,0 +1,59 @@
+<?php
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+
+$sellerbadges = $block->getSellerBadges();
+ksort($sellerbadges);
+$partner = $block->getProfileDetail();
+$shopUrl = $escaper->escapeHtml($partner['shop_url']);
+$badgesPerRow = 4;
+$width = $height = 60;
+?>
+<style>
+.wk-mp-collection-seller-title-container {
+    padding-top: 5px ;
+    padding-bottom: 5px;
+}
+@media only screen and (min-width: 768px) {
+    .badge-container {
+        padding-left: 0;
+    }
+}
+</style>
+<?php if (count($sellerbadges) > 0) {
+    echo '<div class="wk-mp-collection-seller-title-container badge-container">
+    <div class="badge-cont">';
+    $i = 0;
+    foreach ($sellerbadges as $key => $val) {
+        if ($i < $badgesPerRow) {
+            $badgeDesc[$key]= ['desc' => $val['desc'],'name' => $val['title']];
+            ?>
+            <div class="badge">
+                <div class="tooltip">
+                    <img src="<?= $escaper->escapeHtml($val['url']);?>" width="<?= $escaper->escapeHtml($width); ?>"
+                    height="<?= $escaper->escapeHtml($height); ?>" />
+                    <span class="tooltiptext">
+                        <?= $escaper->escapeHtml($val['title']); ?>
+                    </span>
+                </div>
+            </div>
+            <?php
+            $i++;
+        } else { ?>
+        <div class="wk-mp-seller-profile-box wk-mp-collection-header-bottom-txt view-more">
+            <a class="mp-badge" href="<?= $escaper->escapeUrl($block->getUrl(
+                'mpsellerbadge/badge/index',
+                ['shop' => $shopUrl]
+            )); ?>#badge-block"><?= $escaper->escapeHtml(__('View More')); ?></a>
+        </div>   
+            <?php
+            break;
+        }
+    }
+    echo "</div></div>";
+} ?>

@@ -1,0 +1,142 @@
+"Add New Product Finder","Add New Product Finder"
+"Save and Continue Edit","Save and Continue Edit"
+"Edit Product Finder '%1'","Edit Product Finder '%1'"
+"New Product Finder","Nueva Búsqueda de Productos"
+"Filters & Options","Filtros & Opciones"
+Filters,Filtros
+General,General
+Name,Nombre
+Status,Estatus
+"Finder Layout","Finder Layout"
+"The filters of a finder can be arranged vertically or horizontally.","The filters of a finder can be arranged vertically or horizontally."
+Position,Posición
+"Page Finder Route","Page Finder Route"
+"Full URL","Full URL"
+"Page Title","Título de la Página"
+Categories,Categorías
+"Sort Order","Sort Order"
+"Another way to add finder to your page","Another way to add finder to your page"
+"How to use","Cómo utilizar"
+Products,Productos
+Reset,Resetear
+"Index Products","Index Products"
+"Add Product","Agregar Producto"
+"Import Product","Importar Producto"
+"Product Name","Nombre del Producto"
+SKU,SKU
+Action,Acción
+Delete,Eliminar
+"Are you sure?","Are you sure?"
+CSV,CSV
+"Excel XML","Excel XML"
+"Promoted Products","Promoted Products"
+"Add By SKU","Add By SKU"
+Add,Add
+"Import by CSV","Import by CSV"
+"Attribute Code","Attribute Code"
+"Default Label","Default Label"
+"Select File","Select File"
+"Download Sample File","Download Sample File"
+"Only support file .csv","Only support file .csv"
+"Support file type: csv","Support file type: csv"
+"Replace exist promoted products","Replace exist promoted products"
+"Product Finder Information","Product Finder Information"
+"Filtered Products","Filtered Products"
+Comparision,Comparision
+"There is no sample file for this entity.","There is no sample file for this entity."
+"Something went wrong, please the log file!","Something went wrong, please the log file!"
+"The rule has been deleted.","The rule has been deleted."
+"All the products has been deleted!","All the products has been deleted!"
+"There is no product to delete!","There is no product to delete!"
+"The product has been deleted.","The product has been deleted."
+"The promote product has been deleted.","The promote product has been deleted."
+"This rule no longer exists.","This rule no longer exists."
+"Create New Product Finder","Create New Product Finder"
+"Manage Product Finders","Manage Product Finders"
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Something went wrong while updating status for %1.","Something went wrong while updating status for %1."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"The rule has been saved.","The rule has been saved."
+Dropdown,Dropdown
+"Text-based Swatch","Text-based Swatch"
+"Image and Text","Imagen y Texto"
+Image,Imagen
+"Top Content","Top Content"
+"Bottom Content","Bottom Content"
+"Main Sidebar","Main Sidebar"
+Ascending,Ascendente
+Descending,Descendente
+"Always Enable","Always Enable"
+"All filters are selected","All filters are selected"
+"At least one filter is selected","At least one filter is selected"
+No,No
+"At least a filter is selected","At least a filter is selected"
+"Current Page","Página Actual"
+"Home Page","Home Page"
+Horizontal,Horizontal
+Vertical,Vertical
+Automatic,Automático
+Manual,Manual
+Auto,Auto
+Edit,Editar
+Images,Imágenes
+"Option Image","Option Image"
+"Delete Image","Borrar Imagen"
+"Add New","Agregar Nuevo"
+"Filter Options","Filtrar Opciones"
+"Sort By","Ordenar por"
+Display,Display
+Setting,Setting
+"Use the following code to show the product finder block in any place you want.","Use the following code to show the product finder block in any place you want."
+"(If you plan to use snippet to place a Finder anywhere on site freely, please do not set any category for it.)","(If you plan to use snippet to place a Finder anywhere on site freely, please do not set any category for it.)"
+"CMS Page/Static Block","CMS Page/Static Block"
+"Template .phtml file","Template .phtml file"
+"Layout file","Layout file"
+"Please select ...","Por favor seleccione ..."
+Find,Buscar
+"We can't find compare matching the product.","No podemos encontrar una comparación que coincida con el producto."
+"Add to Cart","Agregar al Carrito"
+"In stock","Disponible!"
+"Out of stock","No Disponible"
+"The SKU is invalid or already exist!","The SKU is invalid or already exist!"
+"Delete All Promoted Products","Delete All Promoted Products"
+"Import Promoted Products","Import Promoted Products"
+Import,Importar
+"Something went wrong, please check the file again!","Something went wrong, please check the file again!"
+"Delete All Products","Delete All Products"
+"All the products has been generated!","All the products has been generated!"
+"Something went wrong, please check again","Something went wrong, please check again"
+"Add Products","Add Products"
+Save,Guardar
+"The SKU is invalid!","El SKU es inválido!"
+"Import Products","Importar Productos"
+"Please save before setting this option.","Please save before setting this option."
+"Are you sure want to delete this filter?","Are you sure want to delete this filter?"
+"Mageplaza Product Finder","Mageplaza Product Finder"
+"Product Finder","Buscador de Productos"
+Enable,Habilitar
+"Select <strong>Yes</strong> to enable the module","Select <strong>Yes</strong> to enable the module"
+"Enable ""Find"" Button When","Enable ""Find"" Button When"
+"Enable ""Reset"" Button When","Enable ""Reset"" Button When"
+"Reset Finder Page To","Reset Finder Page To"
+"The redirecting page after resetting.","The redirecting page after resetting."
+"Auto-redirect To Result Page","Auto-redirect To Result Page"
+"If Yes, you will be automatically redirected to the result page when all the filter are selected.","If Yes, you will be automatically redirected to the result page when all the filter are selected."
+"Reset Unselected Finder(s)","Reset Unselected Finder(s)"
+"If Yes, when a finder is selected, other finders on the same page will be auto-reset.","If Yes, when a finder is selected, other finders on the same page will be auto-reset."
+"Redirect To Product Page","Redirect To Product Page"
+"If Yes, this redirection will occur when the result has only one product.","If Yes, this redirection will occur when the result has only one product."
+"Enable ""Chosen"" Plugin","Enable ""Chosen"" Plugin"
+"If Yes, the <a href=""https://harvesthq.github.io/chosen/"">Chosen Plugin</a> will be used for the frontend to make the filter more beautiful and user-friendly","If Yes, the <a href=""https://harvesthq.github.io/chosen/"">Chosen Plugin</a> will be used for the frontend to make the filter more beautiful and user-friendly"
+"Show Promoted Products","Show Promoted Products"
+"If Yes, the promoted products will always be displayed at the end of the corresponding finder result page","If Yes, the promoted products will always be displayed at the end of the corresponding finder result page"
+"Show Comparision Tab","Show Comparision Tab"
+"The Comparision tab will be shown on the Product Page when accessing from the Finder Results Page.","The Comparision tab will be shown on the Product Page when accessing from the Finder Results Page."
+"Delete Finder","Eliminar Buscador"
+"Are you sure you want to delete the selected finder(s)?","Are you sure you want to delete the selected finder(s)?"
+"Change status","Cambiar estatus"
+Disable,Desactivar
+ID,ID
+Mode,Mode
+"Created At","Created At"
+"Updated At","Updated At"

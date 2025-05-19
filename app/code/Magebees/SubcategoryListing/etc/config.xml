@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<subcategorylisting>
+			<general>
+				<enable>0</enable>
+				<mbcategory_image>0</mbcategory_image>
+				<subcatplaceholder/>
+				<subcategories_layout>Grid</subcategories_layout>
+				<subcatimage_width>200</subcatimage_width>
+				<subcatimage_height>200</subcatimage_height>
+				<mbpagelayout>0</mbpagelayout>
+			</general>
+		</subcategorylisting>
+	</default>
+</config>

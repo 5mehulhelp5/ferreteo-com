@@ -1,0 +1,122 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\ProductFinder\Block\Adminhtml\Rule\Edit\Tab\Renderer\AddOption $block */
+
+$stores     = $block->getStoresSortedBySortOrder();
+$storeCount = count($stores);
+$options    = $block->getOptionsByFilter();
+?>
+<form id="add-filter-options" action="<?= /** @noEscape */ $block->getAddOptionsUrl() ?>"
+      method="post" enctype="multipart/form-data">
+    <div class="mppf-table-filter-options-manual">
+        <table class="admin__control-table">
+            <thead>
+            <tr id="attribute-options-table">
+                <th class="col-name"><?= /** @noEscape */ __('Name') ?><span style="color: red">*</span></th>
+                <th class="col-image"><?= /** @noEscape */ __('Images') ?></th>
+                <?php foreach ($stores as $_store) : ?>
+                    <th>
+                        <span><?= $block->escapeHtml($_store->getName()) ?></span>
+                        <?php if ($_store->getId() === '0') : ?>
+                            <span style="color: red">*</span>
+                        <?php endif ?>
+                    </th>
+                <?php endforeach ?>
+                <th class="col-delete"><?= /** @noEscape */ __('Action') ?></th>
+            </tr>
+            </thead>
+            <tbody id="default-table-content">
+            <?php foreach ($options as $key => $option) : ?>
+                <tr class="attribute-options-row default-row-<?= /** @noEscape */ $key + 1 ?>">
+                    <td>
+                        <input type="hidden" name="option[<?= $key + 1 ?>][option_id]"
+                               value="<?= $block->escapeHtml($option['option_id']) ?>">
+                        <input type="text" name="option[<?= $key + 1 ?>][name]"
+                               value="<?= $block->escapeHtml($option['name']) ?>" required>
+                    </td>
+                    <td>
+                        <?php if ($option['image']) : ?>
+                            <img src="<?= $block->escapeHtml($block->getImageUrl($option['image'])) ?>"
+                                 alt="<?= /** @noEscape */ __('Option Image') ?>"
+                                 width="50">
+                        <?php endif; ?>
+                        <input type="file" name="image-<?= $key + 1 ?>" class="input-file">
+                        <p class="note">
+                            <span><?= /** @noEscape */ __('(Allow .gif, .jpg, .png)') ?></span>
+                        </p>
+                        <input type="hidden" name="option[<?= $key + 1 ?>][image]"
+                               value="<?= $block->escapeHtml($option['image']) ?>">
+                        <?php if ($option['image']) : ?>
+                            <span class="delete-image">
+                            <input type="checkbox" name="option[<?= $key + 1 ?>][image][delete]" value="1"
+                                   class="checkbox" id="image_delete_<?= /** @noEscape */ $key + 1 ?>">
+                            <label for="image_delete_<?= /** @noEscape */ $key + 1 ?>">
+                                <?= /** @noEscape */ __('Delete Image') ?>
+                            </label>
+                        </span>
+                        <?php endif; ?>
+                    </td>
+                    <?php foreach ($block->decodeStoreValue($option['value']) as $keyStore => $_store) : ?>
+                        <td>
+                            <input type="text" name="option[<?= /** @noEscape */ $key + 1 ?>][store][<?= /** @noEscape */ $keyStore ?>]"
+                                   value="<?= $block->escapeHtml($_store) ?>"
+                            <?php if ($keyStore === 0) : ?>
+                                    required
+                            <?php endif ?>
+                            >
+                        </td>
+                    <?php endforeach; ?>
+                    <td>
+                        <a class="delete-attribute-row" data-option-id="<?= /** @noEscape */ $option['option_id'] ?>"
+                           data-option-number="<?= /** @noEscape */ $key + 1 ?>">
+                            <i class="action-delete"></i>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="<?= /** @noEscape */ $storeCount + 3 ?>" class="col-actions-add">
+                    <button class="add_new_option_button"
+                            title="<?= /** @noEscape */ __('Add New') ?>"
+                            type="button" class="action- scalable add">
+                        <span><?= /** @noEscape */ __('Add New') ?></span>
+                    </button>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>
+
+<script type="text/x-magento-init">
+        {
+            "#add-filter-options": {
+                "Mageplaza_ProductFinder/js/addoption": {
+                    "storeCount": <?= /** @noEscape */ $storeCount ?>,
+                    "deleteOptionUrl": "<?= /** @noEscape */ $block->getDeleteOptionUrl() ?>",
+                    "filterId": "<?= /** @noEscape */ $block->getFilterId() ?>"
+                }
+            }
+        }
+</script>

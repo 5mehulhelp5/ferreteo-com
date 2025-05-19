@@ -1,0 +1,122 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\ProductFinder\Block\Promoted $block */
+
+$items = $block->getPromotedCollection();
+if ($items && $block->isShowPromoted()) : ?>
+    <div class="block-content">
+        <div class="products-slider">
+            <ol class="product-items widget-viewed-grid">
+                <?php $iterator = 1; ?>
+                <div id="mppf-promoted-product-list" class="owl-carousel owl-theme">
+                    <?php foreach ($items as $_item) : ?>
+                        <?= ($iterator++ === 1)
+                            ? '<li class="product-item product-slider"">'
+                            : '</li><li class="product-item product-slider"">' ?>
+                        <div class="slider-product-item-info">
+                            <a href="<?= $block->escapeHtml($block->getProductUrl($_item)) ?>"
+                               class="product photo slider-product-item-photo">
+                                <?= /* @noEscape */ $block->getImage($_item, 'recently_viewed_products_grid_content_widget')->toHtml() ?>
+                            </a>
+                            <div class="product details slider-product-item-details">
+                                <strong class="product name product-item-name">
+                                    <a title="<?= /** @noEscape */ $block->escapeHtml($_item->getName()) ?>"
+                                       href="<?= /** @noEscape */ $block->escapeHtml($block->getProductUrl($_item)) ?>">
+                                        <?= $block->escapeHtml($_item->getName()) ?>
+                                    </a>
+                                </strong>
+                                    <?= /* @noEscape */ $block->getReviewsSummaryHtml($_item, 'short', true) ?>
+                                    <?= /* @noEscape */ $block->getProductPrice($_item) ?>
+                                <div class="product actions slider-product-item-actions">
+                                        <div class="actions-primary">
+                                            <?php if ($_item->isSaleable()) : ?>
+                                                <?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)) : ?>
+                                                    <button class="action tocart primary mageplaza-product-slider-button"
+                                                            data-mage-init='{"redirectUrl": {"url": "<?= $block->escapeHtml($block->getAddToCartUrl($_item)) ?>"}}'
+                                                            type="button" title="<?= /** @noEscape */ __('Add to Cart') ?>">
+                                                        <span><?= /** @noEscape */ __('Add to Cart') ?></span>
+                                                    </button>
+                                                <?php else : ?>
+                                                    <?php
+                                                    $postData = $block->getPostData(
+                                                        $block->getAddToCartUrl($_item),
+                                                        ['product' => $_item->getEntityId()]
+                                                    )
+                                                    ?>
+                                                    <button class="action tocart primary mageplaza-product-slider-button"
+                                                            data-post='<?= /** @noEscape */ $postData ?>'
+                                                            type="button" title="<?= /** @noEscape */ __('Add to Cart') ?>">
+                                                        <span><?= /** @noEscape */ __('Add to Cart') ?></span>
+                                                    </button>
+                                                <?php endif; ?>
+                                            <?php else : ?>
+                                                <?php if ($_item->getIsSalable()) : ?>
+                                                    <div class="stock available">
+                                                        <span><?= /** @noEscape */ __('In stock') ?></span>
+                                                    </div>
+                                                <?php else : ?>
+                                                    <div class="stock unavailable">
+                                                        <span><?= /** @noEscape */ __('Out of stock') ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <?= ($iterator === count($items) + 1) ? '</li>' : '' ?>
+                    <?php endforeach ?>
+                </div>
+            </ol>
+        </div>
+        <?= $block->getPagerHtml() ?>
+    </div>
+    <script>
+        require(['jquery', 'mageplaza/core/owl.carousel'], function ($) {
+            $('#mppf-promoted-product-list').owlCarousel({
+                loop:true,
+                nav: false,
+                dots: false,
+                margin:10,
+                responsiveClass:true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true
+                    },
+                    600:{
+                        items:3,
+                        nav:false
+                    },
+                    1000:{
+                        items:5,
+                        nav:true,
+                        loop:false
+                    }
+                }
+            })
+        });
+    </script>
+<?php endif; ?>

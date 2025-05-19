@@ -1,0 +1,33 @@
+Legend
+
++ Features
+- Bugs
+-------------------------------- Version 5.0.0 --------------------------------------
++Compatible with Magento 2.4.*
++Compatible with Marketplace 5.0.*
+-------------------------------- Version 3.0.0 --------------------------------------
++Compatible with Magento 2.3.*
++Compatible with Marketplace 3.0.*
++Add vendor captcha fo vendor registration.
++Provided the vendor registration option in admin configuration
+
+-------------------------------- Version 3.0.0 --------------------------------------
++Compatible with Magento 2.3.*
++Compatible with Marketplace 3.0.*
+
+-------------------------------- Version 2.1.0 --------------------------------------
++Compatible with Magento 2.3.*
++Compatible with Marketplace 2.2.*
+
+-------------------------------- Version 2.0.1 --------------------------------------
++ Added Social Ids group
+- Fixed critical issues and bugs
+-------------------------------- Version 2.0.0 --------------------------------------
++ Compatible with magento2.2.x
++ Admin can create or update Vendor’s/Seller’s custom attributes.
++ Vendor’s/Seller’s custom attributes visibility depends on Admin.
++ Admin can create different types of custom attributes for Vendor/seller.
++ Admin can allow which Vendor custom attributes will display on vendor profile page.
++ Ability to show custom attributes on the registration page and profile page.
++ Ability to set allowed extensions for images and file.
++ Vendor/Seller can update these custom attributes very easily.

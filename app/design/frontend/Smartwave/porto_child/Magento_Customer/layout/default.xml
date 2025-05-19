@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="top.links">
+        <referenceBlock name="register-link" remove="true" />
+        <referenceBlock name="authorization-link-login" remove="true" />
+    </referenceBlock>
+    <referenceBlock name="customer" remove="true" />
+    <referenceBlock name="header" remove="true" />
+    
+</page>

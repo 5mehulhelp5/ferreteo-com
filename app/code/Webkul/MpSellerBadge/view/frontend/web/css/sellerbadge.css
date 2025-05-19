@@ -1,0 +1,235 @@
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+
+.mpsellerbadge-badge-index .page-main, .mpsellerbadge-badge-index .columns, .mpsellerbadge-badge-index .column.main {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.mpsellerbadge-badge-index .wk-mp-collection-header-box .wk-mp-badges-order-count-container {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-bottom: 3px solid #fff;
+    border-top: none;
+    box-sizing: content-box;
+    margin-bottom: -2px;
+}
+
+.block-badge .wk_mp_fieldset{
+    text-align:center;
+    position:relative;
+    height: 86px;
+    padding:10px 0;
+}
+.wk_mp_badge_design{
+    margin-bottom:20px;
+}
+.block-badge .wk_mp_fieldset .wkbadges{
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+.block-badge .wk_mp_fieldset .wkbadges img{
+
+     display: inline-block;
+}
+.npbuttons{
+    margin:10px 0;
+    border-top:#ccc solid 1px;
+}
+.wknextbadge,.wkprevbadge{
+    cursor:pointer;
+    display:inline-block;
+    margin:0 10px;
+    position:relative;
+    z-index: 9999999;
+    background: url("../images/controls.png") no-repeat scroll;
+    height:26px;
+    width:26px;
+}
+.nodisplay{
+    overflow: hidden;
+    width: 100px;
+    height: 122px;
+}
+.wknextbadge{
+    left: 23px;
+    top: -43px;
+     background-position: -36px 0 !important;
+}
+.wkprevbadge{
+    margin-right: 154px;
+    top: -71px;
+    background-position: -10px 0 !important;
+}
+.wknextbadge span,.wkprevbadge span{
+    font-size:10px;
+}
+.wknextbadge:hover,.wkprevbadge:hover{
+    text-decoration:underline;
+    color:#ea7900;
+}
+#wkslidecont{
+    display: inline-block;
+    overflow: hidden;
+    left: 23px;
+    margin: 0 auto;
+    position: relative;
+}
+.wkslide
+{
+     display: inline-block;
+     position:relative;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 0%;
+    margin-left: -50%;
+    font-size: 11px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+.view-more {
+    line-height: 60px;
+    vertical-align: bottom;
+    min-height: 60px;
+    display: inline-block;
+}
+.badge {
+    margin-left: 5px;
+    display: inline-block; 
+    cursor: default;
+}
+.badge-cont {
+    text-align:left;
+    font-size: 0px;
+}
+.badge-container {
+    float: none;
+}
+.badge-block-cont {
+    margin:10px;
+}
+.badge-detail {
+    display:inline-block;
+    vertical-align:top;
+}
+.profile-badge {
+    margin:10px;
+    display:inline-block;
+}
+
+@media only screen and (max-width: 786px) {
+    .wkprevbadge {
+        background-position: -10px 0 !important;
+        margin-left: -167px;
+        margin-right: 51px;
+        top: -43px;
+    }
+    .wknextbadge {
+        background-position: -36px 0 !important;
+        left: 23px;
+        top: -43px;
+    }
+    .tooltip .tooltiptext {
+        min-width: 100px;
+        width: unset;
+    }
+    .badge-block-cont {
+        margin: 15px;
+    }
+    .badge-detail {
+        display: inline-block;
+        vertical-align: top;
+        width: 65%;
+    }
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip .tooltiptext {
+        margin-left : -15%;
+    }
+    .tooltip .tooltiptext::after{
+        left: 30%;
+    }
+    .badge-container {
+        padding-left: 40px !important;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 786px) {
+    .badge-container {
+        padding-top: 30px !important;
+    }
+}
+
+@media only screen and (min-width: 786px) and (max-width: 1024px) {
+    .badge-detail {
+        width: 85%;
+    }
+}
+
+@media only screen and (min-width: 370px) and (max-width: 480px) {
+    .badge-detail {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .badge-detail {
+        width: 54%;
+    }
+    
+    .badge {
+        width: 50px;
+    }
+
+    .badge img {
+        height: 60px;
+    }
+}
+
+.wk-mp-fieldset {
+    overflow: unset;
+}

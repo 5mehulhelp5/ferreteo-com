@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <container name="productunits" label="Product units and quantities container" htmlTag="div" after="product.info.overview">
+                <block class="Aitoc\ProductUnitsAndQuantities\Block\Quantities\ProductQuantities" name="product.info.renderproduct" as="renderproduct" />
+            </container>
+        </referenceContainer>
+    </body>
+</page>

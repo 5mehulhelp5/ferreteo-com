@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <product_units_and_quantities>
+            <general_settings>
+                <replace_qty>0</replace_qty>
+                <qty_type>0</qty_type>
+                <is_qty_decimal>0</is_qty_decimal>
+
+                <use_quantities>1, 2, 5, 10</use_quantities>
+
+                <start_qty>1</start_qty>
+                <qty_increment>1</qty_increment>
+                <end_qty>99999</end_qty>
+
+                <allow_units>0</allow_units>
+                <price_per>item</price_per>
+                <price_per_divider>per</price_per_divider>
+            </general_settings>
+        </product_units_and_quantities>
+    </default>
+</config>

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+	<widget class="Magebees\SubcategoryListing\Block\Widget\Subcatlist" id="magebees_subcatlist">
+		<label>Magebees::Sub Category Listing</label>
+		<description>Sub Category Listing</description>
+		<parameters>
+			<parameter name="parentcatid" xsi:type="select" visible="true" source_model="Magebees\SubcategoryListing\Block\Adminhtml\Category\Widget\Catchooser" required="true" sort_order="10">
+                <label translate="true">Select Category</label>
+                <description translate="true">Select Category which subcategory listing you like to display.</description>
+        	</parameter>
+			<parameter name="cattitle" sort_order="20" visible="true" xsi:type="text">
+				<label>Title</label>
+			</parameter>
+			<!--<parameter name="cattitle_fontsize" sort_order="20" visible="true" xsi:type="text">
+				<label>Title Font Size</label>
+			</parameter>-->
+			<parameter name="sublist_class" sort_order="30" visible="true" xsi:type="text">
+				<label>Additional Class</label>
+			</parameter>
+			<!--<parameter name="listcolumn_size" sort_order="40" visible="true" xsi:type="text">
+				<label>Number of Category</label>
+			</parameter>-->
+			<parameter name="catimagewidth" sort_order="50" visible="true" xsi:type="text">
+				<label>Image Width</label>
+				<description translate="true">Default: 200</description>
+			</parameter>
+			<parameter name="catimageheight" sort_order="60" visible="true" xsi:type="text">
+				<label>Image Height</label>
+				<description translate="true">Default: 200</description>
+			</parameter>
+			<!--<parameter name="parentcatid" sort_order="90" visible="true" xsi:type="text">
+				<label>Parent Category Id</label>
+				<description translate="true">Define Parent Category Id.</description>
+			</parameter>-->
+        	
+		</parameters>
+	</widget>
+</widgets>

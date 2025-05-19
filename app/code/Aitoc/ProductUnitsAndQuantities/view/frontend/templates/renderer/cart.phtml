@@ -1,0 +1,24 @@
+<?php
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+?>
+<?php
+/**
+ * Copyright © 2019 Aitoc. All rights reserved.
+ */
+
+/** @var CartQuantities $this */
+
+use Aitoc\ProductUnitsAndQuantities\Block\Quantities\CartQuantities;
+
+?>
+<script type="text/x-magento-init">
+    {
+        "[name='cart[<?= $this->getItemId(); ?>][qty]']": {
+            "Aitoc_ProductUnitsAndQuantities/js/quantities/mode-helper/cart": <?= $this->getJsonEncodedProductConfigModeCart($this->getProductId()); ?>
+        }
+    }
+</script>

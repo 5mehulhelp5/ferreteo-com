@@ -1,0 +1,143 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_Mpqa
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+if ($block->getQuestion()->getSize() != 0) {
+    foreach ($block->getQuestion() as $ky) {
+        $qid = $ky->getQuestionId();
+    }
+}
+$getinfo = $block->getQuestion();
+$proinfo = $block->getProduct();
+
+?>
+
+<div class="wk-mp-design block" id="wk-bodymain">
+    <div class="question">
+            <strong><span><h4><?= /* @noEscape */ __('Question') ?></h4></span></strong>
+
+        <div class ="fieldset wk_mp_fieldset">
+             <div>
+                  <div class='pimg'>
+                      <a href='<?= /* @noEscape */
+                        $proinfo->getProductUrl(); ?>' target="_blank"
+                      class='hrefa' > <img src="<?= /* @noEscape */
+                        $block->imageHelperObj()->init($proinfo, 'product_listing_thumbnail_preview')->getUrl();?>"
+                      class="image" /></a>
+                   </div>
+                 <div class='pinfo'>
+                        <?php $procontent =
+                        strlen($proinfo->getDescription())>27?
+                        substr($proinfo->getDescription(), 0, 27)."..":$proinfo->getDescription(); ?>
+                     <div>
+                         <label class="plabl"><?= /* @noEscape */ __('Product Name:') ?></label>
+                         <a href='<?= /* @noEscape */ $proinfo->getProductUrl(); ?>' target="_blank" class='hrefa' >
+                             <label class="nlabl"> <?= /* @noEscape */ $proinfo->getName(); ?> </label>
+                         </a>
+                     </div>
+                     <div>
+                         <label class="plabl"><?= /* @noEscape */ __('Product Description:') ?></label>
+                         <span class="nlabl"><?= /* @noEscape */ $proinfo->getDescription(); ?> </span>
+                     </div>
+                 </div>
+             </div>
+             <div class='clr'></div>
+                   <div class='mainquest1' >
+                       <div class='respond' id='<?= /* @noEscape */ $getinfo->getQuestionId(); ?>'>
+                           <div>
+
+                                   <label id='mlabl'><?= /* @noEscape */ $getinfo->getQaNickname().'(Buyer):'?></label>
+
+                               <strong><?= /* @noEscape */ $getinfo->getSubject();?></strong>
+                           </div>
+                           <div class='conten1'><span class="wk_prewrap"><?= /* @noEscape */ $getinfo->getContent(); ?>
+                           </span>
+                        </div>
+                           <div class='dt'>
+                               <!-- date -->
+                                <span>
+                                    <?= $block->escapeHtml(
+                                        $block->formatDate($getinfo->getCreatedAt()),
+                                        \IntlDateFormatter::MEDIUM,
+                                        true
+                                    );?>
+                                </span>
+                           </div>
+                     <div>
+                          <div class='txtcomment1'>
+                            <div class='margres'>
+                                <textarea id='maincont' class="txtsize mpqatext" style="width:100%"></textarea>
+                            </div>
+                          </div>
+                     </div>
+                     <button class="button wk-mp-btn btn"
+                     title="<?= /* @noEscape */ __('Submit') ?>"
+                     type="button"
+                     data-id="<?= /* @noEscape */ $getinfo->getQuestionId(); ?>">
+                        <span>
+                            <span><?= /* @noEscape */ __('Submit') ?></span>
+                        </span>
+                    </button>
+                     <div class='clr'></div>
+                </div>
+
+                 <!-- old answers --><?php
+                    $answers=$block->getAnswers();
+
+                    foreach ($answers as $key) {
+
+                        ?>
+                 <div class='respond newres' id=''>
+                       <div class='marrem'>
+                           <button class='delet wk-button' id='<?= /* @noEscape */ $key->getAnswerId();?>'>
+                           <span class='delet'><?= /* @noEscape */ __('Delete') ?></span>
+                        </button>
+                       </div>
+
+                       <div>
+                           <label class='rlabl' style="font-weight: bold;">
+                           <?php if ($key->getRespondType()=='Admin') { echo $block->escapeHtml($key->getRespondType());
+                           } elseif ($key->getRespondType()=='Seller') {
+                               echo $block->escapeHtml($key->getRespondType());
+                           } else {
+                               echo $block->
+                               escapeHtml($key->getRespondNickname()).
+                               '('.$block->escapeHtml($key->getRespondType()).')';} ?></label>
+                       </div>
+                       <div class='conten'><span class="wk_prewrap"><?= /* @noEscape */ $key->getContent(); ?> </span>
+                       </div>
+                    <div class='dte'>
+                                  <?= /* @noEscape */
+                                    $block->formatDate($key->getCreatedAt(), \IntlDateFormatter::MEDIUM, true);  ?>
+                       </div>
+                   </div>
+                        <?php
+                    }
+                    ?>
+                 <!-- old -->
+            </div>
+
+        </div>
+    </div>
+</div>
+<?php
+$formData = [
+    'submitanswer_url'=> $block->getUrl("mpqa/mpqa/giveanswer", ["_secure" => $block->isSecure()]),
+    'delete_url' => $block->getUrl("mpqa/mpqa/deleteanswer", ["_secure" => $block->isSecure()]),
+    'question_id' => $getinfo->getQuestionId()
+];
+$serializedFormData = $block->getJsonHelper()->jsonEncode($formData);
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "giveanswer": <?= /* @noEscape */ $serializedFormData; ?>
+        }
+    }
+</script>

@@ -1,0 +1,87 @@
+<?php
+$helper = $this->helper('Magebees\SubcategoryListing\Helper\Data');
+$category = $helper->getCurrentCategory();
+$moduleStatus = $helper->isEnabled();
+$subcats = $category->getChildrenCategories();
+$showSubCatList = $category->getShowSubcategoriesListing();
+$catListSize = $category->getSubcategoryListingSize();
+$Isparentcatimg = $helper->getIsparentcatimg();
+
+if (!$catListSize) {
+    $catListSize = "category-col-4";
+} else {
+    $catListSize = "category-col-" . $catListSize;
+}
+$listLayout = $helper->getListLayout();
+if ($listLayout == "Grid") {
+    $listLayout = "category-grid-view";
+} else if ($listLayout == "List") {
+    $listLayout = "category-list-view";
+} else {
+    $listLayout = "category-grid-view";
+}
+
+
+if ($moduleStatus) {
+
+    if ($showSubCatList || $showSubCatList == "") {
+        ?>
+        <div id="sub-category-listing" class="subcategoryListing <?php echo $catListSize; ?> <?php echo $listLayout; ?>">
+            <ul class="cat-listing clearfix">
+                <?php
+                foreach ($subcats as $subcat) {
+                    if ($subcat->getIsActive()) {
+                        $_category = $helper->getObjectManager()->create('Magento\Catalog\Model\Category')->load($subcat->getId());
+
+                        $CatThumbnailImg = $helper->getCatImageBaseUrl() . basename($_category->getCatThumbnailImg());
+						
+                        if ($_category->getCatThumbnailImg() == "") {
+                            if ($Isparentcatimg) {
+                                $CatImg = $_category->getImage();
+                                if ($CatImg) {
+                                    $CatThumbnailImg = $helper->getMediaUrl() . 'catalog/category/' . $CatImg;
+                                } else {
+                                    if ($helper->getCatplaceHolderImg() != "") {
+                                        $CatThumbnailImg = $helper->getMediaUrl() . 'subcategorylisting/' . $helper->getCatplaceHolderImg();
+                                    } else {
+                                        $CatThumbnailImg = "";
+                                    }
+                                }
+                            } else {
+                                if ($helper->getCatplaceHolderImg() != "") {
+                                    $CatThumbnailImg = $helper->getMediaUrl() . 'subcategorylisting/' . $helper->getCatplaceHolderImg();
+                                } else {
+                                    $CatThumbnailImg = "";
+                                }
+                            }
+                        }
+                        ?>
+                        <li class="cat-item">
+                            <div class="item clearfix">
+                                <div class="mbsubcatImg">
+                                    <a href="<?php echo $subcat->getUrl() ?>" title="<?php echo $subcat->getName() ?>">
+                                        <img src="<?php echo $CatThumbnailImg; ?>" width="<?php echo $helper->getCatImgWidth(); ?>" height="<?php echo $helper->getCatImgHeight(); ?>">
+                                    </a>
+                                </div>
+                                <div class="catDescription">
+                                    <div class="mbsubcatName">
+                                        <a href="<?php echo $subcat->getUrl() ?>" title="<?php echo $subcat->getName() ?>">
+                                            <?php echo $subcat->getName() ?>
+                                        </a>
+                                    </div>
+                                    <?php if ($listLayout == "category-list-view") { ?>
+                                        <div class="mbsubcatDescription">
+                                            <?php echo $_category->getDescription() ?>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </li>
+                        <?php
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+    <?php } ?>
+<?php } ?>

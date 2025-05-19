@@ -1,0 +1,152 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+/** @var \Mageplaza\ProductFinder\Block\Finder $block */
+
+$rules           = $block->getRuleCollection();
+$findBtn         = $block->getSystemConfig('find_enabled');
+$resetBtn        = $block->getSystemConfig('reset_enabled');
+$resetTo         = $block->getSystemConfig('reset_page');
+$autoRedirect    = $block->getSystemConfig('auto_redirect');
+$resetUnselect   = $block->getSystemConfig('reset_unselected');
+$redirectProduct = $block->getSystemConfig('redirect_product');
+$paramsSubmit    = $block->getParamsSubmit();
+?>
+<?php if ($block->isEnable()) : ?>
+    <?php foreach ($rules as $rule) : ?>
+        <?php
+        $template = $rule->getPosition() === 'sidebar' ? 'vertical' : $rule->getTemplate();
+        $filters  = $block->getFilterCollection($rule);
+        $mode     = $rule->getMode();
+        ?>
+        <?php if ($filters->getSize()) : ?>
+            <div id="mppf-block-<?= /** @noEscape */ $rule->getId() ?>"
+                 class="mpproductfinder-block mpproductfinder-<?= /** @noEscape */ $template ?>">
+                <form action="<?= $block->escapeHtml($block->getActionUrl($rule->getResultUrl())) ?>"
+                      method="get" id="form-<?= /** @noEscape */ $rule->getId() ?>">
+                    <?php foreach ($paramsSubmit as $keyParam => $param) : ?>
+                        <input type="hidden" name="<?= /** @noEscape */ $keyParam ?>" value="<?= $block->escapeHtml($param) ?>">
+                    <?php endforeach; ?>
+                    <ul class="mpproductfinder-finder-block mpproductfinder-list-filter-<?= /** @noEscape */
+                    $rule->getId() ?>" data-rule-id="<?= /** @noEscape */
+                    $rule->getId() ?>">
+                        <?php foreach ($filters as $filter) : ?>
+                            <?php $display = $filter->getDisplay(); ?>
+                            <?php if ($mode === 'auto') : ?>
+                                <?php $options = $block->getFilterOptionsByAttrId(
+                                    $filter->getAttribute(),
+                                    $filter->getSortBy()
+                                ) ?>
+                                <?php $display = 'dropdown' ?>
+                            <?php else : ?>
+                                <?php $display = $filter->getDisplay(); ?>
+                                <?php $options = $block->getOptionsByFilter($filter, $filter->getSortBy()); ?>
+                            <?php endif; ?>
+                            <li class="mppf-filter-option" style="width: <?= /** @noEscape */ $block->getFilterWidth($rule) ?>%">
+                                <div class="mpproductfinder-filter-title">
+                                    <?= /** @noEscape */ $filter->getName() ?>
+                                </div>
+                                <div class="mpproductfinder-filter-content">
+                                    <?php if ($display === 'dropdown') : ?>
+                                        <div class="mpproductfinder-select">
+                                            <select name="filter-<?= /** @noEscape */ $filter->getId() ?>"
+                                                    class="mppf-select-filter-options"
+                                                    data-rule-id="<?= /** @noEscape */ $rule->getId() ?>">
+                                                <option value><?= /** @noEscape */ __('Please select ...') ?></option>
+                                                <?php foreach ($options as $option) : ?>
+                                                    <option value="<?= $block->escapeHtml($option->getId()) ?>">
+                                                        <?= /** @noEscape */ $mode === 'auto'
+                                                            ? /** @noEscape */ $option->getValue()
+                                                            : /** @noEscape */ $block->getOptionNameByStore($option->getValue()) ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    <?php else : ?>
+                                        <div class="mpproductfinder-dropdown"
+                                             name="filter-<?= /** @noEscape */ $filter->getId() ?>">
+                                            <div class="select-wrapper" data-option-id="">
+                                                <span><?= /** @noEscape */ __('Please select ...') ?></span>
+                                            </div>
+                                            <div class="dropdown-select-content">
+                                                <div class="mpproductfinder-close">
+                                                    <div class="mpproductfinder-close-btn" title="Close"></div>
+                                                </div>
+                                                <?php foreach ($options as $option) : ?>
+                                                    <div class="dropdown-item type-swatch-text"
+                                                         data-option-id="<?= /** @noEscape */ $option->getId() ?>"
+                                                         data-rule-id="<?= /** @noEscape */ $rule->getId() ?>">
+                                                        <input type="radio"
+                                                               data-option-label="<?= /** @noEscape */ $block->getOptionNameByStore($option->getValue()) ?>"
+                                                               id="option-<?= /** @noEscape */ $filter->getId() ?>-<?= /** @noEscape */ $option->getId() ?>"
+                                                               name="filter-<?= /** @noEscape */ $filter->getId() ?>"
+                                                               value="<?= $block->escapeHtml($option->getId()) ?>"
+                                                               class="hidden">
+                                                        <?php if ($display === 'image_text' || $display === 'image') : ?>
+                                                            <img src="<?= $block->escapeHtml($block->getImageUrl($option->getImage())) ?>"
+                                                                 alt="<?= /** @noEscape */ $block->getOptionNameByStore($option->getValue()) ?>"
+                                                                 width="100" style="display: block">
+                                                        <?php endif; ?>
+                                                        <?php if ($display === 'image_text' || $display === 'swatch_text') : ?>
+                                                            <span><?= /** @noEscape */ $block->getOptionNameByStore($option->getValue()) ?></span>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                        <div class="mpproductfinder-button" style="text-align: left">
+                            <button class="button action primary mppf-find-btn <?= $findBtn === 'always' ? 'active' : '' ?>"
+                                    data-rule-id="<?= /** @noEscape */ $rule->getId() ?>"><?= /** @noEscape */ __('Find') ?>
+                            </button>
+                            <button class="button action mppf-reset-btn <?= $resetBtn === 'always' ? 'active' : '' ?>"
+                                    data-rule-id="<?= /** @noEscape */ $rule->getId() ?>" name="reset"
+                                    value="1" <?= $resetTo === 'current_page' ? 'type="reset"' : '' ?>>
+                                <?= /** @noEscape */ __('Reset') ?>
+                            </button>
+                        </div>
+                    </ul>
+                </form>
+            </div>
+
+            <script type="text/x-magento-init">
+            {
+                "#mppf-block-<?= /** @noEscape */ $rule->getId() ?>": {
+                    "Mageplaza_ProductFinder/js/finder":{
+                    <?php if ($block->getFullActionName() === 'mpproductfinder_finder_find') : ?>
+                        "params": <?= /** @noEscape */ $block->getFinderParams() ?>,
+                    <?php endif ?>
+                        "isChosen": "<?= /** @noEscape */ $block->getSystemConfig('chosen_enabled') ?>",
+                        "findOption": "<?= /** @noEscape */ $findBtn ?>",
+                        "resetOption": "<?= /** @noEscape */ $resetBtn ?>",
+                        "autoRedirect": "<?= /** @noEscape */ $autoRedirect ?>",
+                        "resetUnselect": "<?= /** @noEscape */ $resetUnselect ?>",
+                        "resetTo": "<?= /** @noEscape */ $resetTo ?>",
+                        "ruleId": "<?= /** @noEscape */ $rule->getId() ?>"
+                    }
+                }
+            }
+            </script>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="marketplace_order_view_totals"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Meetanshi\OrderUpload\Block\Sales\Order\View\Fileuploads" name="market.order.upload"
+                   template="order/sellerUpload.phtml" after="seller.orderitem.info" ifconfig="orderupload/general/enabled" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="webkul" translate="label" sortOrder="10">
+            <label>Webkul</label>
+        </tab>
+        <section id="vendor_registration_section" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Multi Step Vendor Registration</label>
+            <!-- Assign section to tab -->
+            <tab>webkul</tab>
+            <resource>Webkul_MpVendorRegistration::auth</resource>
+        	<group id="vendor_registration" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Vendor Registration Settings</label>
+                <field id="visible_registration" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                    <field id="show_address" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <depends>
+                            <field id="*/*/visible_registration">1</field>
+                        </depends>
+                        <label>Show Address fields</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="show_payment" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <depends>
+                            <field id="*/*/visible_registration">1</field>
+                        </depends>
+                        <label>Show Payment field</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="show_socialgroup" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <depends>
+                            <field id="*/*/visible_registration">1</field>
+                        </depends>
+                        <label>Show Social fields</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                        <field id="show_socialfields" translate="label" type="multiselect" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                            <depends>
+                                <field id="*/*/show_socialgroup">1</field>
+                                <field id="*/*/visible_registration">1</field>
+                            </depends>
+                            <label>Enable Fields</label>
+                            <validate>required-entry</validate>
+                            <source_model>Webkul\MpVendorRegistration\Model\VendorRegistrationAttribute\Source\Socialitems</source_model>
+                        </field>
+                        <field id="require_socialfields" translate="label" type="multiselect" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                            <depends>
+                                <field id="*/*/show_socialgroup">1</field>
+                                <field id="*/*/visible_registration">1</field>
+                            </depends>
+                            <label>Required Fields</label>
+                            <validate>required-entry</validate>
+                            <source_model>Webkul\MpVendorRegistration\Model\VendorRegistrationAttribute\Source\Socialitems</source_model>
+                        </field>
+                    <field id="allowed_image_extension" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <depends>
+                            <field id="*/*/visible_registration">1</field>
+                        </depends>
+                        <label>Allowed Image Extension</label>
+                        <validate>required-entry</validate>
+                        <comment>Enter File type seperated by comma(,) like jpeg,jpg,png,gif</comment>
+                    </field>
+                    <field id="allowed_file_extension" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <depends>
+                            <field id="*/*/visible_registration">1</field>
+                        </depends>
+                        <label>Allowed File Extension</label>
+                        <validate>required-entry</validate>
+                        <comment>Enter File type seperated by comma(,) like pdf,zip,doc</comment>
+                    </field>
+            </group>
+    	</section>
+	</system>
+</config>

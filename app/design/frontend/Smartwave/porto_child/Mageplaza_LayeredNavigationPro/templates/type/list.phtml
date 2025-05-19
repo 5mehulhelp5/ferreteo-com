@@ -1,0 +1,223 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_LayeredNavigationPro
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @type \Mageplaza\LayeredNavigation\Model\Layer\Filter\Attribute $filter */
+
+
+
+
+
+/** @type \Mageplaza\LayeredNavigation\Model\Layer\Filter\Attribute $filter */
+$filter = $this->getFilter();
+
+
+
+$attributeCode = $filter->getRequestVar();
+
+if($attributeCode == 'price'){
+  /** @type \Mageplaza\LayeredNavigationPro\Model\Layer\Filter $filterModel */
+  $filterModel = $this->getFilterModel();
+  $itemValues = $filter->getItemValue();
+  $showPrices = true;
+
+
+  if(is_null($itemValues)){
+    $showPrices = false;
+  }
+
+  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+  $currencysymbol = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+  $currency = $currencysymbol->getStore()->getCurrentCurrency();
+  $currencySymbol = $currency->getCurrencySymbol();
+  ?>
+  <ol class="items">
+      <li class="item">
+          <div id="ln_slider_container_<?= /** @noEscape */ $attributeCode ?>" class="ln_slider_container">
+                <div id="ln_slider_range_<?= /** @noEscape */ $attributeCode ?>">
+                    <div class="ln_slider_from" data-currency="<?= $currencySymbol ?>">
+                        <input id="ln_slider_from_<?= /** @noEscape */ $attributeCode ?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                               class="ln_slider_input_from ln_slider_range_input ln_slider_range_input_from" type="text"
+                               <?php if($showPrices){ ?>
+                                 value="<?= /** @noEscape */ $itemValues ? min($itemValues) : 0 ?>"
+                               <?php } ?>
+                               placeholder="<?= /** @noEscape */ __('Min') ?>">
+                    </div>
+                    <div class="ln_slider_to" data-currency="<?= $currencySymbol ?>">
+                        <input id="ln_slider_to_<?= /** @noEscape */ $attributeCode ?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                               class="ln_slider_input_to ln_slider_range_input ln_slider_range_input_to" type="text"
+                               <?php if($showPrices){ ?>
+                                 value="<?= /** @noEscape */ $itemValues ? max($itemValues) : 0 ?>"
+                               <?php } ?>
+                               placeholder="<?= /** @noEscape */ __('Max') ?>">
+                    </div>
+                    <div class="ln_slider_go_link">
+                        <p id="ln_slider_go_search_link" ><?= /** @noEscape */ __('Go') ?></p>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+          </div>
+      </li>
+  </ol>
+  <script type="text/javascript">
+  require([
+    'jquery',
+    'Mageplaza_AjaxLayer/js/action/submit-filter',
+    'domReady!'// wait for dom ready
+  ], function ($, submitFilterAction) {
+      console.log('------------------------------------');
+      console.log('------------------------------------');
+      console.log('-------------- URL------------------');
+      console.log('------------------------------------');
+      console.log('------------------------------------');
+      let url = window.location.href;
+      url = new URL(url);
+      var c = url.searchParams.get("price");
+      if (c) {
+          cArr = c.split("-");
+          if(cArr[0]){
+              $('#ln_slider_from_price').val(cArr[0]);
+          }
+          if(cArr[1]){
+              $('#ln_slider_to_price').val(cArr[1]);
+          }
+      } else {
+
+      }
+
+      function replaceUrlParam(url, paramName, paramValue)
+      {
+          if (paramValue == null) {
+              paramValue = '';
+          }
+          console.log('-------------------- url ----------------');
+          console.log(url);
+          var pattern = new RegExp('\\b('+paramName+'=).*?(&|#|$)');
+          if (url.search(pattern)>=0) {
+              return url.replace(pattern,'$1' + paramValue + '$2');
+          }
+          url = url.replace(/[?#]$/,'');
+          return url + (url.indexOf('?')>0 ? '&' : '?') + paramName + '=' + paramValue;
+      }
+
+      $('#ln_slider_from_price').change(function(){
+          let from = $('#ln_slider_from_price').val();
+          let to = $('#ln_slider_to_price').val();
+          if(!from){
+              from = 0;
+          }
+          if(!to){
+              to = 100000;
+          }
+          let price = from + '-' + to;
+          let url = window.location.href;
+          url = replaceUrlParam(url,'price',price);
+          $('#ln_slider_go_search_link').data("href", url);
+      });
+      $('#ln_slider_to_price').change(function(){
+          let from = $('#ln_slider_from_price').val();
+          let to = $('#ln_slider_to_price').val();
+          if(!from){
+              from = 0;
+          }
+          if(!to){
+              to = 100000;
+          }
+          let price = from + '-' + to;
+          let url = window.location.href;
+          url = replaceUrlParam(url,'price',price);
+          $('#ln_slider_go_search_link').data("href", url);
+      });
+
+      $('#ln_slider_go_search_link').click(function(e){
+          e.stopPropagation();
+          e.preventDefault();
+          let href = $(this).data('href');
+          if(!href){
+              href = window.location.href;
+          }
+          submitFilterAction(href);
+      });
+
+
+  });
+
+
+  </script>
+  <?php
+}
+
+
+$filter = $block->getFilter();
+
+/** @type \Mageplaza\LayeredNavigationPro\Model\Layer\Filter $filterModel */
+$filterModel = $block->getFilterModel();
+
+$searchEnable = $block->isSearchEnable();
+$attCode = $filter->getRequestVar();
+?>
+<?php if ($searchEnable) : ?>
+    <input type="text" class="layer-search-box" code="<?= /** @noEscape */ $attCode ?>" placeholder="<?= /** @noEscape */ __('Search') ?>"/>
+<?php endif; ?>
+<ol class="items ln-items-<?= /** @noEscape */ $attCode ?> <?= /** @noEscape */ $searchEnable ? 'layer-search-list layer-search-list-' . $attCode : '' ?>">
+    <?php foreach ($block->getItems() as $item) : ?>
+        <li class="item" <?= /** @noEscape */ $searchEnable ? "data-search-term=\"" . strtolower($item->getLabel()) . "\"" : ''; ?>>
+            <?php if ($item->getCount() > 0) : ?>
+                <input type="<?= /** @noEscape */ $filterModel->isMultiple($filter) ? 'checkbox' : 'checkbox' ?>" <?= /** @noEscape */ $filterModel->isSelected($item) ? 'checked="checked"' : '' ?>
+                       class="layer-input-filter" name="filter_<?= /** @noEscape */ $attCode ?>">
+                <a href="<?= /** @noEscape */ $block->escapeUrl($filterModel->getItemUrl($item)) ?>">
+                    <?php
+                        $label = $item->getLabel();
+                        //print_r($label);
+                    ?>
+                    <?= /** @noEscape */ $item->getLabel()  ?>
+                    <?php if ($filterModel->isShowCounter($filter)) : ?>
+                        <span class="count"><?= /** @noEscape */ $item->getCount() ?><span
+                                    class="filter-count-label"><?= /** @noEscape */ ($item->getCount() == 1) ? 'item' : 'items'; ?></span></span>
+                    <?php endif; ?>
+                </a>
+            <?php elseif ($filterModel->isShowZero($filter)) : ?>
+                <input type="<?= /** @noEscape */ $filterModel->isMultiple($filter) ? 'checkbox' : 'checkbox' ?>" disabled="disabled"
+                       class="layer-input-filter" name="filter_<?= /** @noEscape */ $attCode ?>"/>
+                <?= /** @noEscape */ $item->getLabel() ?>
+                <?php if ($filterModel->isShowCounter($filter)) : ?>
+                    <span class="count"><?= /** @noEscape */ $item->getCount() ?><span
+                                class="filter-count-label"><?= /** @noEscape */ ($item->getCount() == 1) ? 'item' : 'items'; ?></span></span>
+                <?php endif; ?>
+            <?php endif; ?>
+        </li>
+    <?php endforeach ?>
+</ol>
+<script type="text/javascript">
+require([
+    'jquery',
+    'domReady!'// wait for dom ready
+], function ($) {
+    /*
+    $( "#ln_slider_go_search" ).click(function(e) {
+        e.preventDefault();
+        var k = $.Event("keypress");
+        k.keyCode = 13; // # Some key code value
+        $('#textbox').trigger(e);
+    });
+    */
+
+});
+</script>

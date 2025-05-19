@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="product-units-and-quantities">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Product Units And Quantities</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="dataScope" xsi:type="string">data.product</item>
+                <item name="sortOrder" xsi:type="number">100</item>
+                <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/components/fieldset-puq</item>
+
+                <item name="imports" xsi:type="array">
+                    <item name="onReplaceQtyChanged" xsi:type="string">${$.provider}:data.product.replace_qty</item>
+                    <item name="onQtyTypeChanged" xsi:type="string">${$.provider}:data.product.qty_type</item>
+                    <item name="productTypeId" xsi:type="string">${$.provider}:data.product.stock_data.type_id</item>
+                    <item name="onProductTypeIdChanged" xsi:type="string">${$.provider}:data.product.stock_data.type_id</item>
+                </item>
+
+                <item name="listens" xsi:type="array">
+                    <item name="${$.name}.container_use_quantities.use_quantities:disabled" xsi:type="string">revalidateUseQuantities</item>
+                    <item name="${$.provider}:data.product.use_config_qty_type" xsi:type="string">revalidateUseQuantities</item>
+                    <item name="${$.provider}:data.product.qty_type" xsi:type="string">revalidateUseQuantities</item>
+
+                    <item name="${$.provider}:data.product.is_qty_decimal" xsi:type="string">revalidateUseQuantities</item>
+                    <item name="${$.provider}:data.product.use_config_is_qty_decimal" xsi:type="string">revalidateUseQuantities</item>
+
+                    <item name="${$.provider}:data.product.use_config_replace_qty" xsi:type="string">revalidateUseQuantities</item>
+                </item>
+            </item>
+        </argument>
+
+        <container name="container_replace_qty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <field name="replace_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="rawOptions" xsi:type="boolean">true</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataType" xsi:type="string">number</item>
+                        <item name="label" xsi:type="string" translate="true">Replace Qty</item>
+                    </item>
+                    <item name="options" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Model\Config\Source\ReplaceQtyOptionSourceWithOn</item>
+                </argument>
+            </field>
+
+            <field name="use_config_replace_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.replace_qty:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">replace_qty</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.replace_qty</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_is_qty_decimal">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                </item>
+            </argument>
+
+            <field name="is_qty_decimal">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string" translate="true">Qty Uses Decimals</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="rawOptions" xsi:type="boolean">true</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                    </item>
+                    <item name="options" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Model\Config\Source\YesnoBoolean</item>
+                </argument>
+            </field>
+
+            <field name="use_config_is_qty_decimal">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.is_qty_decimal:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">is_qty_decimal</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.is_qty_decimal</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+
+        </container>
+
+        <container name="container_qty_type">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">100</item>
+                </item>
+            </argument>
+
+            <field name="qty_type">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataType" xsi:type="string">number</item>
+                        <item name="label" xsi:type="string" translate="true">QTY Field Value</item>
+                        <item name="rawOptions" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="options" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Model\Config\Source\QtyTypeOptionSource</item>
+                </argument>
+            </field>
+
+            <field name="use_config_qty_type">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.qty_type:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">qty_type</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.qty_type</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_use_quantities">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">150</item>
+                </item>
+            </argument>
+
+            <field name="use_quantities">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/product/components/use-quantities-text</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Use Quantities</item>
+                        <item name="listens" xsi:type="array">
+                            <item name="${$.provider}:data.product.replace_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_replace_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.qty_type" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_qty_type" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.name}:disabled" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.name}:value" xsi:type="string">onQtyParamsChanged</item>
+                        </item>
+                    </item>
+                    <item name="options" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Model\Config\Source\QtyTypeOptionSource</item>
+                </argument>
+            </field>
+
+            <field name="use_config_use_quantities">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.use_quantities:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">use_quantities</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.use_quantities</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_start_qty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">200</item>
+                </item>
+            </argument>
+
+            <field name="start_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/product/components/start_qty</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="value" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="label" xsi:type="string" translate="true">Minimum Qty Allowed in Shopping Cart</item>
+                        <item name="listens" xsi:type="array">
+                            <item name="${$.provider}:data.product.replace_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_replace_qty" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.qty_type" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_qty_type" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.end_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_end_qty" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.start_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.name}:disabled" xsi:type="string">onQtyParamsChanged</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+
+            <field name="use_config_start_qty" >
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.start_qty:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">start_qty</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.start_qty</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_qty_increment">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">250</item>
+                </item>
+            </argument>
+            <field name="qty_increment">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/product/components/qty_increment</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="label" xsi:type="string" translate="true">Qty Increments</item>
+                        <item name="value" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="listens" xsi:type="array">
+                            <item name="${$.provider}:data.product.replace_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_replace_qty" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.qty_type" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_qty_type" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.start_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_start_qty" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.end_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_end_qty" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.qty_increment" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.name}:disabled" xsi:type="string">onQtyParamsChanged</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="use_config_qty_increment">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.qty_increment:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">qty_increment</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.qty_increment</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_end_qty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">300</item>
+                </item>
+            </argument>
+
+            <field name="end_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="value" xsi:type="object">Magento\CatalogInventory\Model\Source\StockConfiguration</item>
+                        <item name="label" xsi:type="string" translate="true">Maximum Qty Allowed in Shopping Cart</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/product/components/end_qty</item>
+                        <item name="listens" xsi:type="array">
+                            <item name="${$.provider}:data.product.replace_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_replace_qty" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_is_qty_decimal" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.qty_type" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_qty_type" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.start_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.provider}:data.product.use_config_start_qty" xsi:type="string">onQtyParamsChanged</item>
+
+                            <item name="${$.provider}:data.product.end_qty" xsi:type="string">onQtyParamsChanged</item>
+                            <item name="${$.name}:disabled" xsi:type="string">onQtyParamsChanged</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+
+            <field name="use_config_end_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.end_qty:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">end_qty</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.end_qty</item>
+                        </item>
+
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_allow_units">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">350</item>
+                </item>
+            </argument>
+
+            <field name="allow_units">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string" translate="true">Allow Units</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="rawOptions" xsi:type="boolean">true</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/product/components/units/allow-units-select</item>
+
+                        <item name="listens" xsi:type="array">
+                            <item name="${$.name}:disabled" xsi:type="string">onAllowUnitsParamsChanged</item>
+                            <!--<item name="${$.provider}:data.product.use_config_allow_units" xsi:type="string">onAllowUnitsParamsChanged</item>-->
+                            <item name="${$.provider}:data.product.price_per_divider" xsi:type="string">onAllowUnitsParamsChanged</item>
+                            <item name="${$.provider}:data.product.price_per" xsi:type="string">onAllowUnitsParamsChanged</item>
+                        </item>
+
+                        <item name="validation" xsi:type="array">
+                            <item name="allow-units" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="options" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Model\Config\Source\YesnoBoolean</item>
+                </argument>
+            </field>
+
+            <field name="use_config_allow_units">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.allow_units:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">allow_units</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.allow_units</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_price_per_divider">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">400</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="visible" xsi:type="string">${$.provider}:data.product.allow_units</item>
+                    </item>
+                </item>
+            </argument>
+
+            <field name="price_per_divider">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/product/components/units/price-per-divider</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Price Per Divider</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="price-per-divider" xsi:type="boolean">true</item>
+                        </item>
+                        <item name="listens" xsi:type="array">
+                            <item name="${$.name}:disabled" xsi:type="string">onAllowUnitsParamsChanged</item>
+                            <!--<item name="${$.provider}:data.product.use_config_price_per_divider" xsi:type="string">onAllowUnitsParamsChanged</item>-->
+                            <item name="${$.provider}:data.product.allow_units" xsi:type="string">onAllowUnitsParamsChanged</item>
+                            <item name="${$.provider}:data.product.price_per" xsi:type="string">onAllowUnitsParamsChanged</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+
+            <field name="use_config_price_per_divider">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.price_per_divider:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">price_per_divider</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.price_per_divider</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_price_per">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="sortOrder" xsi:type="number">450</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="visible" xsi:type="string">${$.provider}:data.product.allow_units</item>
+                    </item>
+                </item>
+            </argument>
+
+            <field name="price_per">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Aitoc_ProductUnitsAndQuantities/js/form/product/components/units/price-per</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Price per</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="price-per" xsi:type="boolean">true</item>
+                        </item>
+                        <item name="listens" xsi:type="array">
+                            <item name="${$.name}:disabled" xsi:type="string">onAllowUnitsParamsChanged</item>
+                            <!--<item name="${$.provider}:data.product.use_config_price_per_divider" xsi:type="string">onAllowUnitsParamsChanged</item>-->
+                            <item name="${$.provider}:data.product.allow_units" xsi:type="string">onAllowUnitsParamsChanged</item>
+                            <item name="${$.provider}:data.product.price_per_divider" xsi:type="string">onAllowUnitsParamsChanged</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+
+            <field name="use_config_price_per">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="description" xsi:type="string" translate="true">Use Config Settings</item>
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="valueMap" xsi:type="array">
+                            <item name="true" xsi:type="boolean">true</item>
+                            <item name="false" xsi:type="boolean">false</item>
+                        </item>
+                        <item name="default" xsi:type="boolean">true</item>
+                        <item name="exports" xsi:type="array">
+                            <item name="checked" xsi:type="string">${$.parentName}.price_per:disabled</item>
+                        </item>
+                        <item name="component" xsi:type="string">Magento_CatalogInventory/js/components/use-config-settings</item>
+                        <item name="class" xsi:type="string">Magento\CatalogInventory\Ui\Component\Product\Form\Element\UseConfigSettings</item>
+                        <item name="valueFromConfig" xsi:type="object">Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface</item>
+                        <item name="keyInConfiguration" xsi:type="string">price_per</item>
+                        <item name="links" xsi:type="array">
+                            <item name="linkedValue" xsi:type="string">${$.provider}:data.product.price_per</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+    </fieldset>
+
+</form>

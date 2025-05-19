@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="marketplace_account_becomeseller">
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">Webkul_MpVendorRegistration::marketplace/becomeseller.phtml</argument>
+                </action>
+                <arguments>
+                    <argument name="mpHelper" xsi:type="object">Webkul\Marketplace\Helper\Data</argument>
+                    <argument name="curHelper" xsi:type="object">Webkul\MpVendorRegistration\Helper\Data</argument>
+                    <argument name="jsonHelper" xsi:type="object">Webkul\MpVendorRegistration\Helper\JsonHelper</argument>
+                </arguments>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

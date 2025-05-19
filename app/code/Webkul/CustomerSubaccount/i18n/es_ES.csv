@@ -1,0 +1,195 @@
+Pending,Pendiente
+Approved,Aprobado
+Merged,Fusionado
+Ordered,Ordenado
+"Manage Customer Sub Account","Administrar Sub Cuentas de Clientes"
+"A total of %1 sub-account(s) have been activated.","Un total de %1 sub-cuenta(s) han sido activadas."
+"A total of %1 sub-account(s) have been deactivated.","Un total de %1 sub-cuenta(s) han sido desactivadas."
+"Action Not Allowed.","Acción No Permitida."
+"Cart approved successfully.","Carrito aprobado satisfactoriamente."
+"Cart deleted successfully.","Carrito eliminado satisfactoriamente."
+"Manage Cart Approval","Administrar Aprobación de Carrito"
+"Cart sent for Approval.","Carrito Enviado para Aprobación."
+"Cart sent for Merge.","Carrito Enviado para Fusionar."
+"Something went wrong.","Algo salió mal."
+"Main Account Orders","Pedidos de Cuenta Principal"
+"Manage Cart Merge","Administrar Fusión de Carrito"
+"Cart merged successfully.","Carrito fusionado satisfactoriamente."
+"You are not authorised to delete this cart.","No está autorizado para eliminar este carrito."
+"My Cart Requests","Mis Solicitudes de Carrito"
+"You are not authorised to place this cart.","No estás autorizado para completar este carrito."
+"Quote Data","Datos de Cotización"
+"Add Sub Account","Agregar Sub Cuenta"
+"Sub Account deleted successfully.","Sub Cuenta eliminada satisfactoriamente."
+"Edit Sub Account","Editar Sub Cuenta"
+"Manage Sub Accounts","Administrar Sub Cuentas"
+"Logged in to sub-account.","Iniciar sesión en la sub-cuenta."
+"Sub-account is inactive.","Sub-Cuenta está inactiva."
+"Sub Account created successfully.","Sub Cuenta creada satisfactoriamente."
+"Sub Account details saved successfully.","Detalles de Sub Cuenta guardados satisfactoriamente."
+"Sub Account Orders","Pedidos de Sub Cuenta"
+"Item added to Main Wish List.","Producto agregado a la Lista de Compra Principal."
+"Main Wish List","Lista de Compras Principal"
+"Wish list item removed.","Producto removido de la Lista de Compra."
+"Cart Approval Required","Se Requiere Aprobación del Carrito"
+"Can Merge Own Cart to Main Cart","Puede Fusionar su Propio Carrito con el Principal"
+"Can Approve Carts","Puede Aprobar Carritos"
+"Can Place Order","Puede Completar Pedidos"
+"Force Usage Main Account Address","Forzar Uso de la Dirección de la Cuenta Principal"
+"Can View Main Wishlist","Puede Ver Lista de Compras Principal"
+"Can Add to Main Wishlist","Puede Agregar a Lista de Compras Principal"
+"Can Remove From Main Wishlist","Puede Quitar de la Lista de Compras Principal"
+"Can View Main Account Order List","Puede Ver Lista de Pedidos de Cuenta Principal"
+"Can View Main Account Order Details","Puede Ver Detalle de Pedidos de Cuenta Principal"
+"Can View Sub Account Order List","Puede Ver Lista de Pedidos de Sub Cuenta"
+"Can View Sub Account Order Details","Puede Ver Detalle de Pedidos de Sub-Cuenta"
+"Will Get Notified on Order Place by Main Account","Recibirá Notificación por Pedidos Completados por la Cuenta Principal"
+"Will Get Notified on Order Place by Sub Account","Recibirá Notificación por Pedidos Completados por Sub Cuentas"
+"Can Create Sub Accounts","Puede Crear Sub Cuentas"
+"Can Edit Sub Accounts","Puede Editar Sub Cuentas"
+"Can Delete Sub Accounts","Puede Eliminar Sub Cuentas"
+"Can Login to Sub Accounts","Puede Iniciar Sesión en Sub Cuentas"
+"Can Review Products","Puede Reseñar Productos"
+"Order Placed Notification to Main Account","Notificación Pedido Realizado a la Cuenta Principal"
+"Main Account's Order Placed Notification","Notificación de Pedido Realizado de la Cuenta Principal"
+"Sub Account's Order Placed Notification","Notificación de Pedido Realizado a la Sub Cuenta"
+"Sub Account Activated Notification from Admin","Sub Account Activated Notification from Admin"
+"Cart Approved Notification","Notificación de Carrito Aprobado"
+"New Sub Account Created Notification","Notificación de Creación de Nueva Sub Cuenta"
+Admin,Administrador
+Active,Activo
+Inactive,Inactivo
+"You are not authorised to place this order.","No estás autorizado para realizar este pedido."
+"Please ask Main Account user to add shipping address or remove Force Usage Main Account Address.","Por favor consulta con el usuario de Cuenta Principal para agregar una Dirección de Envío o Eliminar la Obligación de usar la Dirección de la Cuenta Principal."
+"Access Forbidden","Acceso Prohibido"
+"Invalid Form Key. Please refresh the page.","Clave de Formulario Inválida. Por favor refresque la página."
+"This account is not confirmed. <a href=""%1"">Click here</a> to resend confirmation email.","Esta cuenta no está confirmada. <a href=""%1"">Click aquí</a> para reenvíar correo de confirmación."
+"The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.","El Inicio de Sesión fue incorrecto o su cuenta está desactivada temporalmente. Espere y vuelva a intentarlo más tarde."
+"An unspecified error occurred. Please contact us for assistance.","Se produjo un error no especificado. Comuníquese con nosotros para obtener ayuda."
+"A login and a password are required.","Se requiere un nombre de usuario y una contraseña."
+"You don't have permission to review.","Usted no está autorizado para reseñar."
+"You submitted your review for moderation.","Enviaste tu reseña para moderación."
+"We can't post your review right now.","Lo sentimos! No podemos publicar su reseña en este momento."
+"The maximum quantity can't be more than %1 when shipping to multiple addresses. Change the quantity and try again.","The maximum quantity can't be more than %1 when shipping to multiple addresses. Change the quantity and try again."
+"Verify the shipping address information and continue.","Verifique la información de la dirección de envío y continúe."
+"Verify the billing address information and continue.","Verifique la información de la dirección de facturación y continúe."
+"Quote address for failed order not found.","Quote address for failed order not found."
+"Exception for failed order not found.","Exception for failed order not found."
+"Invalid customer id %1","ID %1 de Cliente Inválida"
+"Invalid customer address id %1","ID %1 de Dirección  del Cliente Inválida"
+"Invalid address id %1","ID %1 de Dirección Inválida"
+"View Customer","Ver Cliente"
+Id,Id
+"Customer Name","Nombre del Cliente"
+"Customer Email","Correo Electrónico del Cliente"
+"Search by Id","Buscar por Id"
+"Search by Name","Buscar por Nombre"
+"Search by Email","Buscar por Correo Electrónico"
+Save,Guardar
+Submit,Envíar
+"Items Qty","Cantidad de Productos"
+Subtotal,Sub-Total
+Items,Productos
+Action,Acción
+View,Ver
+Approve,Aprobar
+"Are you sure?","Estas seguro?"
+Delete,Eliminar
+"No Cart available for Approval.","No hay Carritos disponibles para Aprobación."
+"Request Cart Approval","Solicitar Aprobación de Carritos"
+"Request Cart Merge","Solicitar Fusión de Carritos"
+Merge,Fusionar
+"No Cart available to Merge.","No hay Carritos disponibles para fusionar."
+Type,Tipo
+Status,Estatus
+Approval,Aprobación
+N/A,N/A
+Order,Pedido
+Orders,Pedidos
+"Order #","Pedido #"
+Date,Fecha
+"Ship To","Enviar a"
+"Order Total","Total"
+Actions,Acciones
+"View Order","Ver Orden"
+"You have placed no orders.","No has realizado ningún pedido."
+"Product Name","Nombre del Producto"
+SKU,SKU
+Price,Precio
+Qty,Cantidad
+Back,Regresar
+Reset,Reiniciar
+"Save Sub Account","Guardar Sub Cuenta"
+"First Name","Nombre"
+"Last Name","Apellido"
+Email,Correo Electrónico
+"Allowed Permissions","Permisos Permitidos"
+"Forbidden Access","Acceso Prohibido"
+"You can use frontname or frontname_controller or frontname_controller_action. Access must be comma(,) separated.","Puede usar frontname o frontname_controller o frontname_controller_action. Acceso debe estar separado por comas(,)."
+Yes,Si
+No,No
+"Add New Sub Account","Agregar Nueva Sub Cuentas"
+Permissions,Permisos
+Forbidden,Prohibido
+"Parent Account","Parent Account"
+"Main Account","Cuenta Princial"
+"Available Permissions","Permisos Disponibles"
+"Login","Iniciar Sesión"
+Edit,Editar
+"No Sub Accounts Available.","No hay Sub Cuentas Disponibles."
+"Remove Item","Remover Item"
+"Remove item","Removee item"
+"Add to Main Wish List","Agregar a Lista de Compra Principal"
+"Dear %name,","Estimado %name,"
+"Your cart with id %cartid has been approved.","Su carrito identificado con %cartid ha sido aprobado."
+"Thank You","Muchas Gracias!"
+"An Order with Id %orderid was placed by main account.","Un Pedido identificado con el Id %orderid fue realizado por la Cuenta Principal."
+"An Order with Id %orderid was placed by sub account user %subuser.","Un Pedido identificado con el %orderid fue realizado por la Sub Cuenta %subuser."
+"Your account has been activated by the Admin.","Su cuenta ha sido activada por el Administrador."
+"Dear %mainname,","Estimado %mainname,"
+"Sub account below has been activated by the Admin.","La Sub Cuenta a continuación ha sido activada por el administrador."
+Name,Nombre
+"Dear %adminname,","Estimado %adminname,"
+"A new Sub Account has been created with following details.","Una nueva Sub Cuenta ha sido creada con los siguientes detalles."
+"Customer Id","Id de Cliente"
+"Sub Account Id","Id de Sub Account"
+"Customer Status","Estatus del Cliente"
+"Main Account Id","Id Cuenta Principal"
+"Main Account User Name","Nombre de Usuario de Cuenta Principal"
+"A new Sub Account has been created with following details by %creator.","Una nueva Sub Cuenta ha sido creada con los siguientes detalles por %creator."
+"Customer Sub Accounts","Sub Cuentas de Clientes"
+Webkul,Webkul
+"Customer Sub-account","Sub-cuenta del Cliente"
+"General Settings","Configuración General"
+"Admin E-mail","Correo Electrónico de Administrador"
+"Manageable Permissions","Manageable Permissions"
+"Permissions that can a customer use for their sub-accounts.","Permissions that can a customer use for their sub-accounts."
+"Sub-account Apporval Required","Aprobación de Sub-cuenta es Requerida"
+"Sub-accounts needs to be approved by admin?","Sub-accounts needs to be approved by admin?"
+"Send Order Notifications to Main Account","Send Order Notifications to Main Account"
+"Send Sub-account's Order Notifications to Main Account?","Send Sub-account's Order Notifications to Main Account?"
+"Allow Forbidden Access Management","Allow Forbidden Access Management"
+"The forbidden action access can only be managed by main account. It will inherit from parent account if any subaccount user create a subaccount.","The forbidden action access can only be managed by main account. It will inherit from parent account if any subaccount user create a subaccount."
+"Email Options","Email Options"
+"Main Account's Order Placed Notification to Sub Account","Main Account's Order Placed Notification to Sub Account"
+"Sub Account's Order Placed Notification to Sub Account","Sub Account's Order Placed Notification to Sub Account"
+"Sub Account Activated Notification from Admin to Sub Account","Sub Account Activated Notification from Admin to Sub Account"
+"Sub Account Activated Notification from Admin to Main Account","Sub Account Activated Notification from Admin to Main Account"
+"Cart Approved Notification to Sub Account","Cart Approved Notification to Sub Account"
+"Sub Account Created Notification to Admin","Sub Account Created Notification to Admin"
+"Sub Account Created Notification to Main Account","Sub Account Created Notification to Main Account"
+"In case of sub-account created by another sub-account user.","En caso de sub-cuenta creada por otro usuario de sub-cuenta."
+"Manage Status","Administrar Estatus"
+Activate,Activar
+Deactivate,Desactivar
+ID,ID
+"Main Account Name","Nombre de Cuenta Principal"
+"Parent Account Name","Parent Account Name"
+"Sub Accounts","Sub Cuentas"
+"Approve Carts","Aprobar Carritos"
+"Merge Carts","Fusionar Carritos"
+"Items Ordered","Productos Pedidos"
+Invoices,Facturas
+"Order Shipments","Envío de Pedidos"
+Refunds,Reembolsos
+"Track All Shipments","Rastrear Todos Los Pedidos"

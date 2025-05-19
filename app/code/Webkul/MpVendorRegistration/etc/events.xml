@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_register_success">
+        <observer name="vendor_registration_success_observer" instance="Webkul\MpVendorRegistration\Observer\VendorRegistrationSuccessObserver" />
+    </event>
+    <event name="admin_system_config_changed_section_vendor_registration_section">
+        <observer name="vendor_admin_system_config_changed_section_vendor_registration_section" instance="Webkul\MpVendorRegistration\Observer\VendorConfigurationChangeObserver" />
+    </event>
+    <event name="adminhtml_customer_prepare_save">
+        <observer name="vendor_registration_adminhtml_customer_prepare_save_after_observer" instance="Webkul\MpVendorRegistration\Observer\AdminhtmlCustomerPrepareSaveAfterObserver" />
+    </event>
+</config>

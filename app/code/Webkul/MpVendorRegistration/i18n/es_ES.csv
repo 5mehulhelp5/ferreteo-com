@@ -1,0 +1,186 @@
+"Save and Continue Edit","Guardar y Continuar Editando"
+"Save Attribute","Guardar Atributo"
+"Delete Attribute","Borrar Atributo"
+"Edit Vendor Attribute ""%1""","Editar Atributo del Vendedor ""%1"""
+"New Vendor Attribute","Nuevo Atrubuto de Vendedor"
+"Attribute Properties","Propiedades de Atrubuto"
+"Default Label","Etiqueta Predetermnada"
+"Attribute Code","Código del Atributo"
+"Make sure you don't use spaces or more than 25 characters.","Asegúrate de no usar espacios ni más de 25 caracteres."
+"Frontend Input Type","Tipo de Entrada de Frontend"
+"Values Required","Valores Requeridos"
+"Input Validation","Validación de Entrada"
+"Input Field Sort Order","Orden de Clasificación del Campo de Entrada"
+"Assign Group","Asignar Grupo"
+"Media Image","Imagen Multimedia"
+File,Archivo
+"Attribute Information","Información de Atributo"
+Properties,Propiedaes
+"Manage Labels","Administrar Etiqueta"
+"Vendor Attribute Fields","Campos de Atributo de Vendedor"
+"Vendor Information","Información del Vendedor"
+"Allowed image types:","Tipo de Imagenes Permitidas:"
+"Allowed file types:","ipo de Archivos Permitidos:"
+Download,Descargar
+"Save Group","Guardar Grupo"
+"Vendor Group Information","Información del Grupo de Vendedor"
+"Group Information","Información del Grupo"
+"Group Name","Nombre del Grupo"
+"Sort Order","Orden de Clasificación"
+Status,Estatus
+Enabled,Habilitar
+Disabled,Deshabilitar
+"Group Details","Detalles del Grupo"
+"Attribute Group Information","Información del Grupo de Atributos"
+"Congratulations! Your seller account is created.","Todo Listo! Tu cuenta de vendedor ha sido creada."
+"Your request to become seller is successfully raised.","Your request to become seller is successfully raised."
+"Please confirm that you want to become seller.","Please confirm that you want to become seller."
+"Shop URL already exist please set another.","Shop URL already exist please set another."
+"A total of %1 record(s) have been enabled for Seller profile.","A total of %1 record(s) have been enabled for Seller profile."
+Vendorattribute,Vendorattribute
+"Manage Vendor Attribute","Manage Vendor Attribute"
+"This attribute no longer exists.","This attribute no longer exists."
+"This attribute cannot be edited.","This attribute cannot be edited."
+"Edit Vendor Attribute","Editor Atributo del Vendedor"
+"New Attribute","Nuevo Atributo"
+"A total of %1 record(s) have been disabled for Seller Profile.","A total of %1 record(s) have been disabled for Seller Profile."
+"Manage Vendor Registration Attribute","Administrar Atributos de Registro de Vendedores"
+"A total of %1 record(s) have been assigned.","A total of %1 record(s) have been assigned."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) Status have been Disabled.","A total of %1 record(s) Status have been Disabled."
+"A total of %1 record(s) Status have been Enabled.","A total of %1 record(s) Status have been Enabled."
+"You saved the vendor attribute.","Guardaste el Atributo de Vendedor."
+"Attribute name ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field,
+                     first character should be a letter.","Attribute name ""%1"" is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field,
+                     first character should be a letter."
+"The attribute ID already exists.","El ID de atributo ya existe."
+"An attribute with this code already exists.","Ya existe un atributo con este código."
+"An attribute with the same code (%1) already exists.","Ya existe un atributo con el mismo código (% 1)."
+Vendorgroup,Grupodevendedores
+"Manage Vendor Group","Administrar Grupo de Vendedores"
+"This group no longer exists.","Este grupo ya no existe."
+"Edit Vendor Group","Editar Grupo de Vendedores"
+"New Vendor Group","Nuevo Grupo de Vendedores"
+"New Group","Nuevo Grupo"
+"Manage Vendor Registration Group","Manage Vendor Registration Group"
+"A total of %1 record(s) cannot be removed.","A total of %1 record(s) cannot be removed."
+"A total of %1 record(s) have been removed.","A total of %1 record(s) have been removed."
+"A total of %1 record(s) cannot be disabled.","A total of %1 record(s) cannot be disabled."
+"A total of %1 record(s) have been Saved.","A total of %1 record(s) have been Saved."
+"You cannot disable Admin created group","You cannot disable Admin created group"
+"You saved this group","You saved this group"
+"Something went wrong while saving the reason.","Something went wrong while saving the reason."
+"The group already exists.","The group already exists."
+"Invalid request.","Invalid request."
+"Incorrect CAPTCHA","Incorrect CAPTCHA"
+"You must confirm your account. Please check your email for the confirmation
+                         link or <a href=""%1"">click here</a> for a new link.","You must confirm your account. Please check your email for the confirmation
+                         link or <a href=""%1"">click here</a> for a new link."
+"You must confirm your account. Please check your email for the 
+                    confirmation link or <a href=""%1"">click here</a> for a new link.","You must confirm your account. Please check your email for the 
+                    confirmation link or <a href=""%1"">click here</a> for a new link."
+"There is already an account with this email address. 
+                If you are sure that it is your email address, <a href=""%1"">click here</a> to 
+                get your password and access your account.","There is already an account with this email address. 
+                If you are sure that it is your email address, <a href=""%1"">click here</a> to 
+                get your password and access your account."
+"Vendor Required Attributes can't be Empty.","Vendor Required Attributes can't be Empty."
+"Vendor Attributes has been saved.","Vendor Attributes has been saved."
+"File type not allowed","Tipo de Archivo no válido"
+"File Uploaded Successfully","Archivo ha Subido Correctamente"
+"Error Occured","Ocurrió un Error"
+"Enter Valid Email","Ingrese un Correo Electrónico Válido"
+"Email id is already exist.","La identificación de correo electrónico ya existe."
+Available,Disponible
+"GDPR Agreement","Acuerdo GDPR"
+Yes,Si
+No,No
+"Invalid date","Fecha Inválida"
+Enable,Habilitar
+Disable,Deshabilitar
+Edit,Editar
+"Vendor Attributes are not assigned to the Vendor.","El Atributo del Vendedor no está asignado al Vendedor."
+"As WYSWYG Editor","As WYSWYG Editor"
+"Manage Titles (Size, Color, etc.)","Administrar Etiquetas (Tamaño, Color, etc.)"
+"Manage Options (Values of Your Attribute)","Administrar Opciones (Valores de Tu Atributo)"
+"Add Option","Agregar Opción"
+"Sort Option","Opción de Clasificación"
+Delete,Borrar
+"The value of Admin must be unique.","El valor de Admin debe ser único."
+"Additional Information","Información Adicional"
+"Save Attributes","Guardar Atributos"
+"Preview Image","Previsualizar Imagen"
+"Delete Image","Eliminar Imagen"
+"Allowed Extensions are : ","Extensiones Permitidas son: "
+"Delete File","Eliminar Archivo"
+"Seller Request Panel","Seller Request Panel"
+"Waiting for approval from admin","En Espera por Aprobación del Administrador"
+Cancel,Cancelar
+Save,Guardar
+"Shop URL","URL de la Tienda"
+"Please enter shop URL","Please enter shop URL"
+"Do you want to become a seller / vendor ?","¿Deseas convertirte en vendedor?"
+Back,REGRESAR
+"Congratulations! Shop name is available.","¡Super bien! El nombre de la tienda está disponible."
+"Sorry! But this shop name is not available, please set another shop name.","¡Lo sentimos! Pero el nombre de esta tienda no está disponible, escoge otro nombre para tu tienda."
+Company,Razón Social
+"Phone Number","Número de Teléfono"
+Fax,Fax
+"Street Address","Dirección"
+City,Ciudad
+State/Province,Estado
+"Zip/Postal Code","Código Postal"
+Country,País
+facebook.com/,facebook.com/
+instagram.com/,instagram.com/
+twitter.com/,twitter.com/
+plus.google.com/,plus.google.com/
+vimeo.com/,vimeo.com/
+youtube.com/,youtube.com/
+pinterest.com/,pinterest.com/
+"Voila! Account Created!","Voila! Cuenta Creada!"
+"(This will be used to display your public profile)","(Esto se mostrará en tu perfil público.)"
+"Allowed extensions: ","Extensiones Permitidas: "
+Password,Contraseña
+"Confirm Password","Confirmar Contraseña"
+Next,Próximo
+Proceed,Continuar
+"There was error during verifying seller shop data","Hubo un error al verificar los datos de la tienda del vendedor."
+Available.,Disponible.
+"There was error during verifying email","Hubo un error durante la verificación del correo electrónico."
+"You have successfully registered as a Seller with us <a href=""","Tu registro como vendedor ha sido exitoso. <a href="""
+done,REGISTRARME
+"Create Account","Crear Cuenta"
+"Marketplace Multi-Step Registration Section","Sección de Registro Multi-Pasos Marketplace"
+"Vendor Registration Manager","Administrador de Registro de Vendedores"
+"Vendor Registration Group","Grupo de Registro de Vendedores"
+"Vendor Registration Attribute","Atrubuto de Registro de Vendedores"
+Webkul,Webkul
+"Multi Step Vendor Registration","Registro de Vendedores Multi Etapas"
+"Vendor Registration Settings","Configuración de Registro de Vendedores"
+"Show Address fields","Mostrar Campos de Dirección"
+"Show Payment field","Mostrar Campos de Pago"
+"Show Social fields","Mostrar Campos Sociales"
+"Enable Fields","Habilitar Campos"
+"Required Fields","Campos Requeridos"
+"Allowed Image Extension","Extensiones de Imágenes Permitidas"
+"Enter File type seperated by comma(,) like jpeg,jpg,png,gif","Ingrese el Tipo de Archivo separado por coma (,) como jpeg,jpg,png,gif"
+"Allowed File Extension","Extensiones de Archivos Permitidas"
+"Enter File type seperated by comma(,) like pdf,zip,doc","Ingrese el Tipo de Archivo separado por coma (,) como pdf, zip, doc"
+"Are you sure to assign selected Attribute to Group?","¿Estás seguro de asignar el atributo seleccionado al Grupo?"
+"Add Attribute","Agregar Atributo"
+"Are you sure you want to delete?","¿Estás seguro que desea eliminar?"
+"Manage Display Fields","Administrar Campos Mostrados"
+"Display on Seller Profile","Mostrar en Perfil del Vendedor"
+"Hide From Seller Profile","Ocultar en Perfil del Vendedor"
+"Attribute Status","Estatus del Atributo"
+20,20
+30,30
+50,50
+ID,ID
+"Attribute Id","Id de Atributo"
+"Attribute Label","Etqieuta de Atributo"
+"Show in Seller Profile","Mostrar Perfil del Vendedor"
+"Add New Group","Agregar Nuevo Grupo"
+"Group Status","Estatus del Grupo"
+"Vendor Registration","Registro de Vendedores"

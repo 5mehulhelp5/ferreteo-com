@@ -1,0 +1,70 @@
+"Save Badge","Save Badge"
+"Badge Information","Badge Information"
+"Badges Information","Badges Information"
+"Badge Name","Badge Name"
+"Badge Description","Badge Description"
+Image,Image
+Rank,Rank
+Status,Status
+Enabled,Enabled
+Disabled,Disabled
+Badges,Badges
+"Update Badge ","Update Badge "
+"New Badge","New Badge"
+"Manage Badges","Manage Badges"
+"Manage Badge","Manage Badge"
+"Badge(s) deleted successfully.","Badge(s) deleted successfully."
+"Badge(s) disabled successfully.","Badge(s) disabled successfully."
+"Badge(s) enabled successfully.","Badge(s) enabled successfully."
+"Image file is not correct.","Image file is not correct."
+"Badge saved successfully.","Badge saved successfully."
+"Rank already exist.","Rank already exist."
+"Badge updated successfully.","Badge updated successfully."
+"Seller Badge Manager","Seller Badge Manager"
+"Something went wrong.","Something went wrong."
+"Badge(s) assigned successfully.","Badge(s) assigned successfully."
+"Badge(s) already assigned","Badge(s) already assigned"
+"Badge(s) not assigned.","Badge(s) not assigned."
+"Badge(s) removed from the seller.","Badge(s) removed from the seller."
+"%1 Badge(s)","%1 Badge(s)"
+Enable,Enable
+Disable,Disable
+"No badges yet!!","No badges yet!!"
+Edit,Edit
+"No Badge Assigned","No Badge Assigned"
+Warning,Warning
+"Invalid Image Format. jpeg, jpg, gif, png are accepted","Invalid Image Format. jpeg, jpg, gif, png are accepted"
+"Seller Badge(s)","Seller Badge(s)"
+"Read More....","Read More...."
+"There is no badge assigned to seller.","There is no badge assigned to seller."
+"All Badges","All Badges"
+"View All Badges","View All Badges"
+Badge(s),Badge(s)
+"View More","View More"
+More...,More...
+"View Seller's Shop","View Seller's Shop"
+"%1 Products","%1 Products"
+"View Seller's Collection","View Seller's Collection"
+"View All","View All"
+Close,Close
+"Seller Badge","Seller Badge"
+"Manage Seller Badges","Manage Seller Badges"
+"Seller Badge Settings","Seller Badge Settings"
+"Enable Seller Badges","Enable Seller Badges"
+"Applicable with Marketplace","Applicable with Marketplace"
+"Assign badge","Assign badge"
+"Are you sure to assign selected badge to seller?","Are you sure to assign selected badge to seller?"
+"Remove badge","Remove badge"
+"Are you sure to remove selected badge from seller?","Are you sure to remove selected badge from seller?"
+"Section Label","Section Label"
+"Section Description","Section Description"
+"Select Sellers","Select Sellers"
+"Add New Badge","Add New Badge"
+Delete,Delete
+"Do you want to delete selected images?","Do you want to delete selected images?"
+Thumbnail,Thumbnail
+Created,Created
+"Seller ID","Seller ID"
+"Seller Name","Seller Name"
+"Seller Email","Seller Email"
+"Seller Status","Seller Status"

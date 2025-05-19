@@ -1,0 +1,26 @@
+#====================================================================================================================================================#
+#                This is a patch file. You can apply it using "patch -p2 < diff.patch" or revert it using "patch -R -p2 < diff.patch"                #
+#                                                        (c) Created by Amasty Team 09-03-2021                                                       #
+#====================================================================================================================================================#
+--- 1615283292271-0/284533_Add_Translate_MultiWishList_Buttons.backup/app/code/Amasty/MWishlist/view/frontend/templates/wishlist/mass_actions.phtml	2021-03-09 12:48:12.282166663 +0300
++++ 1615283292271-0/284533_Add_Translate_MultiWishList_Buttons.fix/app/code/Amasty/MWishlist/view/frontend/templates/wishlist/mass_actions.phtml	2021-03-09 12:48:12.282166663 +0300
+@@ -10,15 +10,15 @@
+ 
+ <div class="amwishlist-toolbar-block -mass-action">
+     <button class="amwishlist-button -clear -link" type="button" data-amwishlist-js="select-all">
+-        <?= $block->escapeHtml('Select All') ?>
++        <?= $block->escapeHtml(__('Select All')) ?>
+     </button>
+     <button class="amwishlist-button -empty -disabled" type="button" data-amwishlist-js="copy" data-mwishlist-ajax='<?= /* @noEscape */ $block->getCopyData() ?>'>
+-        <?= $block->escapeHtml('Copy Selected') ?>
++        <?= $block->escapeHtml(__('Copy Selected')) ?>
+     </button>
+     <button class="amwishlist-button -empty -disabled" type="button" data-amwishlist-js="move" data-mwishlist-ajax='<?= /* @noEscape */ $block->getMoveData() ?>'>
+-        <?= $block->escapeHtml('Move Selected') ?>
++        <?= $block->escapeHtml(__('Move Selected')) ?>
+     </button>
+     <button class="amwishlist-button -fill -primary -addtolist" type="button" data-post='<?= /** @noEscape */ $block->getAddToCartData() ?>'>
+-        <?= $block->escapeHtml('Add All to Cart') ?>
++        <?= $block->escapeHtml(__('Add All to Cart')) ?>
+     </button>
+ </div>

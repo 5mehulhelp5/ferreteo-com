@@ -1,0 +1,137 @@
+.qty.field.qty-changer > a {
+    display: none;
+}
+.page-header.type19 .block-search input {
+    border-radius: 4px;
+}
+.block.category.event, .footer.content, .header.content, .navigation, .page-header .header.panel, .page-main, .page-wrapper>.breadcrumbs, .page-wrapper>.page-bottom, .page-wrapper>.widget, .top-container, .container {
+    max-width: none;
+}
+@media (min-width: 768px) {
+    .page-header.type19 .block-search {
+        width: calc(100% - 850px);
+        margin-left: 20px;
+    }
+    .page-header.type19 .block-search .action.search {
+        right: 0;
+    }
+    .page-header.type19 .panel.header .switcher strong,
+    .page-header.type19 .header.panel>.header.links>li {
+        font-size: 13px;
+        text-transform: none;
+    }
+}
+@media (min-width: 992px) {
+    .page-header.type19 .block-search input {
+        padding-left: 200px;
+    }
+}
+@media (min-width: 1380px) {
+    .page-header.type19 .panel.header .switcher {
+        padding-right: 50px;
+    }
+}
+@media (min-width: 1400px) {
+    .page-header.type19 .block-search {
+        width: 500px;
+    }
+}
+@media (min-width: 1700px) {
+    .page-header.type19 .block-search {
+        width: 33%;
+        margin-left: 60px;
+    }
+}
+.page-header.type19 .block-search .action.search {
+    background: #E74F1C;
+    border-radius: 0 3px 3px 0;
+}
+.page-header.type19 .block-search .action.search:before {
+    color: #fff;
+    font-size:22px;
+}
+.page-header.type19 .header.panel > .header.links > li > a:hover, .page-header.type19 .panel.header .header.links a[class^=top-link]:hover {
+    color: #E74F1B;
+}
+.page-header.type19 .minicart-wrapper {
+    width: auto;
+    margin-top: 17px;
+}
+.page-header.type19 .minicart-wrapper .action.showcart {
+    line-height: 27px;
+}
+@media (min-width: 768px) {
+    .page-header.type19 .minicart-wrapper {
+        right: 20px;
+        margin-top: -10px;
+    }
+    .page-header.type19 .minicart-wrapper .action.showcart .counter.qty {
+        left: 18px;
+    }
+}
+@media (max-width: 767px) {
+    .page-header.type19 .minicart-wrapper .action.showcart .counter.qty {
+        margin-top: -20px;
+        right: -2px;
+    }
+}
+.page-header.type1, .page-header.type2, .page-header.type3, .page-header.type4, .page-header.type20, .page-header.type17, .page-header.type5, .page-header.type6, .page-header.type19, .page-header.type7, .page-header.type23, .page-header.type8 .header.content, .page-header.type8.header-newskin .header.content, .page-header.type9, .page-header.type10, .page-header.type11, .page-header.type12, .page-header.type15, .page-header.type16, .page-header.type2.header-newskin, .page-header.type18, .page-header.header-newskin {
+    background-color: #E6E7F5;
+}
+.page-header > .header {
+    background-color: #282254;
+}
+
+@media (max-width: 767px) {
+    .page-header.type19 .block-search {
+        float: right;
+        margin-top: 20px;
+    }
+    .page-header.type19 .block-search .label {
+        margin: 0 15px 0 0;
+        line-height: 1;
+    }
+    .page-header.type19 .logo {
+        margin-top: 12px;
+    }
+}
+#block-feature-brand-heading {
+    font-size: 30px;
+    color: #E74F1B;
+}
+.shop-by-cat-item.cat-has-icon, .shop-by-cat-item.cat-has-icon h3 {
+    color: #282254;
+}
+.shop-by-cat-item.cat-has-icon:hover h3 {
+    color: #E74F1B;
+}
+.shop-by-cat-item.cat-has-icon .cat-detail {
+    box-shadow: inset 0 0px 42px 0 rgba(103 89 170 / 50%);
+    padding: 45px;
+}
+@media (max-width: 767px) {
+    .shop-by-cat-item.cat-has-icon .cat-detail {
+        padding: 30px;
+    }
+}
+.shop-by-cat-item.cat-has-icon:hover .cat-detail {
+    box-shadow: inset 0 0px 42px 0 rgb(231 79 28 / 50%);
+}
+.mpsearch-category-list {
+    /* display: none; */
+    background: #fff;
+}
+.product-social-links .action.towishlist:before, .product-addto-links .action.towishlist:before, .block-bundle-summary .action.towishlist:before, .product-item .action.towishlist:before, .table-comparison .action.towishlist:before {
+    content: '\f83c';
+}
+.product-item-info.type3 .product-item-photo .product-item-inner .product-item-actions>.action.towishlist {
+    color: #646363;
+    left: 75px;
+    bottom: -70px;
+}
+.product-item-info.type3 .product.name {
+    padding-right: 0;
+}
+.page-footer .switcher .options .action.toggle:after {
+    content: '\f808';
+}

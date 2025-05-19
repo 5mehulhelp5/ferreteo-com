@@ -1,0 +1,23 @@
+<?php
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+?>
+<?php
+/**
+ * Copyright © 2019 Aitoc. All rights reserved.
+ */
+
+// @codingStandardsIgnoreFile
+
+use Aitoc\ProductUnitsAndQuantities\ViewModel\PuqConfig;
+
+/** @var PuqConfig $viewModel */
+$viewModel = $block->getViewModel();
+
+?>
+<script>
+    window.puqConfig = <?= /* @escapeNotVerified */ $viewModel->getSerializedConfig() ?>;
+</script>

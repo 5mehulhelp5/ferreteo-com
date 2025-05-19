@@ -1,0 +1,583 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+
+$helper = $block->getMarketplaceHelper();
+$isPartner= $helper->isSeller();
+$mediaUrl = $helper->getMediaUrl();
+$registerHelper = $block->currentHelper();
+$moduleEnable = $registerHelper->getConfigData('visible_registration');
+if ($isPartner && $moduleEnable):
+    ?>
+<div class="wkeditprofile">
+    <form action="<?=$block->escapeUrl($block->getUrl(
+        'vendorregistration/seller/saveattribute',
+        ["_secure" => $block->getRequest()->isSecure()]
+    )) ?>" enctype="multipart/form-data" method="post" 
+     data-role="form-profile-validate" data-mage-init='{"validation":{}}'>
+        
+       <?= /* @noEscape */$block->getBlockHtml('formkey');?>
+       <?= /* @noEscape */$block->getBlockHtml('seller.formkey')?>
+            <fieldset class="fieldset info wk-mp-fieldset custom-fieldset">
+                <legend class="legend"><span><?php /**echo $block->getConfigData('profile_label')*/ ?></span></legend>
+                
+           <?php
+               $_customerData = $block->_loadCustomer()->toArray();
+               $storeId = $block->getStore()->getId();
+
+            if (!$block->getConfigData('group_display') || !isset($_customerData['is_vendor_group']) ||
+             $_customerData['is_vendor_group'] == 0) {
+                $_collection = $block->getAttributeCollection();
+                if (count($_collection)) {
+                       $count = 0;
+                    foreach ($_collection as $attributeData) {
+                        if ($attributeData->getAttributeUsedFor() == 1) {
+                            continue;
+                        }
+                        $count++;
+                        if ($count == 1): ?>
+                        <div class="wk-mp-page-title page-title">
+                            <h2><?=/* @noEscape */ __('Additional Information') ?></h2>
+                            <button class="button wk-mp-btn" title="<?=/* @noEscape */ __('Save Attributes') ?>" 
+                            type="submit" id="save-btn">
+                                <span><span><?=/* @noEscape */ __('Save Attributes') ?></span></span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                        <?php
+                        $allowedeImageExtension = $block->getConfigData('allowed_image_extension');
+                        $allowedFileExtension = $block->getConfigData('allowed_file_extension');
+                        $attrAsArray = $attributeData->toArray();
+                        $isRequiredArray = explode(' ', $attributeData->getFrontendClass());
+                        $_fieldValue = '';
+                        $_imageValue = '';
+                        foreach ($_customerData as $key => $value) {
+                            if ($attrAsArray['attribute_code'] == $key) {
+                                if ($attrAsArray['frontend_input'] == 'date') {
+                                    $_fieldValue = $block->convertDateFormat($value);
+                                } elseif ($attrAsArray['frontend_input'] == 'boolean' && (int)$value == 1) {
+                                    $_fieldValue = $value;
+                                } elseif ($attrAsArray['frontend_input'] == 'select') {
+                                    $_fieldValue = $value;
+                                } elseif ($attrAsArray['frontend_input'] == 'multiselect') {
+                                    $_fieldValue = $value;
+                                } elseif ($attrAsArray['frontend_input'] == 'image' && $value != null) {
+                                    if (!is_numeric($value)) {
+                                        $imageUrl = $mediaUrl.'wkmpvrfiles/'.
+                                        explode('/', $value)[count(explode('/', $value))-1];
+                                        $_fieldValue =  '<a href="'.$imageUrl.'" 
+                                        onclick="imagePreview(\'customfields_your_image_image\'); 
+                                        return false;">
+                                            <img src="'.$imageUrl.'" id="customfields_your_image_image" 
+                                            title="'./* @noEscape */__('Preview Image').'" 
+                                            height="22" width="22" class="small-image-preview v-middle">
+                                        </a>';
+                                        $_imageValue = $mediaUrl.'wkmpvrfiles/'.
+                                        explode('/', $value)[count(explode('/', $value))-1];
+                                    }
+                                } elseif ($attrAsArray['frontend_input'] == 'file' && $value != null) {
+                                    if (!is_numeric($value)) {
+                                        $fileUrl = $mediaUrl.'wkmpvrfiles/'.
+                                        explode('/', $value)[count(explode('/', $value))-1];
+                                        $_fieldValue = '<a href="'.$fileUrl.'"><img alt="Download" title="Download" 
+                                    src="'.$block->getViewFileUrl('Webkul_MpVendorRegistration::images/download.gif').'"
+                                     class="v-middle wk_download_link" style="float: left;width: 22px;"></a>'.
+                                        '<a href="'.$fileUrl.'" download>'./* @noEscape */__('Download').'</a>';
+                                        $_imageValue = $mediaUrl.'wkmpvrfiles/'.
+                                        explode('/', $value)[count(explode('/', $value))-1];
+                                    }
+                                } else {
+                                    $_fieldValue = $value;
+                                }
+                            }
+                        }
+                        $attributLabel = $block->getAttrLabel($attributeData->getAttributeCode());
+                        
+                        if ($attributLabel->getStoreLabel() != null) {
+                            $label = $attributLabel->getStoreLabel();
+                        } elseif ($attrAsArray['frontend_label'] != null) {
+                            $label = $attrAsArray['frontend_label'];
+                        } else {
+                            $label = $attrAsArray['attribute_label'];
+                        }
+
+                        ?>
+                    <div class="field profile <?= $block->escapeHtml($attributeData->getAttributeCode()) ?> 
+                        <?= /* @escapeNotVerified */$attributeData->getRequiredField()?'required':'' ?>">
+                        <?php if ($attributeData->getFrontendInput() != 'boolean'): ?>
+                        <label for="<?= $block->escapeHtml($attributeData->getAttributeCode()) ?>" 
+                        class="label"><span><?=$block->escapeHtml($label); ?></span></label>
+                    <?php endif ?>
+                        <div class="control">
+                        <?php if ($attributeData->getFrontendInput() == 'text'): ?>
+                            <input type="text" name="<?= $block->escapeHtml($attributeData->getAttributeCode()) ?>"
+                             id="<?= $block->escapeHtml($attributeData->getAttributeCode()) ?>" 
+                             class="input-text <?= $block->escapeHtml($attributeData->getFrontendClass()) ?>"
+                              <?= /* @escapeNotVerified */$attributeData->getRequiredField()?
+                                'data-validate="{required:true}"':'' ?> value="<?= /* @noEscape */($_fieldValue); ?>"
+                               autocomplete="off">
+
+                        <?php elseif ($attributeData->getFrontendInput() == 'textarea'):?>
+                            <textarea name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                            id="<?=$block->escapeHtml($attrAsArray['attribute_code'])?>" 
+                            class="input-text <?= $block->escapeHtml($attributeData->getFrontendClass()) ?>"
+                             <?= /* @noEscape */$attributeData->getRequiredField()?
+                                'data-validate="{required:true}"':'' ?> ><?= /* @noEscape */($_fieldValue); ?>
+                             </textarea>
+                        <?php elseif ($attributeData->getFrontendInput() == 'date'): ?>
+                            <input type="text" name="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                             id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                              value="<?= /* @noEscape */($_fieldValue); ?>" 
+                              class="dob_type <?= $block->escapeHtml($attributeData->getFrontendClass()) ?>" 
+                              <?=/* @noEscape */ $attributeData->getRequiredField()?
+                                'data-validate="{required:true}"':'' ?> 
+                              value="<?=/* @noEscape */($_fieldValue); ?>" autocomplete="off">
+
+                        <?php elseif ($attributeData->getFrontendInput() == 'select' &&
+                        !in_array('dependable_field_'.$attrAsArray['attribute_code'], $isRequiredArray)):
+                                    $optiondata = $registerHelper->getAllOptions($attributeData->getAttributeCode());
+                                    usort($optiondata, function ($a, $b) {
+                                        if (!empty($a['value']) && !empty($b['value'])) {
+                                            return $a['value'] - $b['value'];
+                                        }
+                                    });
+                                    ?>
+                            <select name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                            id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                            class="input-select <?= $block->escapeHtml($attributeData->getFrontendClass()) ?>"
+                                    <?=/* @noEscape */ $attributeData->getRequiredField()?
+                                    'data-validate="{required:true}"':'' ?> <?php ?>>
+                                    <?php foreach ($optiondata as $instance) { ?>
+                                        <?php if ($instance['value'] != ''):?>
+                                      <option value="<?=$block->escapeHtml($instance['value']) ?>"
+                                            <?= /* @noEscape */$_fieldValue==$instance['value']?'selected':''; ?>> 
+                                            <?= $block->escapeHtml($instance['label']) ?></option>
+                                <?php endif; ?>
+                                <?php } ?>
+                            </select>
+                                    <?php /** } */?>
+                        <?php elseif ($attributeData->getFrontendInput() == 'multiselect'):
+                     
+                                $optiondata = $registerHelper->getAllOptions($attributeData->getAttributeCode());
+                                usort($optiondata, function ($a, $b) {
+                                    if (!empty($a['value']) && !empty($b['value'])) {
+                                        return $a['value'] - $b['value'];
+                                    }
+                                });
+                            
+                            ?>
+                            <select name="<?=$block->escapeHtml($attrAsArray['attribute_code'])?>[]" 
+                            id="<?= $block->escapeHtml($attrAsArray['attribute_code'])?>" 
+                            class="input-select <?= $block->escapeHtml($attributeData->getFrontendClass()) ?>" 
+                            <?=/* @noEscape */ $attributeData->getRequiredField()?
+                            'data-validate="{required:true}"':'' ?> multiple="multiple">
+                            <?php foreach ($optiondata as $instance) { ?>
+                                <?php if ($instance['value'] != ''):
+                                    if (!is_array($_fieldValue)) {
+                                        $_fieldValue = explode(',', $_fieldValue);
+                                    }
+                                    ?>
+                                      <option  value="<?= $block->escapeHtml($instance['value']) ?>" 
+                                      <?= /* @noEscape */in_array($instance['value'], $_fieldValue)?'selected':''; ?>>
+                                       <?=$block->escapeHtml($instance['label']) ?></option>
+                                <?php endif; ?>
+                                <?php  } ?>
+                            </select>
+                            <?php /** } */ ?>
+                        <?php elseif ($attributeData->getFrontendInput() == 'boolean'):?>
+                            <input type='hidden' value="<?= /* @noEscape */((int)$_fieldValue); ?>" 
+                            name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>">
+                            <input type="checkbox" name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                             id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                              class="wkinput-text <?= $block->escapeHtml($attributeData->getFrontendClass()) ?>"
+                               <?=/* @noEscape */ $attributeData->getRequiredField()?
+                                'data-validate="{required:true}"':'' ?> value="<?= /* @noEscape */($_fieldValue); ?>"
+                                 onchange="this.value = this.checked ? 1 : 0;" 
+                                 <?=/* @noEscape */ (int)$_fieldValue?'checked':''; ?>>
+                            <label for="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                            class="label <?=/* @noEscape */ $attributeData->getRequiredField()? ' wkboolreq':'' ?> ">
+                            <span><?=$block->escapeHtml($attributeData->getFrontendLabel()); ?></span></label>
+
+                        <?php elseif ($attributeData->getFrontendInput() == 'image'):?>
+                            <?php if ($_imageValue != '') { ?>
+                                <?=/* @noEscape */($_fieldValue); ?>
+                                <input type="file" name="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                id="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                value="<?= $block->escapeHtml($_imageValue); ?>" 
+                                class="input-file attribute_image custom_file" 
+                                data-allowed = "<?= $block->escapeHtml($allowedeImageExtension); ?>">
+
+                                <span class="delete-image">
+                                    <input type="checkbox" 
+                                    name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>[delete]" 
+                                    value="" onchange="this.value = this.checked ? 1 : 0;" class="checkbox">
+                                    <label for="customfields_your_image_delete">
+                                        <?=/* @noEscape */ __('Delete Image') ?>
+                                    </label>
+                                    <input type="hidden" 
+                                    name="customer[<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>]" 
+                                    value="<?= $block->escapeHtml($_imageValue); ?>">
+                                </span>
+                            <?php } else { ?>
+                                <input type="file" 
+                                name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                id="<?= $block->escapeHtml($attrAsArray['attribute_code'])?>" 
+                                value="" class="input-file attribute_image custom_file 
+                                <?= $block->escapeHtml($attributeData->getFrontendClass())?>" 
+                                data-allowed = "<?= $block->escapeHtml($allowedeImageExtension); ?>" 
+                                <?=/* @noEscape */ $attributeData->getRequiredField()?
+                                'data-validate="{required:true}"':'' ?>>
+                            <?php } ?>
+                            <div>
+                            <span class="note">
+                                <span>
+                                <?=/* @noEscape */ __('Allowed Extensions are : ').
+                                $block->escapeHtml($block->getConfigData('allowed_image_extension')) ?>
+                                </span>
+                            </span>
+                        </div>
+
+                        <?php elseif ($attributeData->getFrontendInput() == 'file'):?>
+                            <?php if ($_imageValue != '') { ?>
+                            <input type="file" name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                             id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                              class="input-file custom_file" 
+                              data-allowed = "<?= $block->escapeHtml($allowedFileExtension); ?>">
+
+                            <span><?= /* @noEscape */($_fieldValue); ?></span>
+                            <input type="hidden" 
+                            name="customer[<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>]" 
+                            value="<?=$block->escapeHtml($_imageValue); ?>">
+                                <span class="delete-image">
+                                    <input type="checkbox" 
+                                    name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>[delete]" 
+                                    value="" onchange="this.value = this.checked ? 1 : 0;" class="checkbox">
+                                    <label for="customfields_your_image_delete">
+                                        <?=/* @noEscape */ __('Delete File') ?>
+                                    </label>
+                                    <input type="hidden" 
+                                    name="customer[<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>]"
+                                     value="<?= $block->escapeHtml($_imageValue); ?>">
+                                </span>
+                            <?php } else { ?>
+                                <input type="file" 
+                                name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                 id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                  class="input-file custom_file <?=
+                                    $block->escapeHtml($attributeData->getFrontendClass()) ?>"
+                                   data-allowed = "<?= $block->escapeHtml($allowedFileExtension); ?>" 
+                                   <?= /* @noEscape */$attributeData->getRequiredField()?
+                                    'data-validate="{required:true}"':'' ?>>
+                            <?php }?>
+
+                            <div>
+                            <span class="note"><span>
+                                <?= /* @noEscape */__('Allowed Extensions are : ').
+                                $block->escapeHtml($block->getConfigData('allowed_file_extension')) ?>
+                                </span>
+                            </span>
+                            </div>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                        <?php
+                    }
+                } ?>
+            <?php } else {
+                if (isset($_customerData['is_vendor_group'])) {
+                    $_collection = $block->getAttributeCollectionByGroup($_customerData['is_vendor_group'], false);
+                    if (count($_collection)) { $count=0;?>
+                            <?php foreach ($_collection as $attrAsArray) {
+                                if ($attrAsArray['used_for'] == 1) {
+                                    continue;
+                                }
+                                $count++;
+                                if ($count == 1): ?>
+                                <div class="wk-mp-page-title page-title">
+                                    <h2><?=/* @noEscape */ __('Additional Information') ?></h2>
+                                    <button class="button wk-mp-btn" 
+                                    title="<?=/* @noEscape */ __('Save Attributes') ?>" 
+                                    type="submit" id="save-btn">
+                                        <span><span><?=/* @noEscape */ __('Save Attributes') ?></span></span>
+                                    </button>
+                                </div>
+                            <?php endif;
+                                $allowedeImageExtension = $block->getConfigData('allowed_image_extension');
+                                $allowedFileExtension = $block->getConfigData('allowed_file_extension');
+                                $isRequiredArray = explode(' ', $attrAsArray['frontend_class']);
+                                $_fieldValue = '';
+                                $_imageValue = '';
+                                foreach ($_customerData as $key => $value) {
+                                    if ($attrAsArray['attribute_code'] == $key) {
+                                        if ($attrAsArray['frontend_input'] == 'date') {
+                                            $_fieldValue = $block->convertDateFormat($value);
+                                        } elseif ($attrAsArray['frontend_input'] == 'boolean' &&
+                                        (int)$value == 1) {
+                                            $_fieldValue = $value;
+                                        } elseif ($attrAsArray['frontend_input'] == 'select') {
+                                            $_fieldValue = $value;
+                                        } elseif ($attrAsArray['frontend_input'] == 'multiselect') {
+                                            $_fieldValue = $value;
+                                        } elseif ($attrAsArray['frontend_input'] == 'image') {
+                                            $path = $mediaUrl.'wkmpvrfiles/'.$value;
+                                            //phpcs:ignore Generic.PHP.NoSilencedErrors
+                                            if (!@getimagesize($path)) {
+                                                $path = $mediaUrl.'wkmpvrfiles/'.$value;
+                                            }
+                                            $_fieldValue =  '<a href="'.$path.'" 
+                                            onclick="imagePreview(\'customfields_your_image_image\'); 
+                                            return false;">
+                                                <img src="'.$path.'" id="customfields_your_image_image"
+                                                 title="'.__('Preview Image').'" height="22" width="22"
+                                                  class="small-image-preview v-middle">
+                                            </a>';
+                                            $_imageValue = $value;
+                                        } elseif ($attrAsArray['frontend_input'] == 'file') {
+                                            $path = $mediaUrl.'wkmpvrfiles/'.$value;
+                                            $file_exists = ($block->getFileOpen()->fileOpen($path, "r"))?true : false;
+                                            if (!$file_exists) {
+                                                $path = $mediaUrl.'wkmpvrfiles/'.$value;
+                                            }
+                                            $_fieldValue = '<a href="'.$path.'"><img alt="Download"
+                                             title="Download" src="'.
+                                             $block->escapeUrl(
+                                                 $block->getViewFileUrl('
+                                                 Webkul_MpVendorRegistration::images/download.gif')
+                                             ).'" 
+                                                 class="v-middle wk_download_link" 
+                                                 style="float: left;width: 22px;"></a>'.
+                                              '<a href="'.$path.'">'.__('Download').'</a>';
+                                             $_imageValue = $value;
+                                        } else {
+                                            $_fieldValue = $value;
+                                        }
+                                    }
+                                }
+                                /**$label = $attrAsArray['label'];*/
+                                $attributLabel = $block->getAttrLabel($attributeData->getAttributeCode());
+                                
+                                if ($attributLabel->getStoreLabel() != null) {
+                                    $label = $attributLabel->getStoreLabel();
+                                } elseif ($attrAsArray['frontend_label'] != null) {
+                                    $label = $attrAsArray['frontend_label'];
+                                } else {
+                                    $label = $attrAsArray['attribute_label'];
+                                }
+                                ?>
+                            <div class="field profile <?= $block->escapeHtml($attrAsArray['attribute_code']) ?>
+                                <?= /* @noEscape */in_array('required', $isRequiredArray)?'required':'' ?>">
+                                <?php if ($attrAsArray['frontend_input'] != 'boolean'): ?>
+                                <label for="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                class="label"><span><?= $block->escapeHtml($label); ?></span></label>
+                            <?php endif ?>
+                                <div class="control">
+                                <?php if ($attrAsArray['frontend_input'] == 'text'): ?>
+                                    <input type="text" name="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                     id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                      class="input-text <?= $block->escapeHtml($attrAsArray['frontend_class']) ?>"
+                                       <?=/* @noEscape */ in_array('required', $isRequiredArray)?
+                                        'data-validate="{required:true}"':'' ?> 
+                                        value="<?=/* @noEscape */($_fieldValue); ?>"
+                                        autocomplete="off">
+
+                                <?php elseif ($attrAsArray['frontend_input'] == 'textarea'):?>
+                                    <textarea  name="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                    id="<?= $block->escapeHtml($attrAsArray['attribute_code'])?>" 
+                                    class="input-text <?=$block->escapeHtml($attrAsArray['frontend_class'])
+                                    ?>" <?=/* @noEscape */ in_array('required', $isRequiredArray)?
+                                    'data-validate="{required:true}"':'' ?> ><?=/* @noEscape */($_fieldValue); ?>
+                                    </textarea>
+                                <?php elseif ($attrAsArray['frontend_input'] == 'date'): ?>
+                       
+                                    <input type="text" 
+                                    name="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                    id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                    value="<?=/* @noEscape */($_fieldValue); ?>" 
+                                    class="dob_type <?=$block->escapeHtml($attrAsArray['frontend_class']) ?>"
+                                     <?=/* @noEscape */ in_array('required', $isRequiredArray)?
+                                        'data-validate="{required:true}"':'' ?> 
+                                      value="<?=/* @noEscape */($_fieldValue); ?>" 
+                                      autocomplete="off">
+
+                                <?php elseif ($attrAsArray['frontend_input'] == 'select' &&
+                                 !in_array('dependable_field_'.$attrAsArray['attribute_code'], $isRequiredArray)):
+                                            $optiondata = $attrAsArray['option_data'];
+                                            usort($optiondata, function ($a, $b) {
+                                                if (!empty($a['value']) && !empty($b['value'])) {
+                                                    return $a['value'] - $b['value'];
+                                                }
+                                            });
+                                            ?>
+                                    <select name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                    id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                     class="input-select <?= $block->escapeHtml($attrAsArray['frontend_class']) ?>"
+                                            <?=/* @noEscape */ in_array('required', $isRequiredArray)?
+                                            'data-validate="{required:true}"':'' ?> <?php ?>>
+                                            <?php foreach ($optiondata as $instance) { ?>
+                                                <?php if ($instance['value'] != ''):?>
+                                              <option value="<?=$block->escapeHtml($instance['value']) ?>"
+                                                    <?=/* @noEscape */$_fieldValue==$instance['value']?'selected':'';?>>
+                                                    <?=$block->escapeHtml($instance['label']) ?></option>
+                                        <?php endif; ?>
+                                        <?php } ?>
+                                    </select>
+
+                                <?php elseif ($attrAsArray['frontend_input'] == 'multiselect'):
+                                    $optiondata = $attrAsArray['option_data'];
+                                    usort($optiondata, function ($a, $b) {
+                                        if (!empty($a['value']) && !empty($b['value'])) {
+                                            return $a['value'] - $b['value'];
+                                        }
+                                    });
+                                    ?>
+                                    <select name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>[]" 
+                                    id="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                    class="input-select <?=$block->escapeHtml($attrAsArray['frontend_class']) ?>"
+                                     <?=/* @noEscape */  in_array('required', $isRequiredArray)?
+                                        'data-validate="{required:true}"':'' ?> multiple="multiple">
+                                    <?php foreach ($optiondata as $instance) { ?>
+                                        <?php if ($instance['value'] != ''):
+                                            if (!is_array($_fieldValue)) {
+                                                $_fieldValue = explode(',', $_fieldValue);
+                                            }
+                                            ?>
+                                            <option value="<?=$block->escapeHtml($instance['value']) ?>"
+                                             <?=/* @noEscape */ in_array($instance['value'], $_fieldValue)?
+                                                'selected':''; ?>> 
+                                             <?= $block->escapeHtml($instance['label']) ?></option>
+                                        <?php endif; ?>
+                                        <?php } ?>
+                                    </select>
+
+                                <?php elseif ($attrAsArray['frontend_input'] == 'boolean'):?>
+                                    <input type='hidden' value="<?=$block->escapeHtml((int)$_fieldValue); ?>" 
+                                    name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>">
+                                    <input type="checkbox" 
+                                    name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                    id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                    class="input-text <?= $block->escapeHtml($attrAsArray['frontend_class']) ?>"
+                                     <?=/* @noEscape */  in_array('required', $isRequiredArray)?
+                                        'data-validate="{required:true}"':'' ?>
+                                      value="<?=/* @noEscape */($_fieldValue); ?>" 
+                                      onchange="this.value = this.checked ? 1 : 0;" 
+                                      <?=/* @noEscape */ (int)$_fieldValue?'checked':''; ?>>
+                                    <label for="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                     class="label <?=/* @noEscape */ $attributeData->getRequiredField()?
+                                        ' wkboolreq':'' ?> ">
+                                     <span><?=$block->escapeHtml($attrAsArray['label']); ?></span></label>
+
+                                <?php elseif ($attrAsArray['frontend_input'] == 'image'):?>
+                                    <?php if ($_imageValue != ''): ?>
+                                        <?= /* @noEscape */($_fieldValue); ?>
+                                        <input type="file" 
+                                        name="<?=$block->escapeHtml($attrAsArray['attribute_code'])?>" 
+                                        id="<?= $block->escapeHtml($attrAsArray['attribute_code'])?>" 
+                                        value="<?= $block->escapeHtml($_imageValue); ?>" 
+                                        class="input-file attribute_image custom_file" 
+                                        data-allowed = "<?= $block->escapeHtml($allowedeImageExtension); ?>">
+                                        
+                                        <span class="delete-image">
+                                            <input type="checkbox" 
+                                            name="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>[delete]"
+                                             value="" onchange="this.value = this.checked ? 1 : 0;" class="checkbox">
+                                            <label for="customfields_your_image_delete">
+                                                <?= /* @noEscape */__('Delete Image') ?></label>
+                                            <input type="hidden" 
+                                            name="customer[<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>]"
+                                             value="<?= $block->escapeHtml($_imageValue); ?>">
+                                        </span>
+                                        <?php /**endif*/ ?>
+                                    <?php else: ?>
+                                        <input type="file" 
+                                        name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                        id="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                         value="" class="input-file attribute_image custom_file <?=
+                                            $block->escapeHtml($attrAsArray['frontend_class']) ?>" 
+                                         data-allowed = "<?= $block->escapeHtml($allowedeImageExtension); ?>" 
+                                         <?= /* @noEscape */in_array('required', $isRequiredArray)?
+                                            'data-validate="{required:true}"':'' ?>>
+                                    <?php endif; ?>
+                                    <br>
+                                    <span class="note">
+                                        <span>
+                                            <?= $block->escapeHtml($block->getConfigData('allowede_image_extension')) ?>
+                                        </span>
+                                    </span>
+                                    <br>
+
+                                <?php elseif ($attrAsArray['frontend_input'] == 'file'):?>
+                                    <?php if ($_imageValue != ''): ?>
+                                    <input type="file" name="<?=$block->escapeHtml($attrAsArray['attribute_code'])?>"
+                                     id="<?=$block->escapeHtml($attrAsArray['attribute_code'])?>"
+                                      class="input-file custom_file"
+                                       data-allowed = "<?=$block->escapeHtml($allowedFileExtension); ?>">
+                                    <span><?=/* @noEscape */($_fieldValue); ?></span>
+                                    <input type="hidden"
+                                     name="customer[<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>]"
+                                      value="<?=$block->escapeHtml($_imageValue); ?>">
+                                        
+                                        <span class="delete-image">
+                                            <input type="checkbox"
+                                             name="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>[delete]"
+                                             value="" onchange="this.value = this.checked ? 1 : 0;" class="checkbox">
+                                            <label for="customfields_your_image_delete">
+                                                <?=/* @noEscape */ __('Delete File') ?></label>
+                                            <input type="hidden" 
+                                            name="customer[<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>]"
+                                            value="<?=$block->escapeHtml($_imageValue); ?>">
+                                        </span>
+                                        <?php /**endif*/ ?>
+                                    <?php else: ?>
+                                        <input type="file" 
+                                        name="<?= $block->escapeHtml($attrAsArray['attribute_code']) ?>"
+                                         id="<?=$block->escapeHtml($attrAsArray['attribute_code']) ?>" 
+                                         class="input-file custom_file 
+                                         <?=$block->escapeHtml($attrAsArray['frontend_class']) ?>"
+                                          data-allowed = "<?=$block->escapeHtml($allowedFileExtension); ?>" 
+                                          <?=/* @noEscape */ in_array('required', $isRequiredArray)?
+                                            'data-validate="{required:true}"':'' ?>>
+                                    <?php endif; ?>
+
+                                    <br>
+                                    <span class="note">
+                                        <span>
+                                            <?=$block->escapeHtml($block->getConfigData('allowede_file_extension')) ?>
+                                        </span>
+                                    </span>
+                                    <br>
+                                <?php endif; ?>
+                                </div>
+                            </div>
+                                <?php
+                            }
+                    }
+                }
+                ?>
+
+                <?php } ?>
+        </fieldset>
+    </form>
+</div>
+<?php endif; ?>
+<?php
+    $optionData = [
+        'dateField'     => '.dob_type',
+        'dateFormat'     => 'yy-m-d',
+        'imageField'    => '.custom_file',
+    ];
+    $serializedData = $block->getJsonHelper()->jsonEncode($optionData);
+    ?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "editProfile": <?= /* @noEscape */$serializedData; ?>
+    }
+}
+</script>

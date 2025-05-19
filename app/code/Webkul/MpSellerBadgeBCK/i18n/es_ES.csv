@@ -1,0 +1,53 @@
+"Save Badge","Guardar Insignia"
+"Badge Information","Información de Insignia"
+"Badges Information","Información de Insignias"
+"Badge Name","Nombre de la Insignia"
+"Badge Description","Descripción de la Insignia"
+Image,Imagen
+Rank,Rank
+Status,Estatus
+Enabled,Activada
+Disabled,Desactivada
+Badges,Condecoraciones
+"Update Badge ","Actualizar Insignia "
+"New Badge","Nueva Insignia"
+"Manage Badges","Administrar Insignias"
+"Manage Badge","Administrar Insignia "
+"Badge(s) deleted successfully.","Insignia(s) eliminadas satisfactoriamente."
+"Badge(s) disabled successfully.","Insignia(s) desactivadas satisfactoriamente."
+"Badge(s) enabled successfully.","Insignia(s) activadas satisfactoriamente."
+"Image file is not correct.","Formato del archivo incorrecto."
+"Badge updated successfully.","Insignia actualizada satisfactoriamente."
+"Badge saved successfully.","Insignia guardada satisfactoriamente."
+"Rank already exist.","Ranking ya existe."
+"Seller Badge Manager","Seller Badge Manager"
+"Something went wrong.","Algo salió mal."
+"Badge(s) assigned successfully.","Insignia(s) asignada satisfactoriamente."
+"Badge(s) already assigned","Insignia(s) ya asignada(s)"
+"Badge(s) not assigned.","Insignia(s) no asignada(s)."
+"Badge(s) removed from the seller.","Insignia(s) removida al vendedor."
+"%1 Badge(s)","%1 Insignia(s)"
+Enable,Activar
+Disable,Desactivar
+Edit,Editar
+"Seller Badge(s)","Insignias del Vendedor"
+"There is no badge assigned to seller.","No hay ninguna Insignia asignada al vendedor."
+"All Badges","Todas las Insignias"
+"View All Badges","Ver Todas las Insignias"
+Badge(s),Insignias
+"Seller Badges","Insignias del Vendedor"
+Submit,Envíar
+Close,Cerrar
+"Add New Badge","Agregar Nueva Insignia "
+Delete,Eliminar
+"Do you want to delete selected images?","¿Deseas eliminar las imágenes seleccionadas?"
+Thumbnail,Miniatura
+Created,Creada
+"Assign badge","Asignar Insignia "
+"Are you sure to assign selected badge to seller?","¿Estas seguro de asignar la Insignia seleccionada al vendedor?"
+"Remove badge","Quitar Insignia"
+"Are you sure to remove selected badge from seller?","¿Estas seguro de quitar la Insignia seleccionada al vendedor?"
+"Seller ID","ID del Vendedor"
+"Seller Name","Nombre del Vendedor"
+"Seller Email","Correo Electrónico del Vendedor"
+"Seller Status","Estatus Vendedor"

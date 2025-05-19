@@ -1,0 +1,29 @@
+<?php
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+?>
+<?php
+/**
+ * Copyright © 2019 Aitoc. All rights reserved.
+ */
+
+use Aitoc\ProductUnitsAndQuantities\Api\Data\Source\BlockConfigModeInterface;
+use Aitoc\ProductUnitsAndQuantities\Block\Quantities\WishlistQuantities;
+
+/** @var WishlistQuantities $this */
+?>
+<script type="text/x-magento-init">
+    {
+        "[data-product-id='<?php
+    echo $this->getData('productId') ?>']": {
+            "Aitoc_ProductUnitsAndQuantities/js/quantities/mode-helper/wishlist":
+                <?php echo $this->getJsonEncodedProductParamsOld(
+                        BlockConfigModeInterface::WISHLIST,
+                        $this->getProductId(),
+                        $this->getStoreId()) ?>
+        }
+    }
+</script>

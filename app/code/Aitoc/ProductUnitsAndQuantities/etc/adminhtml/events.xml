@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_before">
+        <observer name="SaveProductObserver" instance="Aitoc\ProductUnitsAndQuantities\Observer\SaveProductObserver"/>
+    </event>
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="productunitsandquantities_sales_model_service_quote_submit_success" instance="Aitoc\ProductUnitsAndQuantities\Observer\SalesModelServiceQuoteSubmitSuccessObserver"/>
+    </event>
+</config>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- Vendor Registration Group Table -->
+    <table name="mp_vendor_registration_group" resource="default" engine="innodb" comment="Vendor Registration Group Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="text" name="group_name" nullable="false" comment="group name"/>
+        <column xsi:type="int" name="sort_order" padding="10" unsigned="true" nullable="false" default="0" comment="sort order"/>
+        <column xsi:type="int" name="group_status" padding="10" unsigned="true" nullable="false" default="0" comment="group status"/>
+        <column xsi:type="int" name="group_by_admin" padding="10" unsigned="true" nullable="false" default="0" comment="group defined by admin"/>
+        <column xsi:type="int" name="show_in_frontend" padding="10" unsigned="true" nullable="false" default="1" comment="group display on frontend"/>
+        <column xsi:type="text" name="group_code" nullable="false" comment="group code"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <!-- Vendor Registration Group Assign Table -->
+    <table name="mp_vendor_registration_attribute" resource="default" engine="innodb" comment="Vendor Registration Attribute Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="group_id" padding="10" unsigned="true" nullable="false" default="0" comment="group id"/>
+        <column xsi:type="text" name="attribute_code" nullable="false" comment="attribute code"/>
+        <column xsi:type="text" name="attribute_label" nullable="false" comment="attribute label"/>
+        <column xsi:type="int" name="attribute_id" padding="10" unsigned="true" nullable="false" default="0" comment="attribute id"/>
+        <column xsi:type="int" name="has_parent" padding="10" unsigned="true" nullable="false" default="0" comment="has parent"/>
+        <column xsi:type="int" name="sort_order" padding="10" unsigned="true" nullable="false" default="0" comment="sort order"/>
+        <column xsi:type="int" name="attribute_status" padding="10" unsigned="true" nullable="false" default="0" comment="attribute status"/>
+        <column xsi:type="int" name="is_required" padding="10" unsigned="true" nullable="false" default="0" comment="is required"/>
+        <column xsi:type="int" name="attribute_by_admin" padding="10" unsigned="true" nullable="false" default="0" comment="attribute defined by admin"/>
+        <column xsi:type="int" name="show_in_front" padding="10" unsigned="true" nullable="false" default="0" comment="attribute show on profile and edit profile"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <!-- Vendor Registration Group Assign Table -->
+    <table name="mp_vendor_registration_assign_group" resource="default" engine="innodb" comment="Vendor Registration Group Assign Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="attribute_id" padding="10" unsigned="true" nullable="false" default="0" comment="attribute id"/>
+        <column xsi:type="int" name="group_id" padding="10" unsigned="true" nullable="false" default="0" comment="group id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>

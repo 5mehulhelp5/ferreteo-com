@@ -1,0 +1,44 @@
+Legend
+
++ Features
+- Bugs
+-------------------------------- Version 3.0.0 --------------------------------------
+	+ Compatible with Marketplace 3.0.*.
+
+-------------------------------- Version 2.2.0 --------------------------------------
+ 
+	+ Compatible with Marketplace 2.3.*
+	- Issue fixed buyer name show on frontend.
+	- Issue fixed for image size
+
+-------------------------------- Version 2.1.0 --------------------------------------
+	+ Compatible with Magento 2.3.*.
+
+-------------------------------- Version 2.0.4 --------------------------------------
+
+	+ Made compatible with Varnish Cache.
+	- Bug fixes.
+
+-------------------------------- Version 2.0.3 --------------------------------------
+
+	+ Made compatible with Marketplace 2.1.* and Magento 2.2*.
+	+ Search, Most Recent, Most Helpful filter.
+	+ Customer Login pop up added.
+	- Bug fixes.
+
+-------------------------------- Version 2.0.2 --------------------------------------
+
+	+ Made compatible with Marketplace Seller Group.
+
+-------------------------------- Version 2.0.1 --------------------------------------
+
+	+ Compatible with Magento version 2.1.*
+
+-------------------------------- Version 2.0.0 --------------------------------------
+
+	+ Buyer can ask the question to seller on his product.
+	+ Anyone can respond to that question.
+	+ Admin will manage all the question and answer.
+	+ Customers can like or dislike answers.
+	+ Admin can also respond to that questions.
+	+ Email notifications to Seller, Buyer and Admin for Questions and Responses.

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductFinder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_ProductFinder::mpproductfinder" title="Product Finder" module="Mageplaza_ProductFinder" resource="Mageplaza_ProductFinder::mpproductfinder" sortOrder="100" parent="Magento_Catalog::catalog"/>
+        <add id="Mageplaza_ProductFinder::finder" title="Manage Product Finders" module="Mageplaza_ProductFinder" sortOrder="10" action="mpproductfinder/rule/index" resource="Mageplaza_ProductFinder::mpproductfinder" parent="Mageplaza_ProductFinder::mpproductfinder"/>
+        <add id="Mageplaza_ProductFinder::configuration" title="Configuration" module="Mageplaza_ProductFinder" sortOrder="100" action="adminhtml/system_config/edit/section/mpproductfinder" resource="Mageplaza_ProductFinder::configuration" parent="Mageplaza_ProductFinder::mpproductfinder"/>
+    </menu>
+</config>

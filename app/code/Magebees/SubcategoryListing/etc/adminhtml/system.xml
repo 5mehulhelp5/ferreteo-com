@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="magebees" sortOrder="999" translate="label">
+			<label>Magebees</label>
+		</tab>
+		<section id="subcategorylisting" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Subcategory Listing</label>
+			<tab>magebees</tab>
+			<resource>Magebees_SubcategoryListing::config_magebees_subcategorylisting</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>General</label>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enabled</label>
+					<comment>Select Yes To Enable Subcategories Listing Extension</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="mbcategory_image" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Use Category Image, When Thumbnail is Not Available</label>
+					<comment>Select yes for using category image when thumbnail image not present.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<!--<field id="subcatplaceholder" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Placeholder Image</label>
+					<comment/>
+				</field>-->
+
+				<!--<field id="subcatplaceholder" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File">
+            		<label>Placeholder Image</label>
+            		<backend_model>Magento\Config\Model\Config\Backend\File</backend_model>
+            		<upload_dir config="system" scope_info="1">magebees</upload_dir>
+            	</field>-->
+
+            	<field id="subcatplaceholder" translate="label" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				    <label>Placeholder Image</label>
+				    <backend_model>Magebees\SubcategoryListing\Model\Config\Backend\Image</backend_model>
+				    <base_url type="media" scope_info="1">subcategorylisting</base_url>
+				    <comment><![CDATA[Allowed file types: jpg, jpeg, gif, png]]></comment>
+				</field>
+
+
+				<field id="subcategories_layout" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Subcategories Layout</label>
+					<comment/>
+					<source_model>Magebees\SubcategoryListing\Model\Config\Source\SubcategoriesLayout</source_model>
+				</field>
+				<field id="subcatimage_width" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Image Width</label>
+					<comment>Defualt :- 200</comment>
+					<validate>required-entry validate-digits validate-digits-range digits-range-0-1000</validate>
+				</field>
+				<field id="subcatimage_height" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Image Height</label>
+					<comment>Defualt :- 200</comment>
+					<validate>required-entry validate-digits validate-digits-range digits-range-0-1000</validate>
+				</field>
+
+				<field id="mbpagelayout" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Change to 1 column Layout</label>
+					<comment>Select Yes for 1 column layout for Subcategories Listing.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="support" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Info</label>
+				<field id="style" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1"> 
+					<label>Info</label> 
+					<frontend_model>Magebees\SubcategoryListing\Block\Adminhtml\System\Config\Support</frontend_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

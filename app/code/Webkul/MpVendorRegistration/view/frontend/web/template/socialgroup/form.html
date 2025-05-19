@@ -1,0 +1,120 @@
+<!--
+	/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+ -->
+<!-- ko  foreach: $data.getAttributes() -->
+<div data-bind="attr: {'class': is_required == 1?' field required':'field'}">
+    <div class="control">           
+            <!-- ko if: mvra_attribute_code == 'facebook_id' -->
+            <div style="width: 100%; clear:both; text-align: right;">
+                <div class="wk-mp-seller-profile-box wk-mp-profile-icon-wrapper vr-icon-fb"> 
+                    <span class="wk-mp-profile-icon-css wk-mp-profile-icon-fb"></span>
+                </div>
+                <span style="margin-right: 0px;" data-bind="i18n: 'facebook.com/' "></span>
+                <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                        'name': mvra_attribute_code,
+                        'data-validate': is_required == 1?'{required: true}':'{}',
+                        'class': frontend_class,
+                        'style': 'width:60%'
+                            }"/>
+                        </div>
+            <!-- /ko -->
+            <!-- ko if: mvra_attribute_code == 'instagram_id' -->
+        
+        <div style="width: 100%; clear:both; text-align: right;">
+            <div class="wk-mp-seller-profile-box wk-mp-profile-icon-wrapper vr-icon-instagram"> 
+                <span class="wk-mp-profile-icon-css wk-mp-profile-icon-instagram"></span>
+            </div>
+            <span style="margin-right: 0px;" data-bind="i18n: 'instagram.com/' "></span>
+            <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                    'name': mvra_attribute_code,
+                    'data-validate': is_required == 1?'{required: true}':'{}',
+                    'class': frontend_class,
+                    'style': 'width:60%'
+                        }"/>
+                    </div>
+            <!-- /ko -->
+            <!-- ko if: mvra_attribute_code == 'twitter_id' -->
+        
+            <div style="width: 100%; clear:both; text-align: right;">
+                <div class="wk-mp-seller-profile-box wk-mp-profile-icon-wrapper vr-icon-tw"> 
+                    <span class="wk-mp-profile-icon-css wk-mp-profile-icon-tw"></span>
+                </div>
+                <span style="margin-right: 0px;" data-bind="i18n: 'twitter.com/' "></span>
+                <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                        'name': mvra_attribute_code,
+                        'data-validate': is_required == 1?'{required: true}':'{}',
+                        'class': frontend_class,
+                        'style': 'width:60%'
+                            }"/>
+                        </div>
+            <!-- /ko -->
+            <!-- ko if: mvra_attribute_code == 'gplus_id' -->
+        
+            <div style="width: 100%; clear:both; text-align: right;">
+                <div class="wk-mp-seller-profile-box wk-mp-profile-icon-wrapper vr-icon-gplus"> 
+                    <span class="wk-mp-profile-icon-css wk-mp-profile-icon-gplus"></span>
+                </div>
+                <span style="margin-right: 0px;" data-bind="i18n: 'plus.google.com/' "></span>
+                    <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                    'name': mvra_attribute_code,
+                    'data-validate': is_required == 1?'{required: true}':'{}',
+                    'class': frontend_class,
+                    'style': 'width:60%'
+                        }"/>
+                    </div>
+            <!-- /ko -->
+            <!-- ko if: mvra_attribute_code == 'vimeo_id' -->
+        
+            <div style="width: 100%; clear:both; text-align: right;">
+                <div class="wk-mp-seller-profile-box wk-mp-profile-icon-wrapper vr-icon-vimeo"> 
+                    <span class="wk-mp-profile-icon-css wk-mp-profile-icon-vimeo"></span>
+                </div>
+                    <span style="margin-right: 0px;" data-bind="i18n: 'vimeo.com/' "></span>
+                    <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                            'name': mvra_attribute_code,
+                            'data-validate': is_required == 1?'{required: true}':'{}',
+                            'class': frontend_class,
+                            'style': 'width:60%'
+                                }"/>
+                            </div>
+            <!-- /ko -->
+            <!-- ko if: mvra_attribute_code == 'youtube_id' -->
+        
+            <div style="width: 100%; clear:both; text-align: right;">
+                <div class="wk-mp-seller-profile-box wk-mp-profile-icon-wrapper vr-icon-youtube"> 
+                    <span class="wk-mp-profile-icon-css wk-mp-profile-icon-youtube"></span>
+                </div>
+                <span style="margin-right: 0px;" data-bind="i18n: 'youtube.com/' "></span>
+                    <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                            'name': mvra_attribute_code,
+                            'data-validate': is_required == 1?'{required: true}':'{}',
+                            'class': frontend_class,
+                            'style': 'width:60%'
+                                }"/>
+                            </div>
+            <!-- /ko -->
+            <!-- ko if: mvra_attribute_code == 'pinterest_id' -->
+       
+            <div style="width: 100%; clear:both; text-align: right;">
+                <div class="wk-mp-seller-profile-box wk-mp-profile-icon-wrapper vr-icon-pinterest"> 
+                    <span class="wk-mp-profile-icon-css wk-mp-profile-icon-pinterest"></span>
+                </div>
+                <span style="margin-right: 0px; clear:both;" data-bind="i18n: 'pinterest.com/' "></span>
+                    <input type="text" data-bind="attr: {'id': mvra_attribute_code,
+                            'name': mvra_attribute_code,
+                            'data-validate': is_required == 1?'{required: true}':'{}',
+                            'class': frontend_class,
+                            'style': 'width:60%'
+                                }"/>
+                            </div>
+            <!-- /ko -->
+    </div>
+<!-- /ko -->

@@ -1,0 +1,52 @@
+Reasons,Reasons
+Add,Agregar
+"Order Cancel","Cancelar Pedido"
+"Canceled Orders List","Listado de Pedidos Cancelados"
+"A total of %1 record(s) have been deleted.","Se ha eliminado un total de %1 registro(s)."
+"Your Order has been Canceled successfully.","Tu pedido ha sido cancelado con éxito."
+"Something went wrong!","Algo salió mal!"
+"NOT LOGGED IN","SIN INICIAR SESIÓN"
+"View Order","Ver Pedidos"
+"* Required Fields","* Campos Requeridos"
+"Cancel Reasons","Motivos de Cancelación"
+Others,Otros
+Comment,Comentario
+Submit,Enviar
+Reset,Reiniciar
+Orders,Pedidos
+"Order #","Pedido #"
+Date,Fecha
+"Ship To","Enviar a"
+"Order Total","Total del Pedido"
+Status,Estatus
+Action,Acción
+Actions,Acciones
+Reorder,Reordenar
+"You have placed no orders.","No has realizado ningún pedido."
+"Print Order","Imprimir Pedido"
+"Recent Orders","Pedidos Recientes"
+"View All","Ver Todo"
+"Cancel Order","Cancelar Pedido"
+Configuration,Configuración
+"Frontend Button Title","Título del Botón en Frontend"
+"Order Cancellation Reasons","Motivos de Cancelación de Pedidos"
+"Enable Cancellation Popup","Habilitar Ventana Emergente de Cancelación"
+"Cancellation Popup Title","Título Ventana Emergente de Cancelación"
+"Cancellation Popup Note","Nota Ventana Emergente de Cancelación"
+"Customer Groups","Grupo de Clientes"
+"Order Statuses","Estatus de Pedido"
+"Email Configuration","Configuración de Correo Electrónico"
+"Send Emails To","Enviar Correos Electrónicos a"
+"Email Sender","Remitente de Correo Electrónico"
+"Email Template for Admin","Plantilla de Correo Electrónico para Administrador"
+"Email Template For Customer","Plantilla de Correo Electrónico para Cliente"
+"Delete items","Eliminar Items"
+"Delete selected items?","¿Eliminar elementos seleccionados?"
+Delete,Eliminar
+IDs,IDs
+"Order ID","Pedido ID"
+"Customer Email","Correo Electrónico del Cliente"
+"Cancellation Date","Fecha de Cancelación"
+"Cancellation Reason","Motivo de Cancelación"
+"Dear","Hola"
+"The Order #%1 has been canceled by you.","La Orden #%1 ha sido cancelada."

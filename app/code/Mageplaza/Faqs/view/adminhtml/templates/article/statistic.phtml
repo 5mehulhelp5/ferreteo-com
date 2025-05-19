@@ -1,0 +1,49 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Faqs
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\Faqs\Block\Adminhtml\Article\Edit\Tab\Statistic $block */
+?>
+
+<fieldset id="article_statistic_fieldset" class="fieldset admin__fieldset fieldset-wide">
+    <legend class="admin__legend legend">
+        <span><?= $block->escapeHtml(__('Statistic')) ?></span>
+    </legend>
+    <br>
+</fieldset>
+<div id="article-statistic">
+    <div class="article-statistic__views article-statistic--attribute">
+        <strong><?= $block->escapeHtml(__('View')) ?></strong>
+        <span><?= /* @noEscape */ $block->getView() ?></span>
+    </div>
+    <div class="article-statistic__actions article-statistic--attribute">
+        <strong><?= $block->escapeHtml(__('Action')) ?></strong>
+        <span><?= /* @noEscape */ $block->getActionNum() ?></span>
+    </div>
+    <div class="article-statistic__positives article-statistic--attribute">
+        <strong><?= $block->escapeHtml(__('Positive')) ?></strong>
+        <span><?= /* @noEscape */ $block->getPositive() . '%'; ?></span>
+    </div>
+    <div class="article-statistic__negatives article-statistic--attribute">
+        <strong><?= $block->escapeHtml(__('Negative')) ?></strong>
+        <span><?= /* @noEscape */ $block->getNegative() . '%'; ?></span>
+    </div>
+</div>
+<div class="clearfix"></div>

@@ -1,0 +1,113 @@
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_MpSellerBadge
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+ <?php 
+    $sellerbadges = $block->getSellerBadges();
+    ksort($sellerbadges);
+    $helper = $this->helper('Webkul\Marketplace\Helper\Data');
+    $partner = $block->getProfileDetail();
+    $shopUrl = $block->escapeHtml($partner['shop_url']);
+    $i = 1;
+    $badgeDesc = [];
+
+?>
+<div class="wk-mp-profile-block">
+    <div class="block badge-block-account">   
+        <div class="block-title">   
+            <strong><span><h4><?php echo __("Seller Badge(s)") ?></h4></span></strong>
+        </div>
+        <fieldset class="fieldset info wk-mp-fieldset">
+            <div class="field">
+                    <?php if(count($sellerbadges) > 0){ ?>
+                    <?php foreach($sellerbadges as $key => $val ) { 
+                        $badgeDesc[$key]= ['desc' => $val['desc'],'name' => $val['title']];
+                    ?>
+                    <div style="margin:10px;display:inline-block">
+                    <div class="tooltip">
+                        <img src="<?php /* @escapeNotVerified */ echo $val['url'] ;?>" width="100" height="100" title= "">
+                        <span class="tooltiptext">
+                        <?php 
+                            $sellerDescLenght = strlen($val['desc']);
+                            echo substr($val['desc'],0,100);
+                            if ($sellerDescLenght > 100) { ?>
+                                <a href="#!" class="badge" bid="<?php echo $key; ?>">Read More....</a>
+                            <?php }
+                            ?>
+                        </span>
+                    </div>
+                    </div>
+                    <?php if($i > 6) {
+                        break;
+                    };
+                    $i++;
+                    ?>
+                    
+                    <?php 		} 
+                            }else{ ?>
+                            <div class="wk_profile_alert">
+                            <strong><?php /* @escapeNotVerified */ echo __('There is no badge assigned to seller.'); ?></strong>
+                            </div>
+                            
+                            <?php }
+
+                        ?>
+                </div>
+        </fieldset>
+    </div>
+    <?php if(count($sellerbadges) > 1) : ?>
+    <div class="wk-mp-collection-view-btn">
+        <a href="<?php echo $block->getUrl('mpsellerbadge/badge/index',['shop' => $shopUrl]) ?>" title="<?php __('All Badges') ?>">
+            <?php echo __('View All Badges')?>
+        </a>
+    </div>
+    <?php endif; ?>
+</div>
+
+<div id="custom-model-popup">
+    <dl>
+    </dl>
+</div> 
+
+
+<script type="text/x-magento-init">
+	{
+	    "*": {
+	        "sellerBadgeDescription": <?php echo json_encode($badgeDesc); ?>
+	    }
+	}
+</script>
+
+ <!-- <script>
+ 
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal"
+    ], function($, modal){
+        var options = {
+            type: 'popup',
+            responsive: true,
+            innerScroll: true,
+            title: "Badge Description", //write your popup title 
+            buttons: [{
+                text: $.mage.__('Submit'),
+                class: 'button',
+                click: function () {
+                    console.log('Do something here......');
+                    // Do something here........
+                }
+            }]
+        };
+        $('.badge').on('click', function (event) {
+            var bid = $(this).attr('bid');
+            var badgeDesc = <?php echo json_encode($badgeDesc); ?>;
+            var popupdata = $('<div />').append($('#custom-model-popup').html('<dl>'+badgeDesc[bid]+'</dl>'));
+            modal(options, popupdata);
+            popupdata.modal('openModal');
+        });
+    });
+</script> -->

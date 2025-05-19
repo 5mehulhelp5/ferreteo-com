@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Aitoc Team
+ * @copyright Copyright (c) 2020 Aitoc (https://www.aitoc.com)
+ * @package Aitoc_ProductUnitsAndQuantities
+ */
+-->
+<!--
+  ~ Copyright © 2019 Aitoc. All rights reserved.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\PuqConfigurationInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Helper\RealPuqSystemConfiguration" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\RealProductPuqConfigRepositoryInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Model\RealProductPuqConfigRepository" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\ResultAdminProductPuqConfigRepositoryInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Model\ResultAdminProductPuqConfigRepository" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\Data\OrderItemPuqConfigInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Model\OrderItemPuqConfig" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\OrderItemPuqConfigRepositoryInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Model\OrderItemPuqConfigRepository" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\ResultFrontendProductPuqConfigRepositoryInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Model\ResultFrontendProductPuqConfigRepository" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\OrderItemUnitsHelperInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Helper\OrderItemUnitsHelper" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\ViewModel\PuqConfigInterface"
+        type="Aitoc\ProductUnitsAndQuantities\ViewModel\PuqConfig" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\Helper\PuqConfig\Mapper\PuqConfigMapperInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Helper\PuqConfigMapper" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\Helper\PuqConfig\Mapper\WithoutUseConfigMapperInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Helper\PuqConfig\Mapper\WithoutUseConfigPuqConfigMapper" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\Helper\PuqConfig\Mapper\WithUseConfigMapperInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Helper\PuqConfig\Mapper\WithUseConfigPuqConfigMapper" />
+
+    <preference
+        for="Aitoc\ProductUnitsAndQuantities\Api\Data\SystemPuqConfigInterface"
+        type="Aitoc\ProductUnitsAndQuantities\Model\Data\SystemPuqConfig" />
+
+    <preference
+            for="Aitoc\ProductUnitsAndQuantities\Api\PuqConfigSourceInterface"
+            type="Aitoc\ProductUnitsAndQuantities\Helper\PuqConfigValueSource" />
+
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="AitocPuqQuantityValidators" type="Aitoc\ProductUnitsAndQuantities\Plugin\Catalog\Block\Product\ViewGetQuantityValidatorsMaxAllowedPlugin" sortOrder="5" />
+        <plugin name="AitocPuqProductViewGetMaxSaleQty" type="Aitoc\ProductUnitsAndQuantities\Plugin\Catalog\Block\Product\ViewGetMaxSaleQtyPlugin" sortOrder="6" />
+    </type>
+
+    <type name="Magento\CatalogInventory\Model\Stock\Item">
+        <plugin name="AitocPuqStockItemIsQtyDecimal" type="Aitoc\ProductUnitsAndQuantities\Plugin\CatalogInventory\Model\Stock\StockItemIsQtyDecimalPlugin" />
+        <plugin name="AitocPuqStockItemMinQty" type="Aitoc\ProductUnitsAndQuantities\Plugin\CatalogInventory\Model\Stock\StockItemMinQtyPlugin" />
+        <plugin name="AitocPuqStockItemMaxQty" type="Aitoc\ProductUnitsAndQuantities\Plugin\CatalogInventory\Model\Stock\StockItemMaxQtyPlugin" />
+        <plugin name="AitocPuqStockItemIncrementQty" type="Aitoc\ProductUnitsAndQuantities\Plugin\CatalogInventory\Model\Stock\StockItemIncrementQtyPlugin" />
+    </type>
+
+    <type name="Magento\CatalogInventory\Model\Spi\StockStateProviderInterface">
+        <plugin name="AitocPuqStockStateProvider" type="Aitoc\ProductUnitsAndQuantities\Plugin\CatalogInventory\Model\Spi\StockStateProviderInterfacePlugin" />
+    </type>
+
+    <type name="Magento\Framework\Data\Argument\Interpreter\Number">
+        <plugin name="AitocPuqInterpreterNumber" type="Aitoc\ProductUnitsAndQuantities\Plugin\Framework\Data\Argument\Interpreter\NumberPlugin" />
+    </type>
+
+</config>

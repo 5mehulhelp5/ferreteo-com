@@ -1,0 +1,53 @@
+"Save Badge","Save Badge"
+"Badge Information","Badge Information"
+"Badges Information","Badges Information"
+"Badge Name","Badge Name"
+"Badge Description","Badge Description"
+Image,Image
+Rank,Rank
+Status,Status
+Enabled,Enabled
+Disabled,Disabled
+Badges,Badges
+"Update Badge ","Update Badge "
+"New Badge","New Badge"
+"Manage Badges","Manage Badges"
+"Manage Badge","Manage Badge"
+"Badge(s) deleted successfully.","Badge(s) deleted successfully."
+"Badge(s) disabled successfully.","Badge(s) disabled successfully."
+"Badge(s) enabled successfully.","Badge(s) enabled successfully."
+"Image file is not correct.","Image file is not correct."
+"Badge updated successfully.","Badge updated successfully."
+"Badge saved successfully.","Badge saved successfully."
+"Rank already exist.","Rank already exist."
+"Seller Badge Manager","Seller Badge Manager"
+"Something went wrong.","Something went wrong."
+"Badge(s) assigned successfully.","Badge(s) assigned successfully."
+"Badge(s) already assigned","Badge(s) already assigned"
+"Badge(s) not assigned.","Badge(s) not assigned."
+"Badge(s) removed from the seller.","Badge(s) removed from the seller."
+"%1 Badge(s)","%1 Badge(s)"
+Enable,Enable
+Disable,Disable
+Edit,Edit
+"Seller Badge(s)","Seller Badge(s)"
+"There is no badge assigned to seller.","There is no badge assigned to seller."
+"All Badges","All Badges"
+"View All Badges","View All Badges"
+Badge(s),Badge(s)
+"Seller Badges","Seller Badges"
+Submit,Submit
+Close,Close
+"Add New Badge","Add New Badge"
+Delete,Delete
+"Do you want to delete selected images?","Do you want to delete selected images?"
+Thumbnail,Thumbnail
+Created,Created
+"Assign badge","Assign badge"
+"Are you sure to assign selected badge to seller?","Are you sure to assign selected badge to seller?"
+"Remove badge","Remove badge"
+"Are you sure to remove selected badge from seller?","Are you sure to remove selected badge from seller?"
+"Seller ID","Seller ID"
+"Seller Name","Seller Name"
+"Seller Email","Seller Email"
+"Seller Status","Seller Status"

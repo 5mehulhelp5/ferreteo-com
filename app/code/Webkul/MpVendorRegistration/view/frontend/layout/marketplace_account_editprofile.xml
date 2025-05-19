@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_MpVendorRegistration
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+        <css src="Webkul_MpVendorRegistration::css/register.css"/>
+        <css src="Webkul_MpVendorRegistration::css/styleforboolean.css"/>
+    </head>
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Webkul\MpVendorRegistration\Block\Account\Editprofile" name="vendorregistration_account_attribute" template="account/editprofile.phtml" cacheable="false" after="marketplace_account_editprofile"/>
+        </referenceContainer>
+    </body>
+</page>

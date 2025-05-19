@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_Marketplace
+ * @author    Webkul
+ * @copyright Copyright (c)  Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+        <css src="Webkul_Marketplace::css/wk_block.css"/>
+        <css src="Webkul_Marketplace::css/style.css"/>
+        <css src="Webkul_Marketplace::css/collection.css"/>
+        <css src="Webkul_MpSellerBadge::css/sellerbadge.css"/>
+    </head>
+    <update handle="marketplace_seller_top_header" />
+    <body>
+        <referenceContainer name="content">
+            <block class="Webkul\MpSellerBadge\Block\Sellerbadges" name="marketplace_badges_list" template="mpsellerbadge/badge.phtml" cacheable="false" />
+        </referenceContainer>
+        <referenceContainer name="marketplace_seller_top_block">
+            <block class="Webkul\Marketplace\Block\Feedback" name="marketplace_seller_profile_contact" template="Webkul_Marketplace::seller/contact.phtml" cacheable="false"/>
+            <block class="Webkul\Marketplace\Block\Feedback" name="marketplace_seller_profile_menu" template="Webkul_Marketplace::seller/menu.phtml" cacheable="false" before="-"/>
+        </referenceContainer>
+        <referenceContainer name="marketplace_seller_profile_menu">
+            <block class="Webkul\Marketplace\Block\Profile" name="seller_badges_onprofile" />
+        </referenceContainer>
+        <referenceBlock name="seller_badges_onprofile">
+            <action method="setTemplate" ifconfig="marketplace/mpsellerbadge/mpsellerbadge_enable">
+                <argument name="template" xsi:type="string">Webkul_MpSellerBadge::mpsellerbadge/profile/badge-top-link.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Webkul\MpSellerBadge\Block\Adminhtml\Widget\SellerWidget" id="webkul_mpsellerbadge_seller_section">
+        <label>Seller Badges</label>
+        <description>Seller Badge Section</description>
+        <parameters>
+            <parameter name="section_label" sort_order="10" visible="true" xsi:type="text" required="true">
+                <label translate="true">Section Label</label>
+            </parameter>
+            <parameter name="section_desc" sort_order="10" visible="true" xsi:type="text" required="true">
+                <label translate="true">Section Description</label>
+            </parameter>
+            <parameter name="sellers" sort_order="10" visible="true" xsi:type="multiselect" required="true" source_model="Webkul\MpSellerBadge\Model\Options\SellerWithBadges" >
+                <label translate="true">Select Sellers</label>
+                <!-- <block class="Webkul\MpSellerBadge\Block\Adminhtml\Widget\MultiSelect" /> -->
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

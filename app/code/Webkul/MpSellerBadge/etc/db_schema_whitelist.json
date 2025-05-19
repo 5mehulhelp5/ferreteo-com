@@ -1,0 +1,27 @@
+{
+    "mpbadges": {
+        "column": {
+            "entity_id": true,
+            "badge_name": true,
+            "badge_description": true,
+            "badge_image_url": true,
+            "status": true,
+            "rank": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mpsellerbadge": {
+        "column": {
+            "entity_id": true,
+            "badge_id": true,
+            "seller_id": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

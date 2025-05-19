@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magecomp_Cityandregionmanager::magecompcityandregionmanager" title="City And Region Manager" module="Magecomp_Cityandregionmanager" sortOrder="30" resource="Magecomp_Cityandregionmanager::shippingmanagerconfigmenu"/>
+        <add id="Magecomp_Cityandregionmanager::settings" title="Region Manager" translate="title" module="Magecomp_Cityandregionmanager"
+             sortOrder="0" parent="Magecomp_Cityandregionmanager::magecompcityandregionmanager" resource="Magecomp_Cityandregionmanager::settings" />
+        <add id="Magecomp_Cityandregionmanager::states" title="States" module="Magecomp_Cityandregionmanager"
+             translate="title" sortOrder="10" resource="Magecomp_Cityandregionmanager::states"
+             action="magecomp_cityandregionmanager/states" parent="Magecomp_Cityandregionmanager::settings" />
+        <add id="Magecomp_Cityandregionmanager::cities" title="Cities" module="Magecomp_Cityandregionmanager"
+             translate="title" sortOrder="10" resource="Magecomp_Cityandregionmanager::cities"
+             action="magecomp_cityandregionmanager/cities" parent="Magecomp_Cityandregionmanager::settings" />
+        <add id="Magecomp_Cityandregionmanager::zip" title="ZIP Codes" module="Magecomp_Cityandregionmanager"
+             translate="title" sortOrder="10" resource="Magecomp_Cityandregionmanager::zip"
+             action="magecomp_cityandregionmanager/zip" parent="Magecomp_Cityandregionmanager::settings" />
+        <add id="Magecomp_Cityandregionmanager::cityandregionmanager_configuration" title="Configuration" module="Magecomp_Cityandregionmanager"
+             sortOrder="20" parent="Magecomp_Cityandregionmanager::settings" action="adminhtml/system_config/edit/section/region_manager_config"
+             resource="Magecomp_Cityandregionmanager::cityandregionmanager_configuration"/>
+    </menu>
+</config>
