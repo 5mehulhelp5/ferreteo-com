@@ -136,8 +136,15 @@ class Validator
             $directories = (array)$directories;
         }
         $realPath = $this->fileDriver->getRealPath($path);
-        foreach ($directories as $directory) {
-            if (0 === strpos($realPath, $directory)) {
+		# 2025-05-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "Adapt the website to Windows": https://github.com/ferreteo-com/site/issues/1
+		# 2) "How to fix the «Invalid template file» / «require_js.phtml» failure
+		# for 2.3 ≤ Magento < 2.4.5 in Windows?" https://mage2.pro/t/5774
+		$isWin = 'WIN' === strtoupper(substr(PHP_OS, 0, 3)); /** @var bool $isWin */
+		foreach ($directories as $directory) {
+			if (0 === strpos(
+				$realPath, !$isWin ? $directory : str_replace('/', DIRECTORY_SEPARATOR, $directory)
+			)) {
                 return true;
             }
         }
