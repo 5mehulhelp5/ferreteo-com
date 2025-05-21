@@ -30,7 +30,9 @@
 # https://mage2.pro/t/5774
 !/vendor/magento/framework/View/Element/Template/File/Validator.php
 # 2025-04-03 https://gemini.google.com/u/1/app/de95853eeeb45648
-# 2025-05-21 https://g.co/gemini/share/e0a1ce59ec79
+# 2025-05-21
+# 1) https://g.co/gemini/share/e0a1ce59ec79
+# 2) https://chatgpt.com/share/682d5158-5c18-8003-b315-57a4ae068d30
 #/vendor/*
 /vendor/endroid/
 /vendor/magento/framework/Test
