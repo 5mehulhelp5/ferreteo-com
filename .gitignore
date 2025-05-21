@@ -20,12 +20,12 @@
 # 2023-07-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # Today I noticed that `git add . && git commit -a -m refactoring && git push`
 # started to commit subfolders which are git repositories (for an unknown reason).
-# 2025-04-03 https://gemini.google.com/u/1/app/de95853eeeb45648
+# 2025-04-03 https://g.co/gemini/share/8935d11b67a5
 /_my
 /dev
 /update/
 # 2025-04-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://gemini.google.com/u/1/app/de95853eeeb45648
+# https://g.co/gemini/share/8935d11b67a5
 # 2025-05-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # 1) https://g.co/gemini/share/e0a1ce59ec79
 # 2) https://chatgpt.com/share/682d5158-5c18-8003-b315-57a4ae068d30
