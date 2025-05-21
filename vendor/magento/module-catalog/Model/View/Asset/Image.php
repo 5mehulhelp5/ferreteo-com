@@ -94,7 +94,8 @@ class Image implements LocalInterface
     {
 		# 2025-05-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# 1) "Adapt the website to Windows": https://github.com/ferreteo-com/site/issues/1
-		# 2) "How to adapt `Magento\Catalog\Model\View\Asset\Image::getUrl()` to Windows
+		# 2.1) "How to fix URLs of catalog images in Windows for Magento ≥ 2.3.0?": https://mage2.pro/t/6413
+		# 2.2) "How to adapt `Magento\Catalog\Model\View\Asset\Image::getUrl()` to Windows
 		# in 2.3 ≤ Magento ≤ 2.4.1?": https://mage2.pro/t/6410
         return $this->context->getBaseUrl() . '/' . $this->getImageInfo();
     }
