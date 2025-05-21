@@ -58,7 +58,12 @@ class UpdateUrlKeyForProducts implements DataPatchInterface, PatchVersionInterfa
         $table = $this->moduleDataSetup->getTable('catalog_product_entity_varchar');
         $select = $this->moduleDataSetup->getConnection()->select()->from(
             $table,
-            ['value_id', 'value']
+			# 2025-05-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) "Adapt the website to Windows": https://github.com/ferreteo-com/site/issues/1
+			# 2) "How did I fix «Unable to apply data patch
+			# Magento\CatalogUrlRewrite\Setup\Patch\Data\UpdateUrlKeyForProducts»
+			# while upgrading Magento to 2.4.0?": https://mage2.pro/t/6190
+            ['entity_id', 'attribute_id', 'store_id', 'value_id', 'value']
         )->where(
             'attribute_id = ?',
             $this->eavSetup->getAttributeId($productTypeId, 'url_key')
