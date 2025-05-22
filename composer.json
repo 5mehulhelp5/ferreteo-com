@@ -12,7 +12,8 @@
     },
     "version": "2.4.1",
     "require": {
-        "magento/composer-root-update-plugin": "~2.0",
+        "mage2pro/core": "*",
+        "magento/composer-root-update-plugin": "*",
         "magento/product-community-edition": "2.4.1",
         "mobiledetect/mobiledetectlib": "^2.8",
         "swissup/firecheckout": "^1.25",
