@@ -79,10 +79,6 @@
         "swissuplabs": {
             "type": "composer",
             "url": "https://ci.swissuplabs.com/api/packages.json"
-        },
-        "swissupartifacts": {
-            "type": "artifact",
-            "url": "/home/ferreteo/public_html/vendor/swissup/artifacts"
         }
     },
     "extra": {
