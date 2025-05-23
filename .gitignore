@@ -31,6 +31,8 @@
 # 2) https://chatgpt.com/share/682d5158-5c18-8003-b315-57a4ae068d30
 #/vendor/*
 /vendor/endroid/
+# 2025-05-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+/vendor/mage2pro
 /vendor/magento/framework/Test
 /vendor/magento/magento2-base
 /vendor/magento/magento2-functional-testing-framework
