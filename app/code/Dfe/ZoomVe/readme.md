@@ -1,1 +1,0 @@
-[Zoom shipping service](https://zoom.red) (Venezuela) integration with Magento 2
