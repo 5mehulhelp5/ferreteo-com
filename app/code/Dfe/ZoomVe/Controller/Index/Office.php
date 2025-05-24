@@ -1,13 +1,10 @@
 <?php
-
 namespace Dfe\ZoomVe\Controller\Index;
-
 use Magento\Framework\App\Action\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Dfe\ZoomVe\Model\Checkout\DataProvider;
-
 class Office extends Action {
 
 	/**
