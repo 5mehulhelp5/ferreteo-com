@@ -7,10 +7,12 @@
  * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
  * @license   https://store.webkul.com/license.html
  */
+// 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+// "`Webkul_Marketplace`: «Mismatched anonymous define() module» for `view/frontend/web/js/colorpicker.js`":
+// https://github.com/ferreteo-com/site/issues/3
 var config = {
     map: {
         '*': {
-            colorpicker: 'Webkul_Marketplace/js/colorpicker',
             verifySellerShop: 'Webkul_Marketplace/js/account/verify-seller-shop',
             editSellerProfile: 'Webkul_Marketplace/js/account/edit-seller-profile',
             sellerDashboard: 'Webkul_Marketplace/js/account/seller-dashboard',
@@ -39,11 +41,7 @@ var config = {
             descriptionGallary: 'Webkul_Marketplace/js/description-gallery'
         }
     },
-    paths: {
-        "colorpicker": 'js/colorpicker'
-    },
     "shim": {
-        "colorpicker" : ["jquery"],
         "OwlCarousel" : ["jQuery"]
     }
 };
