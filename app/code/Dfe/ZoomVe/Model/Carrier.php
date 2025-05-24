@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\ZoomVe\Model;
-
 use Dfe\ZoomVe\Block\System\Config\Form\Field\Locations;
 use Dfe\ZoomVe\Helper\Config;
 use Magento\CatalogInventory\Api\StockRegistryInterface;
@@ -42,11 +41,6 @@ use RuntimeException;
 use Throwable;
 use Zend_Http_Client;
 use Magento\Store\Model\StoreManagerInterface;
-
-/**
- * ZoomEnvios shipping implementation.
- */
-
 class Carrier extends AbstractCarrierOnline implements CarrierInterface
 {
 
