@@ -1,7 +1,3 @@
-/**
- * Dfe_ZoomVe Magento Extension
- */
-
 define([
 	'jquery',
 	'ko',
