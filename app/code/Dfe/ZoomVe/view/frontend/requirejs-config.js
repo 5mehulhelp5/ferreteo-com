@@ -1,8 +1,3 @@
-/**
- * Dfe_ZoomVe Magento Extension
- *
- */
-
 var config = {
 	map: {
 	   '*': {
