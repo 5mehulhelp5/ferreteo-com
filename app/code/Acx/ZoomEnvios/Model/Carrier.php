@@ -462,7 +462,16 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 			'cantidad_piezas' => (int) $rowRequest->getQuantityPieces(),
 			//'modalidad_tarifa' => $rowRequest->getModeType(),
 		];
-		$params['valor_declarado'] = $total;
+		# 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "`zoom.red` / `CalcularTarifa`:
+		# «El valor mínimo que puede declarar al asegurar su envío es de Bs.  943.24.
+		# Debe ingresar una cantidad igual o mayor a esta y a la vez menor o igual a Bs. 471620.5»":
+		# https://github.com/ferreteo-com/site/issues/6
+		# 2) The minimum value of `valor_declarado` seems to be 10 USD.
+		# I use 15 to ensure that the API call does not fail.
+		# 2) The maximum value of `valor_declarado` seems to be 5000 USD.
+		# I use 4500 to ensure that the API call does not fail.
+		$params['valor_declarado'] = min(max($total, 15 * $vebRate), 4500 * $vebRate);
 		$allowedMethods = $this->getAllowedMethods();
 		$modeTypes = $this->configHelper->getCode('mode_type');
 		$responseBodies = array();
