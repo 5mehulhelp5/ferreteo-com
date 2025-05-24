@@ -1,12 +1,6 @@
 {
 	"name": "acx/zoom-envios-shipping",
 	"description": "Magento 2 Shipping Extension for Zoom Venezuelan Market Carrier",
-	"require": {
-		"php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0",
-		"magento/module-checkout": "100.0.*",
-		"magento/module-payment": "100.0.*",
-		"magento/framework": "100.0.*"
-	},
 	"authors": [
 		{
 			"name": "Ferreteo C.A.",
