@@ -1,12 +1,12 @@
 /**
- * Acx_ZoomEnvios Magento Extension
+ * Dfe_ZoomVe Magento Extension
  *
  */
 
 var config = {
 	map: {
 	   '*': {
-		   'Magento_Sales/order/create/scripts': 'Acx_ZoomEnvios/order/create/scripts'
+		   'Magento_Sales/order/create/scripts': 'Dfe_ZoomVe/order/create/scripts'
 	   }
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Acx_ZoomEnvios Magento Extension
+ * Dfe_ZoomVe Magento Extension
  **/
 
 namespace Acx\ZoomEnvios\Plugin\Sales\Model\AdminOrder;

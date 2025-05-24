@@ -1,6 +1,6 @@
 <?php
 /**
- * Acx_ZoomEnvios Magento Extension
+ * Dfe_ZoomVe Magento Extension
  */
 
 namespace Acx\ZoomEnvios\Observer\Adminhtml;
@@ -37,7 +37,7 @@ class BlockObserver implements ObserverInterface
 
 			$officeInfo = $this->_coreTemplate
 				->setPickupOffice($order->getPickupOffice())
-				->setTemplate('Acx_ZoomEnvios::order/view/office-info.phtml')
+				->setTemplate('Dfe_ZoomVe::order/view/office-info.phtml')
 				->toHtml();
 			$html = $observer->getTransport()->getOutput() . $officeInfo;
 			$observer->getTransport()->setOutput($html);

@@ -1,5 +1,5 @@
 /**
- * Acx_ZoomEnviost Magento Extension
+ * Dfe_ZoomVet Magento Extension
  *
  */
 
