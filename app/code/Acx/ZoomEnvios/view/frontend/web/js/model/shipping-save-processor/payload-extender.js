@@ -1,10 +1,10 @@
 define([], function () {
-    'use strict';
+	'use strict';
 
-    return function (payload) {
-        payload.addressInformation['extension_attributes'] =
-            payload.addressInformation.extension_attributes;
+	return function (payload) {
+		payload.addressInformation['extension_attributes'] =
+			payload.addressInformation.extension_attributes;
 
-        return payload;
-    };
+		return payload;
+	};
 });
