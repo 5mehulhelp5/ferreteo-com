@@ -270,8 +270,12 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 * @param RateRequest $request
 	 * @return $this
 	 */
-	function setRequest(RateRequest $request)
-	{
+	function setRequest(RateRequest $request) {
+		# 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "`zoom.red` requires a weight for `CalcularTarifa`": https://github.com/ferreteo-com/site/issues/4
+		$request->setPackageWeight(
+			$request->getPackageWeight() ?: (float)$this->getConfigData('weight__default')
+		);
 		$this->_request = $request;
 
 		$rowRequest = new DataObject();
