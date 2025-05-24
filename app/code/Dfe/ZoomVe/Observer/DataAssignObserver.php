@@ -3,7 +3,7 @@
  * Dfe_ZoomVe Magento Extension
  */
 
-namespace Acx\ZoomEnvios\Observer;
+namespace Dfe\ZoomVe\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 

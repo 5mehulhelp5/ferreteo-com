@@ -2,7 +2,7 @@
 	<?php if($block->getPickupOffice()): ?>
 		<strong><?php echo __('Selected Office') ?>:</strong>
 		<span class="price">
-			<?php echo $this->helper('Acx\ZoomEnvios\Helper\Data')->getOfficeNameByCode(
+			<?php echo $this->helper('Dfe\ZoomVe\Helper\Data')->getOfficeNameByCode(
 			$block->getPickupOffice()); ?>
 		</span>
 	<?php endif; ?>

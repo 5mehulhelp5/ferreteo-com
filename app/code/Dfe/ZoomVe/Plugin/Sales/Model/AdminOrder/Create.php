@@ -3,7 +3,7 @@
  * Dfe_ZoomVe Magento Extension
  **/
 
-namespace Acx\ZoomEnvios\Plugin\Sales\Model\AdminOrder;
+namespace Dfe\ZoomVe\Plugin\Sales\Model\AdminOrder;
 
 
 /**

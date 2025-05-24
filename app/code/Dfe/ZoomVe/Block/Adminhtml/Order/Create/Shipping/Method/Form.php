@@ -3,10 +3,10 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Acx\ZoomEnvios\Block\Adminhtml\Order\Create\Shipping\Method;
+namespace Dfe\ZoomVe\Block\Adminhtml\Order\Create\Shipping\Method;
 
 use Magento\Framework\Pricing\PriceCurrencyInterface;
-use Acx\ZoomEnvios\Helper\Config;
+use Dfe\ZoomVe\Helper\Config;
 
 /**
  * Adminhtml sales order create shipping method form block

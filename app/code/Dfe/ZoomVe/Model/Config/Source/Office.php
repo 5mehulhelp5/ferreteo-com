@@ -3,12 +3,12 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Acx\ZoomEnvios\Model\Config\Source;
+namespace Dfe\ZoomVe\Model\Config\Source;
 
 /**
  * Class Office
  */
-class Office extends \Acx\ZoomEnvios\Model\Config\Source\Generic
+class Office extends \Dfe\ZoomVe\Model\Config\Source\Generic
 {
 	/**
 	 * Carrier code

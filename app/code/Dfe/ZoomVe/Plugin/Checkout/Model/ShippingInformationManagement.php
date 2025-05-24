@@ -3,7 +3,7 @@
  * Dfe_ZoomVe Magento Extension
  **/
 
-namespace Acx\ZoomEnvios\Plugin\Checkout\Model;
+namespace Dfe\ZoomVe\Plugin\Checkout\Model;
 
 class ShippingInformationManagement
 {

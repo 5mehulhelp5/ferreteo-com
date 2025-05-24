@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Acx\ZoomEnvios\Model\Config\Source;
+namespace Dfe\ZoomVe\Model\Config\Source;
 
 use Magento\Shipping\Model\Carrier\Source\GenericInterface;
 
@@ -13,7 +13,7 @@ use Magento\Shipping\Model\Carrier\Source\GenericInterface;
 class Generic implements GenericInterface
 {
 	/**
-	 * @var \Acx\ZoomEnvios\Helper\Config
+	 * @var \Dfe\ZoomVe\Helper\Config
 	 */
 	protected $carrierConfig;
 
@@ -25,9 +25,9 @@ class Generic implements GenericInterface
 	protected $_code = '';
 
 	/**
-	 * @param \Acx\ZoomEnvios\Helper\Config $carrierConfig
+	 * @param \Dfe\ZoomVe\Helper\Config $carrierConfig
 	 */
-	function __construct(\Acx\ZoomEnvios\Helper\Config $carrierConfig)
+	function __construct(\Dfe\ZoomVe\Helper\Config $carrierConfig)
 	{
 		$this->carrierConfig = $carrierConfig;
 	}

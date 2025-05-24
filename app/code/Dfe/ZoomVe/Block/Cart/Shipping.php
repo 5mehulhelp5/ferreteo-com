@@ -3,7 +3,7 @@
  * Dfe_ZoomVe Magento Extension
  */
 
-namespace Acx\ZoomEnvios\Block\Cart;
+namespace Dfe\ZoomVe\Block\Cart;
 
 use Magento\Framework\UrlInterface;
 

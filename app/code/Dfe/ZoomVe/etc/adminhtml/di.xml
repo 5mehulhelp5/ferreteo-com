@@ -26,11 +26,11 @@
 		</arguments>
 	</type>
 	<type name="Magento\Sales\Block\Adminhtml\Order\Create\Shipping\Method\Form">
-		<plugin name="preselect" type="Acx\ZoomEnvios\Plugin\Sales\Block\Adminhtml\Order\Create\Shipping\Method\AroundCreateForm"
+		<plugin name="preselect" type="Dfe\ZoomVe\Plugin\Sales\Block\Adminhtml\Order\Create\Shipping\Method\AroundCreateForm"
 				sortOrder="10" disabled="false"/>
 	</type>
 	<type name="Magento\Sales\Model\AdminOrder\Create">
 		<plugin name="savePickupOfficeInfoToAdminQuote"
-				type="Acx\ZoomEnvios\Plugin\Sales\Model\AdminOrder\Create" />
+				type="Dfe\ZoomVe\Plugin\Sales\Model\AdminOrder\Create" />
 	</type>
 </config>

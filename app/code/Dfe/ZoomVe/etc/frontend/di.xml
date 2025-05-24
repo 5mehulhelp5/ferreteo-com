@@ -6,7 +6,7 @@
 	<type name="Magento\Checkout\Model\CompositeConfigProvider">
 		<arguments>
 			<argument name="configProviders" xsi:type="array">
-				<item name="zoomenvios_config_provider" xsi:type="object">Acx\ZoomEnvios\Model\Checkout\DataProvider</item>
+				<item name="zoomenvios_config_provider" xsi:type="object">Dfe\ZoomVe\Model\Checkout\DataProvider</item>
 			</argument>
 		</arguments>
 	</type>

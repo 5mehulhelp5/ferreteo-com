@@ -1,12 +1,12 @@
 <?php
 
-namespace Acx\ZoomEnvios\Controller\Index;
+namespace Dfe\ZoomVe\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\Result\JsonFactory;
-use Acx\ZoomEnvios\Model\Checkout\DataProvider;
+use Dfe\ZoomVe\Model\Checkout\DataProvider;
 
 class Office extends Action {
 
@@ -17,7 +17,7 @@ class Office extends Action {
 	protected $resultJsonFactory;
 
 	/**
-	 * @var Acx\ZoomEnvios\Model\Checkout\DataProvider
+	 * @var Dfe\ZoomVe\Model\Checkout\DataProvider
 	 */
 	protected $_dataProvider;
 
