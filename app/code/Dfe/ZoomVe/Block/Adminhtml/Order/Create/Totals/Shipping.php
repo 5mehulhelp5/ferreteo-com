@@ -1,18 +1,6 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Dfe\ZoomVe\Block\Adminhtml\Order\Create\Totals;
-
 use Magento\Framework\Pricing\PriceCurrencyInterface;
-
-/**
- * Subtotal Total Row Renderer
- *
- * @author Magento Core Team <core@magentocommerce.com>
- * @SuppressWarnings(PHPMD.DepthOfInheritance)
- */
 class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\DefaultTotals
 {
 	/**
