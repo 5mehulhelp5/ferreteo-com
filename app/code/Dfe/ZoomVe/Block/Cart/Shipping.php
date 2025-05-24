@@ -1,12 +1,6 @@
 <?php
-/**
- * Dfe_ZoomVe Magento Extension
- */
-
 namespace Dfe\ZoomVe\Block\Cart;
-
 use Magento\Framework\UrlInterface;
-
 class Shipping extends \Magento\Checkout\Block\Cart\LayoutProcessor
 {
 
