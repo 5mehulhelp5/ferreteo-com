@@ -15,7 +15,7 @@
 							<item name="children" xsi:type="array">
 								<item name="block-rates" xsi:type="array">
 									<item name="config" xsi:type="array">
-										<item name="template" xsi:type="string">Acx_ZoomEnvios/cart/shipping-rates</item>
+										<item name="template" xsi:type="string">Dfe_ZoomVe/cart/shipping-rates</item>
 									</item>
 								</item>
 							</item>
@@ -32,8 +32,8 @@
 							<item name="children" xsi:type="array">
 								<item name="shipping" xsi:type="array">
 									<item name="config" xsi:type="array">
-										<item name="template" xsi:type="string">Acx_ZoomEnvios/checkout/cart/totals/shipping</item>
-										<!--<item name="template" xsi:type="string">Acx_ZoomEnvios/cart/totals/shipping</item>-->
+										<item name="template" xsi:type="string">Dfe_ZoomVe/checkout/cart/totals/shipping</item>
+										<!--<item name="template" xsi:type="string">Dfe_ZoomVe/cart/totals/shipping</item>-->
 									</item>
 								</item>
 							</item>

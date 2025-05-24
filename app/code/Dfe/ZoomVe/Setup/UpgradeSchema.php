@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Acx_ZoomEnvios Magento Extension
+ * Dfe_ZoomVe Magento Extension
  *
  */
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<head>
-		<css src="Acx_ZoomEnvios::css/main.css"/>
+		<css src="Dfe_ZoomVe::css/main.css"/>
 	</head>
 	<body>
 		<referenceBlock name="checkout.root">
@@ -16,8 +16,8 @@
 											<item name="children" xsi:type="array">
 												<item name="shippingAddress" xsi:type="array">
 													<item name="config" xsi:type="array">
-														<item name="shippingMethodItemTemplate" xsi:type="string">Acx_ZoomEnvios/checkout/shipping-address/shipping-method-item</item>
-														<item name="shippingMethodListTemplate" xsi:type="string">Acx_ZoomEnvios/checkout/shipping-address/shipping-method-list</item>
+														<item name="shippingMethodItemTemplate" xsi:type="string">Dfe_ZoomVe/checkout/shipping-address/shipping-method-item</item>
+														<item name="shippingMethodListTemplate" xsi:type="string">Dfe_ZoomVe/checkout/shipping-address/shipping-method-list</item>
 													</item>
 													<item name="children" xsi:type="array">
 														<item name="shippingAdditional" xsi:type="array">
@@ -25,7 +25,7 @@
 															<item name="displayArea" xsi:type="string">shippingAdditional</item>
 															<item name="children" xsi:type="array">
 																<item name="select_office" xsi:type="array">
-																	<item name="component" xsi:type="string">Acx_ZoomEnvios/js/view/checkout/shipping/select-office</item>
+																	<item name="component" xsi:type="string">Dfe_ZoomVe/js/view/checkout/shipping/select-office</item>
 																</item>
 															</item>
 														</item>
@@ -43,7 +43,7 @@
 													<item name="children" xsi:type="array">
 														<item name="shipping" xsi:type="array">
 															<item name="config" xsi:type="array">
-																<item name="template" xsi:type="string">Acx_ZoomEnvios/checkout/summary/shipping</item>
+																<item name="template" xsi:type="string">Dfe_ZoomVe/checkout/summary/shipping</item>
 															</item>
 														</item>
 													</item>
@@ -52,7 +52,7 @@
 										</item>
 										<item name="shipping-information" xsi:type="array">
 											<item name="config" xsi:type="array">
-												<item name="template" xsi:type="string">Acx_ZoomEnvios/checkout/shipping-information</item>
+												<item name="template" xsi:type="string">Dfe_ZoomVe/checkout/shipping-information</item>
 											</item>
 										</item>
 									</item>

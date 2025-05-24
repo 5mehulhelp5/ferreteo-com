@@ -11,9 +11,9 @@
 				<resource id="Magento_Backend::stores">
 					<resource id="Magento_Backend::stores_settings">
 						<resource id="Magento_Config::config">
-							<resource id="Acx_ZoomEnvios::settings" title="Store Pickup Settings" sortOrder="130" translate="title">
-								<resource id="Acx_ZoomEnvios::carrier_configuration" title="Store Pickup Carrier Settings" translate="title" />
-								<resource id="Acx_ZoomEnvios::payment_configuration" title="Store Pickup Payment Settings" translate="title" />
+							<resource id="Dfe_ZoomVe::settings" title="Store Pickup Settings" sortOrder="130" translate="title">
+								<resource id="Dfe_ZoomVe::carrier_configuration" title="Store Pickup Carrier Settings" translate="title" />
+								<resource id="Dfe_ZoomVe::payment_configuration" title="Store Pickup Payment Settings" translate="title" />
 							</resource>
 						</resource>
 					</resource>

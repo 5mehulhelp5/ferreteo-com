@@ -8,7 +8,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<body>
 		<referenceBlock name="sales_invoice_create">
-			<block class="Magento\Sales\Block\Adminhtml\Order\Invoice\Create\Form" name="form" template="Acx_ZoomEnvios::order/invoice/create/form.phtml">
+			<block class="Magento\Sales\Block\Adminhtml\Order\Invoice\Create\Form" name="form" template="Dfe_ZoomVe::order/invoice/create/form.phtml">
 				<block class="Magento\Sales\Block\Adminhtml\Order\View\Info" name="order_info" template="Magento_Sales::order/view/info.phtml">
 					<container name="extra_customer_info"/>
 				</block>

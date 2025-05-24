@@ -1,5 +1,5 @@
 /**
- * Acx_ZoomEnvios Magento Extension
+ * Dfe_ZoomVe Magento Extension
  *
  */
 
@@ -16,7 +16,7 @@ define([
 	'use strict';
 	return Component.extend({
 		defaults: {
-			template: 'Acx_ZoomEnvios/checkout/shipping/select-office',
+			template: 'Dfe_ZoomVe/checkout/shipping/select-office',
 			actionUrl: urlBuilder.build('/zoomenvios/index/office')
 		},
 		isOfficeDisplayable: ko.observable(false),
