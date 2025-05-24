@@ -10,10 +10,10 @@ namespace Acx\ZoomEnvios\Model\Config\Source;
  */
 class DestType extends \Acx\ZoomEnvios\Model\Config\Source\Generic
 {
-    /**
-     * Carrier code
-     *
-     * @var string
-     */
-    protected $_code = 'dest_type_description';
+	/**
+	 * Carrier code
+	 *
+	 * @var string
+	 */
+	protected $_code = 'dest_type_description';
 }
