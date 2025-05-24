@@ -266,8 +266,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	}
 
 	/**
-	 * Prepare and set request to this instance
-	 *
+	 * @used-by self::collectRates()
 	 * @param RateRequest $request
 	 * @return $this
 	 */
