@@ -1,20 +1,7 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Dfe\ZoomVe\Block\Adminhtml\Order\Create\Shipping\Method;
-
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 use Dfe\ZoomVe\Helper\Config;
-
-/**
- * Adminhtml sales order create shipping method form block
- *
- * @api
- * @author      Magento Core Team <core@magentocommerce.com>
- * @since 100.0.2
- */
 class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
 {
 	/**
