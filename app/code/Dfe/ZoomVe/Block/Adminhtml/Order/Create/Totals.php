@@ -1,21 +1,8 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Dfe\ZoomVe\Block\Adminhtml\Order\Create;
-
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 use Magento\Store\Model\ScopeInterface;
-use Magento\Store\Model\StoreManagerInterface;   
-
-/**
- * Adminhtml sales order create totals block
- *
- * @api
- * @author      Magento Core Team <core@magentocommerce.com>
- * @since 100.0.2
- */
+use Magento\Store\Model\StoreManagerInterface;
 class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
 {
 	/**
