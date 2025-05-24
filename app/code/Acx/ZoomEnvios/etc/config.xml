@@ -4,18 +4,17 @@
 		<carriers>
 			<zoomenvios>
 				<active>1</active>
-				<display_delivery_time>1</display_delivery_time>
-				<model>Acx\ZoomEnvios\Model\Carrier</model>
-				<gateway_url>https://sandbox.zoom.red/baaszoom/public/canguroazul/CalcularTarifa</gateway_url>
 				<allowed_methods>1,2,3</allowed_methods>
-				<mode_type>DOR</mode_type>
-				<max_package_weight>150</max_package_weight>
-				<sallowspecific>0</sallowspecific>
-				<name>Zoom Envios</name>
-				<title>Zoom Envios</title>
-				<specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.
-				  </specificerrmsg>
+				<display_delivery_time>1</display_delivery_time>
+				<gateway_url>https://sandbox.zoom.red/baaszoom/public/canguroazul/CalcularTarifa</gateway_url>
 				<handling_type>F</handling_type>
+				<max_package_weight>150</max_package_weight>
+				<mode_type>DOR</mode_type>
+				<model>Acx\ZoomEnvios\Model\Carrier</model>
+				<name>Zoom Envios</name>
+				<sallowspecific>0</sallowspecific>
+				<specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+				<title>Zoom Envios</title>
 			</zoomenvios>
 		</carriers>
 		<csp>
