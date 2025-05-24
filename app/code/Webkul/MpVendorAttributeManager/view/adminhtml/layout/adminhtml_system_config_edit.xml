@@ -13,6 +13,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <css src="jquery/colorpicker/css/colorpicker.css"/>
-        <link src="jquery/colorpicker/js/colorpicker.js"/>
+<!-- 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"`Webkul_Marketplace`: «Mismatched anonymous define() module» for `view/frontend/web/js/colorpicker.js`":
+https://github.com/ferreteo-com/site/issues/3 -->
     </head>
 </page>
