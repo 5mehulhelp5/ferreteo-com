@@ -1,10 +1,5 @@
 <?php
-/**
- * Dfe_ZoomVe Magento Extension
- */
-
 namespace Dfe\ZoomVe\Model\Checkout;
-
 use Dfe\ZoomVe\Helper\Config;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Store\Model\StoreManagerInterface;
@@ -13,7 +8,6 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Dfe\ZoomVe\Model\ResourceModel\Store\CollectionFactory;
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Checkout\Model\Cart;
-
 class DataProvider implements ConfigProviderInterface
 {
 
