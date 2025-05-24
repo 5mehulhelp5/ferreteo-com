@@ -1,14 +1,5 @@
 <?php
-/**
- * Copyright © Ferreteo C.A. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Dfe\ZoomVe\Helper;
-
-/**
- * Configuration data of carrier
- *
- */
 class Config
 {
 	/**
