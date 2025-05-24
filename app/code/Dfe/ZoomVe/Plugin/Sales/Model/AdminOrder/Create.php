@@ -1,14 +1,5 @@
 <?php
-/**
- * Dfe_ZoomVe Magento Extension
- **/
-
 namespace Dfe\ZoomVe\Plugin\Sales\Model\AdminOrder;
-
-
-/**
- * Order create model plugin
- */
 class Create
 {
 	/**
