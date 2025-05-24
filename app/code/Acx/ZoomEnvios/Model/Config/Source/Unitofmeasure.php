@@ -21,7 +21,7 @@ class Unitofmeasure extends \Acx\ZoomEnvios\Model\Config\Source\Generic
      * {@inheritdoc}
      * @SuppressWarnings(PHPMD.UnusedLocalVariable)
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $unitArr = $this->carrierConfig->getCode($this->_code);
         $returnArr = [];

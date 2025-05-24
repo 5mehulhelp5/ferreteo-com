@@ -19,7 +19,7 @@ class Create
     /**
      * @param \Magento\Quote\Api\CartRepositoryInterface $quoteRepository
      */
-    public function __construct(
+    function __construct(
         \Magento\Quote\Api\CartRepositoryInterface $quoteRepository
     ) {
         $this->quoteRepository = $quoteRepository;
@@ -30,7 +30,7 @@ class Create
      * Quote saving before plugin
      * @return $this
      */
-    public function beforeSaveQuote(
+    function beforeSaveQuote(
         \Magento\Sales\Model\AdminOrder\Create $subject
     )
     {

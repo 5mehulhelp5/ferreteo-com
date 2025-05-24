@@ -18,14 +18,14 @@ class BlockObserver implements ObserverInterface
     /**
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Template $coreTemplate
     )
     {
         $this->_coreTemplate = $coreTemplate;
     }
 
-    public function execute(EventObserver $observer)
+    function execute(EventObserver $observer)
     {
         if($observer->getElementName() == 'order_shipping_view') {
             $shippingInfoBlock = $observer->getLayout()->getBlock($observer->getElementName());

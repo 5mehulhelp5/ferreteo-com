@@ -13,7 +13,7 @@ class Freemethod extends \Acx\ZoomEnvios\Model\Config\Source\Method
     /**
      * {@inheritdoc}
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $arr = parent::toOptionArray();
         array_unshift($arr, ['value' => '', 'label' => __('None')]);

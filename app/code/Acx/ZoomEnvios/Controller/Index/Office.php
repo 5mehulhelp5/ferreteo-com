@@ -27,7 +27,7 @@ class Office extends Action {
      * @param DataProvider $datavider
      */
     
-    public function __construct(
+    function __construct(
         Context  $context,
         JsonFactory $resultJsonFactory,
         DataProvider $dataProvider
@@ -38,7 +38,7 @@ class Office extends Action {
         parent::__construct($context);
     }
   
-    public function execute() {
+    function execute() {
     
         /* @var Magento\Framework\Controller\Result\JsonFactory $resultJson */
         

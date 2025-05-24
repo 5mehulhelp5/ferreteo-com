@@ -55,7 +55,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @param \Magento\Sales\Model\Config $salesConfig
      * @param array $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Model\Session\Quote $sessionQuote,
         \Magento\Sales\Model\AdminOrder\Create $orderCreate,
@@ -87,7 +87,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return array
      */
-    public function getTotals()
+    function getTotals()
     {
         $this->getQuote()->collectTotals();
         if ($this->getQuote()->isVirtual()) {
@@ -103,7 +103,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return \Magento\Framework\Phrase
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return __('Order Totals');
     }
@@ -113,7 +113,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-money';
     }
@@ -153,7 +153,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @param int $colspan
      * @return mixed
      */
-    public function renderTotal($total, $area = null, $colspan = 1)
+    function renderTotal($total, $area = null, $colspan = 1)
     {
         return $this->_getTotalRenderer(
             $total->getCode()
@@ -173,7 +173,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @param int $colspan
      * @return string
      */
-    public function renderTotals($area = null, $colspan = 1)
+    function renderTotals($area = null, $colspan = 1)
     {
         $html = '';
         $storeId = $this->_storeManager->getStore()->getId();
@@ -217,7 +217,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return bool
      */
-    public function canSendNewOrderConfirmationEmail()
+    function canSendNewOrderConfirmationEmail()
     {
         return $this->_salesData->canSendNewOrderConfirmationEmail($this->getQuote()->getStoreId());
     }
@@ -228,7 +228,7 @@ class Totals extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @return bool
      * @SuppressWarnings(PHPMD.BooleanGetMethodName)
      */
-    public function getNoteNotify()
+    function getNoteNotify()
     {
         $notify = $this->getQuote()->getCustomerNoteNotify();
         if ($notify === null || $notify) {

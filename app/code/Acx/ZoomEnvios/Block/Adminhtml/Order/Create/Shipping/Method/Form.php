@@ -44,7 +44,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @param \Magento\Tax\Helper\Data $taxData
      * @param array $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Model\Session\Quote $sessionQuote,
         \Magento\Sales\Model\AdminOrder\Create $orderCreate,
@@ -75,7 +75,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return \Magento\Quote\Model\Quote\Address
      */
-    public function getAddress()
+    function getAddress()
     {
         return $this->getQuote()->getShippingAddress();
     }
@@ -85,7 +85,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return array
      */
-    public function getShippingRates()
+    function getShippingRates()
     {
         if (empty($this->_rates)) {
             $this->_rates = $this->getAddress()->getGroupedAllShippingRates();
@@ -99,7 +99,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @param string $carrierCode
      * @return string
      */
-    public function getCarrierName($carrierCode)
+    function getCarrierName($carrierCode)
     {
         if ($name = $this->_scopeConfig->getValue(
             'carriers/' . $carrierCode . '/title',
@@ -117,7 +117,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return string
      */
-    public function getShippingMethod()
+    function getShippingMethod()
     {
         return $this->getAddress()->getShippingMethod();
     }
@@ -128,7 +128,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @param string $code
      * @return bool
      */
-    public function isMethodActive($code)
+    function isMethodActive($code)
     {
         return $code === $this->getShippingMethod();
     }
@@ -138,7 +138,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return \Magento\Quote\Model\Quote\Address\Rate|false
      */
-    public function getActiveMethodRate()
+    function getActiveMethodRate()
     {
         $rates = $this->getShippingRates();
         if (is_array($rates)) {
@@ -158,7 +158,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return mixed
      */
-    public function getIsRateRequest()
+    function getIsRateRequest()
     {
         return $this->getRequest()->getParam('collect_shipping_rates');
     }
@@ -170,7 +170,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      * @param bool $flag
      * @return float
      */
-    public function getShippingPrice($price, $flag)
+    function getShippingPrice($price, $flag)
     {
         return $this->priceCurrency->convertAndFormat(
             $this->_taxData->getShippingPrice(
@@ -190,7 +190,7 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\AbstractCreate
      *
      * @return mixed
      */
-    public function getOffices()
+    function getOffices()
     {
         $offices = $this->configHelper->getCode('office');
         $options = array();

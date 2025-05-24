@@ -23,7 +23,7 @@ class Shipping extends \Magento\Checkout\Block\Cart\LayoutProcessor
     /**
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Checkout\Block\Checkout\AttributeMerger $merger,
         \Magento\Directory\Model\ResourceModel\Country\Collection $countryCollection,

@@ -19,7 +19,7 @@ class UpgradeSchema implements UpgradeSchemaInterface {
     /**
      * {@inheritdoc}
      */
-    public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context) {
+    function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context) {
         $setup->startSetup();
         if (version_compare($context->getVersion(), '1.1.2') < 0) {
             //add tax_class_id for sales_order_table table

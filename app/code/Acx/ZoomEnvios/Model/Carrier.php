@@ -169,7 +169,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 * @SuppressWarnings(PHPMD.ExcessiveParameterList)
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
-	public function __construct(
+	function __construct(
 		ScopeConfigInterface $scopeConfig,
 		RateErrorFactory $rateErrorFactory,
 		LoggerInterface $logger,
@@ -239,7 +239,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 * @param RateRequest $request
 	 * @return Result|Error|bool
 	 */
-	public function collectRates(RateRequest $request)
+	function collectRates(RateRequest $request)
 	{
 		$this->setRequest($request);
 
@@ -271,7 +271,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 * @param RateRequest $request
 	 * @return $this
 	 */
-	public function setRequest(RateRequest $request)
+	function setRequest(RateRequest $request)
 	{
 		$this->_request = $request;
 
@@ -410,7 +410,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 *
 	 * @return Result
 	 */
-	public function getResult()
+	function getResult()
 	{
 		return $this->_result;
 	}
@@ -538,7 +538,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 * @param string $origin
 	 * @return array|bool
 	 */
-	public function getShipmentByCode($code, $origin = null)
+	function getShipmentByCode($code, $origin = null)
 	{
 		if ($origin === null) {
 			$origin = $this->getConfigData('origin_shipment');
@@ -692,7 +692,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 *
 	 * @return float
 	 */
-	public function convertPrice($amountValue, $currencyTo)
+	function convertPrice($amountValue, $currencyTo)
 	{
 		$currentCurrency = $this->storeManager->getStore()->getCurrentCurrency()->getCode();
 		if ($currentCurrency != $currencyTo) {
@@ -715,7 +715,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 *
 	 * @return float
 	 */
-	public function convertVesPrice($amountValue, $currencyFrom, $currencyTo)
+	function convertVesPrice($amountValue, $currencyFrom, $currencyTo)
 	{
 		$currentCurrency = $this->storeManager->getStore()->getCurrentCurrency()->getCode();
 		if ($currentCurrency != $currencyTo) {
@@ -844,7 +844,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 * @param string|string[] $trackings
 	 * @return Result
 	 */
-	public function getTracking($trackings)
+	function getTracking($trackings)
 	{
 		if (!is_array($trackings)) {
 			$trackings = [$trackings];
@@ -876,7 +876,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 *
 	 * @return string
 	 */
-	public function getResponse()
+	function getResponse()
 	{
 		$statuses = '';
 		if ($this->_result instanceof \Magento\Shipping\Model\Tracking\Result) {
@@ -906,7 +906,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 *
 	 * @return array
 	 */
-	public function getAllowedMethods()
+	function getAllowedMethods()
 	{
 		$allowedMethods = explode(',', (string)$this->getConfigData('allowed_methods'));
 		$isZoomXml = $this->getConfigData('type') === 'ZoomEnvios_XML';
@@ -1221,7 +1221,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 *
 	 * @return string
 	 */
-	public function getShipAcceptUrl()
+	function getShipAcceptUrl()
 	{
 		if ($this->getConfigData('is_account_live')) {
 			$url = $this->_liveUrls['ShipAccept'];
@@ -1418,7 +1418,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 *
 	 * @return string
 	 */
-	public function getShipConfirmUrl()
+	function getShipConfirmUrl()
 	{
 		$url = $this->getConfigData('url');
 		if (!$url) {
@@ -1439,7 +1439,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	/**
 	 * @inheritDoc
 	 */
-	public function requestToShipment($request)
+	function requestToShipment($request)
 	{
 		$packages = $request->getPackages();
 		if (!is_array($packages) || !$packages) {
@@ -1468,7 +1468,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	/**
 	 * @inheritDoc
 	 */
-	public function returnOfShipment($request)
+	function returnOfShipment($request)
 	{
 		$request->setIsReturn(true);
 
@@ -1481,7 +1481,7 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 * @param DataObject|null $params
 	 * @return array|bool
 	 */
-	public function getDeliveryConfirmationTypes(DataObject $params = null)
+	function getDeliveryConfirmationTypes(DataObject $params = null)
 	{
 		$countryRecipient = $params != null ? $params->getCountryRecipient() : null;
 		$deliveryConfirmationTypes = [];
