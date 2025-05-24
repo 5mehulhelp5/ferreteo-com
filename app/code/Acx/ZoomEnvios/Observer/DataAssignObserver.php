@@ -9,14 +9,14 @@ use Magento\Framework\Event\ObserverInterface;
 
 class DataAssignObserver implements ObserverInterface
 {
-    function execute(\Magento\Framework\Event\Observer $observer)
-    {
-        $quote = $observer->getQuote();
-        $order = $observer->getOrder();
+	function execute(\Magento\Framework\Event\Observer $observer)
+	{
+		$quote = $observer->getQuote();
+		$order = $observer->getOrder();
 
-        if ($quote->getPickupOffice()) {
-        	$order->setPickupOffice($quote->getPickupOffice());
-        }
-        return $this;
-    }
+		if ($quote->getPickupOffice()) {
+			$order->setPickupOffice($quote->getPickupOffice());
+		}
+		return $this;
+	}
 }
