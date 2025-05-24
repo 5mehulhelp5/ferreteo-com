@@ -1,19 +1,8 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 declare(strict_types=1);
-
 namespace Dfe\ZoomVe\Model\Config\Backend;
-
 use Magento\Framework\App\Config\Value;
 use Magento\Framework\Exception\ValidatorException;
-
-/**
- * Represents a config URL that may point to a ZoomEnvios endpoint
- */
 class ZoomUrl extends Value
 {
 	/**
