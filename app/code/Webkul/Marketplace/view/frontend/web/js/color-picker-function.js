@@ -13,7 +13,10 @@
 /*jshint jquery:true*/
 define([
     "jquery",
-    "colorpicker",
+	// 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	// "`Webkul_Marketplace`: «Mismatched anonymous define() module» for `view/frontend/web/js/colorpicker.js`":
+	// https://github.com/ferreteo-com/site/issues/3
+    "jquery/colorpicker/js/colorpicker",
     "jquery/ui"
 ], function ($) {
     'use strict';
