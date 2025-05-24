@@ -10,10 +10,10 @@ namespace Acx\ZoomEnvios\Model\Config\Source;
  */
 class Method extends \Acx\ZoomEnvios\Model\Config\Source\Generic
 {
-    /**
-     * Carrier code
-     *
-     * @var string
-     */
-    protected $_code = 'method';
+	/**
+	 * Carrier code
+	 *
+	 * @var string
+	 */
+	protected $_code = 'method';
 }
