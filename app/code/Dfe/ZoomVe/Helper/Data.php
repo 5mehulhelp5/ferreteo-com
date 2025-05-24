@@ -1,15 +1,8 @@
 <?php
-/**
- * Dfe_ZoomVe Magento Extension
- *
- */
-
 namespace Dfe\ZoomVe\Helper;
-
 use Dfe\ZoomVe\Helper\Config;
 use \Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
-
 class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 
 	/**
