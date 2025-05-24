@@ -1,15 +1,6 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Dfe\ZoomVe\Model\Config\Source;
-
 use Magento\Shipping\Model\Carrier\Source\GenericInterface;
-
-/**
- * Generic source model
- */
 class Generic implements GenericInterface
 {
 	/**
