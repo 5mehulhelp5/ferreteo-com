@@ -1,10 +1,5 @@
 <?php
-/**
- * Dfe_ZoomVe Magento Extension
- **/
-
 namespace Dfe\ZoomVe\Plugin\Checkout\Model;
-
 class ShippingInformationManagement
 {
 	protected $quoteRepository;
