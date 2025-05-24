@@ -241,9 +241,11 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 	 */
 	function collectRates(RateRequest $request) {
 		# 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# "`zoom.red` requires a weight for `CalcularTarifa`": https://github.com/ferreteo-com/site/issues/4
+		# 1) "`zoom.red` requires a weight for `CalcularTarifa`":
+		# https://github.com/ferreteo-com/site/issues/4
+		# 2) `$request->getPackageWeight()` returns «0.0000» for zero weight.
 		$request->setPackageWeight(
-			$request->getPackageWeight() ?: (float)$this->getConfigData('weight__default')
+			(float)$request->getPackageWeight() ?: (float)$this->getConfigData('weight__default')
 		);
 		$this->setRequest($request);
 
