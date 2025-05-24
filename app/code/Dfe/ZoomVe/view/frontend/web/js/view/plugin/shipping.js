@@ -1,8 +1,3 @@
-/**
- * Dfe_ZoomVet Magento Extension
- *
- */
-
 define([
 	'Magento_Checkout/js/model/quote',
 	'jquery'
