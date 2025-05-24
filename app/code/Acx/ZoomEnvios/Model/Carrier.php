@@ -244,9 +244,9 @@ class Carrier extends AbstractCarrierOnline implements CarrierInterface
 		# 1) "`zoom.red` requires a weight for `CalcularTarifa`":
 		# https://github.com/ferreteo-com/site/issues/4
 		# 2) `$request->getPackageWeight()` returns «0.0000» for zero weight.
-		$request->setPackageWeight(
-			(float)$request->getPackageWeight() ?: (float)$this->getConfigData('weight__default')
-		);
+		if (!(float)$request->getPackageWeight()) {
+			$request->setPackageWeight((float)$this->getConfigData('weight__default'));
+		}
 		$this->setRequest($request);
 
 		if (!$this->canCollectRates()) {
