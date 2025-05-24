@@ -3,14 +3,14 @@
  * Dfe_ZoomVe Magento Extension
  */
 
-namespace Acx\ZoomEnvios\Model\Checkout;
+namespace Dfe\ZoomVe\Model\Checkout;
 
-use Acx\ZoomEnvios\Helper\Config;
+use Dfe\ZoomVe\Helper\Config;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Acx\ZoomEnvios\Model\ResourceModel\Store\CollectionFactory;
+use Dfe\ZoomVe\Model\ResourceModel\Store\CollectionFactory;
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Checkout\Model\Cart;
 
@@ -23,7 +23,7 @@ class DataProvider implements ConfigProviderInterface
 	protected $storeManager;
 
 	/**
-	 * @var \Acx\ZoomEnvios\Model\ResourceModel\Store\CollectionFactory
+	 * @var \Dfe\ZoomVe\Model\ResourceModel\Store\CollectionFactory
 	 */
 	protected $storeCollectionFactory;
 

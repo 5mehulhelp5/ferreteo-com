@@ -1,8 +1,8 @@
 <?php
-namespace Acx\ZoomEnvios\Model;
+namespace Dfe\ZoomVe\Model;
 
-use Acx\ZoomEnvios\Block\System\Config\Form\Field\Locations;
-use Acx\ZoomEnvios\Helper\Config;
+use Dfe\ZoomVe\Block\System\Config\Form\Field\Locations;
+use Dfe\ZoomVe\Helper\Config;
 use Magento\CatalogInventory\Api\StockRegistryInterface;
 use Magento\Directory\Helper\Data;
 use Magento\Directory\Model\CountryFactory;

@@ -3,7 +3,7 @@
  * Copyright © Ferreteo C.A. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Acx\ZoomEnvios\Helper;
+namespace Dfe\ZoomVe\Helper;
 
 /**
  * Configuration data of carrier

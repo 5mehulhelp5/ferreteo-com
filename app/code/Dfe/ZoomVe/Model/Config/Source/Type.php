@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Acx\ZoomEnvios\Model\Config\Source;
+namespace Dfe\ZoomVe\Model\Config\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
 

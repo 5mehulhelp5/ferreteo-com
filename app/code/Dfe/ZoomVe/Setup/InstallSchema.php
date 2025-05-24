@@ -4,7 +4,7 @@
  *
  */
 
-namespace Acx\ZoomEnvios\Setup;
+namespace Dfe\ZoomVe\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;

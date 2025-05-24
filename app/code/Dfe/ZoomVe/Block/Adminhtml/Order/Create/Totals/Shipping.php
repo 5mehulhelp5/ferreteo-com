@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Acx\ZoomEnvios\Block\Adminhtml\Order\Create\Totals;
+namespace Dfe\ZoomVe\Block\Adminhtml\Order\Create\Totals;
 
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 

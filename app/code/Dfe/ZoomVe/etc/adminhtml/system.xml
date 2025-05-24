@@ -29,15 +29,15 @@
 				</field>
 				<field id='gateway_url' translate='label' type='text' sortOrder='40' showInDefault='1' showInWebsite='1' canRestore='1'>
 					<label>Gateway URL</label>
-					<backend_model>Acx\ZoomEnvios\Model\Config\Backend\ZoomUrl</backend_model>
+					<backend_model>Dfe\ZoomVe\Model\Config\Backend\ZoomUrl</backend_model>
 				</field>
 				<field id='mode_type' translate='label' type='select' sortOrder='60' showInDefault='1' showInWebsite='1' canRestore='1'>
 					<label>Modality Type</label>
-					<source_model>Acx\ZoomEnvios\Model\Config\Source\ModeType</source_model>
+					<source_model>Dfe\ZoomVe\Model\Config\Source\ModeType</source_model>
 				</field>
 				<field id='unit_of_measure' translate='label' type='select' sortOrder='60' showInDefault='1' showInWebsite='1' canRestore='1'>
 					<label>Weight Unit</label>
-					<source_model>Acx\ZoomEnvios\Model\Config\Source\Unitofmeasure</source_model>
+					<source_model>Dfe\ZoomVe\Model\Config\Source\Unitofmeasure</source_model>
 				</field>
 <!-- 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "`zoom.red` requires a weight for `CalcularTarifa`": https://github.com/ferreteo-com/site/issues/4 -->
@@ -60,7 +60,7 @@
 				</field>
 				<field id='allowed_methods' translate='label' type='multiselect' sortOrder='170' showInDefault='1' showInWebsite='1' canRestore='1'>
 					<label>Allowed Methods</label>
-					<source_model>Acx\ZoomEnvios\Model\Config\Source\Method</source_model>
+					<source_model>Dfe\ZoomVe\Model\Config\Source\Method</source_model>
 					<can_be_empty>1</can_be_empty>
 				</field>
 				<field id='free_shipping_enable' translate='label' type='select' sortOrder='210' showInDefault='1' showInWebsite='1'>

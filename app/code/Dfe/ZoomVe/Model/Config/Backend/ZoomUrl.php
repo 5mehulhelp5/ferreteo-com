@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Acx\ZoomEnvios\Model\Config\Backend;
+namespace Dfe\ZoomVe\Model\Config\Backend;
 
 use Magento\Framework\App\Config\Value;
 use Magento\Framework\Exception\ValidatorException;

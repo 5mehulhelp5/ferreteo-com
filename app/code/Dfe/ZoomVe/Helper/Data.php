@@ -4,9 +4,9 @@
  *
  */
 
-namespace Acx\ZoomEnvios\Helper;
+namespace Dfe\ZoomVe\Helper;
 
-use Acx\ZoomEnvios\Helper\Config;
+use Dfe\ZoomVe\Helper\Config;
 use \Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
 

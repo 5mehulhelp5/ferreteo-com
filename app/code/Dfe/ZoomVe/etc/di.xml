@@ -6,8 +6,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	<type name="Magento\Checkout\Model\ShippingInformationManagement">
 		<plugin name="saveOfficeInfoToQuote"
-				type="Acx\ZoomEnvios\Plugin\Checkout\Model\ShippingInformationManagement" />
+				type="Dfe\ZoomVe\Plugin\Checkout\Model\ShippingInformationManagement" />
 	</type>
 	<preference for="Magento\Checkout\Block\Cart\LayoutProcessor"
-				type="Acx\ZoomEnvios\Block\Cart\Shipping" />
+				type="Dfe\ZoomVe\Block\Cart\Shipping" />
 </config>
