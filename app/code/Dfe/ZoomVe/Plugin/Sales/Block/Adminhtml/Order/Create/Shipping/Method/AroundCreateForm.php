@@ -1,12 +1,7 @@
 <?php
-/**
- * Ferreteo C.A.
- */
 namespace Dfe\ZoomVe\Plugin\Sales\Block\Adminhtml\Order\Create\Shipping\Method;
-
 use Magento\Sales\Block\Adminhtml\Order\Create\Shipping\Method\Form;
 use Dfe\ZoomVe\Helper\Data;
-
 class AroundCreateForm
 {
 	/**
