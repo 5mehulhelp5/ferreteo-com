@@ -1,12 +1,6 @@
 <?php
-/**
- * Dfe_ZoomVe Magento Extension
- */
-
 namespace Dfe\ZoomVe\Observer;
-
 use Magento\Framework\Event\ObserverInterface;
-
 class DataAssignObserver implements ObserverInterface
 {
 	function execute(\Magento\Framework\Event\Observer $observer)
