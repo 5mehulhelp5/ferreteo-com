@@ -1,7 +1,7 @@
 {
 	"name": "mage2pro/zoom-ve"
 	,"version": "0.0.1"
-	,"description": "An integration between Magento 2 and the Zoom shipping service (Venezuela)"
+	,"description": "Zoom shipping service (Venezuela) integration with Magento 2"
 	,"type": "magento2-module"
 	,"homepage": "https://github.com/mage2pro/zoom-ve"
 	,"license": "MIT"
