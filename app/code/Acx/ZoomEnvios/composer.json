@@ -1,22 +1,25 @@
 {
-	"name": "acx/zoom-envios-shipping",
-	"description": "Magento 2 Shipping Extension for Zoom Venezuelan Market Carrier",
-	"authors": [
+	"name": "mage2pro/zoom-ve"
+	,"version": "0.0.1"
+	,"description": "An integration between Magento 2 and the Zoom shipping service (Venezuela)"
+	,"type": "magento2-module"
+	,"homepage": "https://github.com/mage2pro/zoom-ve"
+	,"license": "MIT"
+	,"authors": [
 		{
-			"name": "Ferreteo C.A.",
-			"email": "admin@ferreteo.com",
-			"homepage": "https://www.ferreteo.com/",
-			"role": "Owner & Developer"
+			"name": "Dmitrii Fediuk"
+			,"email": "admin@mage2.pro"
+			,"homepage": "https://upwork.com/fl/mage2pro"
+			,"role": "Developer"
 		}
-	],
-	"type": "magento2-module",
-	"version": "1.1.8",
-	"autoload": {
-		"files": [
-			"registration.php"
-		],
-		"psr-4": {
-			"Acx\\ZoomEnvios\\": ""
-		}
-	}
+        ,{
+            "name": "Agile Codex Ltd."
+            ,"email": "magento@agilecodex.com"
+            ,"homepage": "https://agilecodex.com"
+            ,"role": "Developer"
+        }
+	]
+	,"require": {"mage2pro/core": ">=11.4.6"}
+	,"autoload": {"files": ["registration.php"], "psr-4": {"Acx\\ZoomEnvios\\": ""}}
+	,"keywords": ["Magento 2"]
 }
