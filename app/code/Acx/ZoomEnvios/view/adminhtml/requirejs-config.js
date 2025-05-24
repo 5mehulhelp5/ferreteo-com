@@ -4,10 +4,10 @@
  */
 
 var config = {
-    map: {
-       '*': {
-           'Magento_Sales/order/create/scripts': 'Acx_ZoomEnvios/order/create/scripts'           
-       }
-    }
-    
+	map: {
+	   '*': {
+		   'Magento_Sales/order/create/scripts': 'Acx_ZoomEnvios/order/create/scripts'
+	   }
+	}
+
 };
