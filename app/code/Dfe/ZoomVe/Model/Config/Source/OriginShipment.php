@@ -1,13 +1,5 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 namespace Dfe\ZoomVe\Model\Config\Source;
-
-/**
- * Class OriginShipment
- */
 class OriginShipment extends \Dfe\ZoomVe\Model\Config\Source\Generic
 {
 	/**
