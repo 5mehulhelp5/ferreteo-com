@@ -10,13 +10,13 @@ namespace Acx\ZoomEnvios\Model\Config\Source;
  */
 class Freemethod extends \Acx\ZoomEnvios\Model\Config\Source\Method
 {
-    /**
-     * {@inheritdoc}
-     */
-    function toOptionArray()
-    {
-        $arr = parent::toOptionArray();
-        array_unshift($arr, ['value' => '', 'label' => __('None')]);
-        return $arr;
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	function toOptionArray()
+	{
+		$arr = parent::toOptionArray();
+		array_unshift($arr, ['value' => '', 'label' => __('None')]);
+		return $arr;
+	}
 }
