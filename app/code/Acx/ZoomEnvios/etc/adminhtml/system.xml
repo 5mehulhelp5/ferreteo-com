@@ -39,6 +39,21 @@
 					<label>Weight Unit</label>
 					<source_model>Acx\ZoomEnvios\Model\Config\Source\Unitofmeasure</source_model>
 				</field>
+<!-- 2025-05-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"`zoom.red` requires a weight for `CalcularTarifa`": https://github.com/ferreteo-com/site/issues/4 -->
+				<field
+					canRestore='1'
+					id='weight__default'
+					showInDefault='1'
+					showInWebsite='1'
+					sortOrder='70'
+					translate='label'
+					type='text'
+				>
+					<label>Default Product Weight</label>
+					<comment>It is used for products of an unknown weight</comment>
+					<validate>validate-number validate-zero-or-greater</validate>
+				</field>
 				<field id='max_package_weight' translate='label' type='text' sortOrder='80' showInDefault='1' showInWebsite='1' canRestore='1'>
 					<label>Maximum Package Weight (Please consult your shipping carrier for maximum supported shipping weight)</label>
 					<validate>validate-number validate-zero-or-greater</validate>
