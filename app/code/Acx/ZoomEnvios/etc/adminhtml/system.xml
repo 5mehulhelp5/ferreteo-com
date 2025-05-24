@@ -50,8 +50,8 @@
 					translate='label'
 					type='text'
 				>
-					<label>Default Product Weight</label>
-					<comment>It is used for products of an unknown weight</comment>
+					<label>Default Package Weight</label>
+					<comment>It is used for packages of an unknown weight</comment>
 					<validate>validate-number validate-zero-or-greater</validate>
 				</field>
 				<field id='max_package_weight' translate='label' type='text' sortOrder='80' showInDefault='1' showInWebsite='1' canRestore='1'>
