@@ -15,7 +15,7 @@ class Type implements OptionSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => 'UPS', 'label' => __('United Parcel Service')],

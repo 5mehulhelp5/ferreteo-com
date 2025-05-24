@@ -39,7 +39,7 @@ class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\Defaul
      * @param \Magento\Tax\Model\Config $taxConfig
      * @param array $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Model\Session\Quote $sessionQuote,
         \Magento\Sales\Model\AdminOrder\Create $orderCreate,
@@ -58,7 +58,7 @@ class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\Defaul
      *
      * @return bool
      */
-    public function displayBoth()
+    function displayBoth()
     {
         return $this->_taxConfig->displayCartShippingBoth();
     }
@@ -68,7 +68,7 @@ class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\Defaul
      *
      * @return bool
      */
-    public function displayIncludeTax()
+    function displayIncludeTax()
     {
         return $this->_taxConfig->displayCartShippingInclTax();
     }
@@ -78,7 +78,7 @@ class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\Defaul
      *
      * @return float
      */
-    public function getShippingIncludeTax()
+    function getShippingIncludeTax()
     {
         return $this->getTotal()->getShippingInclTax();
     }
@@ -88,7 +88,7 @@ class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\Defaul
      *
      * @return float
      */
-    public function getShippingExcludeTax()
+    function getShippingExcludeTax()
     {
         return $this->getTotal()->getValue();
     }
@@ -98,7 +98,7 @@ class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\Defaul
      *
      * @return \Magento\Framework\Phrase
      */
-    public function getIncludeTaxLabel()
+    function getIncludeTaxLabel()
     {
         return __(
             'Shipping Incl. Tax (%1)',
@@ -111,7 +111,7 @@ class Shipping extends \Magento\Sales\Block\Adminhtml\Order\Create\Totals\Defaul
      *
      * @return \Magento\Framework\Phrase
      */
-    public function getExcludeTaxLabel()
+    function getExcludeTaxLabel()
     {
         return __(
             'Shipping Excl. Tax (%1)',

@@ -19,7 +19,7 @@ class ZoomUrl extends Value
     /**
      * @inheritdoc
      */
-    public function beforeSave()
+    function beforeSave()
     {
         // phpcs:ignore Magento2.Functions.DiscouragedFunction
         $host = parse_url((string)$this->getValue(), \PHP_URL_HOST);

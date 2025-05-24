@@ -17,7 +17,7 @@ class AroundCreateForm
      * AfterCreateForm constructor.
      * @param Data $helper
      */
-    public function __construct(
+    function __construct(
         Data $helper
     ) {
         $this->helper = $helper;
@@ -28,7 +28,7 @@ class AroundCreateForm
      * @param $result
      * @return bool
      */
-    public function aroundIsMethodActive(Form $subject, callable $proceed, $code)
+    function aroundIsMethodActive(Form $subject, callable $proceed, $code)
     {
         $storeId = $subject->getAddress()->getQuote()->getStoreId();
         $selectStore = $this->helper->getPreSelect($storeId);

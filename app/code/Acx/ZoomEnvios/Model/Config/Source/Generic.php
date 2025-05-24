@@ -27,7 +27,7 @@ class Generic implements GenericInterface
     /**
      * @param \Acx\ZoomEnvios\Helper\Config $carrierConfig
      */
-    public function __construct(\Acx\ZoomEnvios\Helper\Config $carrierConfig)
+    function __construct(\Acx\ZoomEnvios\Helper\Config $carrierConfig)
     {
         $this->carrierConfig = $carrierConfig;
     }
@@ -37,7 +37,7 @@ class Generic implements GenericInterface
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $configData = $this->carrierConfig->getCode($this->_code);
         $arr = [];

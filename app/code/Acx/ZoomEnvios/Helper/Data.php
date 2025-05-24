@@ -22,7 +22,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param Config $configHelper
      * @param \Magento\Sales\Api\Data\OrderInterface $orderInterface
      */
-    public function __construct(
+    function __construct(
     	Context $context,
         Config $configHelper,
         \Magento\Sales\Api\Data\OrderInterface $orderInterface
@@ -39,7 +39,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param $officeCode
      * @return string|null
      */
-    public function getOfficeNameByCode($officeCode): ?string
+    function getOfficeNameByCode($officeCode): ?string
     {
         $offices = array_flip($this->configHelper->getCode('office'));
         return $offices[$officeCode];
@@ -48,7 +48,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
     /**
      * @return \Magento\Sales\Api\Data\OrderInterface
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->orderInterface;
     }
@@ -57,7 +57,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param $storeId
      * @return mixed
      */
-    public function getCreatInvoice($storeId)
+    function getCreatInvoice($storeId)
     {
         return $this->scopeConfig->isSetFlag(
             'carriers/zoomenvios/createinvoice',
@@ -70,7 +70,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param $storeId
      * @return mixed
      */
-    public function getCreatShipment($storeId)
+    function getCreatShipment($storeId)
     {
         return $this->scopeConfig->isSetFlag(
             'carriers/zoomenvios/createshipment',
@@ -83,7 +83,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param $storeId
      * @return mixed
      */
-    public function getName($storeId)
+    function getName($storeId)
     {
         return $this->scopeConfig->getValue(
             'carriers/zoomenvios/name',
@@ -96,7 +96,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param $storeId
      * @return mixed
      */
-    public function getTitle($storeId)
+    function getTitle($storeId)
     {
         return $this->scopeConfig->getValue(
             'carriers/zoomenvios/title',
@@ -109,7 +109,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param $storeId
      * @return mixed
      */
-    public function getError($storeId)
+    function getError($storeId)
     {
         return $this->scopeConfig->getValue(
             'carriers/zoomenvios/specificerrmsg',
@@ -121,7 +121,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
      * @param $storeId
      * @return mixed
      */
-    public function getPreSelect($storeId)
+    function getPreSelect($storeId)
     {
         return $this->scopeConfig->isSetFlag(
             'carriers/adminshippingmethod/pre_select',

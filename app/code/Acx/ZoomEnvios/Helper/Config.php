@@ -18,7 +18,7 @@ class Config
      * @param string $code
      * @return array|string|false
      */
-    public function getCode($type, $code = '')
+    function getCode($type, $code = '')
     {
         $codes = $this->getConfigData();
         if (!isset($codes[$type])) {
@@ -51,7 +51,7 @@ class Config
      * @param string $code
      * @return array|string|false
      */
-    public function getCodes($type, $code = '')
+    function getCodes($type, $code = '')
     {
         $codes = $this->getConfigData();
         if (!isset($codes[$type])) {

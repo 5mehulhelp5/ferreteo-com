@@ -9,7 +9,7 @@ class ShippingInformationManagement
 {
     protected $quoteRepository;
 
-    public function __construct(
+    function __construct(
         \Magento\Quote\Model\QuoteRepository $quoteRepository
     ) {
         $this->quoteRepository = $quoteRepository;
@@ -20,7 +20,7 @@ class ShippingInformationManagement
      * @param $cartId
      * @param \Magento\Checkout\Api\Data\ShippingInformationInterface $addressInformation
      */
-    public function beforeSaveAddressInformation(
+    function beforeSaveAddressInformation(
         \Magento\Checkout\Model\ShippingInformationManagement $subject,
         $cartId,
         \Magento\Checkout\Api\Data\ShippingInformationInterface $addressInformation

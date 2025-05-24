@@ -52,7 +52,7 @@ class DataProvider implements ConfigProviderInterface
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param Config $configHelper
      */
-    public function __construct(
+    function __construct(
         Config $configHelper,
         ScopeConfigInterface $scopeConfig,
         CheckoutSession $checkoutSession,
@@ -67,7 +67,7 @@ class DataProvider implements ConfigProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfig()
+    function getConfig()
     {
         //$city = $this->_checkoutSession->getQuote()-getShippingAddress()->getCity();
         $city = $this->_cart->getQuote()->getShippingAddress()->getCity();
@@ -83,7 +83,7 @@ class DataProvider implements ConfigProviderInterface
         return $config;
     }
 
-    public function getOffices($city = null)
+    function getOffices($city = null)
     {
         $officeListStr = $this->configHelper->getCode('origin_city', [strtoupper($city),'office_code']);
         $officeListArr = explode(',', $officeListStr);

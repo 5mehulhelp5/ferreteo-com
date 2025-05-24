@@ -21,7 +21,7 @@ class OriginShipment extends \Acx\ZoomEnvios\Model\Config\Source\Generic
      * {@inheritdoc}
      * @SuppressWarnings(PHPMD.UnusedLocalVariable)
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $orShipArr = $this->carrierConfig->getCode($this->_code);
         $returnArr = [];
